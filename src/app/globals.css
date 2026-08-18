@@ -1,0 +1,1167 @@
+/* =========================================================================
+   David's Internet — global stylesheet.
+   Target: pixel-faithful to google.com (homepage + SERP), plain CSS only.
+   ========================================================================= */
+
+/* ---------- reset ---------- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background: #fff;
+  color: #202124;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  line-height: normal;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #681da8;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button,
+input {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid #1a73e8;
+  outline-offset: 2px;
+}
+
+/* Screen-reader-only text (labels for icon-only controls). */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* =========================================================================
+   Wordmark
+   ========================================================================= */
+
+.wordmark {
+  font-family: "Arial Rounded MT Bold", "Product Sans", arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.wordmark a,
+a .wordmark {
+  text-decoration: none;
+}
+
+.wordmark-link,
+.wordmark-link:visited {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.wordmark-link:hover {
+  text-decoration: none;
+}
+
+/* =========================================================================
+   Shared chrome: top-right nav (homepage), avatar, icon buttons
+   ========================================================================= */
+
+.topnav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 15px;
+  height: 60px;
+  padding: 6px 15px 0;
+}
+
+.topnav-link,
+.topnav-link:visited {
+  color: #000;
+  font-size: 13px;
+  line-height: 24px;
+  padding: 0 4px;
+  text-decoration: none;
+}
+
+.topnav-link:hover {
+  text-decoration: underline;
+}
+
+.icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #5f6368;
+  cursor: pointer;
+  padding: 0;
+  flex: none;
+}
+
+.icon-button:hover {
+  background: rgba(60, 64, 67, 0.08);
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #4285f4;
+  color: #fff;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 32px;
+  flex: none;
+  text-decoration: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0;
+}
+
+.avatar:visited {
+  color: #fff;
+}
+
+.avatar:hover {
+  text-decoration: none;
+  box-shadow: 0 0 0 4px rgba(60, 64, 67, 0.12);
+}
+
+/* =========================================================================
+   Search box (shared by homepage + SERP)
+   ========================================================================= */
+
+.searchbox-form {
+  width: 100%;
+  margin: 0;
+}
+
+.searchbox-shell {
+  position: relative;
+  width: 100%;
+}
+
+.searchbox {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #dfe1e5;
+  border-radius: 24px;
+  box-shadow: none;
+  transition: box-shadow 100ms ease, background-color 100ms ease;
+  z-index: 3;
+  position: relative;
+}
+
+.searchbox:hover {
+  border-color: rgba(223, 225, 229, 0);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.searchbox--focused {
+  border-color: rgba(223, 225, 229, 0);
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+}
+
+.searchbox--home {
+  height: 44px;
+  padding: 0 8px 0 14px;
+}
+
+.searchbox--serp {
+  height: 44px;
+  padding: 0 8px 0 14px;
+}
+
+/* When the autocomplete list is open the pill squares off at the bottom so the
+   dropdown reads as one continuous surface (Google's behaviour). */
+.searchbox--open {
+  border-radius: 24px 24px 0 0;
+  border-bottom-color: transparent;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: rgba(223, 225, 229, 0);
+}
+
+.searchbox-icon {
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  flex: none;
+  margin-right: 13px;
+}
+
+.searchbox-input {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 34px;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 16px;
+  color: rgba(0, 0, 0, 0.87);
+  line-height: 34px;
+  padding: 0;
+  word-wrap: break-word;
+}
+
+.searchbox-input::placeholder {
+  color: #5f6368;
+}
+
+.searchbox-actions {
+  display: flex;
+  align-items: center;
+  flex: none;
+  gap: 2px;
+}
+
+.searchbox-divider {
+  width: 1px;
+  height: 24px;
+  background: #dadce0;
+  margin: 0 4px;
+}
+
+.searchbox-iconbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  padding: 0;
+  color: #70757a;
+}
+
+.searchbox-iconbtn:hover {
+  background: rgba(60, 64, 67, 0.08);
+}
+
+.searchbox-iconbtn--go {
+  color: #4285f4;
+}
+
+/* ---------- autocomplete dropdown ---------- */
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0 0 4px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid rgba(223, 225, 229, 0);
+  border-top: 0;
+  border-radius: 0 0 24px 24px;
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  z-index: 2;
+  overflow: hidden;
+}
+
+.suggestions::before {
+  content: "";
+  display: block;
+  height: 1px;
+  margin: 0 14px 4px;
+  background: #e8eaed;
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 0 14px;
+  height: 30px;
+  cursor: pointer;
+  color: #202124;
+  font-size: 16px;
+  line-height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.suggestion:hover,
+.suggestion--active {
+  background: #eee;
+}
+
+.suggestion-icon {
+  color: #9aa0a6;
+  display: flex;
+  align-items: center;
+  flex: none;
+}
+
+.suggestion-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================================
+   Homepage
+   ========================================================================= */
+
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.home-main {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.home-logo {
+  margin-top: 12vh;
+  margin-bottom: 26px;
+  font-size: 100px;
+  font-weight: normal;
+}
+
+.home-search {
+  width: 100%;
+  max-width: 584px;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0 11px;
+  margin-top: 18px;
+  padding-bottom: 10px;
+}
+
+.gbtn {
+  background: #f8f9fa;
+  border: 1px solid #f8f9fa;
+  border-radius: 4px;
+  color: #3c4043;
+  font-family: arial, sans-serif;
+  font-size: 14px;
+  height: 36px;
+  line-height: 27px;
+  min-width: 54px;
+  padding: 0 16px;
+  margin: 11px 4px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.gbtn:hover {
+  border: 1px solid #dadce0;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+  color: #202124;
+}
+
+.home-blurb {
+  margin: 18px 0 0;
+  color: #4d5156;
+  font-size: 14px;
+  text-align: center;
+}
+
+.home-blurb a {
+  color: #1a0dab;
+}
+
+/* =========================================================================
+   Footer (homepage + SERP share the same family)
+   ========================================================================= */
+
+.footer {
+  background: #f2f2f2;
+  color: #70757a;
+  font-size: 15px;
+  flex: none;
+  width: 100%;
+}
+
+.footer-top {
+  border-bottom: 1px solid #dadce0;
+  padding: 15px 30px;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 10px;
+  padding: 0 20px;
+  font-size: 14px;
+}
+
+.footer-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.footer-link,
+.footer-link:visited {
+  color: #70757a;
+  display: inline-block;
+  padding: 15px 12px;
+  text-decoration: none;
+}
+
+.footer-link:hover {
+  text-decoration: underline;
+}
+
+.footer-tagline {
+  color: #70757a;
+  padding: 15px 12px;
+  font-size: 14px;
+}
+
+/* SERP footer sits on the same gray but is anchored to the bottom of content. */
+.footer--serp {
+  border-top: 1px solid #dadce0;
+  margin-top: 40px;
+}
+
+/* =========================================================================
+   SERP: header, tabs
+   ========================================================================= */
+
+.serp {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.serp-body {
+  flex: 1 0 auto;
+}
+
+.serp-header {
+  background: #fff;
+  border-bottom: 1px solid #ebebeb;
+  width: 100%;
+}
+
+.serp-header-top {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 0 0;
+  gap: 0;
+}
+
+.serp-brand {
+  flex: none;
+  width: 180px;
+  padding-left: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.serp-logo {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+.serp-search {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 692px;
+}
+
+.serp-header-right {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+  padding-left: 20px;
+}
+
+.tabs {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  padding: 0 20px 0 180px;
+  margin-top: 14px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab,
+.tab:visited {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #5f6368;
+  font-size: 14px;
+  line-height: 16px;
+  padding: 10px 12px;
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+
+.tab:hover {
+  text-decoration: none;
+  color: #202124;
+}
+
+.tab--active,
+.tab--active:visited {
+  color: #1a73e8;
+  border-bottom-color: #1a73e8;
+}
+
+/* =========================================================================
+   SERP: columns
+   ========================================================================= */
+
+.serp-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 48px;
+  padding: 20px 20px 0 180px;
+}
+
+.serp-main {
+  flex: 1 1 auto;
+  min-width: 0;
+  max-width: 652px;
+}
+
+.serp-rail {
+  flex: none;
+  width: 372px;
+  padding-top: 0;
+}
+
+.result-stats {
+  color: #70757a;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 0 0 12px;
+}
+
+.did-you-mean {
+  font-size: 16px;
+  line-height: 22px;
+  padding: 0 0 16px;
+  color: #202124;
+}
+
+.did-you-mean a,
+.did-you-mean a:visited {
+  color: #1a0dab;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.did-you-mean a:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================================
+   SERP: one organic result
+   ========================================================================= */
+
+.results {
+  padding-bottom: 8px;
+}
+
+.result {
+  margin-bottom: 30px;
+  max-width: 652px;
+}
+
+.result-head {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.result-favicon {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #ecedef;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 14px;
+  line-height: 1;
+  overflow: hidden;
+}
+
+.result-site {
+  min-width: 0;
+  line-height: 18px;
+}
+
+.result-sitename {
+  color: #202124;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result-url {
+  color: #4d5156;
+  font-size: 12px;
+  line-height: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.result-title-link,
+.result-title-link:visited {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.result-title-link:hover {
+  text-decoration: underline;
+}
+
+.result-title {
+  color: #1a0dab;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: 26px;
+  margin: 0;
+  padding-top: 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.result-title-link:visited .result-title {
+  color: #681da8;
+}
+
+.result-snippet {
+  color: #4d5156;
+  font-size: 14px;
+  line-height: 1.58;
+  margin-top: 3px;
+  word-wrap: break-word;
+}
+
+.result-snippet b {
+  color: #4d5156;
+  font-weight: bold;
+}
+
+/* =========================================================================
+   Knowledge panel (right rail)
+   ========================================================================= */
+
+.kp {
+  border: 1px solid #dadce0;
+  border-radius: 10px;
+  padding: 20px 20px 16px;
+  background: #fff;
+  font-size: 14px;
+  color: #202124;
+}
+
+.kp-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 12px;
+}
+
+.kp-emblem {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 10px;
+  font-size: 28px;
+  line-height: 1;
+  background: #f1f3f4;
+}
+
+.kp-title {
+  font-size: 22px;
+  font-weight: normal;
+  line-height: 28px;
+  margin: 0;
+  color: #202124;
+}
+
+.kp-type {
+  color: #70757a;
+  font-size: 14px;
+  line-height: 20px;
+  margin-top: 2px;
+}
+
+.kp-description {
+  color: #4d5156;
+  font-size: 14px;
+  line-height: 1.58;
+  margin: 0 0 14px;
+}
+
+.kp-facts {
+  margin: 0 0 14px;
+  padding: 0;
+}
+
+.kp-fact {
+  display: flex;
+  gap: 6px;
+  padding: 5px 0;
+  line-height: 1.5;
+  border-top: 1px solid #f1f3f4;
+}
+
+.kp-fact:first-child {
+  border-top: 0;
+}
+
+.kp-fact-label {
+  color: #202124;
+  font-weight: bold;
+  flex: none;
+}
+
+.kp-fact-value {
+  color: #4d5156;
+  min-width: 0;
+  margin: 0; /* reset the UA dd indent */
+  word-wrap: break-word;
+}
+
+.kp-section-label {
+  color: #70757a;
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.kp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.kp-chip {
+  border: 1px solid #dadce0;
+  border-radius: 16px;
+  color: #3c4043;
+  font-size: 13px;
+  line-height: 18px;
+  padding: 4px 12px;
+  background: #fff;
+  white-space: nowrap;
+}
+
+.kp-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  border-top: 1px solid #f1f3f4;
+  padding-top: 14px;
+}
+
+.kp-link,
+.kp-link:visited {
+  color: #1a0dab;
+  font-size: 14px;
+}
+
+.kp-link:hover {
+  text-decoration: underline;
+}
+
+/* =========================================================================
+   Images tab
+   ========================================================================= */
+
+.images-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px 16px;
+  padding-bottom: 10px;
+}
+
+.image-tile {
+  display: block;
+  min-width: 0;
+  margin: 0; /* reset the UA figure indent */
+}
+
+.image-tile-link,
+.image-tile-link:visited {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.image-tile-link:hover {
+  text-decoration: none;
+}
+
+.image-thumb {
+  display: block;
+  width: 100%;
+  height: 142px;
+  object-fit: cover;
+  border-radius: 8px;
+  background: #f1f3f4;
+}
+
+.image-caption {
+  color: #202124;
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.image-tile-link:hover .image-caption {
+  text-decoration: underline;
+}
+
+.image-source {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #70757a;
+  font-size: 12px;
+  line-height: 18px;
+  margin-top: 3px;
+}
+
+.image-source-favicon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #f1f3f4;
+  font-size: 10px;
+  line-height: 1;
+  flex: none;
+}
+
+.image-source-domain {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Images tab uses the full width Google gives it (no right rail). */
+.serp-main--wide {
+  max-width: 1000px;
+}
+
+/* =========================================================================
+   Videos tab
+   ========================================================================= */
+
+.video-list {
+  padding-bottom: 10px;
+}
+
+.video-row {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 28px;
+  align-items: flex-start;
+}
+
+.video-thumb-link {
+  flex: none;
+  display: block;
+  position: relative;
+  width: 160px;
+  height: 90px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f1f3f4;
+  text-decoration: none;
+}
+
+.video-thumb-link:hover {
+  text-decoration: none;
+}
+
+.video-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-thumb-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: #e8eaed;
+  color: #5f6368;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.video-duration {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  font-size: 12px;
+  line-height: 16px;
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+.video-meta {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.video-title,
+.video-title:visited {
+  color: #1a0dab;
+  font-size: 18px;
+  line-height: 24px;
+  display: inline-block;
+  margin-bottom: 2px;
+}
+
+.video-source {
+  color: #4d5156;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.video-caption {
+  color: #4d5156;
+  font-size: 14px;
+  line-height: 1.58;
+  margin-top: 4px;
+}
+
+/* =========================================================================
+   Empty / zero-result states
+   ========================================================================= */
+
+.empty-state {
+  max-width: 652px;
+  padding: 8px 0 40px;
+  color: #202124;
+  font-size: 14px;
+  line-height: 1.58;
+}
+
+.empty-headline {
+  font-size: 16px;
+  line-height: 24px;
+  margin: 0 0 20px;
+}
+
+.empty-query {
+  font-weight: bold;
+}
+
+.empty-suggestions {
+  margin: 0;
+  padding-left: 20px;
+  color: #202124;
+}
+
+.empty-suggestions li {
+  line-height: 1.58;
+  margin-bottom: 2px;
+}
+
+.empty-links {
+  margin-top: 20px;
+}
+
+.empty-links a {
+  color: #1a0dab;
+}
+
+/* =========================================================================
+   Responsive
+   ========================================================================= */
+
+@media (max-width: 1300px) {
+  .serp-columns {
+    gap: 32px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .serp-rail {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .serp-brand {
+    width: 120px;
+    padding-left: 16px;
+  }
+
+  .serp-logo {
+    font-size: 24px;
+  }
+
+  .tabs {
+    padding-left: 120px;
+  }
+
+  .serp-columns {
+    padding-left: 120px;
+  }
+}
+
+@media (max-width: 700px) {
+  .serp-header-top {
+    padding: 12px 12px 0;
+    gap: 12px;
+  }
+
+  .serp-brand {
+    width: auto;
+    padding-left: 0;
+  }
+
+  .serp-header-right .icon-button {
+    display: none;
+  }
+
+  .tabs {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .serp-columns {
+    padding: 16px 12px 0;
+  }
+
+  .home-logo {
+    margin-top: 8vh;
+    font-size: 62px;
+  }
+
+  .footer-bottom {
+    justify-content: center;
+    padding: 0 8px;
+  }
+
+  .footer-group {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .footer-tagline {
+    text-align: center;
+    width: 100%;
+  }
+
+  .video-thumb-link {
+    width: 120px;
+    height: 68px;
+  }
+
+  .images-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px 12px;
+  }
+
+  .image-thumb {
+    height: 110px;
+  }
+}
