@@ -49,8 +49,7 @@ export default function AboutPage() {
           </p>
         </header>
 
-        {/* Anchor target for the site-wide footer's "How this works" link. */}
-        <p className="aboutLede" id="how-this-works">
+        <p className="aboutLede">
           This whole site is a tour of David&apos;s personal projects, dressed up as a
           search engine. Every result below the fold is something he built — search for
           anything.

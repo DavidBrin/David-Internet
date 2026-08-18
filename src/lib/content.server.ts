@@ -209,7 +209,39 @@ export function loadAllSearchDocs(): SearchDoc[] {
   }
 
   docs.push(aboutDoc());
+  docs.push(howThisWorksDoc());
   return docs;
+}
+
+/** The footer's "How this works" explainer, indexed so it's findable by search too. */
+function howThisWorksDoc(): SearchDoc {
+  const body = [
+    "David's Internet is a portfolio dressed up as a search engine. It looks like Google because, for this tiny parallel internet, it is Google: the front door to every website that exists here — and every one of them is a project David built from scratch.",
+    "The index covers full-scale working replicas of real products — an issue tracker, a video platform, a block editor, a fighting game, a prediction market, and more — each rebuilt from the ground up. For every site it indexes the homepage, deep links, documentation, and design-decision logs.",
+    "Results show a fake display URL but link to the real destination: the live deployment when a site is up, or its cached-copy documentation until then. Autocomplete, did-you-mean, and I'm Feeling Lucky all run against the same index, entirely in your browser.",
+  ].join("\n\n");
+  return {
+    id: "how-this-works",
+    project: null,
+    kind: "about",
+    title: "How this works — David's Internet",
+    snippet: defaultSnippet(body),
+    body,
+    displayUrl: "davids.net › how-search-works",
+    href: "/how-this-works",
+    keywords: [
+      "how this works",
+      "how search works",
+      "search engine",
+      "david's internet",
+      "portfolio",
+      "what is this",
+      "replicas",
+    ],
+    favicon: "🔍",
+    accentColor: "#4285F4",
+    external: false,
+  };
 }
 
 /** Raw vendored markdown for a project doc, for the cached-copy pages. Null if absent. */
