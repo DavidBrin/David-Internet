@@ -1,0 +1,11 @@
+[project]
+name = "lab-challenge"
+version = "0.1.0"
+description = "Lab Challenge: POST request to update light on ESP32"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "paho-mqtt",
+    "dotenv",
+]

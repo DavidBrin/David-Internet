@@ -1,0 +1,13 @@
+[project]
+name = "ta4-challenge1"
+version = "0.1.0"
+description = "Challenge 2: Upgrade your network scanner from before by making a basic web interface for it"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "paho-mqtt",
+    "matplotlib",
+    "dotenv",
+    "requests",
+]

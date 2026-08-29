@@ -1,0 +1,14 @@
+[project]
+name = "dataset-explorer"
+version = "0.1.0"
+requires-python = ">=3.10"
+dependencies = [
+    "fastapi",
+    "uvicorn[standard]",
+    "jinja2",
+    "requests",
+    "python-dotenv",
+    "websockets",
+    "matplotlib",
+    "numpy",
+]

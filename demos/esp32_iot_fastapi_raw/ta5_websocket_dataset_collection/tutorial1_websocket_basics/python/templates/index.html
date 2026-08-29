@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WebSocket Basics</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <h1>WebSocket Basics</h1>
+
+    <div id="status" class="disconnected">Disconnected</div>
+
+    <h2>Shared Counter</h2>
+    <div id="counter">0</div>
+
+    <h2>Send Message</h2>
+    <input type="text" id="message" placeholder="Type a message...">
+    <button onclick="send()">Send</button>
+
+    <h2>Messages</h2>
+    <div id="messages"></div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+[project]
+name = "tutorial2-post"
+version = "0.1.0"
+description = "Tutorial 2: FastAPI POST Request"
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+]

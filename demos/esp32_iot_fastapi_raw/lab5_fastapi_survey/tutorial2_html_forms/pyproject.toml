@@ -1,0 +1,11 @@
+[project]
+name = "tutorial2-html-forms"
+version = "0.1.0"
+description = "Tutorial 2: HTML Forms with FastAPI"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "jinja2",
+    "python-multipart",
+]

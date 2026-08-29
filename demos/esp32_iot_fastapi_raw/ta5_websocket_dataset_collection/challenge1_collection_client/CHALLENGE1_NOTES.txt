@@ -1,0 +1,19 @@
+Challenge 1 implementation notes (not for submission)
+
+collection_client.py
+- validate_frame: Returns (False, error_msg) if len(pixels) != 64, any temperature outside 0-80°C, or all pixels identical. Prints a warning (still returns True) when label is "present" and max temperature < 26°C.
+- upload_frame_with_retry: Retries up to max_retries with exponential backoff (1s, 2s, 4s). On 201 response updates global counts and calls save_to_csv.
+- save_to_csv: Appends one row to my_collection.csv with columns timestamp, label, p0..p63. Creates file and writes header if file is new.
+
+validate_collection.py
+- analyze_collection: Computes total = len(frames), empty_n and present_n by label, prints balance status (OK if 50/50), and lists frames labeled "present" with max_temp < 26°C as potentially mislabeled.
+
+server.py
+- /api/collect: Validates label in ("empty", "present") and pixels as list of 64 values. POSTs to API_URL/frames with Bearer token. On 201 increments frame_count and empty_count or present_count, returns {"success": True}. Returns {"success": False, "error": ...} on validation or API failure.
+
+static/script.js
+- connect: WebSocket to ws://host/ws; onopen sets status "Connected" and class; onclose sets "Disconnected" and setTimeout(connect, 1000); onmessage parses JSON, for type "frame" sets currentPixels, calls renderHeatmap, updates total/empty/present elements and updateChart from data.stats.
+- collect: If no currentPixels, shows message and returns. Otherwise POSTs {label, pixels} to /api/collect, shows success or error in #message, then sets currentPixels = null.
+
+esp32/src/main.cpp
+- CLIENT_ID and TOPIC_PREFIX set to compile; user should change TOPIC_PREFIX to match MQTT_TOPIC used by the Python server (e.g. topic prefix that matches server subscription).

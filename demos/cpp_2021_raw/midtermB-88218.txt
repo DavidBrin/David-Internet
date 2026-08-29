@@ -1,0 +1,48 @@
+1. 	int x;
+	cin >> x;
+	if (x % 3 == 0){
+		cout << "x is divisible by 3" << endl;
+	}
+	if (x % 7 == 0){
+		cout << "x is divisible by 7" << endl;
+	}
+	if (x % 11 == 0){
+		cout << "x is divisible by 11 << endl;
+	}
+
+2. 	int i;
+	cout << "Enter a number:";
+	cin >> i;
+	cout << "Number  " << i << (i > 10 ? "is greater than 10": "is less than or equal to 10");
+
+3.	x will be 1 because from the bool it will display 1 for false and 0 for true.
+	Since the expression cannot be true, it will be false and therefore x will be 1. 
+
+4. 	2 is printed because it cannot carry out the divisions properly. 
+
+5. 	char variable;
+   	variable = cin.get();
+  	if ((int)variable == 9 ){
+        	cout << "it's a tab";
+   	}
+
+6.	an error is the result of this code because the int does not deal with decimals. 
+
+7.	flag = (x>=50) ? true : false;
+
+8.	switch (num) {
+	case (100): cout << "num is 100";
+		break; 
+	case (200): cout << "num is 200";
+		break; 
+	case (300): cout << "num is 300";
+		break; 
+	default: cout << "num is not 100,200,300";
+	}
+
+9.	int num;
+    	unsigned seed = time(0);
+    	srand(seed);
+    	num = (rand() % (500 - 5 + 1)) + 5;
+
+10.	cout << fixed << setprecision(5) << setw(12) << num;

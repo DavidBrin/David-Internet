@@ -1,0 +1,13 @@
+[project]
+name = "ta4-challenge2"
+version = "0.1.0"
+description = "Challenge 2: Use your your skills from week 3 to now control your ESP32 through a web server! Configure a POST endpoint to toggle data collection+sending every second from your ESP over MQTT, a GET endpoint that simply gets the current reading from the sensor! We provide you with "
+requires-python = ">=3.14"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "paho-mqtt",
+    "matplotlib",
+    "numpy",
+    "python-dotenv",
+]

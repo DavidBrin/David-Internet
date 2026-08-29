@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Quick Survey</h1>
+
+        <!-- =================================================================
+             SSR FORM: Submits to /submit-ssr, returns same page with results
+        ================================================================= -->
+        <section class="form-section">
+            <h2>Option 1: SSR Submission</h2>
+
+            <form action="/submit-ssr" method="post">
+                <div class="form-group">
+                    <label for="name-ssr">Your Name:</label>
+                    <input type="text" id="name-ssr" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-ssr">Favorite Color:</label>
+                    <input type="text" id="color-ssr" name="favorite_color" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback-ssr">Feedback:</label>
+                    <textarea id="feedback-ssr" name="feedback" rows="3" required></textarea>
+                </div>
+
+                <button type="submit">Submit (SSR)</button>
+            </form>
+
+            <!-- SSR Result displays here after form submission (page reloads) -->
+            {% if ssr_result %}
+            <div class="result">
+                <h3>Your Response:</h3>
+                <p><strong>Name:</strong> {{ ssr_result.name }}</p>
+                <p><strong>Color:</strong> {{ ssr_result.favorite_color }}</p>
+                <p><strong>Feedback:</strong> {{ ssr_result.feedback }}</p>
+            </div>
+            {% endif %}
+        </section>
+
+        <!-- =================================================================
+             API FORM: JavaScript fetch to /submit-api, updates page
+        ================================================================= -->
+        <section class="form-section">
+            <h2>Option 2: JavaScript Submission</h2>
+
+            <form id="api-form">
+                <div class="form-group">
+                    <label for="name-api">Your Name:</label>
+                    <input type="text" id="name-api" name="name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="color-api">Favorite Color:</label>
+                    <input type="text" id="color-api" name="favorite_color" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="feedback-api">Feedback:</label>
+                    <textarea id="feedback-api" name="feedback" rows="3" required></textarea>
+                </div>
+
+                <button type="submit">Submit (fetch)</button>
+            </form>
+
+            <!-- Result displays here without page reload -->
+            <div id="api-result" class="result" style="display: none;">
+                <h3>Your Response:</h3>
+                <p><strong>Name:</strong> <span id="result-name"></span></p>
+                <p><strong>Color:</strong> <span id="result-color"></span></p>
+                <p><strong>Feedback:</strong> <span id="result-feedback"></span></p>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
+</body>
+</html>

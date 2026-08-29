@@ -1,0 +1,74 @@
+Brain Vision Data Exchange Header File Version 1.0
+
+[Common Infos]
+Codepage=UTF-8
+DataFile=HELLOworld.eeg
+MarkerFile=HELLOworld.vmrk
+DataFormat=BINARY
+DataOrientation=MULTIPLEXED
+DataType=TIMEDOMAIN
+NumberOfChannels=25
+DataPoints=31232
+SamplingInterval=2000
+
+[Binary Infos]
+BinaryFormat=IEEE_FLOAT_32
+UseBigEndianOrder=NO
+
+[Channel Infos]
+ch1=F7,,1000000,uV
+ch2=Fp1,,1000000,uV
+ch3=Fp2,,1000000,uV
+ch4=F8,,1000000,uV
+ch5=F3,,1000000,uV
+ch6=Fz,,1000000,uV
+ch7=F4,,1000000,uV
+ch8=C3,,1000000,uV
+ch9=Cz,,1000000,uV
+ch10=P8,,1000000,uV
+ch11=P7,,1000000,uV
+ch12=Pz,,1000000,uV
+ch13=P4,,1000000,uV
+ch14=T3,,1000000,uV
+ch15=P3,,1000000,uV
+ch16=O1,,1000000,uV
+ch17=O2,,1000000,uV
+ch18=C4,,1000000,uV
+ch19=T4,,1000000,uV
+ch20=A2,,1000000,uV
+ch21=ACC20,,1000,mg
+ch22=ACC21,,1000,mg
+ch23=ACC22,,1000,mg
+ch24=Packet Counter,,1,DIGITAL
+ch25=TRIGGER,,1,DIGITAL
+
+
+
+[Comment]
+
+
+Recording Start Time
+2024-12-06 17:03:28.306
+
+
+Channel 	 Name 	 Impedance (kOhm) 	 Offset (mV)
+0 	 F7 	 165 	 7
+1 	 Fp1 	 168 	 -193
+2 	 Fp2 	 202 	 3
+3 	 F8 	 222 	 -79
+4 	 F3 	 173 	 12
+5 	 Fz 	 111 	 26
+6 	 F4 	 166 	 12
+7 	 C3 	 1273 	 25
+8 	 Cz 	 47906 	 569
+9 	 P8 	 141 	 19
+10 	 P7 	 160 	 13
+11 	 Pz 	 155 	 32
+12 	 P4 	 192 	 63
+13 	 T3 	 38607 	 -36
+14 	 P3 	 744 	 40
+15 	 O1 	 120 	 11
+16 	 O2 	 175 	 20
+17 	 C4 	 10588 	 24
+18 	 T4 	 59 	 18
+19 	 A2 	 43914 	 -320

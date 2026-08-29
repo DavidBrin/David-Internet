@@ -1,0 +1,116 @@
+David Brin
+8/5/2021
+Final Exam Part A
+
+1) It runs 15 times. After the loop, code will print the number 61. 
+
+2) infinite
+
+3) 0
+
+4) 71 times since it starts from 0
+
+5) int len = name.length();
+    if (!(len == 0)){
+	cout << name[len - 1];
+   }
+
+6) for (int ind = 299; ind >= 0; ind --){
+	if (s[ind] == 'T') {
+		cout << ind + 1;
+	}
+   }
+
+7) int amount = 1, place = 0;
+
+   for (int i = 1; i <= 1000; i++){
+        if (i % 5 == 0){
+            amount++;
+        }
+   }
+    int numDivisBy5[amount];
+    for (int i = 1; i <= 1000; i++){
+        if (i % 5 == 0){
+            numDivisBy5[place] = i;
+            place++;
+        }
+   }
+
+8) prototype:
+	double raisePowerAndSum(double arr[], int power, int SIZE);
+
+   definition:
+	double raisePowerAndSum(double arr[], int power, int SIZE){
+    		double total = 0;
+    		for (int ind = 0; ind < SIZE; ind++){
+           		arr[ind] = pow(arr[ind],power);
+            		total += arr[ind];
+    	}
+    	return total;
+	}
+
+9) prototype:
+	bool volumeAndAreaOfSquareCube(double side, double volume, double area);
+
+   Call: 
+	bool res = volumeAndAreaOfSquareCube(side, volume, area);
+   function:
+	bool volumeAndAreaOfSquareCube (double side, double& volume, double& area)
+	{
+  	  if (side >= 0){
+  	          volume = side*side*side;
+  	          area = 6*side*side;
+            return true;
+  	  }
+   	 else {
+        	return false;
+    	}
+	}
+
+10) 
+a. 43
+b. 9
+c. 5
+d. 0
+
+11) char digits[16];
+    for (int i = 49; i < 58; i++){
+        digits[i-1] = i;
+    }
+    for (int i = 65; i < 71; i++){
+        digits[i-1] = i;
+    }
+
+12) prototype:
+	int getDigitCount(string str, int digit);
+    definition:
+	int getDigitCount(string str, int digit){
+    int num = 0;
+    for (int ind = 0; ind < strlen(str); ind++){
+        if (digit ==  str[ind]){
+            num++;
+        }
+    }
+    return num;
+}
+
+13) string names[12] = { "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+    int days[12] = {31, 28, 31, 30, 31, 30, 31, 31 ,30, 31, 30, 31};
+    for (int ind = 0; ind < 12; ind ++){
+            cout << names[ind] << " has " << days[ind] << " days\n";
+    }
+
+14) prototype:
+	double add(double num1, double num2, double num3 = 0, double num4 = 0);
+    definition: 
+	double add(double num1, double num2, double num3, double num4){
+   		 return num1 + num2 + num3 + num4;
+	}
+
+15) vector<char> lettersInReverse {};
+    for (int i = 90; i >= 65; i --){
+            lettersInReverse.push_back(i);
+    }
+
+16) There is no return for numbers that aren't 1, 2, or 3. There is no else. 
+

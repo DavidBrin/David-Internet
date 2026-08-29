@@ -1,0 +1,10 @@
+[project]
+name = "tutorial1-fastapi-setup"
+version = "0.1.0"
+description = "Tutorial 1: FastAPI with Templates and Static Files"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "jinja2",
+]

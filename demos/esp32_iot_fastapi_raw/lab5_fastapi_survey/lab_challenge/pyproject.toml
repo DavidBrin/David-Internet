@@ -1,0 +1,11 @@
+[project]
+name = "lab-challenge"
+version = "0.1.0"
+description = "Lab Challenge: Survey Form"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "jinja2",
+    "python-multipart",
+]

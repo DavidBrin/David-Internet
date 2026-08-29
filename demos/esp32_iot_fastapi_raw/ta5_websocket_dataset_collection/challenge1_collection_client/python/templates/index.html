@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Collection Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <h1>Collection Dashboard</h1>
+
+    <div id="status">Connecting...</div>
+
+    <div id="stats">
+        <div class="stat">Total: <span id="total">0</span></div>
+        <div class="stat">Empty: <span id="empty">0</span>/50</div>
+        <div class="stat">Present: <span id="present">0</span>/50</div>
+    </div>
+
+    <div id="main-content">
+        <div id="heatmap-container">
+            <canvas id="heatmap" width="240" height="240"></canvas>
+            <div id="controls">
+                <button id="btn-empty" onclick="collect('empty')">Empty (0)</button>
+                <button id="btn-present" onclick="collect('present')">Present (1)</button>
+            </div>
+        </div>
+
+        <div id="chart-container">
+            <canvas id="progress-chart"></canvas>
+        </div>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

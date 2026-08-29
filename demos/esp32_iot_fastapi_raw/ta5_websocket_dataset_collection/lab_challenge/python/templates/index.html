@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thermal Labeler</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+    <h1>Thermal Frame Labeler</h1>
+
+    <div id="status">Connecting...</div>
+
+    <div id="stats">
+        Total: <span id="total">0</span> |
+        Empty: <span id="empty">0</span> |
+        Present: <span id="present">0</span>
+    </div>
+
+    <canvas id="heatmap" width="240" height="240"></canvas>
+
+    <div id="controls">
+        <button id="btn-empty" onclick="label('empty')">Empty (0)</button>
+        <button id="btn-present" onclick="label('present')">Present (1)</button>
+    </div>
+
+    <div id="message"></div>
+
+    <script src="{{ url_for('static', path='script.js') }}"></script>
+</body>
+</html>

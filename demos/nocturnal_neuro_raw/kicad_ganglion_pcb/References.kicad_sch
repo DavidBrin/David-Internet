@@ -1,0 +1,3562 @@
+(kicad_sch
+	(version 20231120)
+	(generator "eeschema")
+	(generator_version "8.0")
+	(uuid "07f9f04b-ea67-4a93-b31c-014e34cb923e")
+	(paper "A4")
+	(title_block
+		(title "Ganglion Input Voltage References")
+		(date "2018-1-8")
+		(rev "1.0.1")
+		(company "OpenBCI")
+	)
+	(lib_symbols
+		(symbol "Ganglion_01-rescue:C"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Field5" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C? C_????_* C_???? SMD*_c Capacitor*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.016 1.016)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Ganglion_01-rescue:GNDA"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -6.35 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "GNDA"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Field5" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "GNDA_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "GNDA_1_1"
+				(pin power_in line
+					(at 0 0 270)
+					(length 0) hide
+					(name "GNDA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Ganglion_01-rescue:R"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Field5" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_* Resistor_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Ganglion_01-rescue:VAA"
+			(power)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "#PWR"
+				(at 0 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Value" "VAA"
+				(at 0 3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Field5" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "VAA_0_1"
+				(polyline
+					(pts
+						(xy 0 0) (xy 0 1.27)
+					)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 0 1.905)
+					(radius 0.635)
+					(stroke
+						(width 0)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "VAA_1_1"
+				(pin power_in line
+					(at 0 0 90)
+					(length 0) hide
+					(name "VAA"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "OpenBCI:MCP6V31U"
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "U"
+				(at 1.27 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MCP6V31U"
+				(at 5.08 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.27 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" "http://ww1.microchip.com/downloads/en/DeviceDoc/21733j.pdf"
+				(at 1.27 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Op Amp in 5-pin package"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "op amp amplifier operational"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MCP6V31U_0_1"
+				(polyline
+					(pts
+						(xy -5.08 5.08) (xy 5.08 0) (xy -5.08 -5.08) (xy -5.08 5.08)
+					)
+					(stroke
+						(width 0.254)
+						(type solid)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "MCP6V31U_1_1"
+				(pin input line
+					(at -7.62 2.54 0)
+					(length 2.54)
+					(name "+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 -7.62 90)
+					(length 3.81)
+					(name "V-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -7.62 -2.54 0)
+					(length 2.54)
+					(name "-"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin output line
+					(at 7.62 0 180)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin input line
+					(at -2.54 7.62 270)
+					(length 3.81)
+					(name "V+"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+	)
+	(junction
+		(at 189.23 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1d4b7f7b-9505-4d97-9c62-0c5e69f85efd")
+	)
+	(junction
+		(at 113.03 118.11)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "2d00e4ac-1238-460e-a0f6-ba2d7b2b93f7")
+	)
+	(junction
+		(at 162.56 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "392b6ec0-a8ee-42ff-a542-1dc2bc7adccb")
+	)
+	(junction
+		(at 162.56 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "42a817ac-3fb9-4078-be1c-d0486a15b162")
+	)
+	(junction
+		(at 86.36 57.15)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "4687eb0c-6181-4adb-957a-725591ae15f1")
+	)
+	(junction
+		(at 189.23 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "511ecab8-594c-4223-ba7f-08c78b318aa9")
+	)
+	(junction
+		(at 162.56 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5c6c2a77-bab3-4f31-9a97-f3b86b6baf3a")
+	)
+	(junction
+		(at 189.23 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "639c7621-18e4-4c42-8ab5-92c2d996ea33")
+	)
+	(junction
+		(at 162.56 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "7364dd07-45f6-4e45-bc2c-fb724b5bcb51")
+	)
+	(junction
+		(at 113.03 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "855fa2de-294e-4a03-b6e5-c37421fa70bf")
+	)
+	(junction
+		(at 113.03 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b1feed9b-9ed6-45fe-8a28-89c544b42117")
+	)
+	(junction
+		(at 86.36 115.57)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b850743d-b796-4ae1-89a4-ef2edfc9d230")
+	)
+	(junction
+		(at 113.03 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "be1196d3-8ee2-46fd-bc80-e35e1cb6617a")
+	)
+	(junction
+		(at 189.23 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d1565721-5359-4acc-b383-b5eb881f5167")
+	)
+	(junction
+		(at 86.36 104.14)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "def7cc6f-ca8c-4cb8-97d3-08695037e08f")
+	)
+	(junction
+		(at 86.36 45.72)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ee9b6d52-a4bb-44b5-be9d-3115afe0c6da")
+	)
+	(wire
+		(pts
+			(xy 109.22 113.03) (xy 115.57 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0488b940-57ba-4d8f-8372-4694c62ade52")
+	)
+	(wire
+		(pts
+			(xy 109.22 118.11) (xy 113.03 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "05586534-c8be-43b8-b686-0c0de738ecb1")
+	)
+	(wire
+		(pts
+			(xy 101.6 96.52) (xy 113.03 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "062be794-0ea1-4be4-9bd5-c8f5dc441894")
+	)
+	(wire
+		(pts
+			(xy 180.34 64.77) (xy 180.34 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "086a0277-cdbb-4338-a2ac-c27865c524b0")
+	)
+	(wire
+		(pts
+			(xy 113.03 104.14) (xy 113.03 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a2cb562-f7df-4e50-b46f-70042b118fc6")
+	)
+	(wire
+		(pts
+			(xy 185.42 59.69) (xy 189.23 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0bb5d6b3-1fbf-4c10-a902-fe0002c0e8b7")
+	)
+	(wire
+		(pts
+			(xy 189.23 59.69) (xy 193.04 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e08dd14-7b85-4254-aaff-271137287c36")
+	)
+	(wire
+		(pts
+			(xy 93.98 104.14) (xy 86.36 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1fb66383-2133-4a02-bdd4-bfa2117af670")
+	)
+	(wire
+		(pts
+			(xy 180.34 107.95) (xy 180.34 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "210a0378-a49c-4bd3-b721-f0e6862de476")
+	)
+	(wire
+		(pts
+			(xy 93.98 96.52) (xy 86.36 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "233953d8-7c6a-4293-973e-a10b96dfb09f")
+	)
+	(wire
+		(pts
+			(xy 177.8 104.14) (xy 189.23 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "246f1359-dfd7-496c-b00e-12390c00d7c9")
+	)
+	(wire
+		(pts
+			(xy 104.14 49.53) (xy 104.14 31.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "255b5b3c-b79b-47b5-ac95-f40c01e004f9")
+	)
+	(wire
+		(pts
+			(xy 113.03 96.52) (xy 113.03 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2a3f804a-22bb-425f-8119-d358ec4719ae")
+	)
+	(wire
+		(pts
+			(xy 109.22 59.69) (xy 113.03 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c2a22ed-b20d-4d21-a5b1-7c62fd77bb2e")
+	)
+	(wire
+		(pts
+			(xy 125.73 118.11) (xy 123.19 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2eaa5a76-4b75-4226-8789-eb7ccc87551f")
+	)
+	(wire
+		(pts
+			(xy 162.56 45.72) (xy 162.56 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3280f00f-988a-42a3-830c-0e082060093c")
+	)
+	(wire
+		(pts
+			(xy 189.23 96.52) (xy 189.23 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36ac98df-ea4d-44a1-878c-d934422e2585")
+	)
+	(wire
+		(pts
+			(xy 185.42 118.11) (xy 189.23 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "392cc3fd-16b6-43e9-8df0-691cda57febe")
+	)
+	(wire
+		(pts
+			(xy 162.56 96.52) (xy 162.56 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3dfdff33-2d76-4cab-9312-ccae2a83d7d9")
+	)
+	(wire
+		(pts
+			(xy 86.36 104.14) (xy 86.36 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "45522b30-db86-4f52-99c6-7217334ec142")
+	)
+	(wire
+		(pts
+			(xy 199.39 113.03) (xy 203.2 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4a4fb147-65a4-41e8-a58a-8b53f01a1866")
+	)
+	(wire
+		(pts
+			(xy 86.36 96.52) (xy 86.36 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b2087cc-b130-4fc1-83b7-1fec28c4a478")
+	)
+	(wire
+		(pts
+			(xy 185.42 54.61) (xy 193.04 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "50544d2c-0f06-4e10-928d-19a1e8beb8e7")
+	)
+	(wire
+		(pts
+			(xy 86.36 38.1) (xy 86.36 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "54a3eb56-9c66-48c1-b768-8dae3363926a")
+	)
+	(wire
+		(pts
+			(xy 125.73 113.03) (xy 123.19 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "580efb15-185c-4932-9743-bf6801269e8e")
+	)
+	(wire
+		(pts
+			(xy 104.14 107.95) (xy 104.14 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5cb7d3d6-73df-43a0-95ab-18f2110e62e3")
+	)
+	(wire
+		(pts
+			(xy 189.23 38.1) (xy 189.23 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "61a9abc7-b50f-48d7-8a8b-6926485d1a6c")
+	)
+	(wire
+		(pts
+			(xy 101.6 104.14) (xy 113.03 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6652c745-8423-4da4-8429-3113a5fa597b")
+	)
+	(wire
+		(pts
+			(xy 185.42 113.03) (xy 191.77 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6e81eab2-93bb-4a2a-97de-a26c7bde4dda")
+	)
+	(wire
+		(pts
+			(xy 86.36 57.15) (xy 93.98 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "706de285-9222-4adb-9eee-d24247844e4d")
+	)
+	(wire
+		(pts
+			(xy 125.73 59.69) (xy 123.19 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74bb7f58-8b0f-42e6-87e3-bda5c2f9e8ec")
+	)
+	(wire
+		(pts
+			(xy 113.03 45.72) (xy 113.03 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "750a51fb-cf7d-425e-9765-d18e91839778")
+	)
+	(wire
+		(pts
+			(xy 177.8 45.72) (xy 189.23 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7c7a1961-71ef-4a18-a0f2-3891c97c321b")
+	)
+	(wire
+		(pts
+			(xy 123.19 54.61) (xy 125.73 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7d72f2d0-70d9-464e-b9da-2f2db7d11173")
+	)
+	(wire
+		(pts
+			(xy 160.02 57.15) (xy 162.56 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7f2e2754-8a99-4b10-8ca6-edd09537b2ae")
+	)
+	(wire
+		(pts
+			(xy 113.03 59.69) (xy 115.57 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "85f25283-438f-47fa-aa66-88114e4d103c")
+	)
+	(wire
+		(pts
+			(xy 160.02 115.57) (xy 162.56 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "95ac0ab5-a649-4a0c-9098-50abaef884e1")
+	)
+	(wire
+		(pts
+			(xy 170.18 104.14) (xy 162.56 104.14)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9601d0ba-5253-4ed6-91be-949ddec55c9a")
+	)
+	(wire
+		(pts
+			(xy 104.14 129.54) (xy 104.14 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9d2e5d38-12e3-4ce9-b55c-8e2db893d19b")
+	)
+	(wire
+		(pts
+			(xy 104.14 64.77) (xy 104.14 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9ea3e429-07c2-4b03-a679-efdc34b93e0d")
+	)
+	(wire
+		(pts
+			(xy 170.18 45.72) (xy 162.56 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9e8cca0-6aa6-4f2f-af38-dc3823eb35b5")
+	)
+	(wire
+		(pts
+			(xy 109.22 54.61) (xy 115.57 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ab9a3ab4-c7f6-44c3-b344-e99a17bc087c")
+	)
+	(wire
+		(pts
+			(xy 86.36 45.72) (xy 86.36 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ae98875a-a68d-4d29-866a-9aeba410d5a2")
+	)
+	(wire
+		(pts
+			(xy 180.34 129.54) (xy 180.34 123.19)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b004c1c1-546b-40e0-818d-ad8244394e5b")
+	)
+	(wire
+		(pts
+			(xy 170.18 96.52) (xy 162.56 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b3655672-b3f5-48cf-b54e-620f7125c691")
+	)
+	(wire
+		(pts
+			(xy 162.56 115.57) (xy 170.18 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4c4e7bc-83c6-46b2-8b0f-ed04422ca361")
+	)
+	(wire
+		(pts
+			(xy 177.8 96.52) (xy 189.23 96.52)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b63ae72a-1bcd-4c8c-8d88-ac0c1a40515b")
+	)
+	(wire
+		(pts
+			(xy 113.03 45.72) (xy 101.6 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b725edd7-a556-49b5-bd48-abae30f92e0e")
+	)
+	(wire
+		(pts
+			(xy 203.2 59.69) (xy 200.66 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b97d1a58-273f-4296-b6e0-ccdc91adb308")
+	)
+	(wire
+		(pts
+			(xy 162.56 57.15) (xy 170.18 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "beba1a30-055e-4c94-8bc7-e5ddd8e11fd3")
+	)
+	(wire
+		(pts
+			(xy 83.82 115.57) (xy 86.36 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c2c014b1-4148-4d8a-976b-11d6dbdeff4a")
+	)
+	(wire
+		(pts
+			(xy 113.03 38.1) (xy 113.03 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6ef4e86-8208-45a3-81d4-4a2863e7c992")
+	)
+	(wire
+		(pts
+			(xy 200.66 54.61) (xy 203.2 54.61)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc174070-383d-4231-b84e-5460509f0ec5")
+	)
+	(wire
+		(pts
+			(xy 93.98 38.1) (xy 86.36 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cc9bf5f7-7e18-49cb-92df-282dd86d32bf")
+	)
+	(wire
+		(pts
+			(xy 189.23 45.72) (xy 189.23 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dad64140-46cb-4b1f-901a-ef4a73404904")
+	)
+	(wire
+		(pts
+			(xy 177.8 38.1) (xy 189.23 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "db81f8bb-769c-4175-906d-ce8730b562e7")
+	)
+	(wire
+		(pts
+			(xy 162.56 104.14) (xy 162.56 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1a5dd57-3025-4032-9043-59f0d8fce037")
+	)
+	(wire
+		(pts
+			(xy 113.03 118.11) (xy 115.57 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e1e59e3a-bcda-49bb-8e02-6dee3c0a3744")
+	)
+	(wire
+		(pts
+			(xy 101.6 38.1) (xy 113.03 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e33117d0-c0b9-483b-87b8-f1e3ad8b8247")
+	)
+	(wire
+		(pts
+			(xy 83.82 57.15) (xy 86.36 57.15)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e97aef84-2744-45d3-9b7c-ed420b4be039")
+	)
+	(wire
+		(pts
+			(xy 162.56 38.1) (xy 162.56 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ea7dd0dc-35a3-4d26-8bb4-ac53ad9901df")
+	)
+	(wire
+		(pts
+			(xy 170.18 38.1) (xy 162.56 38.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ebeeac57-d41b-451b-afcd-28332bdd0d8d")
+	)
+	(wire
+		(pts
+			(xy 189.23 104.14) (xy 189.23 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ec0dd00f-8320-4ead-9d72-a03153e650e1")
+	)
+	(wire
+		(pts
+			(xy 189.23 118.11) (xy 191.77 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "efcb7fe6-f7fb-4530-95aa-2fab722f4f85")
+	)
+	(wire
+		(pts
+			(xy 201.93 118.11) (xy 199.39 118.11)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f1f6030f-b03c-4f1a-94ef-f8f04b149e70")
+	)
+	(wire
+		(pts
+			(xy 93.98 45.72) (xy 86.36 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f6261abf-510c-46a3-8738-92399f5050e0")
+	)
+	(wire
+		(pts
+			(xy 180.34 49.53) (xy 180.34 33.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb171764-cb5f-40ef-98e7-7ca6e2511336")
+	)
+	(wire
+		(pts
+			(xy 86.36 115.57) (xy 93.98 115.57)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fb4c77f1-0443-4835-9019-33526c248fa0")
+	)
+	(text "In from each output \nafter gain and prior to LPF"
+		(exclude_from_sim no)
+		(at 119.38 45.72 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left bottom)
+		)
+		(uuid "5705255b-dfc1-431a-a471-64c365e1fd12")
+	)
+	(text "out to each ref"
+		(exclude_from_sim no)
+		(at 66.04 50.8 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left bottom)
+		)
+		(uuid "f08852a8-0984-444f-8ecc-d127fe88389b")
+	)
+	(global_label "V_REF"
+		(shape input)
+		(at 125.73 54.61 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "10748848-3c05-4bd2-80e3-b540eaf72e45")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 125.73 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUT_2"
+		(shape input)
+		(at 125.73 118.11 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "28bcf4dc-b83d-4f4b-a9c0-6c41fafd735e")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 125.73 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V_REF"
+		(shape input)
+		(at 203.2 113.03 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "30a313f7-1f09-492d-9ced-51225dc65bde")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 203.2 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "REF_1"
+		(shape input)
+		(at 83.82 57.15 180)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "6a66ac19-598e-465f-adf4-35e9898ba57b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 83.82 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V_REF"
+		(shape input)
+		(at 203.2 54.61 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "82a67207-dc89-4d41-a4bd-3689f5b735f6")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 203.2 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "REF_3"
+		(shape input)
+		(at 160.02 57.15 180)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "9664487a-8e2d-4f68-b44b-655e828a0ba2")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 160.02 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "REF_4"
+		(shape input)
+		(at 160.02 115.57 180)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "9a9e257e-1cbd-45b9-87d0-6509f41aee81")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 160.02 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUT_1"
+		(shape input)
+		(at 125.73 59.69 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "abd5c818-3db5-45d0-bf44-2a81e4ed9db8")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 125.73 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "REF_2"
+		(shape input)
+		(at 83.82 115.57 180)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify right)
+		)
+		(uuid "af0927f8-a80e-4087-9c64-b73baae15c78")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 83.82 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "V_REF"
+		(shape input)
+		(at 125.73 113.03 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "b7f4636b-4905-4926-ada3-77faacf4623d")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 125.73 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUT_3"
+		(shape input)
+		(at 203.2 59.69 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "e06697ee-7dc5-482a-a997-36ac4004ffaf")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 203.2 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "OUT_4"
+		(shape input)
+		(at 201.93 118.11 0)
+		(effects
+			(font
+				(size 1.524 1.524)
+			)
+			(justify left)
+		)
+		(uuid "eac03c6f-c21a-4ce6-85a4-4b330d83986a")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 201.93 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:C")
+		(lib_id "Ganglion_01-rescue:C")
+		(at 97.79 45.72 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057e23275")
+		(property "Reference" "C9"
+			(at 92.71 44.45 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 91.44 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 93.98 46.6852 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "30cbdb25-6ddc-4d03-9998-9316464526d3")
+		)
+		(pin "2"
+			(uuid "ad48976c-37a7-4ade-afbb-5f51ea290986")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "C9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 97.79 38.1 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057e23299")
+		(property "Reference" "R1"
+			(at 97.79 40.132 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 97.79 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 97.79 36.322 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dd1ce7ed-76db-4561-9501-23e28d2f6de7")
+		)
+		(pin "2"
+			(uuid "346a0d48-765b-408b-9a2f-f9bb716422a3")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 119.38 59.69 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057e232c9")
+		(property "Reference" "R12"
+			(at 119.38 61.722 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 119.38 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 119.38 57.912 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 119.38 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "43ce92a7-7640-4b71-b1d8-5c3986ca80b5")
+		)
+		(pin "1"
+			(uuid "762a5573-ee4b-499d-b39b-efd060833390")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R12")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:GNDA")
+		(lib_id "Ganglion_01-rescue:GNDA")
+		(at 104.14 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057e27b47")
+		(property "Reference" "#PWR065"
+			(at 104.14 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 104.14 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "16fb92af-23c4-4e43-893d-e74f2ad68cd8")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR065")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:VAA")
+		(lib_id "Ganglion_01-rescue:VAA")
+		(at 104.14 31.75 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057e27b67")
+		(property "Reference" "#PWR066"
+			(at 104.14 35.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VAA"
+			(at 104.14 27.94 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 31.75 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1eadc126-e6fe-4041-b99c-6c98ad662151")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR066")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:C")
+		(lib_id "Ganglion_01-rescue:C")
+		(at 173.99 45.72 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8416")
+		(property "Reference" "C37"
+			(at 168.91 44.45 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 167.64 46.99 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 170.18 46.6852 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "082dec84-cb09-435e-a56f-718abb148129")
+		)
+		(pin "2"
+			(uuid "330b0fee-9ba5-47ba-83bb-47a4c0acd645")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "C37")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 173.99 38.1 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8457")
+		(property "Reference" "R10"
+			(at 173.99 40.132 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 173.99 38.1 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 173.99 36.322 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 38.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "93b02b9e-a81e-4bb2-b92a-1bab2ab20578")
+		)
+		(pin "2"
+			(uuid "7fb454d5-6d8a-48f2-90cd-72c38642d8c1")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 196.85 59.69 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8495")
+		(property "Reference" "R13"
+			(at 196.85 61.722 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 196.85 59.69 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 196.85 57.912 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 196.85 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 196.85 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "46a6d5b6-375b-40e2-a43b-78d6d035ec32")
+		)
+		(pin "1"
+			(uuid "d15c723d-4d64-4f71-b75a-2caf96dab429")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:GNDA")
+		(lib_id "Ganglion_01-rescue:GNDA")
+		(at 180.34 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb84cb")
+		(property "Reference" "#PWR067"
+			(at 180.34 74.93 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3b44762f-9a43-4de6-95b5-4699d306a72c")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR067")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:VAA")
+		(lib_id "Ganglion_01-rescue:VAA")
+		(at 180.34 33.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb84ee")
+		(property "Reference" "#PWR068"
+			(at 180.34 36.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VAA"
+			(at 180.34 29.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 33.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dc561128-5d0c-4655-9a17-ae760d19391f")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR068")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:C")
+		(lib_id "Ganglion_01-rescue:C")
+		(at 97.79 104.14 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb85d4")
+		(property "Reference" "C39"
+			(at 92.71 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 91.44 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 93.98 105.1052 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4f436eb8-55b7-469b-a3a4-2318f75f8e63")
+		)
+		(pin "2"
+			(uuid "205dc74d-87d2-416d-a25c-c86fea9465d1")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "C39")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 97.79 96.52 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8624")
+		(property "Reference" "R14"
+			(at 97.79 98.552 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 97.79 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 97.79 94.742 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 97.79 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "7fceeafb-8b01-4dd3-accf-194917c445ce")
+		)
+		(pin "1"
+			(uuid "8b824cc2-14c4-4a9f-a799-08b4b6252452")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 119.38 118.11 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8682")
+		(property "Reference" "R30"
+			(at 119.38 120.142 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 119.38 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 119.38 116.332 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 119.38 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f103c9a4-bfa2-490f-bc7e-c9b9e075d9e1")
+		)
+		(pin "2"
+			(uuid "37ce15a3-7d6a-448a-814b-a2df566b515f")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 195.58 118.11 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb86e1")
+		(property "Reference" "R31"
+			(at 195.58 120.142 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 195.58 118.11 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 195.58 116.332 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 118.11 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0808f6a4-9ee6-42cd-8909-f9f4ba9ee17c")
+		)
+		(pin "2"
+			(uuid "0036d051-e12b-4f1d-8d18-bd00a0b027f2")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R31")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:C")
+		(lib_id "Ganglion_01-rescue:C")
+		(at 173.99 104.14 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb872f")
+		(property "Reference" "C44"
+			(at 168.91 102.87 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF"
+			(at 167.64 105.41 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 170.18 105.1052 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 104.14 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2cf95cbf-9bca-42bd-ad7a-a8545d73539e")
+		)
+		(pin "2"
+			(uuid "1ecedbe1-eb6e-4ff2-81fe-8fa3059e76a6")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "C44")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 173.99 96.52 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb878a")
+		(property "Reference" "R29"
+			(at 173.99 98.552 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 173.99 96.52 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 173.99 94.742 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 173.99 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 173.99 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "39c1e5db-8f33-4166-87fc-cd572d431e4a")
+		)
+		(pin "1"
+			(uuid "98072bb3-7feb-4662-9aad-eb0c0cdc9698")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:GNDA")
+		(lib_id "Ganglion_01-rescue:GNDA")
+		(at 104.14 129.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb87de")
+		(property "Reference" "#PWR069"
+			(at 104.14 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 104.14 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "03b99052-6108-4b8f-9e6f-3da5b104bdc8")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR069")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:GNDA")
+		(lib_id "Ganglion_01-rescue:GNDA")
+		(at 180.34 129.54 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8819")
+		(property "Reference" "#PWR070"
+			(at 180.34 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GNDA"
+			(at 180.34 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 129.54 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ca89f50f-a10d-48ed-9470-12b6f8b0aa1a")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR070")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:VAA")
+		(lib_id "Ganglion_01-rescue:VAA")
+		(at 180.34 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb8854")
+		(property "Reference" "#PWR071"
+			(at 180.34 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VAA"
+			(at 180.34 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 180.34 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 180.34 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dfe9e969-85c3-499e-a36b-397781c17269")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR071")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:VAA")
+		(lib_id "Ganglion_01-rescue:VAA")
+		(at 104.14 91.44 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057eb888f")
+		(property "Reference" "#PWR072"
+			(at 104.14 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "VAA"
+			(at 104.14 87.63 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 104.14 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 104.14 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 104.14 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b2c56498-0cd6-4573-ab5f-16eb51cdc21c")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "#PWR072")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OpenBCI:MCP6V31U")
+		(at 101.6 57.15 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057f67dde")
+		(property "Reference" "U1"
+			(at 100.33 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6V31U"
+			(at 96.52 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TO_SOT_Packages_SMD:SC-70-5"
+			(at 102.87 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "4"
+			(uuid "df01e2ee-5443-470f-9869-5fa65bcb355b")
+		)
+		(pin "3"
+			(uuid "0ee3b0f4-19b4-47b5-bf59-03242b4b63dd")
+		)
+		(pin "5"
+			(uuid "a1499234-d9e0-4f90-8995-b67338c225b5")
+		)
+		(pin "2"
+			(uuid "abf6e59d-8be0-460c-a272-149d95b64e1e")
+		)
+		(pin "1"
+			(uuid "881382a8-6c45-4b34-b4c1-24964a27a111")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "U1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OpenBCI:MCP6V31U")
+		(at 177.8 57.15 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-000057f682d9")
+		(property "Reference" "U24"
+			(at 176.53 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6V31U"
+			(at 172.72 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TO_SOT_Packages_SMD:SC-70-5"
+			(at 179.07 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 176.53 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4a7d3d2b-14b0-4330-bd8a-4f2e9978919f")
+		)
+		(pin "2"
+			(uuid "fd6cb8a4-8399-43f9-a994-ca79d19431ab")
+		)
+		(pin "3"
+			(uuid "5e88bc1c-dcb9-402b-a19d-990c8a4f9156")
+		)
+		(pin "4"
+			(uuid "0b8815fd-954d-4fe0-9c5c-37cdd61ed50c")
+		)
+		(pin "5"
+			(uuid "0a8ccdaf-b3b0-4348-bf69-04e60473d021")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "U24")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 119.38 54.61 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806bcb5")
+		(property "Reference" "R34"
+			(at 119.38 56.642 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500K"
+			(at 119.38 54.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 119.38 52.832 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 119.38 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ac40b41c-14ed-40d2-8a74-505df249f406")
+		)
+		(pin "2"
+			(uuid "b322261d-93c6-4295-9cfd-578c2b795f3b")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R34")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 196.85 54.61 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806bda7")
+		(property "Reference" "R35"
+			(at 196.85 56.642 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500K"
+			(at 196.85 54.61 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 196.85 52.832 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 196.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 196.85 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "20d98d28-b166-454c-8e0e-600de00aaf07")
+		)
+		(pin "2"
+			(uuid "2c46e3ef-c22c-4ac2-aa46-98226389540b")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R35")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 195.58 113.03 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806be58")
+		(property "Reference" "R48"
+			(at 195.58 115.062 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500K"
+			(at 195.58 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 195.58 111.252 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 195.58 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 195.58 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "42be5dff-037d-43ab-aefe-43ea434f2261")
+		)
+		(pin "2"
+			(uuid "3a54fbb7-2866-4bc2-a617-ff7e24a4ddb6")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R48")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_name "Ganglion_01-rescue:R")
+		(lib_id "Ganglion_01-rescue:R")
+		(at 119.38 113.03 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806bec4")
+		(property "Reference" "R36"
+			(at 119.38 115.062 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "500K"
+			(at 119.38 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Capacitors_SMD:C_0603"
+			(at 119.38 111.252 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 119.38 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 119.38 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6d728ee5-808b-402e-bad9-8d151d01e77a")
+		)
+		(pin "2"
+			(uuid "f9a2f64f-13b4-48bf-91eb-6a628689a540")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "R36")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OpenBCI:MCP6V31U")
+		(at 101.6 115.57 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806c5fa")
+		(property "Reference" "U26"
+			(at 100.33 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6V31U"
+			(at 96.52 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TO_SOT_Packages_SMD:SC-70-5"
+			(at 102.87 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 100.33 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 101.6 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5431a801-0a97-4cec-8029-1ea73c06af07")
+		)
+		(pin "2"
+			(uuid "0f50706f-61c3-4846-8658-8483ae23e63f")
+		)
+		(pin "5"
+			(uuid "48a404df-0da8-4133-b5fb-8248d3ac57bb")
+		)
+		(pin "4"
+			(uuid "516a3f7c-2053-4b2c-b5cf-69fff6873a0f")
+		)
+		(pin "3"
+			(uuid "967eea1d-390d-4539-aab5-d4fdef41d5a2")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "U26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "OpenBCI:MCP6V31U")
+		(at 177.8 115.57 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "00000000-0000-0000-0000-00005806c651")
+		(property "Reference" "U27"
+			(at 176.53 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "MCP6V31U"
+			(at 172.72 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "TO_SOT_Packages_SMD:SC-70-5"
+			(at 179.07 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 176.53 110.49 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 177.8 115.57 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "01e61c8f-5aaf-4c13-819a-57170ece5c23")
+		)
+		(pin "1"
+			(uuid "ac1ae50d-1e14-48d6-b5b5-0f2fa8e3a56e")
+		)
+		(pin "4"
+			(uuid "9c248464-bb1b-4506-8241-816385de5f96")
+		)
+		(pin "2"
+			(uuid "82362f56-6ee1-4e44-ac0d-af0ef4571df5")
+		)
+		(pin "3"
+			(uuid "aaf8c731-0a06-43ce-9180-9672c746ad54")
+		)
+		(instances
+			(project "Ganglion_01"
+				(path "/7cce0224-b115-4741-9879-81933b800fb1/00000000-0000-0000-0000-000057e20c3a"
+					(reference "U27")
+					(unit 1)
+				)
+			)
+		)
+	)
+)
