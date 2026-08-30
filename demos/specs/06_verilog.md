@@ -1,7 +1,7 @@
 # 06 — Verilog (ECE 111 RTL, 2025) — Viterbi decoder headline + module library
 
 Slug: `verilog` · Fake domain: `verilog.davids.net` · Archetype: **A** (interactive) + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-08-30** (see `content/verilog/README.md` for what was completed/fixed).
 
 Page is called **"Verilog"** (not ECE111). Course/starter-code citation appears once, in the
 Source drawer footer; nothing else on the page cites.
@@ -86,8 +86,10 @@ the resulting VCD becomes the waveform panel. Story rail states this plainly in 
 
 ## Build-time simulation (`scripts/sim-verilog.ts`)
 
-- Requires **Icarus Verilog** (`iverilog`/`vvp`) — not currently installed on the build
-  machine (checked 2026-08-29); install via OSS CAD Suite or `choco install iverilog`.
+- Requires **Icarus Verilog** (`iverilog`/`vvp`). Installed 2026-08-30 without admin rights via
+  micromamba from conda-forge into `C:\Users\david\iverilog-env\Library\bin` (Icarus 11.0);
+  the runner defaults to that path (`IVERILOG_BIN` overrides). Chocolatey/winget/the Inno
+  installer all needed elevation.
   Results (VCD → compact JSON, pass/fail table) are **committed** so CI/Vercel builds don't
   need the toolchain.
 - Runs: Viterbi tb for each preset (edit the parameter line programmatically), each ECE111

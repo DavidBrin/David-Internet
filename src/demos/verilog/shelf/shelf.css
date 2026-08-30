@@ -1,0 +1,803 @@
+/* Verilog demo — module shelf. Shared chrome comes from src/app/demos/demos.css; everything here is prefixed shelf. */
+
+.shelf {
+  --shelf-accent: #0ea5e9;
+  --shelf-accent-soft: #e0f2fe;
+  --shelf-ink: #202124;
+  --shelf-muted: #5f6368;
+  --shelf-line: #dadce0;
+  --shelf-panel: #f8f9fa;
+  --shelf-good: #188038;
+  --shelf-warn: #b06000;
+  --shelf-bad: #d93025;
+}
+
+.shelfHead {
+  margin-bottom: 14px;
+}
+
+.shelfGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 14px;
+}
+
+.shelfCard {
+  margin: 0;
+  padding: 12px 14px;
+  min-width: 0;
+  transition: border-color 0.2s;
+}
+
+.shelfCard.isOpen {
+  grid-column: 1 / -1;
+  border-color: var(--shelf-accent);
+}
+
+.shelfCardHead {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+  color: var(--shelf-ink);
+}
+
+.shelfCardTitle {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.shelfCardHw {
+  font-size: 11px;
+  color: var(--shelf-muted);
+}
+
+.shelfCardChevron {
+  margin-left: auto;
+  color: var(--shelf-muted);
+  font-size: 18px;
+  line-height: 1;
+}
+
+.shelfCardBlurb {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  color: #4d5156;
+}
+
+.shelfBadge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 10px;
+  border: 1px solid var(--shelf-line);
+  color: var(--shelf-muted);
+  background: #fff;
+  white-space: nowrap;
+}
+
+.shelfBadge.is-pass {
+  color: var(--shelf-good);
+  border-color: #b7dfb9;
+  background: #e6f4ea;
+}
+
+.shelfBadge.is-fail,
+.shelfBadge.is-error {
+  color: var(--shelf-bad);
+  border-color: #f5c6c2;
+  background: #fce8e6;
+}
+
+.shelfOpen {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 18px;
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--shelf-line);
+  align-items: start;
+}
+
+.shelfWidgetCol {
+  min-width: 0;
+}
+
+.shelfWidget {
+  font-size: 13px;
+}
+
+.shelfSub {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--shelf-muted);
+  margin: 8px 0 4px;
+}
+
+.shelfState {
+  font-size: 12px;
+  color: #3c4043;
+  margin: 4px 0;
+}
+
+.shelfSpeed {
+  display: inline-block;
+  min-width: 2.4em;
+  font-size: 12px;
+}
+
+.shelfRowFlex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 28px;
+  align-items: flex-start;
+}
+
+.shelfPlay {
+  margin-top: 10px;
+}
+
+.shelfCharInput,
+.shelfNumInput {
+  width: 3em;
+  border: 1px solid var(--shelf-line);
+  border-radius: 4px;
+  padding: 3px 6px;
+  font-size: 13px;
+}
+
+.shelfNumInput {
+  width: 6em;
+}
+
+/* ---------- bits ---------- */
+
+.shelfBitRow {
+  display: inline-flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.shelfBit {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30px;
+  border: 1px solid var(--shelf-line);
+  border-radius: 4px;
+  background: #fff;
+  color: var(--shelf-ink);
+  font: inherit;
+  padding: 0;
+  transition:
+    background-color 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.shelfBit.isSm {
+  width: 24px;
+}
+
+.shelfBit.isClickable {
+  cursor: pointer;
+}
+
+.shelfBit.isClickable:hover {
+  border-color: var(--shelf-accent);
+}
+
+.shelfBit.isOn {
+  background: var(--shelf-accent);
+  border-color: var(--shelf-accent);
+  color: #fff;
+}
+
+.shelfBit.isPending {
+  color: #b0b4b9;
+  border-style: dashed;
+}
+
+.shelfBitVal {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.shelfBit.isSm .shelfBitVal {
+  font-size: 11px;
+  line-height: 20px;
+}
+
+.shelfBitLabel {
+  font-size: 9.5px;
+  line-height: 12px;
+  color: inherit;
+  opacity: 0.8;
+  padding-bottom: 2px;
+}
+
+/* ---------- SVG bench pieces ---------- */
+
+.shelfSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+  max-width: 560px;
+}
+
+.shelfSvgLabel {
+  font-size: 12px;
+  fill: var(--shelf-ink);
+  font-weight: 700;
+}
+
+.shelfSvgSub {
+  font-size: 9.5px;
+  fill: var(--shelf-muted);
+}
+
+.shelfSvgTiny {
+  font-size: 8px;
+  fill: var(--shelf-muted);
+}
+
+.shelfSvgMono {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+  fill: var(--shelf-ink);
+}
+
+.shelfSvgZero {
+  font-size: 9px;
+  fill: #b0b4b9;
+}
+
+.shelfSvgBit {
+  fill: #fff;
+  stroke: var(--shelf-line);
+  transition: fill 0.25s;
+}
+
+.shelfSvgBit.isOn {
+  fill: var(--shelf-accent);
+  stroke: var(--shelf-accent);
+}
+
+.shelfSvgBitText {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  fill: var(--shelf-ink);
+  pointer-events: none;
+}
+
+.shelfSvgBit.isOn + .shelfSvgBitText,
+.shelfFf.isOn + .shelfSvgBitText {
+  fill: #fff;
+}
+
+.shelfSvgClickable {
+  cursor: pointer;
+}
+
+.shelfSvgBox {
+  fill: #fff;
+  stroke: var(--shelf-line);
+}
+
+.shelfSvgBox.isResult {
+  stroke: var(--shelf-accent);
+}
+
+.shelfSvgAluBody {
+  fill: var(--shelf-panel);
+  stroke: var(--shelf-ink);
+  stroke-width: 1.2;
+}
+
+.shelfWire {
+  fill: none;
+  stroke: #9aa0a6;
+  stroke-width: 1.5;
+}
+
+.shelfWire.isPass {
+  stroke: #c4c7ca;
+}
+
+.shelfWire.isZero {
+  stroke: #c4c7ca;
+  stroke-dasharray: 2 2;
+}
+
+.shelfWire.isActive {
+  stroke: var(--shelf-accent);
+  stroke-width: 2;
+  stroke-dasharray: 5 3;
+  animation: shelfFlow 0.6s linear infinite;
+}
+
+.shelfWire.isPulse {
+  stroke: var(--shelf-accent);
+  stroke-width: 2;
+  stroke-dasharray: 80;
+  stroke-dashoffset: 80;
+  animation: shelfPulse 0.5s ease-out forwards;
+}
+
+.shelfWire.isPulse.isLate {
+  animation-delay: 0.35s;
+}
+
+@keyframes shelfFlow {
+  to {
+    stroke-dashoffset: -16;
+  }
+}
+
+@keyframes shelfPulse {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* LFSR ring */
+
+.shelfRing {
+  max-width: 240px;
+  flex: 0 0 auto;
+}
+
+.shelfRingTrack {
+  fill: none;
+  stroke: #f1f3f4;
+  stroke-width: 6;
+}
+
+.shelfRingPath {
+  fill: none;
+  stroke: var(--shelf-accent);
+  stroke-width: 2;
+  opacity: 0.55;
+}
+
+.shelfRingDot {
+  fill: #dadce0;
+  transition: fill 0.2s;
+}
+
+.shelfRingDot.isVisited {
+  fill: var(--shelf-accent);
+}
+
+.shelfRingDot.isCurrent {
+  fill: var(--shelf-ink);
+  r: 5;
+}
+
+.shelfDone {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--shelf-good);
+}
+
+.shelfDone.isFlash {
+  animation: shelfFlash 1.2s ease-out;
+}
+
+@keyframes shelfFlash {
+  0% {
+    fill: #fff;
+    font-size: 14px;
+  }
+  30% {
+    fill: var(--shelf-good);
+  }
+  100% {
+    fill: var(--shelf-good);
+    font-size: 11px;
+  }
+}
+
+.shelfLfsrRegs {
+  min-width: 220px;
+  flex: 1 1 240px;
+}
+
+.shelfVerdict {
+  display: inline-block;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+}
+
+.shelfVerdict.isGood {
+  color: var(--shelf-good);
+  background: #e6f4ea;
+}
+
+.shelfVerdict.isWarn {
+  color: var(--shelf-warn);
+  background: #fef7e0;
+}
+
+/* CLA race */
+
+.shelfClaRow {
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  margin: 4px 0;
+  flex-wrap: wrap;
+}
+
+.shelfClaLabel {
+  width: 74px;
+  font-size: 12px;
+  color: var(--shelf-muted);
+  padding-bottom: 6px;
+}
+
+.shelfClaCarry {
+  display: inline-block;
+  opacity: 0.55;
+  transition: opacity 0.2s;
+}
+
+.shelfClaCarry.isReady {
+  opacity: 1;
+}
+
+.shelfRace {
+  margin-top: 10px;
+  border: 1px solid var(--shelf-line);
+  border-radius: 6px;
+  padding: 8px 12px;
+  background: var(--shelf-panel);
+}
+
+.shelfRaceHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.shelfRaceLane {
+  border-top: 1px solid var(--shelf-line);
+  padding: 6px 0;
+}
+
+/* Gray wheel */
+
+.shelfWheel {
+  max-width: 260px;
+  flex: 0 0 auto;
+}
+
+.shelfSector {
+  cursor: pointer;
+}
+
+.shelfSectorPath {
+  fill: #fff;
+  stroke: var(--shelf-line);
+  transition: fill 0.25s;
+}
+
+.shelfSector:hover .shelfSectorPath {
+  fill: var(--shelf-panel);
+}
+
+.shelfSector.isCurrent .shelfSectorPath {
+  fill: var(--shelf-accent-soft);
+  stroke: var(--shelf-accent);
+}
+
+.shelfSectorGray {
+  font-size: 8.5px;
+}
+
+.shelfPointer {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.shelfPointerLine {
+  stroke: var(--shelf-ink);
+  stroke-width: 2;
+}
+
+.shelfPointerTip {
+  fill: var(--shelf-accent);
+}
+
+.shelfPointerHub {
+  fill: var(--shelf-ink);
+}
+
+.shelfChain {
+  font-size: 12px;
+  margin: 6px 0;
+  color: #3c4043;
+}
+
+/* Scopes */
+
+.shelfScope {
+  width: 100%;
+  height: 96px;
+  border: 1px solid var(--shelf-line);
+  border-radius: 6px;
+  background: #fff;
+  display: block;
+}
+
+.shelfScopeSvg {
+  max-width: 100%;
+  border: 1px solid var(--shelf-line);
+  border-radius: 6px;
+}
+
+.shelfTrace {
+  fill: none;
+  stroke: var(--shelf-ink);
+  stroke-width: 1.5;
+}
+
+.shelfTrace.isAccent {
+  stroke: var(--shelf-accent);
+  stroke-width: 2;
+}
+
+.shelfLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 11px;
+  margin: 4px 0;
+}
+
+/* Counter */
+
+.shelfCounter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  align-items: flex-start;
+}
+
+.shelfCounterClk {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+
+.shelfCounterRegs {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shelfClkLamp {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--shelf-line);
+  background: #fff;
+  transition: background-color 0.15s;
+}
+
+.shelfClkLamp.isOn {
+  background: var(--shelf-accent);
+  border-color: var(--shelf-accent);
+}
+
+.shelfCounterBig {
+  font-size: 30px;
+  font-weight: 700;
+  animation: shelfPop 0.3s ease-out;
+}
+
+@keyframes shelfPop {
+  from {
+    color: var(--shelf-accent);
+  }
+  to {
+    color: var(--shelf-ink);
+  }
+}
+
+/* Johnson ring */
+
+.shelfJohnson {
+  max-width: 230px;
+  flex: 0 0 auto;
+}
+
+.shelfFf {
+  fill: #fff;
+  stroke: var(--shelf-line);
+  stroke-width: 1.5;
+  transition: fill 0.25s;
+}
+
+.shelfFf.isOn {
+  fill: var(--shelf-accent);
+  stroke: var(--shelf-accent);
+}
+
+.shelfInvert {
+  fill: #fff;
+  stroke: var(--shelf-ink);
+}
+
+.shelfSeq {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin: 6px 0;
+}
+
+.shelfSeqItem {
+  font-size: 11px;
+  padding: 1px 6px;
+  border: 1px solid var(--shelf-line);
+  border-radius: 4px;
+  color: var(--shelf-muted);
+}
+
+.shelfSeqItem.isCurrent {
+  color: #fff;
+  background: var(--shelf-ink);
+  border-color: var(--shelf-ink);
+}
+
+/* Three styles */
+
+.shelfStyles {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.shelfStyleCol {
+  border: 1px solid var(--shelf-line);
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: var(--shelf-panel);
+}
+
+.shelfStyleHead {
+  font-weight: 700;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.shelfPulseBits .shelfBit.isOn {
+  animation: shelfLight 0.4s ease-out;
+}
+
+@keyframes shelfLight {
+  from {
+    box-shadow: 0 0 0 4px var(--shelf-accent-soft);
+  }
+  to {
+    box-shadow: 0 0 0 0 transparent;
+  }
+}
+
+.shelfTruth {
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.shelfTruth th,
+.shelfTruth td {
+  border: 1px solid var(--shelf-line);
+  padding: 2px 10px;
+  text-align: center;
+}
+
+.shelfTruth th {
+  background: var(--shelf-panel);
+  font-weight: 700;
+}
+
+.shelfTruth tbody tr {
+  cursor: pointer;
+}
+
+.shelfTruth tr.isCurrent td {
+  background: var(--shelf-accent-soft);
+  font-weight: 700;
+}
+
+/* Convolutional encoder */
+
+.shelfXor {
+  fill: #fff;
+  stroke: var(--shelf-ink);
+  stroke-width: 1.5;
+}
+
+/* RTL pane */
+
+.shelfRtl {
+  border: 1px solid var(--shelf-line);
+  border-radius: 8px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.shelfTabs {
+  padding-top: 6px;
+}
+
+.shelfCode {
+  max-height: 34rem;
+  overflow: auto;
+}
+
+.shelfCode pre {
+  white-space: pre;
+}
+
+.shelfCode .line {
+  display: block;
+  white-space: pre;
+}
+
+/* bench list */
+
+.shelfBenchList {
+  margin-top: 12px;
+}
+
+.shelfBenchRow {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 12px;
+  margin: 3px 0;
+  flex-wrap: wrap;
+}
+
+.shelfBenchTitle {
+  font-weight: 700;
+}
+
+.shelfBenchSummary {
+  color: var(--shelf-muted);
+  font-size: 11px;
+}
+
+/* ---------- responsive & motion ---------- */
+
+@media (max-width: 860px) {
+  .shelfOpen {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .shelfStyles {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shelf * {
+    animation: none !important;
+    transition: none !important;
+  }
+}

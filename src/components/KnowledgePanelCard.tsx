@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { resolveHref } from "@/lib/types";
+import { resolveHref, isExternalUrl } from "@/lib/types";
 import type { SiteManifest } from "@/lib/types";
 
 interface KnowledgePanelCardProps {
@@ -11,7 +11,7 @@ export default function KnowledgePanelCard({ manifest }: KnowledgePanelCardProps
   const type = panel?.type || "Project on David's Internet";
   const facts = Object.entries(panel?.facts ?? {});
   const visitHref = resolveHref(manifest, "/");
-  const isLive = Boolean(manifest.liveUrl);
+  const isLive = isExternalUrl(manifest.liveUrl);
 
   return (
     <aside className="kp" aria-label={`About ${manifest.displayName}`}>

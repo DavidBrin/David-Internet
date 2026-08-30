@@ -12,6 +12,7 @@ import fakePhone from "@content/fake-phone/site";
 import bet from "@content/bet/site";
 import dollarPixels from "@content/dollar-pixels/site";
 import notion from "@content/notion/site";
+import verilog from "@content/verilog/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -21,6 +22,7 @@ export const manifests: SiteManifest[] = [
   bet,
   dollarPixels,
   notion,
+  verilog,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

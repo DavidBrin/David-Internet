@@ -5,7 +5,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { SearchDoc, SiteManifest } from "./types";
-import { resolveHref, displayUrlFor } from "./types";
+import { resolveHref, displayUrlFor, isExternalUrl } from "./types";
 import { manifests } from "./manifests";
 
 /** Where `pnpm sync-content` drops the vendored markdown. */
@@ -100,7 +100,7 @@ function homeDoc(m: SiteManifest): SearchDoc {
     keywords: [...m.keywords, m.displayName, m.project],
     favicon: m.favicon,
     accentColor: m.accentColor,
-    external: !!m.liveUrl,
+    external: isExternalUrl(m.liveUrl),
   };
 }
 
@@ -117,7 +117,7 @@ function deepLinkDocs(m: SiteManifest): SearchDoc[] {
     keywords: [...dl.keywords, ...m.keywords],
     favicon: m.favicon,
     accentColor: m.accentColor,
-    external: !!m.liveUrl,
+    external: isExternalUrl(m.liveUrl),
   }));
 }
 

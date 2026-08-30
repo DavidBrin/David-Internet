@@ -1,0 +1,142 @@
+{
+ "generatedAt": "2026-08-30T08:59:28.639Z",
+ "tool": "Icarus Verilog version 11.0 (stable) ()",
+ "benches": [
+  {
+   "id": "decoder",
+   "title": "2-to-4 decoder (gate / dataflow / behavioral)",
+   "hw": "hw1",
+   "status": "pass",
+   "summary": "passed (8 lines of output, 145 ms)",
+   "wallMs": 145
+  },
+  {
+   "id": "fulladder",
+   "title": "Full adder (gate / dataflow / behavioral)",
+   "hw": "hw1",
+   "status": "pass",
+   "summary": "passed (16 lines of output, 83 ms)",
+   "wallMs": 83
+  },
+  {
+   "id": "mux",
+   "title": "2x1 mux (gate / dataflow / behavioral)",
+   "hw": "hw1",
+   "status": "pass",
+   "summary": "passed (16 lines of output, 105 ms)",
+   "wallMs": 105
+  },
+  {
+   "id": "alu",
+   "title": "16-bit MIPS-style ALU (alu_enum.sv)",
+   "hw": "hw2",
+   "status": "pass",
+   "summary": "passed (13 lines of output, 86 ms)",
+   "wallMs": 86
+  },
+  {
+   "id": "alu4",
+   "title": "4-bit registered ALU (alu_top)",
+   "hw": "hw2",
+   "status": "pass",
+   "summary": "passed (54 lines of output, 93 ms)",
+   "wallMs": 93
+  },
+  {
+   "id": "counter",
+   "title": "4-bit counter",
+   "hw": "hw2",
+   "status": "pass",
+   "summary": "passed (95 lines of output, 90 ms)",
+   "wallMs": 90
+  },
+  {
+   "id": "johnson",
+   "title": "Johnson counter (n=4, loadable)",
+   "hw": "hw3",
+   "status": "pass",
+   "summary": "passed (49 lines of output, 89 ms)",
+   "wallMs": 89
+  },
+  {
+   "id": "barrel",
+   "title": "8-bit barrel shifter (behavioral)",
+   "hw": "hw4",
+   "status": "pass",
+   "summary": "passed (4096 lines of output, 98 ms)",
+   "wallMs": 98
+  },
+  {
+   "id": "barrel-mux",
+   "title": "8-bit barrel shifter (three mux stages)",
+   "hw": "hw4",
+   "status": "pass",
+   "summary": "passed (4096 lines of output, 171 ms)",
+   "wallMs": 171
+  },
+  {
+   "id": "lfsr",
+   "title": "LFSR N=6 (provided checker)",
+   "hw": "hw5",
+   "status": "pass",
+   "summary": "passed (281 lines of output, 110 ms)",
+   "wallMs": 110
+  },
+  {
+   "id": "lfsr-autograder",
+   "title": "LFSR N=3 (autograder)",
+   "hw": "hw5",
+   "status": "pass",
+   "summary": "passed (2 lines of output, 93 ms)",
+   "wallMs": 93
+  },
+  {
+   "id": "lfsr-sweep",
+   "title": "LFSR N=2..8 period sweep",
+   "hw": "hw5",
+   "status": "pass",
+   "summary": "passed (7 lines of output, 97 ms)",
+   "wallMs": 97
+  },
+  {
+   "id": "gray",
+   "title": "Gray-to-binary converter (N=16)",
+   "hw": "hw6",
+   "status": "pass",
+   "summary": "passed (16 lines of output, 94 ms)",
+   "wallMs": 94
+  },
+  {
+   "id": "cla",
+   "title": "32-bit carry-lookahead adder",
+   "hw": "hw6",
+   "status": "pass",
+   "summary": "passed (0 lines of output, 115 ms)",
+   "wallMs": 115
+  },
+  {
+   "id": "clkdiv",
+   "title": "Clock divide-by-N (N=4)",
+   "hw": "hw6",
+   "status": "pass",
+   "summary": "passed (0 lines of output, 91 ms)",
+   "wallMs": 91
+  },
+  {
+   "id": "convenc",
+   "title": "Rate-1/2 convolutional encoder (N=4)",
+   "hw": "hw7",
+   "status": "pass",
+   "summary": "passed (86 lines of output, 91 ms)",
+   "wallMs": 91
+  },
+  {
+   "id": "uart",
+   "title": "UART tx -> rx loopback (16 clks/bit)",
+   "hw": "hw8",
+   "status": "pass",
+   "summary": "passed (4 lines of output, 163 ms)",
+   "wallMs": 163
+  }
+ ]
+}

@@ -1,0 +1,250 @@
+[
+  {
+    "id": "decoder",
+    "title": "2-to-4 decoder (gate / dataflow / behavioral)",
+    "hw": "hw1",
+    "files": [
+      "hw1/decoder_2to4_gate.sv",
+      "hw1/decoder_2to4_dataflow.sv",
+      "hw1/decoder_2to4_behavioral.sv",
+      "hw1/decoder.sv",
+      "hw1/decoder_2to4_testbench.sv"
+    ],
+    "top": "decoder_2to4_testbench",
+    "check": {
+      "mustMatch": "(?:AGREE(?:(?!AGREE)[\\s\\S])*){4}",
+      "mustNotMatch": "MISMATCH"
+    }
+  },
+  {
+    "id": "fulladder",
+    "title": "Full adder (gate / dataflow / behavioral)",
+    "hw": "hw1",
+    "files": [
+      "hw1/fulladder_gate.sv",
+      "hw1/fulladder_dataflow.sv",
+      "hw1/fulladder_behavioral.sv",
+      "hw1/fulladder.sv",
+      "hw1/fulladder_testbench.sv"
+    ],
+    "top": "fulladder_testbench",
+    "check": {
+      "mustMatch": "(?:AGREE(?:(?!AGREE)[\\s\\S])*){8}",
+      "mustNotMatch": "MISMATCH"
+    }
+  },
+  {
+    "id": "mux",
+    "title": "2x1 mux (gate / dataflow / behavioral)",
+    "hw": "hw1",
+    "files": [
+      "hw1/mux_2x1_gate.sv",
+      "hw1/mux_2x1_dataflow.sv",
+      "hw1/mux_2x1_behavioral.sv",
+      "hw1/mux_2x1.sv",
+      "hw1/mux_2x1_testbench.sv"
+    ],
+    "top": "mux_2x1_testbench",
+    "check": {
+      "mustMatch": "(?:AGREE(?:(?!AGREE)[\\s\\S])*){6}",
+      "mustNotMatch": "MISMATCH"
+    }
+  },
+  {
+    "id": "alu",
+    "title": "16-bit MIPS-style ALU (alu_enum.sv)",
+    "hw": "hw2",
+    "files": [
+      "hw2/mips_16_defs.sv",
+      "hw2/alu_enum.sv",
+      "hw2/alu_enum_testbench.sv"
+    ],
+    "top": "alu_enum_testbench",
+    "check": {
+      "mustMatch": "alu_e: 12 passed, 0 failed",
+      "mustNotMatch": "FAIL"
+    }
+  },
+  {
+    "id": "alu4",
+    "title": "4-bit registered ALU (alu_top)",
+    "hw": "hw2",
+    "files": [
+      "hw2/alu.sv",
+      "hw2/alu_top.sv",
+      "hw2/alu_top_testbench.sv"
+    ],
+    "top": "alu_top_testbench",
+    "check": {
+      "mustMatch": "operation=0, operand1= 0, operand2= 1, result= 1[\\s\\S]*operation=1, operand1= 1, operand2= 1, result= 0[\\s\\S]*operation=2, operand1= 1, operand2= 1, result= 1[\\s\\S]*operation=3, operand1= 1, operand2= 0, result= 1",
+      "mustNotMatch": "reset=0[^\\n]*result= *[xz]"
+    }
+  },
+  {
+    "id": "counter",
+    "title": "4-bit counter",
+    "hw": "hw2",
+    "files": [
+      "hw2/counter_4bit.sv",
+      "hw2/counter_4bit_testbench.sv"
+    ],
+    "top": "counter_4bit_testbench",
+    "check": {
+      "mustMatch": "count=15\\s[\\s\\S]*?count= 0[\\s\\S]*clear=1  clk=[01]  count= 0[\\s\\S]*count=10",
+      "mustNotMatch": "count= *[xz]"
+    }
+  },
+  {
+    "id": "johnson",
+    "title": "Johnson counter (n=4, loadable)",
+    "hw": "hw3",
+    "files": [
+      "hw3/johnson_counter.sv",
+      "hw3/johnson_counter_testbench.sv"
+    ],
+    "top": "johnson_counter_testbench",
+    "check": {
+      "mustMatch": "(?:Y  [01]{4}\\s+){49}",
+      "mustNotMatch": "NOPE"
+    }
+  },
+  {
+    "id": "barrel",
+    "title": "8-bit barrel shifter (behavioral)",
+    "hw": "hw4",
+    "files": [
+      "hw4/barrel_shifter.sv",
+      "hw4/8bits_barrel_shifter_testbench.sv"
+    ],
+    "top": "barrel_shifter_testbench3",
+    "check": {
+      "expectFile": "hw4/rslt_expected.txt",
+      "mustNotMatch": "dout=[01]*[xz]"
+    }
+  },
+  {
+    "id": "barrel-mux",
+    "title": "8-bit barrel shifter (three mux stages)",
+    "hw": "hw4",
+    "files": [
+      "hw4/barrel_shifter_mux_stages.sv",
+      "hw4/8bits_barrel_shifter_testbench.sv"
+    ],
+    "top": "barrel_shifter_testbench3",
+    "check": {
+      "expectFile": "hw4/rslt_expected.txt",
+      "mustNotMatch": "dout=[01]*[xz]"
+    }
+  },
+  {
+    "id": "lfsr",
+    "title": "LFSR N=6 (provided checker)",
+    "hw": "hw5",
+    "files": [
+      "hw5/lfsr.sv",
+      "hw5/lfsr_testbench.sv"
+    ],
+    "top": "lfsr_testbench",
+    "check": {
+      "mustMatch": "dif=\\s*63\\s+SUCCESS!!!"
+    }
+  },
+  {
+    "id": "lfsr-autograder",
+    "title": "LFSR N=3 (autograder)",
+    "hw": "hw5",
+    "files": [
+      "hw5/lfsr.sv",
+      "hw5/lfsr_autograder_testbench.sv"
+    ],
+    "top": "lfsr_testbench3",
+    "check": {
+      "mustMatch": "Testbench done: passed (\\d+) of \\1\\b",
+      "mustNotMatch": "Error @"
+    }
+  },
+  {
+    "id": "lfsr-sweep",
+    "title": "LFSR N=2..8 period sweep",
+    "hw": "hw5",
+    "files": [
+      "hw5/lfsr.sv",
+      "hw5/lfsr_sweep_testbench.sv"
+    ],
+    "top": "lfsr_sweep_testbench",
+    "check": {
+      "mustMatch": "(?:N=\\d period=\\d+ MAXIMAL\\s+){7}",
+      "mustNotMatch": "SHORT"
+    }
+  },
+  {
+    "id": "gray",
+    "title": "Gray-to-binary converter (N=16)",
+    "hw": "hw6",
+    "files": [
+      "hw6/gray_code_to_binary_convertor.sv",
+      "hw6/gray_code_to_binary_convertor_testbench.sv"
+    ],
+    "top": "gray_to_binary_convertor_testbench",
+    "check": {
+      "mustMatch": "(?:YAA!(?:(?!YAA!)[\\s\\S])*){16}",
+      "mustNotMatch": "RATS"
+    }
+  },
+  {
+    "id": "cla",
+    "title": "32-bit carry-lookahead adder",
+    "hw": "hw6",
+    "files": [
+      "hw6/carry_lookahead_adder.sv",
+      "hw6/carry_lookahead_adder_testbench.sv"
+    ],
+    "top": "carry_lookahead_adder_testbench",
+    "check": {
+      "mustNotMatch": "doesn't add up"
+    }
+  },
+  {
+    "id": "clkdiv",
+    "title": "Clock divide-by-N (N=4)",
+    "hw": "hw6",
+    "files": [
+      "hw6/clock_div_by_N.sv",
+      "hw6/clock_divide_by_N_testbench.sv"
+    ],
+    "top": "clock_divide_by_N_testbench",
+    "check": {
+      "mustNotMatch": "error at time"
+    }
+  },
+  {
+    "id": "convenc",
+    "title": "Rate-1/2 convolutional encoder (N=4)",
+    "hw": "hw7",
+    "files": [
+      "hw7/conv_enc.sv",
+      "hw7/conv_enc_tb.sv"
+    ],
+    "top": "conv_enc_tb",
+    "check": {
+      "mustMatch": "(?:YAA!(?:(?!YAA!)[\\s\\S])*){86}",
+      "mustNotMatch": "DAMN"
+    }
+  },
+  {
+    "id": "uart",
+    "title": "UART tx -> rx loopback (16 clks/bit)",
+    "hw": "hw8",
+    "files": [
+      "hw8/uart_tx.sv",
+      "hw8/uart_rx.sv",
+      "hw8/uart_top.sv",
+      "hw8/uart_top_testbench.sv"
+    ],
+    "top": "uart_top_testbench",
+    "check": {
+      "mustMatch": "(?:Test Passed(?:(?!Test Passed)[\\s\\S])*){4}",
+      "mustNotMatch": "Test Error"
+    }
+  }
+]

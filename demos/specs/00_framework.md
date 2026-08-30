@@ -67,7 +67,7 @@ Out of scope · Open/Resolved questions.
 | 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
 | 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | none |
 | 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | resolved: simple schematic house; iteration unnamed |
-| 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | none (install iverilog at build) |
+| 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | none |
 | 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | resolved: retrain if no checkpoints on disk/GitHub; micro-CT when cleared; bbox skipped |
 | 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | resolved: try group repo, else arXiv/Kaggle; no per-person split |

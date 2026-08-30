@@ -1,0 +1,264 @@
+/* Verilog demo — Viterbi panels. Module-shelf styles live in shelf/shelf.css. */
+
+.vitSplit {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(280px, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 1100px) {
+  .vitSplit {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.vitBitsInput {
+  width: 22rem;
+  max-width: 50vw;
+  font-size: 12px;
+  padding: 3px 6px;
+  border: 1px solid var(--demo-line);
+  border-radius: 4px;
+}
+
+.vitSpeed {
+  margin-left: 4px;
+  padding: 3px 8px;
+}
+
+.vitStat {
+  color: var(--demo-muted);
+}
+
+.vitStat b {
+  color: var(--demo-ink);
+}
+
+.vitCanvasWrap,
+.waveCanvasWrap {
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 6px;
+}
+
+.waveCanvasWrap {
+  cursor: crosshair;
+  user-select: none;
+}
+
+.vitCanvasWrap canvas,
+.waveCanvasWrap canvas {
+  display: block;
+}
+
+.vitLegend {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #4d5156;
+}
+
+.vitLegend summary {
+  cursor: pointer;
+  color: var(--demo-muted);
+}
+
+.vitLegend p {
+  margin: 6px 0 0;
+  line-height: 1.5;
+}
+
+/* ---- RTL pane ---- */
+
+.rtlPane {
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.rtlTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 6px 6px 0;
+  background: var(--demo-panel);
+  border-bottom: 1px solid var(--demo-line);
+}
+
+.rtlTab {
+  border: 1px solid transparent;
+  border-bottom: 0;
+  background: transparent;
+  border-radius: 6px 6px 0 0;
+  padding: 5px 8px;
+  font-size: 11.5px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  cursor: pointer;
+  color: var(--demo-muted);
+}
+
+.rtlTab.isLive {
+  color: var(--demo-accent);
+}
+
+.rtlTab.isActive {
+  background: #fff;
+  border-color: var(--demo-line);
+  color: var(--demo-ink);
+  font-weight: 700;
+}
+
+.rtlNote {
+  padding: 6px 10px 0;
+  margin: 0;
+}
+
+.rtlCode {
+  max-height: 520px;
+  overflow: auto;
+  font-size: 11.5px;
+  line-height: 1.45;
+  padding: 6px 0 10px;
+}
+
+.rtlLine {
+  display: flex;
+  white-space: pre;
+  padding: 0 10px 0 0;
+}
+
+.rtlLine.isHi {
+  background: #e6f6fd;
+  box-shadow: inset 3px 0 0 var(--demo-accent);
+}
+
+.rtlNo {
+  flex: 0 0 3em;
+  text-align: right;
+  padding-right: 1em;
+  color: #b0b4b9;
+  user-select: none;
+}
+
+.rtlText {
+  color: var(--demo-ink);
+}
+
+/* ---- waves ---- */
+
+.waveValues {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  font-size: 11.5px;
+  color: var(--demo-muted);
+  margin-top: 6px;
+}
+
+.waveValues b {
+  color: var(--demo-ink);
+}
+
+/* ---- results ---- */
+
+.vitResults {
+  margin-top: 14px;
+}
+
+.vitTable {
+  border-collapse: collapse;
+  font-size: 13px;
+  width: 100%;
+  max-width: 44rem;
+}
+
+.vitTable th,
+.vitTable td {
+  text-align: left;
+  padding: 5px 10px;
+  border-bottom: 1px solid #f1f3f4;
+}
+
+.vitTable th {
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--demo-muted);
+  font-weight: 700;
+}
+
+.vitBadge {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.vitBadge.is-pass {
+  background: #e6f4ea;
+  color: #188038;
+}
+
+.vitBadge.is-fail {
+  background: #fce8e6;
+  color: #d93025;
+}
+
+.vitBadge.is-error {
+  background: #fef7e0;
+  color: #b06000;
+}
+
+.vitSweep {
+  margin-top: 10px;
+}
+
+.vitSweepRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 12.5px;
+  margin: 4px 0;
+}
+
+.vitSweepLabel {
+  width: 9.5rem;
+  color: var(--demo-muted);
+}
+
+.vitSweepCell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 22px;
+  padding: 0 4px;
+  border-radius: 4px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+.vitSweepCell.is-pass {
+  background: #e6f4ea;
+  color: #188038;
+}
+
+.vitSweepCell.is-fail {
+  background: #fce8e6;
+  color: #d93025;
+}
+
+.vitSweepCell.is-error {
+  background: #fef7e0;
+  color: #b06000;
+}
+
+.vitSweepNote {
+  margin-left: 8px;
+  color: var(--demo-muted);
+}

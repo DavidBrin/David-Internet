@@ -66,6 +66,16 @@ export interface SiteManifest {
   knowledgePanel?: KnowledgePanel;
   /** Which vendored markdown docs exist under content/<project>/. */
   docs: { readme: boolean; spec: boolean; decisions: boolean };
+  /**
+   * "replica" (default): a vendored external project. "demo": an interactive page that
+   * lives inside this repo at /demos/<project>; liveUrl is then that internal route.
+   */
+  kind?: "replica" | "demo";
+}
+
+/** true when a manifest's liveUrl leaves David's Internet (http/https) rather than an internal route. */
+export function isExternalUrl(url: string | null | undefined): boolean {
+  return !!url && /^https?:\/\//i.test(url);
 }
 
 export type SearchDocKind = "home" | "deeplink" | "docs" | "decisions" | "about";
