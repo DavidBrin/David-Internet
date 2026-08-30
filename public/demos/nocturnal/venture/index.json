@@ -1,0 +1,20 @@
+{
+ "bmc": {
+  "file": "venture/bmc.webp",
+  "width": 1400,
+  "height": 788,
+  "bytes": 122254
+ },
+ "vpc": {
+  "file": "venture/vpc.webp",
+  "width": 1400,
+  "height": 991,
+  "bytes": 72538
+ },
+ "empathy": {
+  "file": "venture/empathy.webp",
+  "width": 1400,
+  "height": 906,
+  "bytes": 122204
+ }
+}

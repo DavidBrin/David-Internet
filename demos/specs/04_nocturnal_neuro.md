@@ -1,7 +1,7 @@
 # 04 — Nocturnal Neuro: From Board to Brainwave (Nov 2024 – Feb 2025)
 
 Slug: `nocturnal` · Fake domain: `nocturnal.davids.net` · Archetype: **C (gallery/3-D) + A (interactive)** + Venture strip
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-08-30** (`/demos/nocturnal`; prep in `scripts/demos/nocturnal.ts` + `nocturnal_prep.py`, assets committed under `public/demos/nocturnal/`, 2.5 MB — EEG shipped at 250 Hz rather than 125 so the downsample step has something to do).
 
 ## Summary
 

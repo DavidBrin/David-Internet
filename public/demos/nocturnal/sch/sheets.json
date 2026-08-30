@@ -1,0 +1,34 @@
+[
+ {
+  "key": "root",
+  "title": "Ganglion — main sheet",
+  "file": "sch/root.svg",
+  "viewBox": "0 0 431.8 279.4",
+  "source": "Ganglion_PCB.kicad_sch",
+  "bytes": 537029
+ },
+ {
+  "key": "references",
+  "title": "Input voltage references",
+  "file": "sch/references.svg",
+  "viewBox": "0 0 297 210.01",
+  "source": "References.kicad_sch",
+  "bytes": 64456
+ },
+ {
+  "key": "tvs",
+  "title": "Input protection (TVS)",
+  "file": "sch/tvs.svg",
+  "viewBox": "0 0 203.2 127",
+  "source": "TVS.kicad_sch",
+  "bytes": 29771
+ },
+ {
+  "key": "sensors",
+  "title": "Sensors & switches",
+  "file": "sch/sensors.svg",
+  "viewBox": "0 0 297 210.01",
+  "source": "Ganglion_Sensors_01.kicad_sch",
+  "bytes": 182254
+ }
+]

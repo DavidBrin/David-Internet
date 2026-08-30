@@ -1,0 +1,267 @@
+/* Brainwave lab — nnE-* */
+
+.nnE-grid {
+  display: grid;
+  grid-template-columns: 300px minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .nnE-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.nnE-left {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nnE-card h4 {
+  margin: 0 0 6px;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--demo-muted);
+}
+
+/* ---- head map ---- */
+
+.nnE-head {
+  width: 100%;
+  max-width: 280px;
+  display: block;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.nnE-headOutline {
+  fill: #fff;
+  stroke: var(--demo-ink);
+  stroke-width: 0.025;
+}
+
+.nnE-electrode {
+  cursor: pointer;
+}
+
+.nnE-electrode circle {
+  fill: #fff;
+  stroke: var(--demo-ink);
+  stroke-width: 0.02;
+  transition: fill 120ms;
+}
+
+.nnE-electrode text {
+  font: 700 0.11px Arial, Helvetica, sans-serif;
+  text-anchor: middle;
+  dominant-baseline: central;
+  fill: var(--demo-ink);
+  pointer-events: none;
+}
+
+.nnE-electrode:hover circle {
+  stroke-width: 0.035;
+}
+
+.nnE-electrode.isBad circle {
+  fill: none;
+  stroke: #9aa0a6;
+  stroke-dasharray: 0.04 0.03;
+}
+
+.nnE-electrode.isBad text {
+  fill: #9aa0a6;
+}
+
+.nnE-electrode.isA circle,
+.nnE-electrode.isB circle {
+  stroke: none;
+}
+
+.nnE-electrode.isA text,
+.nnE-electrode.isB text {
+  fill: #fff;
+}
+
+.nnE-electrode.isBad.isA circle,
+.nnE-electrode.isBad.isB circle {
+  stroke: #202124;
+  stroke-dasharray: 0.04 0.03;
+  stroke-width: 0.03;
+}
+
+.nnE-hover {
+  min-height: 1.4em;
+  font-size: 12px;
+  color: var(--demo-muted);
+  margin: 4px 0 0;
+  text-align: center;
+}
+
+.nnE-hover b {
+  color: var(--demo-ink);
+}
+
+.nnE-legend {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--demo-muted);
+  margin-top: 4px;
+}
+
+.nnE-swatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  vertical-align: -1px;
+  margin-right: 4px;
+}
+
+.nnE-swatch.isBad {
+  border: 1px dashed #9aa0a6;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+/* ---- pipeline ---- */
+
+.nnE-pipeline {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.nnE-pipeline label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.nnE-pipeline input {
+  margin-top: 3px;
+}
+
+.nnE-pipeline small {
+  display: block;
+  color: var(--demo-muted);
+  font-size: 11px;
+}
+
+.nnE-step {
+  display: inline-block;
+  width: 1.4em;
+  color: var(--demo-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---- canvases ---- */
+
+.nnE-canvasWrap {
+  position: relative;
+  width: 100%;
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.nnE-canvasWrap canvas {
+  display: block;
+  width: 100%;
+}
+
+.nnE-inset {
+  height: 130px;
+}
+
+.nnE-coh {
+  height: 220px;
+}
+
+.nnE-viewer {
+  cursor: default;
+}
+
+.nnE-viewerBar .nnE-time {
+  font-variant-numeric: tabular-nums;
+  min-width: 5.5em;
+}
+
+.nnE-viewerBar input[type="range"] {
+  width: 200px;
+}
+
+.nnE-gain {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nnE-gain .demoBtn {
+  padding: 2px 8px;
+}
+
+.nnE-gain span {
+  font-variant-numeric: tabular-nums;
+  min-width: 7em;
+  color: var(--demo-muted);
+}
+
+.nnE-cohHead {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 14px 0 6px;
+}
+
+.nnE-cohHead h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.nnE-cohHead span {
+  font-size: 12px;
+  color: var(--demo-muted);
+}
+
+.nnE-cohSummary {
+  margin: 6px 0 0;
+  font-size: 13px;
+}
+
+.nnE-empty {
+  border: 1px dashed var(--demo-line);
+  border-radius: 6px;
+  padding: 18px;
+  margin-top: 14px;
+  text-align: center;
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+
+/* ---- notes + code ---- */
+
+.nnE-code {
+  margin: 12px 0 0;
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  background: var(--demo-panel);
+  padding: 10px 12px;
+  font-size: 12px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+
+.nnE-codeTitle {
+  font: 700 12px Arial, Helvetica, sans-serif;
+  margin: 12px 0 0;
+}

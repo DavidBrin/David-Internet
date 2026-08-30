@@ -1,0 +1,234 @@
+/* Nocturnal Neuro — schematic tour (nnS-*) */
+
+.nnS-root {
+  min-width: 0;
+}
+
+.nnS-split {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr);
+  gap: 14px;
+  align-items: stretch;
+}
+
+@media (max-width: 1000px) {
+  .nnS-split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* ---------- viewport ---------- */
+
+.nnS-viewport {
+  position: relative;
+  height: 480px;
+  border: 1px solid var(--demo-line);
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f8f9fa;
+  cursor: grab;
+  user-select: none;
+  touch-action: none;
+}
+
+.nnS-viewport:active {
+  cursor: grabbing;
+}
+
+.nnS-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--demo-muted);
+  font-size: 13px;
+}
+
+.nnS-world {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform-origin: 0 0;
+}
+
+.nnS-world.isAnimating {
+  transition: transform 600ms cubic-bezier(0.22, 0.7, 0.2, 1);
+}
+
+.nnS-sheet {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.18);
+}
+
+.nnS-sheet svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+/* ---------- hotspot overlay ---------- */
+
+.nnS-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.nnS-spotBox {
+  fill: rgba(26, 115, 232, 0.05);
+  stroke: rgba(26, 115, 232, 0.65);
+  stroke-width: 1.4px;
+  stroke-dasharray: 6 4;
+  vector-effect: non-scaling-stroke;
+  animation: nnS-breathe 2.4s ease-in-out infinite;
+}
+
+.nnS-spot.isActive .nnS-spotBox {
+  fill: rgba(26, 115, 232, 0.1);
+  stroke: #1a73e8;
+  stroke-dasharray: none;
+  animation: none;
+}
+
+@keyframes nnS-breathe {
+  0%,
+  100% {
+    stroke-opacity: 0.45;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+.nnS-marker {
+  pointer-events: all;
+  cursor: pointer;
+  transition: transform 600ms cubic-bezier(0.22, 0.7, 0.2, 1);
+  outline: none;
+}
+
+.nnS-markerDot {
+  fill: #1a73e8;
+  stroke: #fff;
+  stroke-width: 2;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+.nnS-marker:hover .nnS-markerDot,
+.nnS-marker:focus-visible .nnS-markerDot,
+.nnS-spot.isActive .nnS-markerDot {
+  fill: #174ea6;
+}
+
+.nnS-markerNum {
+  fill: #fff;
+  font: 700 12px Arial, Helvetica, sans-serif;
+  pointer-events: none;
+}
+
+/* ---------- zoom buttons + popover ---------- */
+
+.nnS-zoomBtns {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+.nnS-zoomBtns .demoBtn {
+  min-width: 32px;
+  padding: 3px 8px;
+}
+
+.nnS-pop {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: min(320px, 60%);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.16);
+  background: #fff;
+}
+
+.nnS-pop p {
+  margin: 4px 0 8px;
+}
+
+.nnS-popRefs {
+  font-size: 11.5px;
+  color: var(--demo-muted);
+  word-spacing: 6px;
+  overflow-wrap: anywhere;
+}
+
+.nnS-popClose {
+  float: right;
+  border: 0;
+  background: none;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--demo-muted);
+  padding: 0 2px;
+}
+
+.nnS-popClose:hover {
+  color: var(--demo-ink);
+}
+
+/* ---------- sidebar list ---------- */
+
+.nnS-list {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nnS-listHead {
+  margin: 0;
+  font-size: 12px;
+  color: var(--demo-muted);
+}
+
+.nnS-list ol {
+  margin: 0;
+  padding-left: 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.nnS-listItem {
+  width: 100%;
+  text-align: left;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: none;
+  padding: 4px 8px;
+  font-size: 12.5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.nnS-listItem:hover {
+  background: var(--demo-panel);
+}
+
+.nnS-listItem.isActive {
+  border-color: var(--demo-accent);
+  background: #e8f0fe;
+}
+
+.nnS-listItem .demoMono {
+  font-size: 11px;
+  color: var(--demo-muted);
+}

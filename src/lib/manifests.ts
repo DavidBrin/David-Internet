@@ -13,6 +13,7 @@ import bet from "@content/bet/site";
 import dollarPixels from "@content/dollar-pixels/site";
 import notion from "@content/notion/site";
 import verilog from "@content/verilog/site";
+import nocturnal from "@content/nocturnal/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -23,6 +24,7 @@ export const manifests: SiteManifest[] = [
   dollarPixels,
   notion,
   verilog,
+  nocturnal,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

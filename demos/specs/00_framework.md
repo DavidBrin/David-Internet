@@ -65,7 +65,7 @@ Out of scope · Open/Resolved questions.
 | 01 | Quantum Playground | `quantum` | quantum_information_qutip_raw | none |
 | 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | none |
 | 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
-| 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | none |
+| 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | **built 2026-08-30** — kicad-cli layer/sheet exports, EEG at 250 Hz, canvases; DSP cell completed |
 | 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | resolved: simple schematic house; iteration unnamed |
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | none |

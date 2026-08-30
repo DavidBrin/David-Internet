@@ -1,0 +1,131 @@
+{
+ "source": "HELLOworld (Cognionics headset, BrainVision export), David's own recording, 2024-12-06",
+ "fs": 250,
+ "originalFs": 500.0,
+ "samples": 15686,
+ "durationS": 62.744,
+ "layout": "int16 little-endian, channel-major (channels \u00d7 samples), value = raw \u00d7 scale \u00b5V",
+ "pipeline": "DC removed; FIR lowpass 125 Hz (Hamming, 0.2 s); scipy.signal.resample 500 \u2192 250 Hz",
+ "channels": [
+  {
+   "name": "F7",
+   "scale": 0.0486303448491251,
+   "impedanceKohm": 165,
+   "offsetMv": 7
+  },
+  {
+   "name": "Fp1",
+   "scale": 0.2969138265522503,
+   "impedanceKohm": 168,
+   "offsetMv": -193
+  },
+  {
+   "name": "Fp2",
+   "scale": 0.27944323526002024,
+   "impedanceKohm": 202,
+   "offsetMv": 3
+  },
+  {
+   "name": "F8",
+   "scale": 0.08459235637280157,
+   "impedanceKohm": 222,
+   "offsetMv": -79
+  },
+  {
+   "name": "F3",
+   "scale": 0.10918207675004277,
+   "impedanceKohm": 173,
+   "offsetMv": 12
+  },
+  {
+   "name": "Fz",
+   "scale": 0.06036298087347435,
+   "impedanceKohm": 111,
+   "offsetMv": 26
+  },
+  {
+   "name": "F4",
+   "scale": 0.10815937481783246,
+   "impedanceKohm": 166,
+   "offsetMv": 12
+  },
+  {
+   "name": "C3",
+   "scale": 0.5663514029794907,
+   "impedanceKohm": 1273,
+   "offsetMv": 25
+  },
+  {
+   "name": "Cz",
+   "scale": 0.18051176367810196,
+   "impedanceKohm": 47906,
+   "offsetMv": 569
+  },
+  {
+   "name": "P8",
+   "scale": 0.0433008699816973,
+   "impedanceKohm": 141,
+   "offsetMv": 19
+  },
+  {
+   "name": "P7",
+   "scale": 0.04802303586378558,
+   "impedanceKohm": 160,
+   "offsetMv": 13
+  },
+  {
+   "name": "Pz",
+   "scale": 0.04290660112339549,
+   "impedanceKohm": 155,
+   "offsetMv": 32
+  },
+  {
+   "name": "P4",
+   "scale": 0.11354373315819097,
+   "impedanceKohm": 192,
+   "offsetMv": 63
+  },
+  {
+   "name": "T3",
+   "scale": 0.38827553347455146,
+   "impedanceKohm": 38607,
+   "offsetMv": -36
+  },
+  {
+   "name": "P3",
+   "scale": 0.08456047271513925,
+   "impedanceKohm": 744,
+   "offsetMv": 40
+  },
+  {
+   "name": "O1",
+   "scale": 0.04656344879678821,
+   "impedanceKohm": 120,
+   "offsetMv": 11
+  },
+  {
+   "name": "O2",
+   "scale": 0.048297273010310726,
+   "impedanceKohm": 175,
+   "offsetMv": 20
+  },
+  {
+   "name": "C4",
+   "scale": 0.25329858450497933,
+   "impedanceKohm": 10588,
+   "offsetMv": 24
+  },
+  {
+   "name": "T4",
+   "scale": 0.051759156003063335,
+   "impedanceKohm": 59,
+   "offsetMv": 18
+  },
+  {
+   "name": "A2",
+   "scale": 0.33700771629028103,
+   "impedanceKohm": 43914,
+   "offsetMv": -320
+  }
+ ]
+}
