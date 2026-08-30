@@ -16,6 +16,9 @@ export default function Footer({ variant = "home", location = "San Diego, Califo
           <Link className="footer-link" href="/about">
             About
           </Link>
+          <Link className="footer-link" href="/path">
+            The Path
+          </Link>
           <Link className="footer-link" href="/how-this-works">
             How this works
           </Link>

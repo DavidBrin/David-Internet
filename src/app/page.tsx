@@ -37,6 +37,10 @@ export default function HomePage() {
         <div className="home-search">
           <SearchBox variant="home" docs={docs} autoFocus />
         </div>
+
+        <p className="home-river-link">
+          <Link href="/path">Follow the river →</Link>
+        </p>
       </main>
 
       <Footer variant="home" />
