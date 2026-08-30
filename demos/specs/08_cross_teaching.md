@@ -131,11 +131,13 @@ templates with David's solutions — shown as a progression, not claimed as orig
 - In-browser inference (ONNX Runtime Web) — ViT-B is ~350 MB; not worth it.
 - Training in the browser beyond the toy half-moon net.
 
-## Open questions (for David)
+## Resolved questions (2026-08-30)
 
-1. Do you still have the trained `checkpoints/` (saves GPU time at build), or should the
-   build script retrain?
-2. Micro-CT: when you get slices cleared, drop them in
+1. **Checkpoints:** not on this machine and not in David's public GitHub repos → the build
+   script retrains (small, CPU-tolerant config) — David: "if the checkpoints aren't on this
+   machine or in another github repo then I don't have them." (Build to verify both
+   places before retraining.)
+2. Micro-CT: slices still to be cleared; drop into
    `cross_teaching_segmentation_raw/microct/` (image + mask pairs); the build picks them
    up automatically.
-3. Stretch: build the never-done `head_bbox` detection head as a ladder card, or skip?
+3. `head_bbox` stretch: skip unless time allows at the end.

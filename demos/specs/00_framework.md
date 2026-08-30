@@ -56,7 +56,7 @@ No separate deployments, no backend — everything runs client-side in the stati
 `demos/specs/NN_<slug>.md` with: Summary · Source material (files used, what's third-party,
 what was incomplete) · Stage (panels, interactions, animations) · Story rail (narrative
 beats) · Source drawer · Data/assets to sync · Tech · Manifest fields · Attribution ·
-Out of scope · Open questions.
+Out of scope · Open/Resolved questions.
 
 ## Spec index (planning complete 2026-08-30)
 
@@ -66,17 +66,17 @@ Out of scope · Open questions.
 | 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | none |
 | 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
 | 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | none |
-| 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | house layout description; judged iteration |
+| 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | resolved: simple schematic house; iteration unnamed |
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | none (install iverilog at build) |
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | none |
-| 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | checkpoints?; micro-CT slices when cleared; bbox stretch |
-| 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | local snapshot/embeddings?; your part of the pipeline |
+| 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | resolved: retrain if no checkpoints on disk/GitHub; micro-CT when cleared; bbox skipped |
+| 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | resolved: try group repo, else arXiv/Kaggle; no per-person split |
 | 10 | SQL Playground | `sql` | dtu_databases_raw | none |
 | 11 | Computer Vision | `vision` | computer_vision_cse152_raw | none |
-| 12 | P300 Speller | `p300` | p300_speller_bci_raw | checkpoint for filters?; your piece in the ML team |
+| 12 | P300 Speller | `p300` | p300_speller_bci_raw | resolved: illustrative filters; "ML team, not UI" |
 | 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | none |
 | 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | none |
-| 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | add CSE 12 Java?; card dataset on disk? |
+| 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | resolved: CSE 12 added; card dataset checked at build |
 
 Build order suggestion: shared plumbing → 01 → 13 → 06 → 05 → 07 → 02 → 03 → 04 → 11 →
 09 → 08 → 12 → 10 → 14 → 15 (roughly: most self-contained and highest-impact first;

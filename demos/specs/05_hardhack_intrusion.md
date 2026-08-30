@@ -139,10 +139,11 @@ No photos/video of the physical house exist (confirmed 2026-08-29) → the house
 - Real MQTT connectivity, the "live video feed" mentioned in the README (not in the code),
   3-D house model.
 
-## Open questions (for David)
+## Resolved questions (2026-08-30)
 
-1. **House layout for the SVG** (still needed): where were the door, sensor, servo, boards,
-   and LED strip? Two or three sentences or a napkin sketch — collect at build time.
-2. Which iteration was demoed at judging (③ presumably)?
-
-Resolved 2026-08-29: no photos exist → draw from description.
+1. **House layout:** David: "make a simple house diagram, keep it simple — the design of
+   the house isn't important." → a schematic one-room cutaway: front door (left wall,
+   reed switch + servo bolt), ultrasonic sensor facing the door, Uno + ESP32 on a table at
+   the back wall, LED strip along the ceiling. No fidelity claims.
+2. Judged iteration: unknown; the switcher shows all three without naming a "final".
+3. No photos exist → drawn from description (2026-08-29).

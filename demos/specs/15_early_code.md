@@ -25,7 +25,7 @@ shipped `numbers-*.txt`, and a **card-classifier** reel. Visual style: terminal-
 | `java_servers_raw/junit_lab/{ListExamples.java, ListExamplesTests.java}` | ~2023 | "Run tests" badge only | JUnit lab |
 | `misc_snippets_raw/aho_corasick_string_matching.ipynb` (CSE 100) | 2024 | Aho-Corasick: the notebook's *Fast & Furious* title list as patterns | Library-based in the notebook → from-scratch TS here, stated |
 | `misc_snippets_raw/CardClassifier.ipynb` | 2024 | Playing-card image classifier (PyTorch tutorial follow-along) | Precomputed predictions on ~20 sample cards; labeled as a tutorial |
-| `OneDrive/Documents/UCSD classes/CSE 12/` (ArrayList PA, RPS, Java discussion) | 2024 | **Not gathered** — add to raw if wanted (see Open questions) | Found 2026-08-30 |
+| `OneDrive/Documents/UCSD classes/CSE 12/` (ArrayList PA, RPS, Java discussion) | 2024 | MyArrayList visualizer + RPS game | Gather into `java_servers_raw/cse12/` at build (decided 2026-08-30) |
 
 ## Stage (timeline order)
 
@@ -94,7 +94,12 @@ shipped `numbers-*.txt`, and a **card-classifier** reel. Visual style: terminal-
 
 - Running Java/C++ in the browser (TS ports only), the OANC corpus.
 
-## Open questions (for David)
+## Resolved questions (2026-08-30)
 
-1. Add the CSE 12 Java assignments (ArrayList PA, RPS) to the raw folder and this page?
-2. Is the card-classifier tutorial dataset still on disk (for real predictions)?
+1. **CSE 12 Java added** (David, 2026-08-30): gather
+   `OneDrive/Documents/UCSD classes/CSE 12/` (ArrayList PA, RPS, discussion code) into
+   `demos/java_servers_raw/cse12/` at build; widget: a **MyArrayList** visualizer (add /
+   insert / remove animate the backing array growing and shifting) and the RPS game
+   played against the shipped logic. Timeline slot between C++ 2021 and the servers.
+2. Card-classifier dataset: check disk at build; if absent, the reel is omitted and the
+   notebook is only referenced.

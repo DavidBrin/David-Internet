@@ -112,8 +112,10 @@ ships with titles, year, primary category, and 2-D layout coordinates — **not*
 
 - Embedding in the browser (no USE in JS), the full 50k graph, abstracts text.
 
-## Open questions (for David)
+## Resolved questions (2026-08-30)
 
-1. Do you still have the arXiv snapshot / embedding shards locally (saves a 3 GB
-   download + embedding time at build)?
-2. Which parts of the group pipeline did you own (for one honest line in the Story)?
+1. **Snapshot / embeddings:** check the group repo `loayzapre/arxiv-semantic-graph` first;
+   if the shards aren't there, fetch the metadata from the arXiv website / the Kaggle
+   arXiv dataset and embed a 2,500-paper subset at build (David, 2026-08-30).
+2. David's part of the pipeline: not specified → the Story says "group project (Group 36,
+   five members)" and describes the pipeline without assigning parts.

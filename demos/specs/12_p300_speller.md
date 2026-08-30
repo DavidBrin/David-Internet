@@ -60,7 +60,7 @@ names.
 2. The experiment (from the README) and why averaging works.
 3. The CNN family: what each variation tests (channels, spatial filters, ensembles).
 4. What the results said (subjects A/B, repetitions vs accuracy).
-5. What David worked on within the ML team (one line, David to supply).
+5. David's part: the ML side (models/decoding), not the UI — kept deliberately brief.
 
 ## Assets (`public/demos/p300/`)
 
@@ -93,8 +93,8 @@ names.
 
 - Running the CNNs in-browser; real EEG.
 
-## Open questions (for David)
+## Resolved questions (2026-08-30)
 
-1. Is there a trained checkpoint around (for real first-layer spatial filters)? If not,
-   the filters are illustrative.
-2. One line on your specific piece within the ML team.
+1. No checkpoint on hand → first-layer spatial filters are illustrative (labeled).
+2. David's piece: keep it vague — "on the ML team; did not work on the UI." Story beat 5
+   becomes that one line.
