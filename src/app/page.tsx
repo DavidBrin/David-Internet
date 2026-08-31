@@ -15,6 +15,9 @@ export default function HomePage() {
         <Link className="topnav-link" href="/search?tab=images">
           Images
         </Link>
+        <Link className="topnav-link" href="/demos">
+          Demos
+        </Link>
         <Link className="topnav-link" href="/about">
           About
         </Link>

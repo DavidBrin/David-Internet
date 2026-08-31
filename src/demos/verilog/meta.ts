@@ -5,6 +5,7 @@ const L = "demos/verilog_src/lib";
 
 const meta: DemoMeta = {
   slug: "verilog",
+  theme: { bg: "#eef4ee", panel: "#e4eee4" }, // solder-mask green — it's a hardware page
   what: "an 8-state Viterbi decoder and the ECE 111 module library, animated and simulated",
   why: "hardware is described, not instructed — this page shows the difference",
   when: "UC San Diego, 2025",

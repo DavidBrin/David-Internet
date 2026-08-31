@@ -8,7 +8,7 @@
   --demo-panel: #f8f9fa;
   font-family: Arial, Helvetica, sans-serif;
   color: var(--demo-ink);
-  background: #fff;
+  background: var(--demo-bg, #fff);
   min-height: 100vh;
   padding-bottom: 64px;
 }
@@ -400,4 +400,78 @@ a.demoStoryTitle:hover {
   .demoBarLinks {
     display: none;
   }
+}
+
+/* ---------- /demos index (stopgap until the wiki page) ---------- */
+
+.demoIndexList {
+  list-style: none;
+  max-width: 76rem;
+  margin: 24px auto 0;
+  padding: 0 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.demoIndexRow {
+  border: 1px solid var(--demo-line);
+  border-left-width: 4px;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.demoIndexLink {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.demoIndexFavicon {
+  font-size: 26px;
+  line-height: 1.2;
+}
+
+.demoIndexText {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.demoIndexName {
+  font-size: 18px;
+  color: #1a0dab;
+}
+
+.demoIndexLink:hover .demoIndexName {
+  text-decoration: underline;
+}
+
+.demoIndexTagline {
+  font-size: 14px;
+  color: #4d5156;
+}
+
+.demoIndexChips {
+  font-size: 12.5px;
+  color: var(--demo-muted);
+}
+
+.demoIndexChips b {
+  color: var(--demo-ink);
+  margin-right: 3px;
+}
+
+.demoIndexFoot {
+  max-width: 76rem;
+  margin: 24px auto 0;
+  padding: 0 20px;
+  font-size: 13px;
+  color: var(--demo-muted);
+}
+
+.demoIndexFoot a {
+  color: #1a73e8;
 }

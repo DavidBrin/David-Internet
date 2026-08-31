@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 /**
  * The search pill, shared by the homepage and the SERP.
  *
@@ -253,6 +255,9 @@ export default function SearchBox({
           <button type="button" className="gbtn" onClick={handleLucky}>
             I&apos;m Feeling Lucky
           </button>
+          <Link href="/demos" className="gbtn">
+            Demos
+          </Link>
         </div>
       ) : null}
     </form>

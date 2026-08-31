@@ -34,8 +34,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    // suppressHydrationWarning: browser extensions (Grammarly, dark-mode filters) inject
+    // attributes into <html>/<body> before React hydrates; without it every page logs a
+    // hydration-mismatch error in dev.
+    <html lang="en" suppressHydrationWarning>
+      <body suppressHydrationWarning>{children}</body>
     </html>
   );
 }

@@ -21,7 +21,16 @@ export default function DemoLayout({
   children: ReactNode;
 }) {
   return (
-    <main className="demoPage" style={{ "--demo-accent": manifest.accentColor } as CSSProperties}>
+    <main
+      className="demoPage"
+      style={
+        {
+          "--demo-accent": manifest.accentColor,
+          ...(meta.theme ? { "--demo-bg": meta.theme.bg } : null),
+          ...(meta.theme?.panel ? { "--demo-panel": meta.theme.panel } : null),
+        } as CSSProperties
+      }
+    >
       <div className="demoBar">
         <div className="demoBarInner">
           <Link href="/" className="demoBarHome">

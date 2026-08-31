@@ -53,7 +53,8 @@ export default function RtlPane({ phase }: Props) {
     };
   }, []);
 
-  const target = PHASE_MAP[phase];
+  // Fallback: during a dev Fast Refresh the prop can transiently be undefined.
+  const target = PHASE_MAP[phase] ?? PHASE_MAP.encoder;
   const file = pinned ?? target.file;
   const text = sources[file];
 

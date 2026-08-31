@@ -39,6 +39,8 @@ export interface DemoMeta {
   sources: DemoSource[];
   /** Single attribution/footer line under the Source drawer. */
   sourceFooter?: string;
+  /** Page-wide tint matching the project's vibe (bg = page, panel = bars/hovers). Defaults to white/grey. */
+  theme?: { bg: string; panel?: string };
 }
 
 export const demos: DemoMeta[] = [verilog, nocturnal];

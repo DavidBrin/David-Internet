@@ -2,6 +2,7 @@ import type { DemoMeta } from "@/lib/demos";
 
 const meta: DemoMeta = {
   slug: "nocturnal",
+  theme: { bg: "#eef0fa", panel: "#e5e8f6" }, // night indigo — an EEG-at-night page
   what: "a reworked OpenBCI Ganglion board, its schematic and BOM, and a real EEG recording with the DSP pipeline running live",
   why: "an overnight EEG wearable as objective data for mental-health diagnosis — hardware first, then signal, then the business case",
   when: "Nov 2024 – Feb 2025",

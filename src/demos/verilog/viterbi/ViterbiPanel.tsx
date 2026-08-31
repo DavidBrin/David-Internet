@@ -170,7 +170,7 @@ export default function ViterbiPanel({ sim, onPhase, onCycle }: Props) {
   }, [playing, speedIdx, total, reduced]);
 
   useEffect(() => {
-    onPhase?.(phases[phaseIdx]);
+    if (phases[phaseIdx] !== undefined) onPhase?.(phases[phaseIdx]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [phaseIdx]);
 

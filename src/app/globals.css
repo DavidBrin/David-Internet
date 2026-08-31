@@ -411,6 +411,14 @@ a .wordmark {
   white-space: nowrap;
 }
 
+a.gbtn {
+  display: inline-flex;
+  align-items: center;
+  height: 36px;
+  line-height: normal;
+  text-decoration: none;
+}
+
 .gbtn:hover {
   border: 1px solid #dadce0;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
