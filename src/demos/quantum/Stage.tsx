@@ -36,7 +36,7 @@ export default function QuantumStage() {
       <section className="demoPanel" id="grover">
         <div className="demoPanelHead">
           <h2>Grover iterator</h2>
-          <p>the group project: flip the marked amplitude, reflect about the mean, repeat ⌊π/4·√(N/M)⌋ times — and no more</p>
+          <p>flip the marked amplitude, reflect about the mean, repeat ⌊π/4·√(N/M)⌋ times — and no more</p>
         </div>
         <GroverPanel />
       </section>

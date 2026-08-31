@@ -3,19 +3,17 @@ Quantum Playground demo prep - the Python half (called by scripts/demos/quantum.
 
   py -3.12 scripts/demos/quantum_prep.py <rawDir> <outDir> <repoRoot>
 
-Everything on the page is computed client-side, so this script only:
-1. Copies the Grover group-project report PDF to public/demos/quantum/.
-2. Generates NumPy fixtures for the TypeScript simulator, mirroring the course
-   solutions exactly (Week 9 run_deutsch_jozsa / run_bv, Week 10 Uf_for_s + Simon
-   readout, the intro notebook's Bell circuit and Werner fidelities, Ex. 8 checks,
-   and the Grover iteration curve the group project analyzed).
+Everything on the page is computed client-side, so this script only generates
+NumPy fixtures for the TypeScript simulator, mirroring the course solutions
+exactly (Week 9 run_deutsch_jozsa / run_bv, Week 10 Uf_for_s + Simon readout,
+the intro notebook's Bell circuit and Werner fidelities, Ex. 8 checks, and the
+Grover iteration curve the group project analyzed).
 
 Conventions match the course code: qubit 0 = most significant bit (np.kron order),
 oracles use in_idx = (x << m) | y. ASCII-only prints (console is cp1252).
 """
 import json
 import os
-import shutil
 import sys
 
 import numpy as np
@@ -72,17 +70,6 @@ def Uf_n_to_m(f, n, m):
         for y in range(2 ** m):
             U[(x << m) | (y ^ f(x)), (x << m) | y] = 1.0
     return U
-
-
-# ---------------------------------------------------------------- report PDF
-
-def copy_report():
-    src = os.path.join(raw_dir, "grover_group_project")
-    pdf = [f for f in os.listdir(src) if f.endswith(".pdf")][0]
-    os.makedirs(out_dir, exist_ok=True)
-    dst = os.path.join(out_dir, "grover_report.pdf")
-    shutil.copyfile(os.path.join(src, pdf), dst)
-    log("grover_report.pdf: %.0f KB" % (os.path.getsize(dst) / 1024))
 
 
 # ---------------------------------------------------------------- bloch / Ex.8 fixture
@@ -267,7 +254,6 @@ def prep_werner():
     save_json(os.path.join(fix_dir, "quantum-werner.json"), {"p": [round(float(x), 12) for x in ps], "fidelity": fids})
 
 
-copy_report()
 prep_bloch()
 prep_circuit()
 prep_simon()

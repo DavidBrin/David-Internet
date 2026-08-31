@@ -3,9 +3,9 @@
  *
  *   pnpm sync-demos quantum
  *
- * scripts/demos/quantum_prep.py (py -3.12, needs numpy) copies the Grover report PDF
- * to public/demos/quantum/ and generates the NumPy fixtures the TypeScript simulator
- * is tested against. Outputs are committed, so builds elsewhere don't need Python.
+ * scripts/demos/quantum_prep.py (py -3.12, needs numpy) generates the NumPy fixtures
+ * the TypeScript simulator is tested against. Outputs are committed, so builds
+ * elsewhere don't need Python.
  */
 import path from "node:path";
 import { spawnSync } from "node:child_process";

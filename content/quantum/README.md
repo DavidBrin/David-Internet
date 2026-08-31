@@ -12,23 +12,21 @@ A hand-written TypeScript state-vector simulator (1–5 qubits, `src/demos/quant
 
 **Simon's algorithm** (Week 10), staged like the derivation: H⊗n spreads the input register, the oracle f(x) = min(x, x⊕s) draws its two-to-one pairing arcs, the final H⊗n collapses every y with y·s = 1 — then a measurement loop feeds a live GF(2) system until the candidate set shrinks to s. Deutsch–Jozsa and Bernstein–Vazirani (Week 9) run in the same visual as extra modes.
 
-**Grover iterator** (the group project). Signed amplitude bars with the mean line drawn: the oracle flips marked bars below the axis, diffusion reflects everything about the mean — the two half-steps are separately animated. Success-probability curve with the ⌊π/4·√(N/M)⌋ optimum marked; auto-run stops at 2× optimal so the over-rotation is visible. The group-project report PDF is linked from the panel.
+**Grover iterator.** Signed amplitude bars with the mean line drawn: the oracle flips marked bars below the axis, diffusion reflects everything about the mean — the two half-steps are separately animated. Success-probability curve with the ⌊π/4·√(N/M)⌋ optimum marked; auto-run stops at 2× optimal so the over-rotation is visible.
 
 ## What was completed or fixed
 
 - The simulator and panels were written with AI coding tools (2026-08-31) and tested against NumPy fixtures generated from the course solutions (`tests/fixtures/quantum-*.json`; 37 quantum tests): Bell/GHZ states, Simon's exact survivor distribution for s = 0110, all four Deutsch–Jozsa verdict probabilities, Bernstein–Vazirani's spike, Grover curves for four configurations, Bloch vectors, and the Werner fidelities.
 - In the raw material, exercise sheet 8's task 4 (the pen-and-paper 4×4 gates) had never been run and Week 9's notebook carried a broken `!pip install qutip.qip.circuit` cell; the checks now live in the fixtures and the circuit panel's known-gate matcher.
-- Attribution note: the Grover report's own "who did what" table credits Antoine (algorithm theory, video) and Andrea (practical demonstration/verification, critical analysis, report). The page therefore uses neutral group attribution and links the report rather than making per-person claims.
-
 ## Building
 
 ```
-pnpm sync-demos quantum    # needs py -3.12 with numpy; copies the report PDF + writes fixtures
+pnpm sync-demos quantum    # needs py -3.12 with numpy; writes fixtures
 pnpm test                  # includes the quantum fixture tests
 ```
 
-Everything on the page is computed client-side; the only shipped asset is the report PDF (~97 KB).
+Everything on the page is computed client-side; there are no shipped assets.
 
 ## Attribution
 
-The intro QuTiP notebook is instructor-provided course material (DTU 10384, fall 2025); weekly-sheet solutions are David's, written with AI coding tools. Grover group project with Antoine and Andrea — report PDF © its authors, linked on the page. QuTiP 5 / qutip-qip were the course tools; the page itself runs a hand-written TypeScript simulator.
+The intro QuTiP notebook is instructor-provided course material (DTU 10384, fall 2025); weekly-sheet solutions are David's, written with AI coding tools. Grover's algorithm was covered later in the same course. QuTiP 5 / qutip-qip were the course tools; the page itself runs a hand-written TypeScript simulator.

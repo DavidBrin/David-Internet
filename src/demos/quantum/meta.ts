@@ -39,9 +39,9 @@ const meta: DemoMeta = {
       anchor: "#simon",
     },
     {
-      title: "Grover, as a group",
+      title: "Amplitude amplification",
       body:
-        "The course closed with a group project analyzing Grover's algorithm with Antoine and Andrea — theory, a small-scale implementation verifying the ⌊π/4·√(N/M)⌋ iteration formula, limitations, a video, and the report linked in the drawer. The iterator panel shows the two moves the project analyzed: the oracle flips the marked amplitude, the diffusion operator reflects everything about the mean — and if you keep going past the optimum, the amplitude rotates right back out.",
+        "The course closed with Grover's algorithm — theory plus a small-scale implementation verifying the ⌊π/4·√(N/M)⌋ iteration formula. The iterator panel shows the two moves: the oracle flips the marked amplitude, the diffusion operator reflects everything about the mean — and if you keep going past the optimum, the amplitude rotates right back out.",
       anchor: "#grover",
     },
     {
@@ -59,10 +59,10 @@ const meta: DemoMeta = {
     { name: "qi08.py", path: `${Q}/qi08.py`, lang: "python", note: "Original Python — sheet 8 (Pauli identities, qubit(θ,φ), kron, two-qubit gates). Written for the DTU weekly sheets with AI coding tools; implementation and verification are David's." },
     { name: "qi09.py", path: `${Q}/qi09.py`, lang: "python", note: "Original Python — Week 9 (U_f construction, Deutsch–Jozsa, Bernstein–Vazirani). Same footnote as qi08.py." },
     { name: "qi10.py", path: `${Q}/qi10.py`, lang: "python", note: "Original Python — Week 10 (Simon's oracle Uf_for_s, readout probabilities, solve_gf2). Same footnote as qi08.py." },
-    { name: "prep script", path: "scripts/demos/quantum_prep.py", lang: "python", note: "Build-time prep: NumPy fixtures the TS simulator is tested against, and the Grover report copy." },
+    { name: "prep script", path: "scripts/demos/quantum_prep.py", lang: "python", note: "Build-time prep: NumPy fixtures the TS simulator is tested against." },
   ],
   sourceFooter:
-    "Course material: the intro QuTiP notebook is instructor-provided (DTU 10384); exercise solutions are David's, written with AI coding tools. Grover group project with Antoine and Andrea — the report (linked on the page) records who did what; report PDF © its authors.",
+    "Course material: the intro QuTiP notebook is instructor-provided (DTU 10384); exercise solutions are David's, written with AI coding tools. Grover's algorithm was studied as part of the course.",
 };
 
 export default meta;

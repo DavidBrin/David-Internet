@@ -390,8 +390,7 @@ export default function GroverPanel() {
       </p>
 
       <p className="qGrFooter">
-        The report&apos;s practical part verified the ⌊π/4·√(N/M)⌋ iteration formula —{" "}
-        <a href="/demos/quantum/grover_report.pdf">group-project report (PDF)</a>.
+        The course covered verifying the ⌊π/4·√(N/M)⌋ iteration formula in practice.
       </p>
     </div>
   );

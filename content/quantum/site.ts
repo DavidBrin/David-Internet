@@ -37,7 +37,7 @@ const site: SiteManifest = {
     },
     {
       path: "#grover",
-      title: "Grover iterator — the group project",
+      title: "Grover iterator — amplitude amplification",
       snippet:
         "Watch the two moves of each Grover iteration - oracle flip below the axis, reflection about the mean - and see the success probability peak at the optimal iteration count, then over-rotate past it.",
       keywords: ["grover", "amplitude amplification", "quantum search", "diffusion operator"],
@@ -68,7 +68,6 @@ const site: SiteManifest = {
       Course: "Quantum Information (DTU 10384, fall 2025)",
       "Max qubits": "5 (32-dimensional state vector, simulated live in TypeScript)",
       Algorithms: "Deutsch-Jozsa, Bernstein-Vazirani, Simon, Grover",
-      "Group project": "Grover's Algorithm Analysis - with Antoine and Andrea (the report's who-did-what table is on the page)",
       Verified: "TS simulator tested against NumPy fixtures from the course solutions",
     },
   },

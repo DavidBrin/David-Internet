@@ -1,13 +1,13 @@
 # 01 — Quantum Playground (DTU Quantum Information, fall 2025)
 
 Slug: `quantum` · Fake domain: `quantum.davids.net` · Archetype: **A** (interactive) + Story rail
-Status: spec agreed 2026-08-29; **built 2026-08-31** - four panels live (three.js Bloch, circuit builder w/ Werner card, Simon+DJ+BV, Grover); hand-written TS simulator, 37 quantum tests vs NumPy fixtures. NOTE (2026-08-31): the report PDF's own who-did-what table lists only Antoine (theory, video) and Andrea (implementation/verification, critical analysis, report) - it does not mention David, contradicting the resolved attribution below. Per the playbook (documents win), the page uses neutral attribution: 'group project with Antoine and Andrea', report linked, no per-person task claims by David. Flagged for David to confirm or correct.
+Status: spec agreed 2026-08-29; **built 2026-08-31** - four panels live (three.js Bloch, circuit builder w/ Werner card, Simon+DJ+BV, Grover); hand-written TS simulator, 37 quantum tests vs NumPy fixtures. UPDATE (2026-08-31): removed the report PDF and all references to it and to the project team from the page and docs; the Grover panel and copy now attribute the algorithm to the course generally, with no per-person or team claims.
 
 ## Summary
 
 A browser state-vector simulator (TypeScript, 1–5 qubits) with four panels that follow the
 course arc: single-qubit geometry → gates on multiple wires → an oracle algorithm from the
-exercises (Simon's) → amplitude amplification (Grover, the group project). Everything is
+exercises (Simon's) → amplitude amplification (Grover). Everything is
 animated: state vectors move, amplitudes morph, measurements accumulate.
 
 Framing (agreed): "the algorithms I studied at DTU, re-implemented so you can watch them
@@ -25,7 +25,7 @@ From `demos/quantum_information_qutip_raw/`:
 | `Exercises_QI-08.ipynb` | Panel 1: Pauli identities, `qubit(θ,φ)`, CNOT via `kron` | Ex. 4 (4×4 gates from the pen-and-paper set) never run → **complete it** |
 | `Week 9.ipynb`, `Exercises- QI9.py` | Deutsch–Jozsa + Bernstein–Vazirani simulations (`Uf_n_to_m`, `run_deutsch_jozsa`, `run_bv`) | Broken `!pip install qutip.qip.circuit` cell + empty cell → **fix**. Bonus modes in panel 3 |
 | `Exercises- QI10.py` | Panel 3: Simon's algorithm (`Uf_for_s`, GF(2) solver `solve_gf2`, readout probabilities) | Core of panel 3 |
-| `grover_group_project/Report of Grover's Algorithm Analysis.pdf` | Panel 4 + link | Group project; presentation video (138 MB) hosted externally (YouTube/Drive), link in Story rail |
+| `grover_group_project/Report of Grover's Algorithm Analysis.pdf` | Not shipped | Not linked or copied to the page (2026-08-31) |
 | `pyproject.toml` | Tech-stack facts for knowledge panel | — |
 | Bell / Acín / QAOA PDFs | Not shipped | Third-party |
 
@@ -64,13 +64,13 @@ From `demos/quantum_information_qutip_raw/`:
 - Mode switch to Deutsch–Jozsa (constant vs balanced f, one-shot verdict) and
   Bernstein–Vazirani (read s out in a single query) reusing the same visual.
 
-### 4. Grover iterator (group project)
+### 4. Grover iterator
 - N = 2^n items (n = 2–5), pick the marked item(s). Amplitudes as bars.
 - **Animation:** each iteration is two moves — oracle flips the marked bar below the axis,
   diffusion reflects everything about the mean (draw the mean line). Iteration counter vs
-  the optimal ⌊π/4·√(N/M)⌋ from the report; success-probability curve fills in per step,
-  and over-rotation is visible if you keep going.
-- Story rail text uses the report's "verification of the iteration formula" section.
+  the optimal ⌊π/4·√(N/M)⌋; success-probability curve fills in per step, and over-rotation
+  is visible if you keep going.
+- Story rail text covers verification of the iteration formula.
 
 ## Story rail (narrative beats)
 
@@ -80,8 +80,8 @@ From `demos/quantum_information_qutip_raw/`:
 3. Exercises: what the weekly sheets asked; note which parts were unfinished in the raw
    files and were completed here (Ex. 4 gates; the broken pip cell).
 4. Simon's algorithm: the punchline (exponential separation) in two sentences.
-5. Grover group project: David did the **implementation (code) and the theory/analysis**;
-   teammates Antoine (video) and Andrea (report) credited by first name; link to PDF + video.
+5. Grover's algorithm: the punchline (quadratic speedup, the iteration formula) in a
+   couple of sentences; no PDF/video link.
 6. What I'd do next (the QAOA paper is in the folder — one line).
 
 ## Source drawer
@@ -91,12 +91,9 @@ From `demos/quantum_information_qutip_raw/`:
   diff-style marker on the lines added to finish them) with a one-line footnote:
   "Written for the DTU weekly sheets using AI coding tools; implementation and
   verification are mine." Small, inline, not a headline.
-- Link to the Grover report PDF (copied to `public/demos/quantum/`).
-
 ## Data / assets to sync
 
-- `public/demos/quantum/grover_report.pdf` (<50 MB).
-- No datasets; everything is computed client-side.
+- No assets; everything is computed client-side.
 
 ## Tech
 
@@ -114,8 +111,7 @@ From `demos/quantum_information_qutip_raw/`:
 - deepLinks: `/demos/quantum#bloch`, `#circuit`, `#simon`, `#grover`.
 - techStack: TypeScript, three.js, QuTiP 5 / qutip-qip (studied), NumPy.
 - knowledgePanel facts: Course (DTU, Quantum Information, fall 2025) · Max qubits ·
-  Algorithms (Deutsch–Jozsa, Bernstein–Vazirani, Simon, Grover) · Group project (Grover,
-  with names).
+  Algorithms (Deutsch–Jozsa, Bernstein–Vazirani, Simon, Grover).
 - keywords: qutip, quantum, bloch sphere, grover, simon's algorithm, denmark, dtu.
 
 ## Attribution
@@ -123,8 +119,8 @@ From `demos/quantum_information_qutip_raw/`:
 - Intro notebook is course material (instructor). Say so in the Source drawer header.
 - Week 9/10 one-cell solutions were written with AI coding tools (`/mnt/data/` paths);
   the implementation is David's. Footnote in the drawer only (see Source drawer).
-- Grover report: teammates Antoine and Andrea are named in its "who did what" table;
-  David's role = code/implementation + theory/analysis (stated by David, 2026-08-29).
+- Grover's algorithm: attributed to the course generally; no report link, no
+  per-person or team claims (2026-08-31).
 
 ## Out of scope
 
@@ -133,7 +129,6 @@ From `demos/quantum_information_qutip_raw/`:
 
 ## Resolved questions (2026-08-29)
 
-1. Grover role → code/implementation + theory/analysis.
-2. AI-assisted exercise solutions → TS port is primary; Python kept under an "Original
+1. AI-assisted exercise solutions → TS port is primary; Python kept under an "Original
    Python" tab with a small footnote (not a Story beat).
-3. Bloch sphere → three.js.
+2. Bloch sphere → three.js.
