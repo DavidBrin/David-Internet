@@ -1,0 +1,111 @@
+/* Lab 4 — Aliasing panel. All classes prefixed sigAl. */
+
+.sigAlModeRow {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.sigAlSliders {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 6px 10px;
+  align-items: center;
+  font-size: 12.5px;
+  color: var(--demo-muted, #4d5156);
+  max-width: 480px;
+}
+
+.sigAlSliders label {
+  display: contents;
+}
+
+.sigAlSliders input[type="range"] {
+  width: 100%;
+}
+
+.sigAlVal {
+  font-variant-numeric: tabular-nums;
+  color: var(--demo-ink, #16181c);
+  min-width: 5.5em;
+  text-align: right;
+}
+
+.sigAlMTicks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--demo-muted, #4d5156);
+  max-width: 480px;
+  margin: -4px 0 2px 0;
+  padding: 0 1px;
+}
+
+.sigAlViews {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .sigAlViews {
+    grid-template-columns: 1fr;
+  }
+}
+
+.sigAlViewLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--demo-muted, #4d5156);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 2px;
+}
+
+.sigAlLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 11.5px;
+  color: var(--demo-muted, #4d5156);
+  margin-top: 4px;
+}
+
+.sigAlLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sigAlSwatch {
+  display: inline-block;
+  width: 12px;
+  height: 2px;
+  border-radius: 1px;
+}
+
+.sigAlReadout {
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.sigAlReadout b {
+  color: var(--demo-accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.sigAlSpectroWrap {
+  position: relative;
+}
+
+.sigAlSpectroWrap canvas {
+  cursor: pointer;
+}
+
+.sigAlChirpNote {
+  font-size: 11.5px;
+  color: var(--demo-muted, #4d5156);
+  margin-top: 4px;
+}
+

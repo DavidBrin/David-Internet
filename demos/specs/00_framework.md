@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29** (planning phase; nothing built yet).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals (2026-08-30).
 
 ## Decision
 
@@ -74,7 +74,7 @@ Out of scope · Open/Resolved questions.
 | 10 | SQL Playground | `sql` | dtu_databases_raw | none |
 | 11 | Computer Vision | `vision` | computer_vision_cse152_raw | none |
 | 12 | P300 Speller | `p300` | p300_speller_bci_raw | resolved: illustrative filters; "ML team, not UI" |
-| 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | none |
+| 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | **built 2026-08-30** - blur N=464 (causal); TS MT19937 randperm; 5 panels, SciPy-fixture tests |
 | 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | none |
 | 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | resolved: CSE 12 added; card dataset checked at build |
 
@@ -138,6 +138,12 @@ directives (memory points here).
 - Verify derived data before building UI on it: overlay-render parsed geometry over the real
   export in a throwaway HTML page and screenshot it (caught coordinate-space assumptions in
   04); run any completed notebook/script end-to-end once.
+- Many agents editing panels under one dev server can corrupt its HMR CSS state (all
+  panel styles vanish at runtime; curl of the linked page.css proves nothing - dynamic-chunk
+  CSS is injected at runtime). Fix: restart the dev server. And canvas-fitting hooks must set
+  `canvas.style.display = "block"` imperatively + skip sub-2px resizes: with CSS missing, an
+  inline canvas's baseline gap feeds a ResizeObserver resize loop that grows the canvas
+  unboundedly and jams the tab (hit on 13's deblur panel).
 - Raw material can contradict the spec (04's canvases framed the venture as bipolar/MDD
   diagnosis, not sleep) - the documents win; rewrite story text to match them.
 

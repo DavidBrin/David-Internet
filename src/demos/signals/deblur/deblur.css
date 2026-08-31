@@ -1,0 +1,189 @@
+/* Lab 3 — image deblurring. Classes prefixed sigDb. */
+
+.sigDb {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sigDbLoading {
+  padding: 20px 4px;
+  font-size: 13px;
+  color: var(--demo-muted, #4d5156);
+}
+
+.sigDbSection {
+  margin-top: 16px;
+}
+
+.sigDbSection:first-child {
+  margin-top: 0;
+}
+
+.sigDbSectionHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.sigDbSectionHead h3 {
+  margin: 0;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--demo-muted, #4d5156);
+}
+
+.sigDbSectionHead p {
+  margin: 0;
+  font-size: 12px;
+  color: var(--demo-muted, #4d5156);
+}
+
+/* ---- image strip ---- */
+
+.sigDbImageWrap {
+  background: #111;
+  image-rendering: auto;
+}
+
+.sigDbImageWrap canvas {
+  image-rendering: auto;
+}
+
+.sigDbControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.sigDbSlider {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--demo-muted, #4d5156);
+}
+
+.sigDbSlider input[type="range"] {
+  width: 150px;
+  accent-color: var(--demo-accent, #06b6d4);
+}
+
+.sigDbSlider b {
+  font: 600 12.5px ui-monospace, Menlo, Consolas, monospace;
+  color: var(--demo-ink, #1a1a1a);
+  min-width: 3.4ch;
+  display: inline-block;
+}
+
+.sigDbToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--demo-muted, #4d5156);
+  cursor: pointer;
+  user-select: none;
+}
+
+.sigDbToggle input {
+  accent-color: var(--demo-accent, #06b6d4);
+}
+
+.sigDbNullNote {
+  margin-top: 8px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  border: 1px solid #d97706;
+  background: #fffbeb;
+  color: #92400e;
+  font-size: 12.5px;
+}
+
+/* ---- two-column layout: Toeplitz + frequency response ---- */
+
+.sigDbTwoCol {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .sigDbTwoCol {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.sigDbToeplitzWrap {
+  height: 170px;
+}
+
+.sigDbFreqWrap {
+  height: 170px;
+}
+
+/* ---- recursive-filter mini-card ---- */
+
+.sigDbRecursive {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 14px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .sigDbRecursive {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.sigDbStemWrap {
+  height: 150px;
+}
+
+.sigDbRecFreqWrap {
+  height: 150px;
+}
+
+.sigDbSystemToggle {
+  display: flex;
+  gap: 6px;
+}
+
+/* ---- readouts ---- */
+
+.sigDbStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 6px;
+}
+
+.sigDbStat {
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  padding: 5px 10px;
+  min-width: 92px;
+  background: #fff;
+}
+
+.sigDbStatLabel {
+  display: block;
+  font-size: 10.5px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--demo-muted, #4d5156);
+}
+
+.sigDbStatValue {
+  display: block;
+  font: 600 14px ui-monospace, Menlo, Consolas, monospace;
+  color: var(--demo-ink, #1a1a1a);
+}
+

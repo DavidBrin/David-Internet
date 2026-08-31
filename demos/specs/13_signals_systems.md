@@ -1,7 +1,7 @@
 # 13 — Signals & Systems (ECE 101, winter 2025)
 
 Slug: `signals` · Fake domain: `signals.davids.net` · Archetype: **A** (five live simulations, audio + image) + Story rail
-Status: spec agreed 2026-08-30; **not built**.
+Status: spec agreed 2026-08-30; **built 2026-08-30** - all five labs live; Lab 3 blur pinned N=464 (causal, not deblur.m's symmetric toeplitz); MATLAB rng/randperm reproduced in TS (MT19937 + sort-by-rand, seed 2023); alpha-ratio clamp for Lab 2 (raw ratio 0.5021 > 0.5 cap); 192-test suite incl. SciPy fixtures for all five ports.
 
 ## Summary
 

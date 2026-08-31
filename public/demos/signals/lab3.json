@@ -1,0 +1,1 @@
+{"file": "lab3_crop.png", "trueN": 464, "model": "causal", "crop": {"row0": 260, "row1": 900, "col0": 260, "col1": 1860, "downsample": 2}, "imageShape": [2562, 1975], "shipShape": [320, 800]}

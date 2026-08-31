@@ -1,0 +1,65 @@
+/* Lab 1 — Decrypt the message. Prefix: sigDe */
+
+.sigDeWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.sigDeSteps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.sigDeArrow {
+  color: var(--demo-muted, #4d5156);
+  font-size: 13px;
+}
+
+.sigDeMeta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12.5px;
+  color: var(--demo-muted, #4d5156);
+  margin-top: 4px;
+}
+
+.sigDeMeta b {
+  color: var(--demo-ink, #1b1f23);
+  font-weight: 600;
+}
+
+.sigDeCanvasWrap {
+  position: relative;
+}
+
+.sigDeLabels {
+  position: absolute;
+  top: 6px;
+  left: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: var(--demo-muted, #4d5156);
+  pointer-events: none;
+}
+
+.sigDePlayRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.sigDePlaying {
+  color: var(--demo-accent);
+  font-weight: 600;
+}
+
+.sigDeErr {
+  color: #b3261e;
+  font-size: 12.5px;
+}

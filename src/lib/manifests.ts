@@ -14,6 +14,7 @@ import dollarPixels from "@content/dollar-pixels/site";
 import notion from "@content/notion/site";
 import verilog from "@content/verilog/site";
 import nocturnal from "@content/nocturnal/site";
+import signals from "@content/signals/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -25,6 +26,7 @@ export const manifests: SiteManifest[] = [
   notion,
   verilog,
   nocturnal,
+  signals,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

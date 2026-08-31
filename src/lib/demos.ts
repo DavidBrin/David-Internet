@@ -9,6 +9,7 @@
  */
 import verilog from "@/demos/verilog/meta";
 import nocturnal from "@/demos/nocturnal/meta";
+import signals from "@/demos/signals/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
 export interface DemoSource {
@@ -43,7 +44,7 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);
