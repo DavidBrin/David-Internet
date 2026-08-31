@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import type { Phase } from "./ViterbiPanel";
 
 const FILES = ["encoder.sv", "viterbi_tx_rx_2a1.sv", "bmc0.sv", "ACS.sv", "decoder.sv"] as const;
@@ -72,11 +72,22 @@ export default function RtlPane({ phase }: Props) {
     return { lines: ls, hiFrom: from, hiTo: to };
   }, [text, file, target]);
 
-  // Keep the highlighted block in view.
+  // Keep the highlighted block in view — scrolling ONLY the code pane, never the page.
+  // (scrollIntoView scrolls every scrollable ancestor, which made the whole page jump
+  // as the animation advanced.)
+  const codeRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
-    if (hiFrom < 0) return;
+    const scroller = codeRef.current;
+    if (hiFrom < 0 || !scroller) return;
     const el = document.getElementById(`rtl-line-${file}-${hiFrom}`);
-    el?.scrollIntoView({ block: "center", behavior: "smooth" });
+    if (!el) return;
+    const top =
+      el.getBoundingClientRect().top -
+      scroller.getBoundingClientRect().top +
+      scroller.scrollTop -
+      scroller.clientHeight / 2 +
+      el.offsetHeight / 2;
+    scroller.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
   }, [hiFrom, file]);
 
   return (
@@ -98,7 +109,7 @@ export default function RtlPane({ phase }: Props) {
         ))}
       </div>
       <p className="demoNote rtlNote">{NOTES[file]}</p>
-      <div className="rtlCode demoMono">
+      <div className="rtlCode demoMono" ref={codeRef}>
         {error ? (
           <div className="rtlLine">RTL not available: {error}</div>
         ) : !text ? (

@@ -85,3 +85,59 @@ Build order suggestion: shared plumbing → 01 → 13 → 06 → 05 → 07 → 0
 Build-machine prerequisites collected across specs: Icarus Verilog (06), KiCad CLI (04,
 present), Python with scipy/h5py (13, 02, 03), PyTorch + TFDS for a one-time run (08),
 TF Hub + hnswlib for a one-time run (09), sql.js at runtime (10).
+
+## Build playbook - lessons from 06 (Verilog) and 04 (Nocturnal Neuro)
+
+Read this before building each demo; it is the source of truth for process and design
+directives (memory points here).
+
+### Wiring checklist for a new demo `<slug>`
+
+1. `scripts/demos/<slug>.ts` prep module (+ optional `<slug>_prep.py` for numpy/scipy work,
+   spawned with `py -3.12`); `pnpm sync-demos <slug>` writes committed assets to
+   `public/demos/<slug>/`. Tool paths get env overrides (`IVERILOG_BIN`, `KICAD_CLI`).
+   Log output sizes. ASCII-only prints (console is cp1252).
+2. `content/<slug>/site.ts` (`kind: "demo"`, `liveUrl: "/demos/<slug>"`) + `README.md`
+   (what is on the page, what was completed/fixed, building, attribution).
+3. `src/demos/<slug>/{meta.ts, Stage.tsx, <slug>.css}`; completed source copies (if any)
+   under `demos/<slug>_src/`.
+4. Register in `src/lib/demos.ts`, `src/lib/manifests.ts`, `src/components/demo/DemoStage.tsx`.
+   The `/demos` index page lists registered demos automatically (stopgap until a wiki page).
+5. Tests: TS ports of any math verified against a build-generated fixture in
+   `tests/fixtures/<slug>-*.json` (this caught a real RTL bug in 06 - keep doing it).
+6. Update the spec status line, this index table, and `demos/README.md` if facts changed.
+
+### Design directives (user-set)
+
+- **Page tint per project vibe** via `meta.theme = { bg, panel }`: Verilog = solder-mask
+  green (#eef4ee / #e4eee4), Nocturnal = night indigo (#eef0fa / #e5e8f6). Pick tints that
+  match the project (gray for 3D/CAD, warm amber for thermal, etc.); panels stay white,
+  accent color comes from the manifest.
+- **Never scroll the page from an animation or effect.** `scrollIntoView` scrolls *every*
+  scrollable ancestor including the document - an animation driving it makes the page
+  "glitch" (user feedback on 06, fixed there). Auto-follow may only move an internal
+  `overflow: auto` container via its own `scrollTop`/`scrollTo`; page-level scrolling only
+  on an explicit user click (e.g. "Show on the board").
+- Demos reachable from the home page: `Demos` gbtn + top-nav link -> `/demos`.
+- Honesty on the page: story text uses the real measured numbers; anything completed or
+  fixed with AI tools is disclosed in a story beat and the README, dated.
+
+### Process lessons
+
+- **Agent fan-out**: write `Stage.tsx` + stub components with fixed prop contracts first,
+  give each agent its own directory + CSS class prefix, start one dev server on :3000 that
+  all agents share for Playwright verification; agents run `tsc --noEmit`/`vitest` but never
+  `next build`/`next dev`. Integrator kills the dev server before `next build` (shared
+  `.next`), then commits and pushes. Keep the user's review dev server alive - run the
+  production build later if it would kill it, and say so.
+- `suppressHydrationWarning` is already on `<html>/<body>` (browser extensions inject attrs).
+- Playwright MCP screenshots land in the user's home directory - Read them to actually look
+  at the page, delete them afterwards.
+- Big source SVG/JSON assets: strip invisible text, merge stroke-font segments, round to
+  0.01 units, drop per-cycle payloads the page never shows - 2-3x smaller before gzip.
+- Verify derived data before building UI on it: overlay-render parsed geometry over the real
+  export in a throwaway HTML page and screenshot it (caught coordinate-space assumptions in
+  04); run any completed notebook/script end-to-end once.
+- Raw material can contradict the spec (04's canvases framed the venture as bipolar/MDD
+  diagnosis, not sleep) - the documents win; rewrite story text to match them.
+
