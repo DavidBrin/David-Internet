@@ -1,7 +1,7 @@
 # 01 — Quantum Playground (DTU Quantum Information, fall 2025)
 
 Slug: `quantum` · Fake domain: `quantum.davids.net` · Archetype: **A** (interactive) + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-08-31** - four panels live (three.js Bloch, circuit builder w/ Werner card, Simon+DJ+BV, Grover); hand-written TS simulator, 37 quantum tests vs NumPy fixtures. NOTE (2026-08-31): the report PDF's own who-did-what table lists only Antoine (theory, video) and Andrea (implementation/verification, critical analysis, report) - it does not mention David, contradicting the resolved attribution below. Per the playbook (documents win), the page uses neutral attribution: 'group project with Antoine and Andrea', report linked, no per-person task claims by David. Flagged for David to confirm or correct.
 
 ## Summary
 

@@ -1,0 +1,201 @@
+/* Circuit builder panel — all classes prefixed qCk. */
+
+.qCkWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.qCkPalette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.qCkPaletteGate {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  min-width: 34px;
+}
+
+.qCkPhiField {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  color: var(--demo-muted, #4d5156);
+  margin-left: 4px;
+}
+
+.qCkPhiField input {
+  width: 62px;
+  font: inherit;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  padding: 2px 5px;
+  border: 1px solid var(--demo-line);
+  border-radius: 4px;
+}
+
+.qCkHint {
+  font-size: 12px;
+  color: var(--demo-accent);
+  min-height: 1.2em;
+}
+
+.qCkGridSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.qCkGridSvg text {
+  user-select: none;
+}
+
+.qCkCell {
+  cursor: pointer;
+}
+
+.qCkCell:hover {
+  fill: rgba(124, 58, 237, 0.08);
+}
+
+.qCkGate {
+  cursor: pointer;
+}
+
+.qCkGate:hover .qCkGateBody {
+  stroke: #5b21b6;
+}
+
+.qCkBars,
+.qCkHist {
+  display: flex;
+  align-items: flex-end;
+  gap: 5px;
+  padding: 8px 4px 0;
+  height: 140px;
+}
+
+.qCkBarCol {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.qCkBarTrack {
+  width: 100%;
+  height: 112px;
+  display: flex;
+  align-items: flex-end;
+  background: repeating-linear-gradient(to top, transparent 0 27px, var(--demo-line) 27px 28px);
+  background-size: 100% 28px;
+  background-position: bottom;
+}
+
+.qCkBar {
+  width: 100%;
+  min-height: 1px;
+  border-radius: 3px 3px 0 0;
+  background: #c9c9d1;
+  transition: height 260ms ease, background-color 260ms ease;
+}
+
+.qCkNoAnim .qCkBar,
+.qCkNoAnim .qCkHistBar {
+  transition: none;
+}
+
+.qCkBarLabel {
+  font-size: 10.5px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  color: var(--demo-muted, #4d5156);
+  white-space: nowrap;
+}
+
+.qCkHistBar {
+  width: 100%;
+  min-height: 1px;
+  border-radius: 3px 3px 0 0;
+  background: var(--demo-accent);
+  transition: height 500ms ease;
+}
+
+.qCkHistCount {
+  font-size: 10px;
+  color: var(--demo-muted, #4d5156);
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.qCkUnitaryWrap {
+  max-height: 240px;
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  background: #fff;
+  padding: 8px;
+  margin-top: 6px;
+}
+
+.qCkUnitaryLabel {
+  font-size: 12.5px;
+  color: var(--demo-accent);
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+.qCkUnitaryGrid {
+  display: grid;
+  gap: 1px;
+  width: max-content;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11px;
+}
+
+.qCkUnitaryCell {
+  padding: 2px 7px;
+  text-align: right;
+  white-space: nowrap;
+  background: #faf9fd;
+  border-radius: 2px;
+}
+
+.qCkWernerCard {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  border: 1px solid var(--demo-line);
+  border-radius: 6px;
+  padding: 10px 12px;
+  background: #fff;
+  margin-top: 4px;
+}
+
+.qCkWernerControls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 160px;
+}
+
+.qCkWernerVal {
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 13px;
+  color: var(--demo-ink, #1a1a1a);
+}
+
+.qCkWernerCurve {
+  flex: 0 0 auto;
+}
+
+.qCkSectionTitle {
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--demo-ink, #1a1a1a);
+  margin: 2px 0 0;
+}

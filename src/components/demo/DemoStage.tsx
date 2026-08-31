@@ -15,6 +15,7 @@ const STAGES: Record<string, ComponentType> = {
   verilog: dynamic(() => import("@/demos/verilog/Stage"), { ssr: false, loading: Loading }),
   nocturnal: dynamic(() => import("@/demos/nocturnal/Stage"), { ssr: false, loading: Loading }),
   signals: dynamic(() => import("@/demos/signals/Stage"), { ssr: false, loading: Loading }),
+  quantum: dynamic(() => import("@/demos/quantum/Stage"), { ssr: false, loading: Loading }),
 };
 
 export default function DemoStage({ slug }: { slug: string }) {

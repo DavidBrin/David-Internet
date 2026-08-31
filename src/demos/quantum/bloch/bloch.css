@@ -1,0 +1,167 @@
+/* Bloch sphere panel. Class names are prefixed qBl. */
+
+.qBlLayout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 6px;
+}
+
+.qBlSceneCol {
+  flex: 1 1 380px;
+  min-width: 280px;
+}
+
+.qBlReadoutCol {
+  flex: 1 1 300px;
+  min-width: 260px;
+  font-size: 12.5px;
+}
+
+.qBlScene {
+  height: 380px;
+}
+
+.qBlScene canvas {
+  height: 380px;
+  cursor: grab;
+}
+
+.qBlScene canvas:active {
+  cursor: grabbing;
+}
+
+.qBlSliderRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+  font-size: 12.5px;
+}
+
+.qBlSliderRow label {
+  width: 92px;
+  flex: none;
+  color: var(--demo-muted, #4d5156);
+}
+
+.qBlSliderRow input[type="range"] {
+  flex: 1 1 auto;
+  accent-color: var(--demo-accent);
+}
+
+.qBlSliderRow .qBlVal {
+  width: 62px;
+  flex: none;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+  color: var(--demo-ink, #1f2023);
+}
+
+.qBlGateRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.qBlGateGroup {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.qBlDivider {
+  width: 1px;
+  align-self: stretch;
+  background: var(--demo-line);
+  margin: 0 4px;
+}
+
+.qBlBlock {
+  margin-top: 14px;
+}
+
+.qBlBlockTitle {
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--demo-muted, #4d5156);
+  margin: 0 0 6px;
+}
+
+.qBlAmps {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 10px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.qBlAmps dt {
+  color: var(--demo-muted, #4d5156);
+}
+
+.qBlAmps dd {
+  margin: 0;
+}
+
+.qBlExpect {
+  display: flex;
+  gap: 14px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.qBlMatrixWrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.qBlMatrixLabel {
+  font-size: 12px;
+  color: var(--demo-muted, #4d5156);
+}
+
+.qBlMatrix {
+  border-collapse: collapse;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+}
+
+.qBlMatrix td {
+  padding: 2px 8px;
+  border: 1px solid var(--demo-line);
+  text-align: right;
+  white-space: nowrap;
+}
+
+.qBlIdentities {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-family: ui-monospace, Menlo, Consolas, monospace;
+}
+
+.qBlIdentityRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.qBlIdentityRow .qBlPending {
+  color: var(--demo-muted, #4d5156);
+}
+
+.qBlIdentityRow .qBlOk {
+  color: #1a7f37;
+}
+
+.qBlVerifyPanel {
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}

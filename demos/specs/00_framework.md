@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals (2026-08-30).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum (2026-08-31).
 
 ## Decision
 
@@ -62,7 +62,7 @@ Out of scope · Open/Resolved questions.
 
 | # | Spec | Slug | Covers raw folders | Open items for David |
 |---|---|---|---|---|
-| 01 | Quantum Playground | `quantum` | quantum_information_qutip_raw | none |
+| 01 | Quantum Playground | `quantum` | quantum_information_qutip_raw | **built 2026-08-31** - TS simulator + 4 panels; NOTE: report's who-did-what table omits David (see spec 01) - neutral attribution used, confirm with David |
 | 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | none |
 | 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
 | 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | **built 2026-08-30** — kicad-cli layer/sheet exports, EEG at 250 Hz, canvases; DSP cell completed |

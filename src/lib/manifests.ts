@@ -15,6 +15,7 @@ import notion from "@content/notion/site";
 import verilog from "@content/verilog/site";
 import nocturnal from "@content/nocturnal/site";
 import signals from "@content/signals/site";
+import quantum from "@content/quantum/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -27,6 +28,7 @@ export const manifests: SiteManifest[] = [
   verilog,
   nocturnal,
   signals,
+  quantum,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

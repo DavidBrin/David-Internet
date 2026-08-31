@@ -1,0 +1,158 @@
+/* Grover iterator panel. All classes prefixed qGr. */
+
+.qGrLayout {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.qGrControls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.qGrNSelect {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.qGrHint {
+  font-size: 12px;
+  color: var(--demo-muted, #4d5156);
+}
+
+.qGrChart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  padding: 6px 4px 2px;
+}
+
+.qGrBar {
+  cursor: pointer;
+}
+
+.qGrBar rect {
+  transition: fill 120ms ease, y 350ms ease, height 350ms ease;
+}
+
+.qGrBar.qGrMarked rect {
+  fill: var(--demo-accent);
+}
+
+.qGrBar.qGrPlain rect {
+  fill: #93a0c2;
+}
+
+.qGrBar.qGrFlash rect {
+  fill: #ffb020;
+}
+
+.qGrBar:hover rect {
+  opacity: 0.85;
+}
+
+.qGrMeanLine {
+  fill: var(--demo-ink, #1c1e21);
+  opacity: 0.4;
+  transition: y 350ms ease, height 120ms ease, opacity 200ms ease;
+}
+
+.qGrMeanLine.qGrMeanLineActive {
+  opacity: 0.85;
+  fill: #b45309;
+}
+
+.qGrAxisLine {
+  stroke: var(--demo-line);
+  stroke-width: 1;
+}
+
+.qGrBarLabel {
+  font-size: 9px;
+  fill: var(--demo-muted, #4d5156);
+  text-anchor: middle;
+}
+
+.qGrButtons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.qGrReadouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12.5px;
+  color: var(--demo-ink, #1c1e21);
+}
+
+.qGrReadouts b {
+  color: var(--demo-accent);
+}
+
+.qGrCurve svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  padding: 6px 4px 2px;
+}
+
+.qGrCurveLine {
+  fill: none;
+  stroke: var(--demo-accent);
+  stroke-width: 1.75;
+}
+
+.qGrCurveDot {
+  fill: var(--demo-accent);
+}
+
+.qGrOptimalLine {
+  stroke: var(--demo-ink, #1c1e21);
+  stroke-width: 1;
+  stroke-dasharray: 3 3;
+  opacity: 0.5;
+}
+
+.qGrCurveAxis {
+  font-size: 9px;
+  fill: var(--demo-muted, #4d5156);
+}
+
+.qGrOverRotated {
+  color: #b45309;
+}
+
+.qGrMeasureNote {
+  font-weight: 600;
+}
+
+.qGrMeasureHit {
+  color: #188038;
+}
+
+.qGrMeasureMiss {
+  color: #d93025;
+}
+
+.qGrFooter {
+  font-size: 12px;
+  color: var(--demo-muted, #4d5156);
+}
+
+.qGrFooter a {
+  color: var(--demo-accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .qGrBar rect,
+  .qGrMeanLine {
+    transition: none !important;
+  }
+}
