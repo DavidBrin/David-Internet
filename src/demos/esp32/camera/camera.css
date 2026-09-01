@@ -1,0 +1,222 @@
+/* ESP32 Thermal TinyML — camera panel. Classes prefixed etCam. */
+
+.etCam {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.etCamLoading {
+  padding: 20px 4px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* ---- grid + legend ---- */
+
+.etCamGridArea {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.etCamCanvasWrap {
+  width: 360px;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #0b0f1a;
+  position: relative;
+}
+
+.etCamCanvasWrap canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.etCamLegendCol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 160px;
+  flex: 1 1 160px;
+}
+
+.etCamLegendTitle {
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.etCamBar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.etCamBarTrack {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
+  overflow: visible;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+.etCamBarTrackMini {
+  height: 8px;
+  width: 100%;
+  max-width: 200px;
+  background: linear-gradient(to right, #1f2937, #f97316);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.etCamBarBand {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  background: rgba(255, 255, 255, 0.28);
+  border-left: 1px dashed rgba(31, 41, 55, 0.55);
+  border-right: 1px dashed rgba(31, 41, 55, 0.55);
+}
+
+.etCamBarMarker {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 2px;
+  background: #1f2937;
+  transform: translateX(-1px);
+}
+
+.etCamBarMarker::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid #1f2937;
+}
+
+.etCamBarTicks {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: #6b7280;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* ---- transport ---- */
+
+.etCamTransport .etSlider input[type="range"] {
+  width: 200px;
+}
+
+.etCamSeqPicker {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.etCamSeqBtn {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  padding: 4px 10px;
+}
+
+/* ---- live readouts ---- */
+
+.etCamReadouts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: flex-start;
+  background: #fff;
+  border: 1px solid #f0dfc8;
+  border-radius: 10px;
+  padding: 12px 16px;
+}
+
+.etCamReadout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.etCamMaxTemp {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+}
+
+.etCamMaxTempValue {
+  font-size: 34px;
+  font-weight: 800;
+  color: #c2410c;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.etCamMaxTempValue span {
+  font-size: 16px;
+  font-weight: 600;
+  color: #9a3412;
+  margin-left: 2px;
+}
+
+/* ---- analysis strip ---- */
+
+.etCamAnalysis {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.etCamChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.etCamChip {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  background: #fdf3e7;
+  border: 1px solid #f0dfc8;
+  color: #9a3412;
+}
+
+.etCamFigGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+
+.etCamFigCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.etCamFigCard img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.etCamFigCaption {
+  font-size: 11.5px;
+  color: #6b7280;
+  padding: 6px 8px;
+  line-height: 1.4;
+}

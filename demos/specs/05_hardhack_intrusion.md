@@ -1,7 +1,7 @@
 # 05 — HardHack 2026: Break-in Simulator (Jan 2026, UCSD hackathon)
 
 Slug: `hardhack` · Fake domain: `hardhack.davids.net` · Archetype: **A** (whole-system simulation) + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-08-31** - one page-wide deterministic sim (firmware ported line for line, 13 table-driven tests), four panels (SVG house w/ wiring overlay, state machine w/ live sliders, packet strip + SwiftUI phone replica, iteration switcher). Sources scrubbed into demos/hardhack_src/ (topic -> <team>). Faithful quirks kept: LOCKDOWN/ERROR never entered; LED strip cycle decoupled from alarm; wiring JSONs became src/demos/hardhack/sim/wiring.ts (TS data instead of public/ assets - no fetch needed).
 
 ## Summary
 

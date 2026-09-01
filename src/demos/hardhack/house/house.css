@@ -1,0 +1,235 @@
+/* HardHack — house panel. Prefix: hhHouse* (shared hh* classes come from hardhack.css). */
+
+.hhHouseWrap {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: #fff;
+}
+
+.hhHouseSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  user-select: none;
+  touch-action: none;
+}
+
+/* ---- structure ---- */
+.hhHouseWallFill { fill: #f4f1ee; }
+.hhHouseWallLine { fill: none; stroke: #4b5563; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.hhHouseFloor { fill: #ece6df; }
+.hhHouseFloorLine { stroke: #4b5563; stroke-width: 3; }
+.hhHouseRoofLine { fill: none; stroke: #4b5563; stroke-width: 3; stroke-linejoin: round; }
+.hhHouseWindowGlass { fill: #dceefb; stroke: #4b5563; stroke-width: 2; }
+.hhHouseWindowMullion { stroke: #4b5563; stroke-width: 1.5; }
+.hhHouseTable { fill: #cbb7a0; stroke: #6b5847; stroke-width: 1.5; }
+.hhHouseTableLeg { stroke: #6b5847; stroke-width: 3; }
+
+/* ---- door ---- */
+.hhHouseDoorGroup { transition: transform 60ms linear; }
+.hhHouseDoorLeaf { stroke: #92400e; stroke-width: 8; stroke-linecap: round; }
+.hhHouseDoorSwingArc { fill: none; stroke: #c9beb4; stroke-width: 1.5; stroke-dasharray: 3 4; }
+.hhHouseDoorHandle {
+  fill: #fff;
+  stroke: #92400e;
+  stroke-width: 2;
+  cursor: grab;
+}
+.hhHouseDoorHandle:active { cursor: grabbing; }
+.hhHouseHinge { fill: #4b5563; }
+
+/* ---- servo horn (mounted on door) ---- */
+.hhHouseServoBody { fill: #374151; stroke: #1f2937; stroke-width: 1; }
+.hhHouseServoHorn {
+  stroke: #f59e0b;
+  stroke-width: 3;
+  stroke-linecap: round;
+  transition: transform 260ms ease;
+  transform-origin: 0px 0px;
+}
+
+/* ---- sensor + cone ---- */
+.hhHouseSensorBody { fill: #1f2937; stroke: #111827; stroke-width: 1; }
+.hhHouseCone {
+  fill: rgba(239, 68, 68, 0.12);
+  stroke: rgba(239, 68, 68, 0.35);
+  stroke-width: 1;
+  transition: d 120ms linear, opacity 200ms ease;
+}
+.hhHouseCone.isAlert {
+  fill: rgba(239, 68, 68, 0.22);
+}
+
+.hhHousePing {
+  fill: none;
+  stroke: #ef4444;
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+  animation-name: hhHousePingPulse;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+}
+@keyframes hhHousePingPulse {
+  0% { opacity: 0.7; transform: scale(0.15); }
+  85% { opacity: 0; }
+  100% { opacity: 0; transform: scale(1); }
+}
+
+/* ---- VCNL4040 ---- */
+.hhHouseVcnl { fill: #7c3aed; stroke: #4c1d95; stroke-width: 1; }
+
+/* ---- buzzer + LEDs ---- */
+.hhHouseBuzzer { fill: #6b7280; stroke: #374151; stroke-width: 1.5; }
+.hhHouseBuzzerRipple {
+  fill: none;
+  stroke: #f59e0b;
+  stroke-width: 1.5;
+  opacity: 0;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+.hhHouseBuzzerRipple.isOn {
+  animation: hhHouseRipplePulse 700ms ease-out infinite;
+}
+@keyframes hhHouseRipplePulse {
+  0% { opacity: 0.6; transform: scale(0.3); }
+  100% { opacity: 0; transform: scale(1.6); }
+}
+
+.hhHouseLed { stroke: #1f2937; stroke-width: 1; fill: #374151; transition: fill 120ms ease; }
+.hhHouseLed.isGreenOn { fill: #22c55e; filter: drop-shadow(0 0 3px rgba(34,197,94,0.9)); }
+.hhHouseLed.isRedOn { fill: #ef4444; }
+.hhHouseLed.isRedStrobe {
+  animation: hhHouseStrobe 320ms steps(1) infinite;
+}
+@keyframes hhHouseStrobe {
+  0%, 49% { fill: #ef4444; filter: drop-shadow(0 0 5px rgba(239,68,68,0.95)); }
+  50%, 100% { fill: #7f1d1d; filter: none; }
+}
+
+/* ---- boards ---- */
+.hhHouseBoard {
+  transition: transform 480ms cubic-bezier(0.22, 1, 0.36, 1), opacity 420ms ease;
+}
+.hhHouseBoardBody { fill: #0f766e; stroke: #134e4a; stroke-width: 1.5; rx: 4; }
+.hhHouseBoardLabel {
+  font-size: 8.5px;
+  fill: #ecfdf5;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  pointer-events: none;
+}
+
+/* ---- LED strip (iteration 3) ---- */
+.hhHouseStripDot { transition: opacity 300ms ease; }
+
+/* ---- alert flash (one-shot, keyed by alertCount) ---- */
+.hhHouseFlash {
+  fill: #ef4444;
+  opacity: 0;
+  pointer-events: none;
+  animation: hhHouseFlashFade 700ms ease-out 1;
+}
+@keyframes hhHouseFlashFade {
+  0% { opacity: 0.35; }
+  100% { opacity: 0; }
+}
+
+/* ---- intruder figure ---- */
+.hhHouseIntruder { cursor: grab; }
+.hhHouseIntruder:active { cursor: grabbing; }
+.hhHouseIntruderBody { fill: #1f2937; }
+.hhHouseIntruderBody.isActive { fill: #b91c1c; }
+
+/* ---- distance path / cm scale ---- */
+.hhHousePath { stroke: #d6d3d1; stroke-width: 2; stroke-dasharray: 2 5; }
+.hhHouseTick { stroke: #cbd5e1; stroke-width: 1; }
+.hhHouseTickLabel { font-size: 9px; fill: #9ca3af; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+/* ---- wiring overlay ---- */
+.hhHouseWire {
+  fill: none;
+  stroke-width: 2;
+  opacity: 0.85;
+  transition: opacity 150ms ease, stroke-width 150ms ease;
+}
+.hhHouseWire.isDim { opacity: 0.12; }
+.hhHouseWire.isHot { stroke-width: 3.5; opacity: 1; }
+.hhHouseWireLabel {
+  font-size: 7.5px;
+  fill: #57534e;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  pointer-events: none;
+}
+.hhHouseWireLabel.isHot { fill: #111827; font-weight: 700; }
+
+.hhHouseHotspot {
+  fill: transparent;
+  stroke: none;
+  cursor: pointer;
+}
+
+.hhHousePinCard {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  max-width: 240px;
+  background: #fff;
+  border: 1px solid #ecdcd8;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.5;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+.hhHousePinCard h4 {
+  margin: 0 0 4px;
+  font-size: 11.5px;
+  color: #9f5b52;
+}
+.hhHousePinCard .hhHousePinRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  color: #374151;
+}
+.hhHousePinCard .hhHousePinNote {
+  color: #9ca3af;
+  font-size: 10px;
+}
+
+.hhHouseStageWrap {
+  position: relative;
+}
+
+/* ---- readout row ---- */
+.hhHouseReadout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 12.5px;
+  color: #374151;
+}
+.hhHouseReadout b { color: #111827; }
+.hhHouseState {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  background: #e5e7eb;
+  color: #374151;
+}
+.hhHouseState.isAlert { background: #fee2e2; color: #b91c1c; }
+.hhHouseArmedPill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 11px;
+  background: #dcfce7;
+  color: #166534;
+}
+.hhHouseArmedPill.isDisarmed { background: #f3f4f6; color: #6b7280; }

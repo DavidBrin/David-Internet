@@ -1,0 +1,475 @@
+/* WirePanel — packets, gateway, broker, phone. Prefix: hhWire*. */
+
+.hhWirePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------------------------------------------------------------- strip */
+
+.hhWireStripWrap {
+  padding: 10px;
+}
+
+.hhWireSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1000 / 260;
+}
+
+.hhWireLink {
+  fill: none;
+  stroke-width: 2.5;
+}
+
+.hhWireLink--uart {
+  stroke: #f59e0b;
+  stroke-dasharray: 6 4;
+  animation: hhWireFlowUart 1.4s linear infinite;
+}
+
+.hhWireLink--wifi {
+  stroke: #0ea5e9;
+  stroke-dasharray: 5 5;
+  animation: hhWireFlowWifi 1.4s linear infinite;
+}
+
+@keyframes hhWireFlowUart {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+@keyframes hhWireFlowWifi {
+  to {
+    stroke-dashoffset: -20;
+  }
+}
+
+.hhWireLinkLabel {
+  font-size: 11px;
+  fill: #78716c;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.hhWireNode {
+  fill: #fff;
+  stroke: #d4b8b3;
+  stroke-width: 1.5;
+}
+
+.hhWireNode--phone {
+  stroke: #ef4444;
+  stroke-dasharray: 3 3;
+}
+
+.hhWireNodeLabel {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #292524;
+}
+
+.hhWireCloud ellipse {
+  fill: #eef2ff;
+  stroke: #a5b4fc;
+  stroke-width: 1.5;
+}
+
+.hhWireQueueChip {
+  fill: #fde68a;
+  stroke: #b45309;
+  stroke-width: 1;
+}
+
+.hhWireQueueCount {
+  font-size: 11px;
+  font-weight: 700;
+  fill: #b45309;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.hhWirePacket {
+  cursor: pointer;
+}
+
+.hhWirePacket rect {
+  stroke: rgba(0, 0, 0, 0.25);
+  stroke-width: 1;
+}
+
+.hhWirePacketLabel {
+  font-size: 10px;
+  font-weight: 800;
+  fill: #fff;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  pointer-events: none;
+}
+
+.hhWirePacket--malformed rect {
+  stroke: #dc2626;
+  stroke-width: 1.5;
+  stroke-dasharray: 2 2;
+}
+
+.hhWirePacket--malformed {
+  animation: hhWireGlitch 220ms steps(2) infinite;
+}
+
+@keyframes hhWireGlitch {
+  0% {
+    filter: none;
+  }
+  50% {
+    filter: drop-shadow(1px 0 0 #dc2626) drop-shadow(-1px 0 0 #0ea5e9);
+  }
+  100% {
+    filter: none;
+  }
+}
+
+.hhWireInspector {
+  margin-top: 8px;
+  padding: 8px 10px;
+  background: #fafaf9;
+  border: 1px solid #ecdcd8;
+  border-radius: 8px;
+  min-height: 40px;
+}
+
+.hhWireInspectorBody {
+  margin: 6px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #1c1917;
+}
+
+/* ---------------------------------------------------------------- legend */
+
+.hhWireLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12px;
+  color: #57534e;
+}
+
+.hhWireLegendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hhWireLegendItem i {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 3px;
+}
+
+.hhWireLegendWord {
+  color: #a8a29e;
+}
+
+/* ---------------------------------------------------------------- lower row */
+
+.hhWireLower {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.hhWireControls {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+
+.hhWireStats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+}
+
+.hhWireStat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1c1917;
+}
+
+/* ---------------------------------------------------------------- phone */
+
+.hhWirePhone {
+  flex: 0 0 300px;
+  width: 300px;
+  background: #0a0a0a;
+  border-radius: 34px;
+  border: 6px solid #171717;
+  padding: 16px 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.hhWirePhoneHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hhWirePhoneSignal {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #6b7280;
+  flex: none;
+}
+
+.hhWirePhoneSignal[data-online="true"] {
+  background: #22c55e;
+  box-shadow: 0 0 6px #22c55e;
+}
+
+.hhWirePhoneBrand {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #a8a29e;
+  letter-spacing: 0.03em;
+}
+
+.hhWirePhonePill {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  border: 1px solid #6b7280;
+  color: #d4d4d4;
+}
+
+.hhWirePhonePill i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #6b7280;
+}
+
+.hhWirePhonePill--online {
+  border-color: #22c55e;
+  color: #86efac;
+}
+
+.hhWirePhonePill--online i {
+  background: #22c55e;
+}
+
+.hhWirePhonePill--offline {
+  border-color: #6b7280;
+  color: #a3a3a3;
+}
+
+.hhWirePhoneTitle {
+  text-align: center;
+  font-size: 26px;
+  font-weight: 900;
+  color: #fde047;
+  text-shadow: 0 0 14px rgba(253, 224, 71, 0.5);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hhWirePhoneCard {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 14px;
+  transition: background 200ms ease, border-color 200ms ease;
+}
+
+.hhWirePhoneCard--armed {
+  background: rgba(239, 68, 68, 0.22);
+  border-color: rgba(239, 68, 68, 0.5);
+}
+
+.hhWirePhoneCardIcon {
+  width: 36px;
+  height: 36px;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 17px;
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ade80;
+}
+
+.hhWirePhoneCard--armed .hhWirePhoneCardIcon {
+  background: rgba(239, 68, 68, 0.22);
+  color: #f87171;
+}
+
+.hhWirePhoneCardText {
+  flex: 1;
+  min-width: 0;
+}
+
+.hhWirePhoneCardTitle {
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #fff;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+.hhWirePhoneCardSub {
+  font-size: 10.5px;
+  color: #a3a3a3;
+  margin-top: 1px;
+}
+
+.hhWirePhoneToggle {
+  position: relative;
+  width: 44px;
+  height: 26px;
+  flex: none;
+  display: inline-block;
+}
+
+.hhWirePhoneToggle input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.hhWirePhoneToggleTrack {
+  position: absolute;
+  inset: 0;
+  background: #52525b;
+  border-radius: 999px;
+  transition: background 180ms ease;
+}
+
+.hhWirePhoneToggle input:checked + .hhWirePhoneToggleTrack {
+  background: #ef4444;
+}
+
+.hhWirePhoneToggleThumb {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #fff;
+  transition: transform 180ms ease;
+}
+
+.hhWirePhoneToggle input:checked + .hhWirePhoneToggleTrack .hhWirePhoneToggleThumb {
+  transform: translateX(18px);
+}
+
+.hhWirePhoneLogWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.hhWirePhoneLogHead {
+  font-size: 9.5px;
+  font-weight: 800;
+  color: #a3a3a3;
+  letter-spacing: 0.04em;
+}
+
+.hhWirePhoneLog {
+  height: 110px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #0d0d0d;
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  border-radius: 10px;
+  padding: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  line-height: 1.5;
+}
+
+.hhWirePhoneLogLine {
+  color: #4ade80;
+  word-break: break-word;
+}
+
+.hhWirePhoneLogLine--alert {
+  color: #f87171;
+  font-weight: 700;
+}
+
+.hhWirePhoneLogLine--error {
+  color: #fb923c;
+}
+
+.hhWirePhoneLogLine--recv {
+  color: #7dd3fc;
+}
+
+.hhWirePhoneLogLine--info {
+  color: #a3a3a3;
+}
+
+.hhWirePhoneFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding-top: 2px;
+}
+
+.hhWirePhoneReset {
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.hhWirePhoneReset:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: transparent;
+  color: #fff;
+}
+
+.hhWirePhoneReconnects {
+  color: #737373;
+  font-size: 10px;
+}
+
+.hhWirePhoneCredits {
+  font-size: 8.5px;
+  color: rgba(255, 255, 255, 0.25);
+  text-align: center;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+@media (max-width: 640px) {
+  .hhWirePhone {
+    width: 100%;
+    flex-basis: 100%;
+  }
+}

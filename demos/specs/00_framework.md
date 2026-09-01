@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum (2026-08-31).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31).
 
 ## Decision
 
@@ -66,9 +66,9 @@ Out of scope · Open/Resolved questions.
 | 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | none |
 | 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
 | 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | **built 2026-08-30** — kicad-cli layer/sheet exports, EEG at 250 Hz, canvases; DSP cell completed |
-| 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | resolved: simple schematic house; iteration unnamed |
+| 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | **built 2026-08-31** - page-wide sim, 13 table tests; scrubbed sources in demos/hardhack_src/ |
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
-| 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | none |
+| 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | **built 2026-08-31** - 76 features (spec said 65 - documents won), int8 kernels bit-faithful vs TFLite |
 | 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | resolved: retrain if no checkpoints on disk/GitHub; micro-CT when cleared; bbox skipped |
 | 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | resolved: try group repo, else arXiv/Kaggle; no per-person split |
 | 10 | SQL Playground | `sql` | dtu_databases_raw | none |
@@ -146,4 +146,13 @@ directives (memory points here).
   unboundedly and jams the tab (hit on 13's deblur panel).
 - Raw material can contradict the spec (04's canvases framed the venture as bipolar/MDD
   diagnosis, not sleep) - the documents win; rewrite story text to match them.
+- TFLite INT8 fixtures (07): FC weights are quantized **per output channel** -
+  `tensor_details["quantization"]` returns only the first scale; read
+  `quantization_parameters["scales"]` (one per row, symmetric zp=0). And create the
+  interpreter with `experimental_op_resolver_type=BUILTIN_WITHOUT_DEFAULT_DELEGATES` when
+  using `experimental_preserve_all_tensors` - with XNNPACK active the intermediate tensors
+  come back unfilled (cost one debugging round).
+- This machine's `py -3.12`: TensorFlow 2.21 + numpy 2.5 live in the *user* site-packages
+  (`pip install --user`; plain install hits system-dir permission errors). The stale system
+  pandas/scipy break under user numpy - keep pandas/scipy/sklearn/pillow user-site too.
 

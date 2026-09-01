@@ -1,0 +1,397 @@
+/* Transport panel — Serial / MQTT / WebSocket. Prefix: etTrans*. */
+
+.etTransRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.etTransTabs {
+  margin: 0 0 2px;
+}
+
+/* --- shared scene ------------------------------------------------------ */
+
+.etTransSceneWrap {
+  padding: 10px 6px 4px;
+  overflow-x: auto;
+}
+
+.etTransScene {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+}
+
+.etTransChip {
+  fill: #1f2937;
+  stroke: #111827;
+  stroke-width: 1.5;
+}
+
+.etTransPin {
+  fill: #9ca3af;
+}
+
+.etTransLed {
+  fill: #34d399;
+}
+
+.etTransChipLabel {
+  fill: #f9fafb;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.etTransChipSub {
+  fill: #9ca3af;
+  font-size: 9px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.etTransLaptopScreen {
+  fill: #1f2937;
+}
+
+.etTransLaptopGlass {
+  fill: #0b1220;
+}
+
+.etTransLaptopBase {
+  fill: #374151;
+}
+
+.etTransCable {
+  stroke: #f0dfc8;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.etTransCable[data-dropped="true"] {
+  stroke: #fca5a5;
+  stroke-dasharray: 5 6;
+}
+
+.etTransCableThin {
+  stroke-width: 3;
+}
+
+.etTransMidCaption {
+  fill: #92714a;
+  font-size: 10.5px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.etTransTopicLabel {
+  fill: #b45309;
+  font-size: 10px;
+  font-weight: 700;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+/* --- serial: byte ribbon ------------------------------------------------ */
+
+.etTransRibbonWrap {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #fffaf1;
+  border: 1px solid #f0dfc8;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.etTransRibbon {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  animation: etTransRibbonScroll 4.5s linear infinite;
+  will-change: transform;
+}
+
+.etTransRibbonBytes {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  color: #b45309;
+  padding: 0 6px;
+}
+
+.etTransRibbonGap {
+  display: inline-block;
+  height: 8px;
+  width: calc(var(--gap-frac, 0.3) * 220px);
+  border-top: 1px dashed #e2c9a8;
+}
+
+@keyframes etTransRibbonScroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* --- mqtt: broker, flows, retries, handshake ---------------------------- */
+
+.etTransBroker {
+  fill: #fff7ec;
+  stroke: #f97316;
+  stroke-width: 2;
+}
+
+.etTransBroker[data-state="dropped"],
+.etTransBroker[data-state="retrying"] {
+  stroke: #dc2626;
+}
+
+.etTransBroker[data-state="resubscribing"] {
+  stroke: #d97706;
+}
+
+.etTransBrokerGlyph {
+  font-size: 20px;
+}
+
+.etTransFlowDot {
+  fill: #f97316;
+  opacity: 0;
+}
+
+.etTransFlowPub {
+  animation: etTransFlowPub 2.6s linear infinite;
+}
+
+@keyframes etTransFlowPub {
+  0% {
+    cx: 122px;
+    opacity: 0;
+  }
+  6% {
+    opacity: 1;
+  }
+  44% {
+    cx: 305px;
+    opacity: 1;
+  }
+  50% {
+    cx: 305px;
+    opacity: 0;
+  }
+  56% {
+    cx: 365px;
+    opacity: 1;
+  }
+  94% {
+    cx: 564px;
+    opacity: 1;
+  }
+  100% {
+    cx: 564px;
+    opacity: 0;
+  }
+}
+
+.etTransFlowWs {
+  animation: etTransFlowWs 1.4s linear infinite;
+}
+
+@keyframes etTransFlowWs {
+  0% {
+    cx: 122px;
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  92% {
+    cx: 564px;
+    opacity: 1;
+  }
+  100% {
+    cx: 564px;
+    opacity: 0;
+  }
+}
+
+.etTransRetryPulse {
+  fill: none;
+  stroke: #dc2626;
+  stroke-width: 2;
+  animation: etTransRetryPulse 700ms ease-out;
+}
+
+@keyframes etTransRetryPulse {
+  0% {
+    r: 4;
+    opacity: 1;
+  }
+  100% {
+    r: 16;
+    opacity: 0;
+  }
+}
+
+.etTransReqDot {
+  fill: #f97316;
+  stroke: #ffffff;
+  stroke-width: 1.5;
+  transition: cx 480ms ease, cy 480ms ease;
+}
+
+/* --- websocket: label flight -------------------------------------------- */
+
+.etTransLabelDot {
+  animation: etTransLabelFly 850ms ease-out forwards;
+}
+
+.etTransLabelDot--present {
+  fill: #b91c1c;
+}
+
+.etTransLabelDot--empty {
+  fill: #15803d;
+}
+
+@keyframes etTransLabelFly {
+  0% {
+    cx: 564px;
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    cx: 122px;
+    opacity: 0;
+  }
+}
+
+/* --- tab bodies ---------------------------------------------------------- */
+
+.etTransTabBody {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.etTransPayloadBox {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.etTransPayloadPre {
+  margin: 0;
+  padding: 8px 10px;
+  background: #fffaf1;
+  border: 1px solid #f0dfc8;
+  border-radius: 6px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  max-height: 140px;
+  overflow-y: auto;
+}
+
+.etTransLog {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 8px 10px;
+  background: #fff7f7;
+  border: 1px solid #fca5a5;
+  border-radius: 6px;
+}
+
+.etTransLogLine {
+  color: #991b1b;
+}
+
+/* --- mini labeling UI ----------------------------------------------------- */
+
+.etTransLabelUI {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 12px;
+  background: #17182b;
+  border-radius: 10px;
+  outline: none;
+}
+
+.etTransLabelUI:focus-visible {
+  box-shadow: 0 0 0 2px #f97316;
+}
+
+/* the shared etMono/etLabel colors assume a light card; override for this dark one */
+.etTransLabelUI .etMono {
+  color: #e5e7eb;
+}
+
+.etTransLabelUI .etLabel {
+  color: #fb923c;
+}
+
+/* higher specificity than the shared .etCanvasWrap (which loses this cascade tie
+   because esp32.css is concatenated after this file) so the dark tile always wins */
+.etTransLabelUI .etTransLabelCanvasWrap {
+  position: relative;
+  padding: 6px;
+  background: #0b0c18;
+  border: 1px solid #2b2d45;
+  flex: 0 0 auto;
+}
+
+.etTransLabelCanvas {
+  border-radius: 4px;
+}
+
+.etTransLabelCanvasWrap .etBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+
+.etTransLabelBtns {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 220px;
+}
+
+.etTransToast {
+  font-size: 12px;
+  color: #34d399;
+  font-weight: 600;
+}
+
+.etTransHint {
+  color: #9ca3af;
+  max-width: none;
+}
+
+/* --- readout strip --------------------------------------------------------- */
+
+.etTransReadouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  padding: 10px 12px;
+  background: #fff7ec;
+  border: 1px solid #f0dfc8;
+  border-radius: 10px;
+}
+
+.etTransReadout {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}

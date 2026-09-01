@@ -16,6 +16,8 @@ import verilog from "@content/verilog/site";
 import nocturnal from "@content/nocturnal/site";
 import signals from "@content/signals/site";
 import quantum from "@content/quantum/site";
+import hardhack from "@content/hardhack/site";
+import esp32 from "@content/esp32/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -29,6 +31,8 @@ export const manifests: SiteManifest[] = [
   nocturnal,
   signals,
   quantum,
+  hardhack,
+  esp32,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

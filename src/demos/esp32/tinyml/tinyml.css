@@ -1,0 +1,316 @@
+/* TinyML panel — train / quantize / deploy / infer. Prefix: etMl*. */
+
+.etMlWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.etMlStage {
+  border: 1px solid #f0dfc8;
+  border-radius: 12px;
+  background: #fffdf9;
+  padding: 14px 16px 16px;
+}
+
+.etMlStageHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.etMlStageNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #f97316;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+/* ---------------------------------------------------------------- train */
+
+.etMlFoldRow {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.etMlChartWrap {
+  overflow-x: auto;
+}
+
+.etMlChart {
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+  display: block;
+}
+
+.etMlLegend {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: #4b5563;
+  margin-top: 4px;
+}
+
+.etMlLegendSwatch {
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.etMlHeldOut {
+  margin-top: 10px;
+  font-size: 12.5px;
+  color: #374151;
+}
+
+.etMlFoldTable {
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 8px;
+}
+
+.etMlFoldTable td,
+.etMlFoldTable th {
+  padding: 3px 10px 3px 0;
+  text-align: left;
+  color: #374151;
+}
+
+.etMlFoldTable th {
+  color: #9a5b1a;
+  font-weight: 600;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.etMlFoldTable tr[data-active="true"] td {
+  color: #b45309;
+  font-weight: 700;
+}
+
+/* ------------------------------------------------------------- quantize */
+
+.etMlQuantGrid {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.etMlLayerBlock {
+  overflow-x: auto;
+}
+
+.etMlLayerMeta {
+  display: flex;
+  gap: 14px;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.etMlBarGrid {
+  display: flex;
+  align-items: stretch;
+  gap: 2px;
+  height: 96px;
+  padding: 2px 0;
+  position: relative;
+}
+
+.etMlBarGrid::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: #e7d6bd;
+}
+
+.etMlBarPair {
+  position: relative;
+  width: 6px;
+  height: 100%;
+  flex: 0 0 auto;
+}
+
+.etMlBarFloat,
+.etMlBarInt {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  border-radius: 1px;
+  background: #cbd5e1;
+}
+
+.etMlBarFloat {
+  bottom: 50%;
+  background: #94a3b8;
+}
+
+.etMlBarInt {
+  top: 50%;
+  background: #fb923c;
+}
+
+.etMlBarPair[data-differs="true"] .etMlBarFloat,
+.etMlBarPair[data-differs="true"] .etMlBarInt {
+  background: #dc2626;
+}
+
+.etMlBarCaption {
+  font-size: 11px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.etMlOutBlock {
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.etMlProbRow {
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  margin-top: 4px;
+}
+
+.etMlProbVal {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.etMlProbVal[data-side="float"] {
+  color: #475569;
+}
+
+.etMlProbVal[data-side="int8"] {
+  color: #ea580c;
+}
+
+.etMlSizeRow {
+  margin-top: 12px;
+}
+
+.etMlSizeBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 0;
+}
+
+.etMlSizeBarTrack {
+  height: 12px;
+  border-radius: 4px;
+  background: #94a3b8;
+}
+
+.etMlSizeBarTrack[data-model="tflite"] {
+  background: #f97316;
+}
+
+.etMlSizeLabel {
+  font-size: 11.5px;
+  color: #374151;
+  white-space: nowrap;
+}
+
+/* ---------------------------------------------------------------- deploy */
+
+.etMlDeployGrid {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.etMlChip {
+  flex: 0 0 auto;
+}
+
+.etMlChipLed {
+  transition: fill 200ms ease;
+}
+
+.etMlFlashCol {
+  flex: 1 1 260px;
+  min-width: 240px;
+}
+
+.etMlProgressTrack {
+  width: 100%;
+  max-width: 360px;
+  height: 10px;
+  border-radius: 5px;
+  background: #f0dfc8;
+  overflow: hidden;
+  margin: 8px 0 4px;
+}
+
+.etMlProgressFill {
+  height: 100%;
+  background: #f97316;
+  transition: width 60ms linear;
+}
+
+.etMlHexdump {
+  background: #1f2430;
+  color: #d6deeb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 11px;
+  line-height: 1.6;
+  min-height: 108px;
+  max-width: 360px;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.etMlHexOffset {
+  color: #7a8ba6;
+}
+
+/* ----------------------------------------------------------------- infer */
+
+.etMlInferRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.etMlConfidence {
+  font-size: 15px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.etMlTally {
+  font-size: 12.5px;
+  color: #4b5563;
+}
+
+.etMlWaiting {
+  font-size: 12.5px;
+  color: #9ca3af;
+  font-style: italic;
+}

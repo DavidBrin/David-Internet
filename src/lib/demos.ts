@@ -11,6 +11,8 @@ import verilog from "@/demos/verilog/meta";
 import nocturnal from "@/demos/nocturnal/meta";
 import signals from "@/demos/signals/meta";
 import quantum from "@/demos/quantum/meta";
+import hardhack from "@/demos/hardhack/meta";
+import esp32 from "@/demos/esp32/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
 export interface DemoSource {
@@ -45,7 +47,7 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);

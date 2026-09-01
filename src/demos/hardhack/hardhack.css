@@ -1,0 +1,98 @@
+/* HardHack demo — shared classes (hh*). Panel-specific styles live in each panel's css. */
+
+.hhRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.hhBtn {
+  appearance: none;
+  border: 1px solid #d4b8b3;
+  background: #fff;
+  color: #1f2937;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 120ms ease, border-color 120ms ease;
+}
+
+.hhBtn:hover {
+  background: #fdf0ee;
+  border-color: #ef4444;
+}
+
+.hhBtn[data-active="true"],
+.hhBtn.hhBtnActive {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: #fff;
+}
+
+.hhBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.hhNote {
+  font-size: 12.5px;
+  color: #6b7280;
+  line-height: 1.5;
+  max-width: 72ch;
+}
+
+.hhCanvasWrap {
+  background: #fff;
+  border: 1px solid #ecdcd8;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.hhLabel {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #9f5b52;
+}
+
+.hhSlider {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #374151;
+}
+
+.hhSlider input[type="range"] {
+  accent-color: #ef4444;
+}
+
+.hhMono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
+
+/* Shared serial-console look (house + wire panels) */
+.hhConsole {
+  background: #1c1917;
+  color: #e7e5e4;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11.5px;
+  line-height: 1.55;
+  height: 160px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.hhConsole .send { color: #fbbf24; }
+.hhConsole .recv { color: #7dd3fc; }
+.hhConsole .alert { color: #f87171; font-weight: 700; }
+.hhConsole .error { color: #f87171; }
+.hhConsole .info { color: #d6d3d1; }

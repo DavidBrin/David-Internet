@@ -1,0 +1,259 @@
+/* HardHack — state machine panel (prefix hhState*). Layout only; hh* shared
+   classes (hardhack.css) provide the base button/slider/note/label look. */
+
+.hhStatePanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hhStateTop {
+  display: grid;
+  grid-template-columns: minmax(280px, 1.3fr) minmax(220px, 1fr);
+  gap: 14px;
+}
+
+@media (max-width: 720px) {
+  .hhStateTop {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- diagram --- */
+
+.hhStateDiagramWrap {
+  padding: 10px 12px 8px;
+}
+
+.hhStateDiagram {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.hhStateGhostCaption {
+  margin-top: 2px;
+  text-align: center;
+}
+
+.hhStateEdge {
+  fill: none;
+  stroke: #d4b8b3;
+  stroke-width: 2;
+  color: #d4b8b3; /* marker uses currentColor */
+}
+
+.hhStatePulse {
+  fill: #ef4444;
+  filter: drop-shadow(0 0 3px rgba(239, 68, 68, 0.8));
+  animation: hhStatePulseMove 650ms linear forwards;
+}
+
+@keyframes hhStatePulseMove {
+  0% {
+    offset-distance: 0%;
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    offset-distance: 100%;
+    opacity: 0;
+  }
+}
+
+.hhStateNode {
+  fill: #fff;
+  stroke: #d4b8b3;
+  stroke-width: 2;
+  transition: fill 200ms ease, stroke 200ms ease, stroke-width 200ms ease;
+}
+
+.hhStateNodeNormal.hhStateNodeActive {
+  fill: #dcfce7;
+  stroke: #22c55e;
+  stroke-width: 3.5;
+}
+
+.hhStateNodeAlert.hhStateNodeActive {
+  fill: #fee2e2;
+  stroke: #ef4444;
+  stroke-width: 3.5;
+}
+
+.hhStateNodeGhost {
+  fill: #f3f4f6;
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.hhStateNodeLabel {
+  font-size: 11px;
+  font-weight: 700;
+  fill: #1f2937;
+  pointer-events: none;
+}
+
+.hhStateNodeLabelGhost {
+  fill: #9ca3af;
+  font-weight: 600;
+}
+
+/* --- side column --- */
+
+.hhStateSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.hhStateBlock {
+  background: #fff;
+  border: 1px solid #ecdcd8;
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+.hhStateSlots {
+  display: flex;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.hhStateSlot {
+  width: 22px;
+  height: 14px;
+  border-radius: 4px;
+  background: #f3ece9;
+  border: 1px solid #ecdcd8;
+  transition: background 150ms ease, border-color 150ms ease;
+}
+
+.hhStateSlotFilled {
+  background: #ef4444;
+  border-color: #ef4444;
+}
+
+.hhStateGauge {
+  position: relative;
+  height: 14px;
+  border-radius: 7px;
+  background: #f3ece9;
+  overflow: hidden;
+  margin-top: 6px;
+}
+
+.hhStateGaugeFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  height: 100%;
+  background: #22c55e;
+  transition: width 120ms linear, background 150ms ease;
+}
+
+.hhStateGaugeFillAlert {
+  background: #ef4444;
+}
+
+.hhStateGaugeThreshold {
+  position: absolute;
+  top: -2px;
+  bottom: -2px;
+  width: 2px;
+  background: #1f2937;
+}
+
+.hhStateGaugeReadout {
+  margin-top: 4px;
+  color: #374151;
+}
+
+.hhStateGaugeThresholdLabel {
+  color: #9ca3af;
+}
+
+.hhStateLampRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hhStateLamp {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #d9c7c3;
+  box-shadow: inset 0 0 0 1px #b99b95;
+  transition: background 150ms ease, box-shadow 150ms ease;
+}
+
+.hhStateLampOn {
+  background: #22c55e;
+  box-shadow: 0 0 6px 1px rgba(34, 197, 94, 0.7);
+}
+
+.hhStateArmedStrip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.hhStateArmedBadge {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+
+.hhStateArmedOn {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.hhStateArmedOff {
+  background: #e5e7eb;
+  color: #4b5563;
+}
+
+.hhStateSuppressed {
+  color: #b91c1c;
+  font-size: 11.5px;
+}
+
+/* --- controls --- */
+
+.hhStateControls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* --- trace --- */
+
+.hhStateTrace {
+  padding: 8px 10px;
+}
+
+.hhStateTraceSvg {
+  width: 100%;
+  height: 60px;
+  display: block;
+  margin-top: 4px;
+}
+
+.hhStateTraceLine {
+  fill: none;
+  stroke: #ef4444;
+  stroke-width: 1.5;
+}
+
+.hhStateTraceThreshold {
+  stroke: #9ca3af;
+  stroke-width: 1;
+  stroke-dasharray: 3 2;
+}

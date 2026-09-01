@@ -1,0 +1,272 @@
+/* Side quest: WiFi net-map panel. Prefix: etMap*. Shared et* classes come from esp32.css. */
+
+.etMapRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---------------------------------------------------------------- pipeline strip */
+
+.etMapPipeline {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.etMapPipeBox {
+  fill: #fff;
+  stroke: #e2c9a8;
+}
+
+.etMapPipeBoxAccent {
+  fill: #fff7ed;
+  stroke: #f97316;
+}
+
+.etMapPipeLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  fill: #1f2937;
+}
+
+.etMapPipeEndpoint {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  fill: #b45309;
+}
+
+.etMapPipeArrow {
+  stroke: #d6b98c;
+  stroke-width: 1.5;
+  fill: none;
+  marker-end: url(#etMapArrowHead);
+}
+
+/* ---------------------------------------------------------------- graph + table row */
+
+.etMapGraphRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.etMapGraphWrap {
+  width: 640px;
+  max-width: 100%;
+  height: 420px;
+  flex: 0 0 auto;
+  position: relative;
+}
+
+.etMapGraphSvg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+}
+
+.etMapEdge {
+  stroke: #d6b98c;
+}
+
+.etMapScanner circle {
+  fill: #f97316;
+  stroke: #c2410c;
+  stroke-width: 1.5;
+}
+
+.etMapScanner text {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 10px;
+  font-weight: 700;
+  fill: #fff;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+.etMapNode {
+  cursor: grab;
+}
+
+.etMapNode:active {
+  cursor: grabbing;
+}
+
+.etMapNodeCircle {
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+.etMapNodeCircle.etMapNodeHi {
+  stroke: #f97316;
+  stroke-width: 2.5;
+}
+
+.etMapNodeLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 9.5px;
+  fill: #4b3621;
+  pointer-events: none;
+  dominant-baseline: middle;
+}
+
+.etMapNodeLabel.etMapNodeHi {
+  font-weight: 700;
+  fill: #1f2937;
+}
+
+.etMapChBadge rect {
+  fill: #1f2937;
+  opacity: 0.85;
+}
+
+.etMapChBadge text {
+  fill: #fff;
+  font-size: 7.5px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  pointer-events: none;
+}
+
+/* ---------------------------------------------------------------- side table */
+
+.etMapTableWrap {
+  flex: 1 1 260px;
+  min-width: 260px;
+  overflow-x: auto;
+  border: 1px solid #f0dfc8;
+  border-radius: 10px;
+  background: #fff;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.etMapTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+
+.etMapTable th {
+  position: sticky;
+  top: 0;
+  background: #fdf6ee;
+  text-align: left;
+  padding: 6px 8px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: #b45309;
+  border-bottom: 1px solid #f0dfc8;
+  white-space: nowrap;
+}
+
+.etMapTable td {
+  padding: 5px 8px;
+  border-bottom: 1px solid #f7ecd9;
+  white-space: nowrap;
+  color: #374151;
+}
+
+.etMapRow {
+  cursor: pointer;
+  transition: background 100ms ease;
+}
+
+.etMapRow:hover,
+.etMapRow.etMapRowHi {
+  background: #fff2e0;
+}
+
+.etMapBandDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-right: 5px;
+  vertical-align: middle;
+}
+
+.etMapRssiCell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.etMapRssiBar {
+  width: 46px;
+  height: 6px;
+  border-radius: 3px;
+  background: #f3e6d2;
+  overflow: hidden;
+  flex: 0 0 auto;
+}
+
+.etMapRssiBarFill {
+  height: 100%;
+  border-radius: 3px;
+  background: #f97316;
+}
+
+/* ---------------------------------------------------------------- congestion strip */
+
+.etMapCongestion {
+  border: 1px solid #f0dfc8;
+  border-radius: 10px;
+  background: #fff;
+  padding: 10px 12px;
+}
+
+.etMapCongestionRow {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+  align-items: flex-end;
+}
+
+.etMapSlot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  flex: 1 1 0;
+  min-width: 64px;
+}
+
+.etMapSlotDots {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 3px;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 90px;
+  width: 100%;
+  border-radius: 6px;
+  background: #fdf6ee;
+  padding: 6px 4px;
+}
+
+.etMapSlotDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.etMapSlotLabel {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: #4b3621;
+}
+
+.etMapSlotCount {
+  font-size: 10.5px;
+  color: #9a7248;
+}

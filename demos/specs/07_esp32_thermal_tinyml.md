@@ -1,7 +1,7 @@
 # 07 — ESP32: From Heat to a 6.7 KB Brain (ECE 140, winter 2026)
 
 Slug: `esp32` · Fake domain: `esp32.davids.net` · Archetype: **A** (interactive pipeline) + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-08-31** - five panels live; TS ports fixture-tested against features.py, Keras, and the TFLite interpreter (int8 kernels are per-channel and bit-faithful). CORRECTION: this spec said 65 features - the deployed tech-assignment pipeline is **76** (64 normalized px + 4 intensity + 8 spatial incl. BFS blob), and 76 ships. Training curves re-run at build (5-fold GroupKFold, held-out acc 0.83-0.91, mean 0.881; cleaning drops 17,611 -> 14,246 rows). ~500-frame anonymized subset (salted-hash sids, salt ephemeral). No on-device latency number was logged, so none is shown.
 
 ## Summary
 
