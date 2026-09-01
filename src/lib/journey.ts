@@ -46,6 +46,8 @@ export interface DemoRef {
   status: "live" | "docs" | "in-progress";
   needsAssets?: boolean;
   href?: string;
+  /** Optional encyclopedia article, shown alongside a distinct demo link. */
+  wikiHref?: string;
 }
 
 export interface BranchSpec {

@@ -34,6 +34,56 @@
       "source": "/sites/dollar-pixels/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Dollar_Pixels",
       "permanent": false
+    },
+    {
+      "source": "/sites/verilog/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Verilog",
+      "permanent": false
+    },
+    {
+      "source": "/sites/nocturnal/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Nocturnal_Neuro",
+      "permanent": false
+    },
+    {
+      "source": "/sites/signals/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Signals_and_Systems_Lab",
+      "permanent": false
+    },
+    {
+      "source": "/sites/quantum/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Quantum_Playground",
+      "permanent": false
+    },
+    {
+      "source": "/sites/hardhack/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/HardHack_2026",
+      "permanent": false
+    },
+    {
+      "source": "/sites/esp32/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/ESP32_Thermal_TinyML",
+      "permanent": false
+    },
+    {
+      "source": "/sites/organoids/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Organoids_on_Psychedelics",
+      "permanent": false
+    },
+    {
+      "source": "/sites/spikes/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Anatomy_of_a_Spike",
+      "permanent": false
+    },
+    {
+      "source": "/sites/vision/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Computer_Vision",
+      "permanent": false
+    },
+    {
+      "source": "/sites/arxiv/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/ArXiv_Semantic_Graph",
+      "permanent": false
     }
   ]
 }

@@ -1,10 +1,9 @@
 /**
- * Cached docs route, split by project kind. Replicas: the vendored README/SPEC
- * dumps were never meant for viewers — each has a proper encyclopedia article
- * on the Wikipedia replica, so their pages forward there (vercel.json issues
+ * Cached docs route. Every registered project now has an encyclopedia article
+ * on the Wikipedia replica, so these pages forward there (vercel.json issues
  * the real HTTP redirect in production; tests/wiki-redirects.test.ts guards
- * that the two stay in sync). Demos live inside this repo and have no wiki
- * article, so they keep the original cached-copy rendering.
+ * that the two stay in sync). The cached README rendering below is only a
+ * fallback for a project that somehow has no wiki slug yet.
  */
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
@@ -31,16 +30,16 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { project } = await params;
   const manifest = getManifest(project);
-  if (!manifest) return { title: "Not found — David's Internet" };
+  if (!manifest) return { title: "Not found - David's Internet" };
   if (hasWikiArticle(project)) {
     return {
-      title: `${manifest.displayName} — moved to Wikipedia`,
+      title: `${manifest.displayName} - moved to Wikipedia`,
       description: manifest.tagline,
       robots: { index: false },
     };
   }
   return {
-    title: `${manifest.displayName} — Documentation`,
+    title: `${manifest.displayName} - Documentation`,
     description: manifest.tagline,
   };
 }
@@ -61,7 +60,7 @@ function WikiForward({ manifest }: { manifest: SiteManifest }) {
         <h1 className="cachedTitle">This page has moved</h1>
         <p className="cachedTagline">
           {manifest.displayName}&apos;s documentation now lives as an encyclopedia
-          article — taking you to <a href={wikiUrl}>{articleTitle}</a> on
+          article. Taking you to <a href={wikiUrl}>{articleTitle}</a> on
           David&apos;s Wikipedia.
         </p>
       </header>
@@ -97,15 +96,14 @@ export default async function DocsPage({
             <strong>{manifest.fakeDomain}</strong>
             {manifest.liveUrl ? (
               <>
-                {" "}
-                — the live page is at{" "}
+                . The live page is at{" "}
                 <a href={manifest.liveUrl}>
                   {manifest.liveUrl.replace(/^https?:\/\//, "")}
                 </a>
                 .
               </>
             ) : (
-              <> — the live deployment isn&apos;t up yet.</>
+              <>. The live deployment isn&apos;t up yet.</>
             )}{" "}
             What you&apos;re reading is the project&apos;s own documentation, vendored
             straight from the source repository.
@@ -123,7 +121,7 @@ export default async function DocsPage({
         <p className="cachedCrumb">
           {manifest.favicon} {manifest.fakeDomain} › docs
         </p>
-        <h1 className="cachedTitle">{manifest.displayName} — Documentation</h1>
+        <h1 className="cachedTitle">{manifest.displayName} - Documentation</h1>
         <p className="cachedTagline">{manifest.tagline}</p>
       </header>
 

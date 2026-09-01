@@ -22,9 +22,16 @@ export default function DemoStone({ demo }: { demo: DemoRef }) {
 
   if (demo.href && demo.status !== "in-progress") {
     return (
-      <a className={`demoStone demoStone--${demo.status}`} href={demo.href}>
-        {inner}
-      </a>
+      <div className="demoStoneGroup">
+        <a className={`demoStone demoStone--${demo.status}`} href={demo.href}>
+          {inner}
+        </a>
+        {demo.wikiHref && demo.wikiHref !== demo.href && (
+          <a className="stoneWiki" href={demo.wikiHref} target="_blank" rel="noopener noreferrer">
+            wiki
+          </a>
+        )}
+      </div>
     );
   }
   return <span className="demoStone demoStone--soon">{inner}</span>;

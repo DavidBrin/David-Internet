@@ -1,10 +1,11 @@
 /**
- * About David — content team owns this file.
+ * About David, content team owns this file.
  * Preliminary bio distilled from the résumé; the same text is indexed as the
- * "about" SearchDoc in src/lib/content.server.ts (ABOUT_BODY) — keep them in step.
+ * "about" SearchDoc in src/lib/content.server.ts (ABOUT_BODY); keep them in step.
  */
 import type { Metadata } from "next";
 import Link from "next/link";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 import "./about.css";
 
 // <!-- TODO(David): flesh out this bio and keep it in sync with the résumé -->
@@ -12,7 +13,7 @@ import "./about.css";
 export const metadata: Metadata = {
   title: "About David",
   description:
-    "David Brin — co-founder of Katalyxt AI, computer engineer in San Diego. The person behind David's Internet.",
+    "David Brin, co-founder of Katalyxt AI and computer engineer in San Diego. The person behind David's Internet.",
 };
 
 const SKILLS = [
@@ -33,7 +34,12 @@ export default function AboutPage() {
       <div className="aboutBar">
         <div className="aboutBarInner">
           <span>about.davids.net</span>
-          <Link href="/">David&apos;s Internet</Link>
+          <span>
+            <Link href="/">David&apos;s Internet</Link> ·{" "}
+            <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noopener noreferrer">
+              Wikipedia
+            </a>
+          </span>
         </div>
       </div>
 
@@ -50,24 +56,23 @@ export default function AboutPage() {
         </header>
 
         <p className="aboutLede">
-          This whole site is a tour of David&apos;s personal projects, dressed up as a
-          search engine. Every result below the fold is something he built — search for
-          anything.
+          David&apos;s Internet indexes his personal projects. Every result is something
+          he built. Search for anything.
         </p>
 
         <section className="aboutSection">
           <h2 className="aboutSectionTitle">Now</h2>
           <div className="aboutEntry">
             <div className="aboutEntryHead">
-              <h3 className="aboutEntryTitle">Co-founder — Katalyxt AI</h3>
+              <h3 className="aboutEntryTitle">Co-founder, Katalyxt AI</h3>
               <span className="aboutEntryMeta">Apr 2026 – present</span>
             </div>
             <p>
               An enterprise AI platform that translates fragmented business data and
               organizational context into AI-accessible insight. Raised a $200K pre-seed
               from NFX, KP Scout and Long Journey; reached $30K ARR in a one-month sprint
-              with four industry design partners. Leads product and engineering end to
-              end — design, DevOps, cloud infrastructure, security, and the ML / LLM /
+              with four industry design partners. Leads product and engineering: design,
+              DevOps, cloud infrastructure, security, and ML / LLM /
               memory systems underneath.
             </p>
           </div>
@@ -78,7 +83,7 @@ export default function AboutPage() {
           <div className="aboutEntry">
             <div className="aboutEntryHead">
               <h3 className="aboutEntryTitle">
-                B.S. Computer Engineering — UC San Diego
+                B.S. Computer Engineering, UC San Diego
               </h3>
               <span className="aboutEntryMeta">2026</span>
             </div>
@@ -94,15 +99,15 @@ export default function AboutPage() {
           <h2 className="aboutSectionTitle">Previously</h2>
           <ul className="aboutList">
             <li>
-              <strong>General Atomics</strong> — embedded firmware in C for a camera
+              <strong>General Atomics</strong>: embedded firmware in C for a camera
               driver and control system.
             </li>
             <li>
-              <strong>Voytek Lab, UC San Diego</strong> — neural-data pipelines for
+              <strong>Voytek Lab, UC San Diego</strong>: neural-data pipelines for
               patch-clamp and multi-electrode-array recordings.
             </li>
             <li>
-              <strong>Berkeley Coding Academy</strong> — cohort lead.
+              <strong>Berkeley Coding Academy</strong>: cohort lead.
             </li>
           </ul>
         </section>
@@ -111,7 +116,7 @@ export default function AboutPage() {
           <h2 className="aboutSectionTitle">Selected projects</h2>
           <ul className="aboutList">
             <li>
-              Semi-supervised microtomography segmentation — a U-Net and ViT
+              Semi-supervised microtomography segmentation using a U-Net and ViT
               cross-teaching ensemble.
             </li>
             <li>An autonomous car on ROS 2 with onboard NVIDIA compute.</li>
@@ -132,7 +137,10 @@ export default function AboutPage() {
         <footer className="aboutFooter">
           <p>
             Everything on David&apos;s Internet is a replica he built from scratch.{" "}
-            <Link href="/">Back to search</Link>
+            <Link href="/">Back to search</Link>.{" "}
+            <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noopener noreferrer">
+              Visit Wikipedia
+            </a>
           </p>
         </footer>
       </div>

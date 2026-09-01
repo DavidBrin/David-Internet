@@ -23,4 +23,21 @@ test.describe("Knowledge panel", () => {
       "https://davids-wikipedia.vercel.app/wiki/Linear_(replica)",
     );
   });
+
+  test("query 'esp32' shows Visit site to the demo and Wikipedia to the article", async ({
+    page,
+  }) => {
+    await page.goto("/search?q=esp32");
+
+    const panel = page.getByRole("complementary", { name: "About ESP32 Thermal TinyML" });
+    await expect(panel).toBeVisible();
+    await expect(panel.getByRole("link", { name: "Visit site" })).toHaveAttribute(
+      "href",
+      "/demos/esp32",
+    );
+    await expect(panel.getByRole("link", { name: "Wikipedia" })).toHaveAttribute(
+      "href",
+      "https://davids-wikipedia.vercel.app/wiki/ESP32_Thermal_TinyML",
+    );
+  });
 });

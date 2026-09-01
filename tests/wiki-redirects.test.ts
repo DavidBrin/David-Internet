@@ -3,6 +3,8 @@ import path from "node:path";
 import { describe, expect, it } from "vitest";
 import { WIKIPEDIA_BASE_URL, WIKI_SLUGS, wikiUrlFor } from "@/lib/wiki";
 import { manifests } from "@/lib/manifests";
+import { loadAllSearchDocs } from "@/lib/content.server";
+import { createEngine } from "@/lib/search";
 
 /**
  * The retired /sites/<project>/docs routes redirect to the Wikipedia replica
@@ -15,9 +17,8 @@ describe("wiki redirects", () => {
     fs.readFileSync(path.join(process.cwd(), "vercel.json"), "utf8"),
   ) as { redirects: Array<{ source: string; destination: string }> };
 
-  it("covers every registered replica manifest with a wiki slug (demos are internal)", () => {
+  it("covers every registered manifest with a wiki slug", () => {
     for (const m of manifests) {
-      if (m.kind === "demo") continue;
       expect(WIKI_SLUGS[m.project], `no wiki slug for ${m.project}`).toBeTruthy();
     }
   });
@@ -38,5 +39,28 @@ describe("wiki redirects", () => {
     for (const project of Object.keys(WIKI_SLUGS)) {
       expect(wikiUrlFor(project)).toBe(`${WIKIPEDIA_BASE_URL}/wiki/${WIKI_SLUGS[project]}`);
     }
+  });
+});
+
+describe("search corpus wiki routing", () => {
+  const docs = loadAllSearchDocs();
+
+  it("indexes the Wikipedia homepage", () => {
+    const home = docs.find((d) => d.id === "wikipedia");
+    expect(home?.href).toBe(WIKIPEDIA_BASE_URL);
+    expect(home?.external).toBe(true);
+    expect(home?.keywords).toContain("wikipedia");
+  });
+
+  it("sends demo documentation results to encyclopedia articles", () => {
+    const esp32Docs = docs.find((d) => d.id === "esp32:docs");
+    expect(esp32Docs?.href).toBe(wikiUrlFor("esp32"));
+    expect(esp32Docs?.external).toBe(true);
+    expect(esp32Docs?.displayUrl).toContain("wikipedia.davids.net");
+  });
+
+  it("ranks the Wikipedia homepage for a wikipedia query", () => {
+    const top = createEngine(docs).search("wikipedia")[0];
+    expect(top?.doc.id).toBe("wikipedia");
   });
 });

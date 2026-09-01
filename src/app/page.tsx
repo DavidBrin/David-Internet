@@ -4,6 +4,7 @@ import SearchBox from "@/components/SearchBox";
 import Wordmark from "@/components/Wordmark";
 import Footer from "@/components/Footer";
 import { AppsGridIcon } from "@/components/Icons";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 
 export default function HomePage() {
   // Built at export time; shipped to the client for autocomplete + Feeling Lucky.
@@ -18,9 +19,14 @@ export default function HomePage() {
         <Link className="topnav-link" href="/demos">
           Demos
         </Link>
-        <Link className="topnav-link" href="/about">
-          About
-        </Link>
+        <a
+          className="topnav-link"
+          href={WIKIPEDIA_BASE_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Wikipedia
+        </a>
         <button type="button" className="icon-button" aria-label="David apps">
           <AppsGridIcon size={24} />
         </button>

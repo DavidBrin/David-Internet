@@ -21,7 +21,7 @@ function AnchorEtch({ text }: { text: string }) {
           </span>
         ))}
       </p>
-      <p className="anchorEtch-note">— carved into a school desk, and into everything since</p>
+      <p className="anchorEtch-note">carved into a school desk, and into everything since</p>
     </div>
   );
 }

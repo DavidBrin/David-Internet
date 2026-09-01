@@ -43,9 +43,11 @@
   margin: 0 auto;
   padding: 11px 20px;
   display: flex;
-  justify-content: space-between;
+  gap: 16px;
   color: rgba(232, 236, 245, 0.85);
 }
+
+.pathBarInner > span { margin-right: auto; }
 
 .pathBarInner a,
 .pathBarInner a:visited {
@@ -616,6 +618,12 @@
 .phaseSection--left .phaseStones { left: 63%; }
 .phaseSection--right .phaseStones { right: 63%; }
 
+.demoStoneGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .demoStone {
   display: flex;
   align-items: center;
@@ -696,6 +704,26 @@ a.demoStone:focus-visible .stoneSplash {
   font-style: italic;
 }
 
+.stoneWiki,
+.stoneWiki:visited {
+  padding: 6px 9px;
+  border-radius: 9px;
+  background: rgba(10, 18, 30, 0.55);
+  font-family: var(--sans);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244, 240, 230, 0.78);
+  text-decoration: none;
+}
+
+.stoneWiki:hover,
+.stoneWiki:focus-visible {
+  background: rgba(10, 18, 30, 0.76);
+  color: #f4f0e6;
+  text-decoration: none;
+}
+
 /* -- the delta ------------------------------------------------------------- */
 
 .phaseSection--delta {
@@ -723,6 +751,10 @@ a.demoStone:focus-visible .stoneSplash {
   flex-direction: column;
   gap: 10px;
   text-align: center;
+}
+
+.deltaStones .demoStoneGroup {
+  flex-direction: column;
 }
 
 .deltaStones .stoneText {

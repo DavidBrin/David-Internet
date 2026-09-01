@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 
 interface FooterProps {
   /** The SERP footer gets a top border; the homepage footer does not. */
@@ -16,6 +17,14 @@ export default function Footer({ variant = "home", location = "San Diego, Califo
           <Link className="footer-link" href="/about">
             About
           </Link>
+          <a
+            className="footer-link"
+            href={WIKIPEDIA_BASE_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wikipedia
+          </a>
           <Link className="footer-link" href="/path">
             The Path
           </Link>
@@ -24,7 +33,7 @@ export default function Footer({ variant = "home", location = "San Diego, Califo
           </Link>
         </div>
         <div className="footer-tagline">
-          David&apos;s Internet — making the web smaller since 2025
+          David&apos;s Internet, making the web smaller since 2025
         </div>
       </div>
     </footer>
