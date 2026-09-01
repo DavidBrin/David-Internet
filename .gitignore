@@ -13,3 +13,4 @@ __pycache__/
 
 # demo prep caches (downloaded data)
 .cache/
+.env*
