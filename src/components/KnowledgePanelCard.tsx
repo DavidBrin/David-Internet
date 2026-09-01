@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { resolveHref, isExternalUrl } from "@/lib/types";
 import type { SiteManifest } from "@/lib/types";
+import { hasWikiArticle, wikiUrlFor } from "@/lib/wiki";
 
 interface KnowledgePanelCardProps {
   manifest: SiteManifest;
@@ -11,7 +12,7 @@ export default function KnowledgePanelCard({ manifest }: KnowledgePanelCardProps
   const type = panel?.type || "Project on David's Internet";
   const facts = Object.entries(panel?.facts ?? {});
   const visitHref = resolveHref(manifest, "/");
-  const isLive = isExternalUrl(manifest.liveUrl);
+  const visitIsExternal = isExternalUrl(visitHref);
 
   return (
     <aside className="kp" aria-label={`About ${manifest.displayName}`}>
@@ -59,13 +60,24 @@ export default function KnowledgePanelCard({ manifest }: KnowledgePanelCardProps
         <a
           className="kp-link"
           href={visitHref}
-          {...(isLive ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+          {...(visitIsExternal ? { target: "_blank", rel: "noopener noreferrer" } : {})}
         >
-          Visit site
+          {manifest.liveUrl ? "Visit site" : "Read the wiki"}
         </a>
-        <Link className="kp-link" href={`/sites/${manifest.project}/docs`}>
-          Read the docs
-        </Link>
+        {hasWikiArticle(manifest.project) ? (
+          <a
+            className="kp-link"
+            href={wikiUrlFor(manifest.project)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Wikipedia
+          </a>
+        ) : (
+          <Link className="kp-link" href={`/sites/${manifest.project}/docs`}>
+            Read the docs
+          </Link>
+        )}
       </div>
     </aside>
   );

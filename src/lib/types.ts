@@ -3,6 +3,8 @@
  * All teams build against these shapes. Changes go through the orchestrator only.
  */
 
+import { wikiUrlFor } from "./wiki";
+
 /** A route on a replica worth surfacing as its own search result. */
 export interface DeepLink {
   path: string;
@@ -125,13 +127,13 @@ export interface VideoResult {
   href: string;
 }
 
-/** Resolve a replica path to its real href: live deployment, or internal docs fallback. */
+/** Resolve a replica path to its real href: live deployment, or the project's Wikipedia article. */
 export function resolveHref(manifest: SiteManifest, path: string): string {
   if (manifest.liveUrl) {
     if (path === "/" || path === "") return manifest.liveUrl;
     return manifest.liveUrl.replace(/\/$/, "") + path;
   }
-  return `/sites/${manifest.project}/docs`;
+  return wikiUrlFor(manifest.project);
 }
 
 /** Build the Google-style breadcrumb display URL: "domain › seg1 › seg2". */

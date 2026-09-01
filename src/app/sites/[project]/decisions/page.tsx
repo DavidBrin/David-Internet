@@ -9,6 +9,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { manifests, getManifest } from "@/lib/manifests";
 import { loadProjectMarkdown } from "@/lib/content.server";
+import { hasWikiArticle, wikiUrlFor } from "@/lib/wiki";
 import CachedMarkdown from "../../CachedMarkdown";
 import "../../sites.css";
 
@@ -72,7 +73,13 @@ export default async function DecisionsPage({
         </div>
         <div className="cachedBannerLinks">
           <Link href="/">David&apos;s Internet</Link>
-          <Link href={`/sites/${manifest.project}/docs`}>Documentation</Link>
+          {hasWikiArticle(manifest.project) ? (
+            <a href={wikiUrlFor(manifest.project)} target="_blank" rel="noopener noreferrer">
+              Wikipedia article
+            </a>
+          ) : (
+            <Link href={`/sites/${manifest.project}/docs`}>Documentation</Link>
+          )}
         </div>
       </div>
 

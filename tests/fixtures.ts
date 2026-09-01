@@ -98,7 +98,7 @@ export const linearManifest: SiteManifest = {
   docs: { readme: true, spec: true, decisions: false },
 };
 
-/** liveUrl === null → every href must fall back to the internal docs page. */
+/** liveUrl === null → every href must fall back to the project's Wikipedia article. */
 export const fakePhoneManifest: SiteManifest = {
   project: "fake-phone",
   displayName: "Fake Phone",

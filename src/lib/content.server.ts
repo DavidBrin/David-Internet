@@ -7,6 +7,7 @@ import path from "node:path";
 import type { SearchDoc, SiteManifest } from "./types";
 import { resolveHref, displayUrlFor, isExternalUrl } from "./types";
 import { manifests } from "./manifests";
+import { WIKIPEDIA_FAKE_DOMAIN, WIKI_SLUGS, hasWikiArticle, wikiUrlFor, wikiTitleFor } from "./wiki";
 
 /** Where `pnpm sync-content` drops the vendored markdown. */
 const CONTENT_ROOT = path.join(process.cwd(), "content");
@@ -100,7 +101,8 @@ function homeDoc(m: SiteManifest): SearchDoc {
     keywords: [...m.keywords, m.displayName, m.project],
     favicon: m.favicon,
     accentColor: m.accentColor,
-    external: isExternalUrl(m.liveUrl),
+    // Live deployment or wiki-article fallback leave the site; a demo's internal route doesn't.
+    external: isExternalUrl(resolveHref(m, "/")),
   };
 }
 
@@ -117,34 +119,74 @@ function deepLinkDocs(m: SiteManifest): SearchDoc[] {
     keywords: [...dl.keywords, ...m.keywords],
     favicon: m.favicon,
     accentColor: m.accentColor,
-    external: isExternalUrl(m.liveUrl),
+    external: isExternalUrl(resolveHref(m, dl.path)),
   }));
 }
 
-function markdownDoc(
-  m: SiteManifest,
-  kind: "docs" | "decisions",
-  raw: string,
-  extraRaw?: string | null,
-): SearchDoc {
-  const isDocs = kind === "docs";
+/**
+ * The project's encyclopedia article on the Wikipedia replica — this is where
+ * "documentation" results send people now. The body still indexes the vendored
+ * README + SPEC text so content queries keep finding the article.
+ */
+function wikipediaDoc(m: SiteManifest, raw: string, extraRaw?: string | null): SearchDoc {
   const text = markdownToText(extraRaw ? `${raw}\n\n${extraRaw}` : raw);
+  const articleTitle = wikiTitleFor(m.project) ?? m.displayName;
   return {
-    id: `${m.project}:${kind}`,
+    id: `${m.project}:docs`,
     project: m.project,
-    kind,
-    title: `${m.displayName} — ${isDocs ? "Documentation" : "Design decisions"}`,
+    kind: "docs",
+    title: `${articleTitle} - Wikipedia`,
     snippet: defaultSnippet(text),
     body: capBody(text),
-    displayUrl: `${m.fakeDomain} › ${isDocs ? "docs" : "decisions"}`,
-    href: `/sites/${m.project}/${isDocs ? "docs" : "decisions"}`,
+    displayUrl: `${WIKIPEDIA_FAKE_DOMAIN} › wiki › ${WIKI_SLUGS[m.project] ?? ""}`,
+    href: wikiUrlFor(m.project),
     keywords: [
       ...m.keywords,
-      isDocs ? "documentation" : "decisions",
-      isDocs ? "readme" : "design decisions",
-      isDocs ? "spec" : "architecture",
+      "wikipedia",
+      "wiki",
+      "article",
+      "documentation",
+      "readme",
+      "spec",
       m.displayName,
     ],
+    favicon: "🌐",
+    accentColor: m.accentColor,
+    external: true,
+  };
+}
+
+/** A demo's vendored README, still served as an internal cached-copy page (demos have no wiki article). */
+function demoDocsDoc(m: SiteManifest, raw: string, extraRaw?: string | null): SearchDoc {
+  const text = markdownToText(extraRaw ? `${raw}\n\n${extraRaw}` : raw);
+  return {
+    id: `${m.project}:docs`,
+    project: m.project,
+    kind: "docs",
+    title: `${m.displayName} — Documentation`,
+    snippet: defaultSnippet(text),
+    body: capBody(text),
+    displayUrl: `${m.fakeDomain} › docs`,
+    href: `/sites/${m.project}/docs`,
+    keywords: [...m.keywords, "documentation", "readme", "spec", m.displayName],
+    favicon: m.favicon,
+    accentColor: m.accentColor,
+    external: false,
+  };
+}
+
+function decisionsDoc(m: SiteManifest, raw: string): SearchDoc {
+  const text = markdownToText(raw);
+  return {
+    id: `${m.project}:decisions`,
+    project: m.project,
+    kind: "decisions",
+    title: `${m.displayName} — Design decisions`,
+    snippet: defaultSnippet(text),
+    body: capBody(text),
+    displayUrl: `${m.fakeDomain} › decisions`,
+    href: `/sites/${m.project}/decisions`,
+    keywords: [...m.keywords, "decisions", "design decisions", "architecture", m.displayName],
     favicon: m.favicon,
     accentColor: m.accentColor,
     // Internal cached-copy pages always live on David's Internet.
@@ -200,12 +242,15 @@ export function loadAllSearchDocs(): SearchDoc[] {
 
     const readme = readDoc(m.project, "README.md");
     if (readme) {
-      // The docs page renders README + SPEC together, so index them together too.
-      docs.push(markdownDoc(m, "docs", readme, readDoc(m.project, "SPEC.md")));
+      // The wiki article covers README + SPEC territory, so index them together.
+      const spec = readDoc(m.project, "SPEC.md");
+      docs.push(
+        hasWikiArticle(m.project) ? wikipediaDoc(m, readme, spec) : demoDocsDoc(m, readme, spec),
+      );
     }
 
     const decisions = readDoc(m.project, "DECISIONS.md");
-    if (decisions) docs.push(markdownDoc(m, "decisions", decisions));
+    if (decisions) docs.push(decisionsDoc(m, decisions));
   }
 
   docs.push(aboutDoc());
@@ -218,7 +263,7 @@ function howThisWorksDoc(): SearchDoc {
   const body = [
     "David's Internet is a portfolio dressed up as a search engine. It looks like Google because, for this tiny parallel internet, it is Google: the front door to every website that exists here — and every one of them is a project David built from scratch.",
     "The index covers full-scale working replicas of real products — an issue tracker, a video platform, a block editor, a fighting game, a prediction market, and more — each rebuilt from the ground up. For every site it indexes the homepage, deep links, documentation, and design-decision logs.",
-    "Results show a fake display URL but link to the real destination: the live deployment when a site is up, or its cached-copy documentation until then. Autocomplete, did-you-mean, and I'm Feeling Lucky all run against the same index, entirely in your browser.",
+    "Results show a fake display URL but link to the real destination: the live deployment when a site is up, or the project's article on David's Wikipedia — a working replica of the encyclopedia, whose articles are these projects — until then. Autocomplete, did-you-mean, and I'm Feeling Lucky all run against the same index, entirely in your browser.",
   ].join("\n\n");
   return {
     id: "how-this-works",

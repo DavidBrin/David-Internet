@@ -14,7 +14,7 @@ export default function DemoStone({ demo }: { demo: DemoRef }) {
       <span className="stoneText">
         <span className="stoneLabel">{demo.label}</span>
         <span className="stoneMeta">
-          {demo.status === "in-progress" ? "coming soon" : demo.status === "live" ? "visit" : "read the docs"}
+          {demo.status === "in-progress" ? "coming soon" : demo.status === "live" ? "visit" : "read the wiki"}
         </span>
       </span>
     </>

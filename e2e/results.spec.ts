@@ -19,10 +19,10 @@ test.describe("Search results (All tab)", () => {
 
     const first = results.first();
     // liveUrl is null for every project (content/youtube/site.ts), so every href
-    // resolves to the internal fallback docs page.
+    // resolves to the project's Wikipedia article.
     await expect(first.locator(".result-title-link")).toHaveAttribute(
       "href",
-      "/sites/youtube/docs",
+      "https://davids-wikipedia.vercel.app/wiki/YouTube_(replica)",
     );
     await expect(first.locator(".result-favicon")).toBeVisible();
     await expect(first.locator(".result-url")).toBeVisible();

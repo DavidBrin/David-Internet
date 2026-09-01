@@ -1,6 +1,10 @@
 /**
- * Cached copy of a project's vendored documentation (README + SPEC).
- * Content team owns this file. Statically generated for every registered manifest.
+ * Cached docs route, split by project kind. Replicas: the vendored README/SPEC
+ * dumps were never meant for viewers — each has a proper encyclopedia article
+ * on the Wikipedia replica, so their pages forward there (vercel.json issues
+ * the real HTTP redirect in production; tests/wiki-redirects.test.ts guards
+ * that the two stay in sync). Demos live inside this repo and have no wiki
+ * article, so they keep the original cached-copy rendering.
  */
 import type { CSSProperties } from "react";
 import type { Metadata } from "next";
@@ -8,7 +12,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { manifests, getManifest } from "@/lib/manifests";
 import { loadProjectMarkdown } from "@/lib/content.server";
+import { hasWikiArticle, wikiUrlFor, wikiTitleFor } from "@/lib/wiki";
+import type { SiteManifest } from "@/lib/types";
 import CachedMarkdown from "../../CachedMarkdown";
+import RedirectToWiki from "./RedirectToWiki";
 import "../../sites.css";
 
 export const dynamicParams = false;
@@ -25,10 +32,41 @@ export async function generateMetadata({
   const { project } = await params;
   const manifest = getManifest(project);
   if (!manifest) return { title: "Not found — David's Internet" };
+  if (hasWikiArticle(project)) {
+    return {
+      title: `${manifest.displayName} — moved to Wikipedia`,
+      description: manifest.tagline,
+      robots: { index: false },
+    };
+  }
   return {
     title: `${manifest.displayName} — Documentation`,
     description: manifest.tagline,
   };
+}
+
+function WikiForward({ manifest }: { manifest: SiteManifest }) {
+  const wikiUrl = wikiUrlFor(manifest.project);
+  const articleTitle = wikiTitleFor(manifest.project) ?? manifest.displayName;
+  return (
+    <main
+      className="cachedPage"
+      style={{ "--cached-accent": manifest.accentColor } as CSSProperties}
+    >
+      <RedirectToWiki url={wikiUrl} />
+      <header className="cachedHeader">
+        <p className="cachedCrumb">
+          {manifest.favicon} {manifest.fakeDomain} › docs
+        </p>
+        <h1 className="cachedTitle">This page has moved</h1>
+        <p className="cachedTagline">
+          {manifest.displayName}&apos;s documentation now lives as an encyclopedia
+          article — taking you to <a href={wikiUrl}>{articleTitle}</a> on
+          David&apos;s Wikipedia.
+        </p>
+      </header>
+    </main>
+  );
 }
 
 export default async function DocsPage({
@@ -39,6 +77,8 @@ export default async function DocsPage({
   const { project } = await params;
   const manifest = getManifest(project);
   if (!manifest) notFound();
+
+  if (hasWikiArticle(project)) return <WikiForward manifest={manifest} />;
 
   const readme = loadProjectMarkdown(project, "README.md");
   const spec = loadProjectMarkdown(project, "SPEC.md");
@@ -58,8 +98,8 @@ export default async function DocsPage({
             {manifest.liveUrl ? (
               <>
                 {" "}
-                — the live site is at{" "}
-                <a href={manifest.liveUrl} target="_blank" rel="noopener noreferrer">
+                — the live page is at{" "}
+                <a href={manifest.liveUrl}>
                   {manifest.liveUrl.replace(/^https?:\/\//, "")}
                 </a>
                 .

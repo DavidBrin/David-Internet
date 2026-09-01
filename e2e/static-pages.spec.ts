@@ -6,9 +6,12 @@ test.describe("Static pages", () => {
     await expect(page.getByRole("heading", { name: "David Brin" })).toBeVisible();
   });
 
-  test("/sites/linear/docs renders the cached-copy banner", async ({ page }) => {
+  test("/sites/linear/docs forwards to the project's wiki article", async ({ page }) => {
+    // Stub the external wiki host so the client-side forward works offline in CI.
+    await page.route("https://davids-wikipedia.vercel.app/**", (route) =>
+      route.fulfill({ contentType: "text/html", body: "<title>wiki stub</title>" }),
+    );
     await page.goto("/sites/linear/docs");
-    await expect(page.getByText(/cached copy of/)).toBeVisible();
-    await expect(page.locator(".cachedBannerInner strong")).toHaveText("linear.davids.net");
+    await page.waitForURL("https://davids-wikipedia.vercel.app/wiki/Linear_(replica)");
   });
 });

@@ -55,9 +55,10 @@ export default function HowThisWorksPage() {
           <h2 className="aboutSectionTitle">How results work</h2>
           <p>
             Results show a fake display URL (like <code>youtube.davids.net</code>) but
-            link to the real destination: the live deployment when a site is up, or its
-            &quot;cached copy&quot; — the project&apos;s vendored documentation — until
-            then. The Images tab is built from real screenshots of each project;
+            link to the real destination: the live deployment when a site is up, or the
+            project&apos;s article on David&apos;s Wikipedia — a working replica of the
+            encyclopedia whose articles are these projects — until then. The Images tab
+            is built from real screenshots of each project;
             autocomplete, &quot;did you mean&quot;, and I&apos;m Feeling Lucky all run
             against the same index, entirely in your browser.
           </p>

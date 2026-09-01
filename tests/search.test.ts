@@ -199,10 +199,10 @@ describe("href / breadcrumb helpers (frozen contract, exercised via fixtures)", 
     expect(resolveHref(youtubeManifest, "/watch")).toBe("https://youtube-david.vercel.app/watch");
   });
 
-  it("falls back to the internal docs page when liveUrl is null", () => {
+  it("falls back to the project's Wikipedia article when liveUrl is null", () => {
     expect(fakePhoneManifest.liveUrl).toBeNull();
-    expect(resolveHref(fakePhoneManifest, "/")).toBe("/sites/fake-phone/docs");
-    expect(resolveHref(fakePhoneManifest, "/call")).toBe("/sites/fake-phone/docs");
+    expect(resolveHref(fakePhoneManifest, "/")).toBe("https://davids-wikipedia.vercel.app/wiki/Fake_Phone");
+    expect(resolveHref(fakePhoneManifest, "/call")).toBe("https://davids-wikipedia.vercel.app/wiki/Fake_Phone");
     const phoneDocs = docs.filter((d) => d.project === "fake-phone");
     expect(phoneDocs.length).toBeGreaterThan(0);
     for (const doc of phoneDocs) {

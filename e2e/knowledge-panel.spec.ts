@@ -13,14 +13,14 @@ test.describe("Knowledge panel", () => {
     await expect(panel).toBeVisible();
     await expect(panel.getByRole("heading", { name: "Linear" })).toBeVisible();
 
-    // liveUrl is null for every project, so both links fall back to the cached docs page.
-    await expect(panel.getByRole("link", { name: "Visit site" })).toHaveAttribute(
+    // liveUrl is null for every project, so both links go to the wiki article.
+    await expect(panel.getByRole("link", { name: "Read the wiki" })).toHaveAttribute(
       "href",
-      "/sites/linear/docs",
+      "https://davids-wikipedia.vercel.app/wiki/Linear_(replica)",
     );
-    await expect(panel.getByRole("link", { name: "Read the docs" })).toHaveAttribute(
+    await expect(panel.getByRole("link", { name: "Wikipedia" })).toHaveAttribute(
       "href",
-      "/sites/linear/docs",
+      "https://davids-wikipedia.vercel.app/wiki/Linear_(replica)",
     );
   });
 });

@@ -22,7 +22,7 @@ pnpm build          # static export → out/ (deployable anywhere, e.g. Vercel H
 
 ## Deployment status & how to route to a newly deployed project
 
-**None of the replicas are deployed yet.** Every manifest currently has `liveUrl: null`, which makes all of that project's results fall back to its internal docs page (`/sites/<project>/docs` — the "cached copy"). Nothing else needs stubbing: the moment a deployment exists, flipping one field routes every result, image, and deep link to the live app.
+**None of the replicas are deployed yet.** Every manifest currently has `liveUrl: null`, which makes all of that project's results fall back to its article on the deployed **Wikipedia replica** (`src/lib/wiki.ts` holds the base URL and per-project article slugs; the old `/sites/<project>/docs` cached-copy routes now redirect there — via `vercel.json` in production, client-side elsewhere, kept in sync by `tests/wiki-redirects.test.ts`). Nothing else needs stubbing: the moment a deployment exists, flipping one field routes every result, image, and deep link to the live app.
 
 To wire up a deployment:
 
@@ -39,7 +39,8 @@ To wire up a deployment:
 1. Add the project to the `SOURCES` map in `scripts/sync-content.ts` (slug → absolute path of the source repo) and run `pnpm sync-content`.
 2. Create `content/<slug>/site.ts` exporting a `SiteManifest` (copy an existing one; the shape is documented in `src/lib/types.ts`). Start with `liveUrl: null` until it's deployed.
 3. Register it in `src/lib/manifests.ts` (one import + one array entry).
-4. `pnpm dev` and search for it. That's the whole pipeline — the index, tabs, autocomplete, and docs pages all derive from the manifest.
+4. Give it a wiki article slug in `src/lib/wiki.ts` (and write the article in Replicates/Wikipedia — that's where docs results route). `tests/wiki-redirects.test.ts` fails until the slug and its `vercel.json` redirect exist.
+5. `pnpm dev` and search for it. That's the whole pipeline — the index, tabs, autocomplete, and decision pages all derive from the manifest.
 
 Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
@@ -47,13 +48,13 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 
 | Site | Fake domain | Needs DB | Status |
 |---|---|---|---|
-| Linear replica | linear.davids.net | yes (Neon) | not deployed → docs fallback |
-| YouTube replica | youtube.davids.net | yes (Neon) | not deployed → docs fallback |
-| Super Smash | smash.davids.net | no | not deployed → docs fallback |
-| fake-phone | fake-phone.davids.net | no | not deployed → docs fallback |
-| Bet | bet.davids.net | no | not deployed → docs fallback |
-| Dollar Pixels | pixels.davids.net | yes (Neon) | not deployed → docs fallback |
-| Notion replica | notion.davids.net | no | not deployed → docs fallback |
+| Linear replica | linear.davids.net | yes (Neon) | not deployed → wiki fallback |
+| YouTube replica | youtube.davids.net | yes (Neon) | not deployed → wiki fallback |
+| Super Smash | smash.davids.net | no | not deployed → wiki fallback |
+| fake-phone | fake-phone.davids.net | no | not deployed → wiki fallback |
+| Bet | bet.davids.net | no | not deployed → wiki fallback |
+| Dollar Pixels | pixels.davids.net | yes (Neon) | not deployed → wiki fallback |
+| Notion replica | notion.davids.net | no | not deployed → wiki fallback |
 
 ## About page
 

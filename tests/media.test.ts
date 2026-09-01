@@ -63,10 +63,10 @@ describe("imageResults", () => {
     expect(watch.href).toBe("https://youtube-david.vercel.app/watch");
   });
 
-  it("falls back to the internal docs page when liveUrl is null", () => {
+  it("falls back to the project's Wikipedia article when liveUrl is null", () => {
     const results = imageResults([fakePhoneManifest], "");
     expect(results).toHaveLength(1);
-    expect(results[0].href).toBe("/sites/fake-phone/docs");
+    expect(results[0].href).toBe("https://davids-wikipedia.vercel.app/wiki/Fake_Phone");
   });
 
   it("returns [] for manifests with no images", () => {
@@ -101,7 +101,7 @@ describe("videoResults", () => {
     const [linearVideo] = videoResults([linearManifest], "");
     expect(linearVideo.href).toBe("https://linear-david.vercel.app/issues");
     const [phoneVideo] = videoResults([fakePhoneManifest], "");
-    expect(phoneVideo.href).toBe("/sites/fake-phone/docs");
+    expect(phoneVideo.href).toBe("https://davids-wikipedia.vercel.app/wiki/Fake_Phone");
   });
 
   it("returns [] when nothing matches", () => {
