@@ -1,7 +1,16 @@
 # 11 — Computer Vision (CSE 152A/B, winter 2025)
 
 Slug: `vision` · Fake domain: `vision.davids.net` · Archetype: **A** (live classical CV in TS) + precomputed learning panels
-Status: spec agreed 2026-08-30; **not built**.
+Status: spec agreed 2026-08-30; **built 2026-09-01**. CORRECTIONS found at build time:
+`facedata.npy` holds {albedo, uniform_albedo, heightmap, 2 rendering lights} - NOT the
+four stereo input images + light directions (that `data.pickle` was never archived).
+The four inputs are re-rendered at build from facedata with David's own `lambertian()`
+under the four original light directions recovered from the notebook's printed output
+(disclosed on the page). HW4 curves were NOT re-run (a CPU re-run is hours, not
+"minutes") - all numbers extracted from the archived run's stream outputs and figures.
+David's `corner_detect` uses convolve2d mode="full" (minor-eig image = input + 2 px);
+the TS port reproduces the quirk and is fixture-tested. Dino F matches the notebook's
+printed value to ~4e-12.
 
 ## Summary
 

@@ -1,0 +1,192 @@
+/* Computer Vision demo — shared stage styles (panel-specific rules live in the
+   panel directories with their own prefixes: vsSt, vsEp, vsBw, vsCn). */
+
+.vsStage {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  --vs-accent: #22c55e;
+  --vs-accent-dark: #15803d;
+  --vs-ink: #1a2e1a;
+  --vs-line: #cfdfcf;
+}
+
+.vsSection {
+  scroll-margin-top: 80px;
+}
+
+.vsH2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: var(--vs-ink);
+}
+
+.vsNum {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--vs-accent);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  flex: none;
+  transform: translateY(3px);
+}
+
+.vsIntro {
+  margin: 0 0 14px;
+  max-width: 760px;
+  color: #3c4a3c;
+  font-size: 14.5px;
+  line-height: 1.55;
+}
+
+.vsPanel {
+  background: #fff;
+  border: 1px solid var(--vs-line);
+  border-radius: 12px;
+  padding: 16px;
+}
+
+.vsPanel + .vsPanel {
+  margin-top: 14px;
+}
+
+/* "mirrors <function>" chip */
+.vsChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: #eef7ee;
+  border: 1px solid var(--vs-line);
+  color: var(--vs-accent-dark);
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.vsBtn {
+  appearance: none;
+  border: 1px solid var(--vs-line);
+  background: #f4faf4;
+  color: var(--vs-ink);
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.vsBtn:hover {
+  background: #e8f4e8;
+  border-color: var(--vs-accent);
+}
+
+.vsBtn[data-active="true"],
+.vsBtn.vsBtnPrimary {
+  background: var(--vs-accent);
+  border-color: var(--vs-accent);
+  color: #fff;
+}
+
+.vsBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+/* honesty/disclosure note */
+.vsNote {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border-left: 3px solid var(--vs-accent);
+  background: #f2f9f2;
+  border-radius: 0 8px 8px 0;
+  color: #40513f;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* real-figures strip */
+.vsFigStrip {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  margin-top: 14px;
+}
+
+.vsFigCard {
+  flex: 0 0 auto;
+  width: 250px;
+  background: #fff;
+  border: 1px solid var(--vs-line);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.vsFigCard img {
+  display: block;
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  background: #fbfdfb;
+  border-radius: 6px;
+}
+
+.vsFigCap {
+  margin: 6px 2px 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #51604f;
+}
+
+.vsFigTag {
+  display: inline-block;
+  margin-right: 5px;
+  color: var(--vs-accent-dark);
+  font-weight: 700;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* generic control row */
+.vsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.vsSliderLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #3c4a3c;
+}
+
+.vsSliderLabel input[type="range"] {
+  accent-color: var(--vs-accent);
+}
+
+.vsMono {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+.vsStub {
+  color: #7a8a78;
+  font-size: 13px;
+  padding: 30px;
+  text-align: center;
+}

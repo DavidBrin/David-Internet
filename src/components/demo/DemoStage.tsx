@@ -20,6 +20,8 @@ const STAGES: Record<string, ComponentType> = {
   esp32: dynamic(() => import("@/demos/esp32/Stage"), { ssr: false, loading: Loading }),
   organoids: dynamic(() => import("@/demos/organoids/Stage"), { ssr: false, loading: Loading }),
   spikes: dynamic(() => import("@/demos/spikes/Stage"), { ssr: false, loading: Loading }),
+  vision: dynamic(() => import("@/demos/vision/Stage"), { ssr: false, loading: Loading }),
+  arxiv: dynamic(() => import("@/demos/arxiv/Stage"), { ssr: false, loading: Loading }),
 };
 
 export default function DemoStage({ slug }: { slug: string }) {

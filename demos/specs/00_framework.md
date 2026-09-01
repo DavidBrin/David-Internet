@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes (2026-09-01).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01).
 
 ## Decision
 
@@ -70,9 +70,9 @@ Out of scope · Open/Resolved questions.
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | **built 2026-08-31** - 76 features (spec said 65 - documents won), int8 kernels bit-faithful vs TFLite |
 | 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | resolved: retrain if no checkpoints on disk/GitHub; micro-CT when cleared; bbox skipped |
-| 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | resolved: try group repo, else arXiv/Kaggle; no per-person split |
+| 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | **built 2026-09-01** - group repo recovered (full package src); real filters were 2024/200-words -> 148,477 papers; report tau=0.27 vs modularity argmax 0.19 is the story; brute-force k-NN + t-SNE disclosed |
 | 10 | SQL Playground | `sql` | dtu_databases_raw | none |
-| 11 | Computer Vision | `vision` | computer_vision_cse152_raw | none |
+| 11 | Computer Vision | `vision` | computer_vision_cse152_raw | **built 2026-09-01** - stereo inputs re-rendered from facedata (data.pickle never archived; original lights recovered from notebook prints); HW4 curves extracted from archived run, not re-trained; corner_detect mode="full" quirk kept |
 | 12 | P300 Speller | `p300` | p300_speller_bci_raw | resolved: illustrative filters; "ML team, not UI" |
 | 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | **built 2026-08-30** - blur N=464 (causal); TS MT19937 randperm; 5 panels, SciPy-fixture tests |
 | 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | none |
@@ -176,4 +176,13 @@ directives (memory points here).
 - Two panel agents ended their turn "waiting for a background notification" that can never
   arrive (subagents aren't woken by others' tasks). Prompt agents to verify immediately and
   never wait; if one stops early anyway, a SendMessage nudge resumes it with context intact.
+- Source-drawer entries must NEVER point at .ipynb files (11): the demo page reads and
+  shiki-highlights every source inline, so a notebook with embedded figures ballooned
+  /demos/vision to 17 MB of HTML and broke hydration (server stream vs client mismatch in
+  DemoLayout). Extract code cells to demos/<slug>_src/*_extract.py at prep (vision and
+  arxiv preps both have a prep_sources step) and point meta.sources there. Symptom to
+  watch: `curl | wc -c` per demo page - all should be under ~2 MB.
+- Panels that need a button press to show anything open as dead grey/black boxes in the
+  page screenshot - auto-run the first solve/animation on load (guarded by a ref) and keep
+  the button as a re-run (11's stereo panel).
 

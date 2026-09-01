@@ -1,0 +1,434 @@
+/* GraphPanel styles — prefix axG. Relies on custom properties set on .axStage
+   (--ax-accent, --ax-accent-dark, --ax-ink, --ax-line) from ../arxiv.css. */
+
+.axGModeRow {
+  margin-bottom: 10px;
+}
+
+.axGCanvasWrap {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #faf8ff;
+  border: 1px solid var(--ax-line);
+  cursor: crosshair;
+}
+
+.axGCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.axGTooltip {
+  position: absolute;
+  z-index: 5;
+  max-width: 230px;
+  pointer-events: none;
+  background: #241a3a;
+  color: #f4f1fb;
+  border-radius: 8px;
+  padding: 8px 10px;
+  font-size: 12px;
+  line-height: 1.4;
+  box-shadow: 0 6px 18px rgba(36, 26, 58, 0.28);
+}
+
+.axGTooltipTitle {
+  font-weight: 600;
+  margin-bottom: 3px;
+}
+
+.axGTooltipMeta {
+  color: #cabdea;
+  font-size: 11px;
+}
+
+.axGTooltipWords {
+  margin-top: 5px;
+  padding-top: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  color: #d9cdf5;
+  font-size: 11px;
+}
+
+.axGStatsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  margin-top: 12px;
+  padding: 10px 4px;
+}
+
+.axGStat {
+  min-width: 64px;
+}
+
+.axGStatNum {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ax-ink);
+}
+
+.axGStatBig .axGStatNum {
+  font-size: 24px;
+  color: var(--ax-accent-dark);
+}
+
+.axGStatLabel {
+  font-size: 11px;
+  color: #857a9e;
+  margin-top: 1px;
+}
+
+.axGHistBlock {
+  margin-top: 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.axGHistSvg {
+  width: 100%;
+  height: 64px;
+  display: block;
+}
+
+.axGSliderBlock {
+  margin-top: 10px;
+}
+
+.axGSlider {
+  flex: 1;
+  min-width: 160px;
+  accent-color: var(--ax-accent);
+}
+
+.axGTicks {
+  position: relative;
+  height: 40px;
+  margin: 2px 6px 0;
+}
+
+.axGTick {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+/* the five candidate taus sit close together (0.26-0.30); stagger them
+   vertically in a zigzag so adjacent labels don't overlap horizontally */
+.axGTick:nth-child(even) {
+  padding-top: 13px;
+}
+
+.axGTickMark {
+  width: 1px;
+  height: 6px;
+  background: #b6acd0;
+}
+
+.axGTickLabel {
+  font-size: 9.5px;
+  color: #857a9e;
+  white-space: nowrap;
+}
+
+.axGTickReport {
+  z-index: 1;
+}
+
+.axGTickReport .axGTickMark {
+  background: var(--ax-accent-dark);
+  width: 2px;
+  height: 8px;
+}
+
+.axGTickReport .axGTickLabel {
+  color: var(--ax-accent-dark);
+  font-weight: 700;
+}
+
+.axGTickReportLabel {
+  position: absolute;
+  top: 100%;
+  margin-top: 1px;
+  white-space: nowrap;
+  font-size: 9px;
+  font-weight: 700;
+  color: var(--ax-accent-dark);
+  background: #f3eefc;
+  border: 1px solid var(--ax-line);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.axGSweepResult {
+  margin-top: 14px;
+  padding: 12px;
+  background: #f8f5fe;
+  border: 1px solid var(--ax-line);
+  border-radius: 10px;
+}
+
+.axGSweepCaption {
+  margin: 0 0 10px;
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: #453a5e;
+}
+
+.axGTableWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  overflow-x: auto;
+  margin-bottom: 8px;
+}
+
+.axGTable {
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.axGTable caption {
+  caption-side: top;
+  text-align: left;
+  font-size: 11px;
+  color: #857a9e;
+  margin-bottom: 4px;
+}
+
+.axGTable th,
+.axGTable td {
+  padding: 3px 10px 3px 0;
+  text-align: left;
+  border-bottom: 1px solid var(--ax-line);
+}
+
+.axGTable th {
+  color: #6b5f87;
+  font-weight: 600;
+}
+
+.axGTable tr[data-current="true"] td {
+  color: var(--ax-accent-dark);
+  font-weight: 700;
+}
+
+.axGPipeline {
+  margin-top: 14px;
+}
+
+.axGPipeline summary {
+  cursor: pointer;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--ax-accent-dark);
+}
+
+.axGPipelineImg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--ax-line);
+}
+
+.axGCaption {
+  margin: 6px 0 0;
+  font-size: 11.5px;
+  color: #857a9e;
+}
+
+.axGSearchWrap {
+  position: relative;
+}
+
+.axGSearchInput {
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 13px;
+  min-width: 220px;
+}
+
+.axGSearchDropdown {
+  position: absolute;
+  z-index: 6;
+  top: calc(100% + 4px);
+  left: 0;
+  width: 320px;
+  max-width: 80vw;
+  max-height: 240px;
+  overflow-y: auto;
+  background: #fff;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(36, 26, 58, 0.14);
+}
+
+.axGSearchItem {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 7px 10px;
+  border: none;
+  border-bottom: 1px solid var(--ax-line);
+  background: none;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.axGSearchItem:last-child {
+  border-bottom: none;
+}
+
+.axGSearchItem:hover {
+  background: #f3eefc;
+}
+
+.axGSearchItemTitle {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.axGSearchItemMeta {
+  color: #857a9e;
+  flex-shrink: 0;
+}
+
+.axGRecommendGrid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+}
+
+.axGQueryCard {
+  padding: 10px 12px;
+  background: #f8f5fe;
+  border: 1px solid var(--ax-line);
+  border-radius: 10px;
+}
+
+.axGQueryLabel {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #857a9e;
+}
+
+.axGQueryTitle {
+  display: block;
+  margin-top: 3px;
+  color: var(--ax-ink);
+  font-weight: 600;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.axGQueryTitle:hover {
+  text-decoration: underline;
+}
+
+.axGQueryMeta {
+  margin-top: 3px;
+  font-size: 11.5px;
+  color: #857a9e;
+}
+
+.axGNeighborList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.axGNeighborRow {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 2px 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--ax-ink);
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.axGNeighborRow:hover {
+  border-color: var(--ax-accent);
+  background: #faf8ff;
+}
+
+.axGNeighborTitle {
+  font-size: 12.5px;
+  font-weight: 600;
+  grid-column: 1;
+}
+
+.axGNeighborMeta {
+  font-size: 11px;
+  color: #857a9e;
+  grid-column: 1;
+}
+
+.axGDistBar {
+  grid-column: 1;
+  height: 4px;
+  border-radius: 2px;
+  background: #eee7fb;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.axGDistBarFill {
+  height: 100%;
+  background: var(--ax-accent);
+  border-radius: 2px;
+}
+
+.axGTag {
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  align-self: center;
+  white-space: nowrap;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 999px;
+  height: fit-content;
+}
+
+.axGTagSig {
+  background: #e6f9ee;
+  color: #1c8a4f;
+}
+
+.axGTagNonsig {
+  background: #f3eefc;
+  color: #6b5f87;
+}
+
+@media (max-width: 560px) {
+  .axGCanvasWrap {
+    height: 340px;
+  }
+  .axGSearchInput {
+    min-width: 160px;
+  }
+}

@@ -1,0 +1,1 @@
+{"tau":0.27,"modularity":0.8397,"communities":1904,"edges":906,"note":"TS modularity(labels from communities.json, edges from graph.json at tau) must match; TS louvain must reach within 0.02 of this Q on the same graph."}

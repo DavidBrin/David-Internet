@@ -20,6 +20,8 @@ import hardhack from "@content/hardhack/site";
 import esp32 from "@content/esp32/site";
 import organoids from "@content/organoids/site";
 import spikes from "@content/spikes/site";
+import vision from "@content/vision/site";
+import arxiv from "@content/arxiv/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -37,6 +39,8 @@ export const manifests: SiteManifest[] = [
   esp32,
   organoids,
   spikes,
+  vision,
+  arxiv,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

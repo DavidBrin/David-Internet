@@ -1,0 +1,588 @@
+/* Bag-of-words panel — prefix vsBw. Relies on tokens from ../vision.css
+   (--vs-accent, --vs-accent-dark, --vs-ink, --vs-line) applied within .vsStage. */
+
+.vsBw {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.vsBwSubhead {
+  margin: 4px 0 -6px;
+  font-size: 15px;
+  color: var(--vs-ink);
+}
+
+/* ---------- pipeline strip ---------- */
+
+.vsBwStrip {
+  border: 1px solid var(--vs-line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fbfdfb;
+}
+
+.vsBwStageRow {
+  margin-bottom: 4px;
+}
+
+.vsBwStageBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  padding: 5px 10px;
+}
+
+.vsBwStageIdx {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.08);
+  font-size: 10px;
+  flex: none;
+}
+
+.vsBtn[data-active="true"] .vsBwStageIdx {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.vsBwPlayBtn {
+  margin-left: auto;
+  min-width: 84px;
+}
+
+.vsBwStageChip {
+  margin: 6px 0 2px;
+}
+
+.vsBwViewport {
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 4px;
+  overflow: hidden;
+}
+
+.vsBwStageBody {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vsBwCaption {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: #51604f;
+}
+
+.vsBwArrow {
+  font-size: 22px;
+  color: var(--vs-accent-dark);
+  flex: none;
+  padding: 0 8px;
+}
+
+/* -- stage 1: points -- */
+
+.vsBwPointsStage,
+.vsBwPatchStage,
+.vsBwVocabStage,
+.vsBwHistStage,
+.vsBwKnnStage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.vsBwPatchStage,
+.vsBwKnnStage {
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px;
+}
+
+.vsBwImgWrap {
+  position: relative;
+  width: min(100%, 420px);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--vs-line);
+  line-height: 0;
+}
+
+.vsBwImgWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vsBwImgWrapSmall {
+  width: min(100%, 260px);
+}
+
+.vsBwOverlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vsBwPoint {
+  fill: var(--vs-accent);
+  stroke: #0b3d0b;
+  stroke-width: 0.3;
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: vsBwScatter 0.4s ease-out forwards;
+}
+
+@keyframes vsBwScatter {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+/* -- stage 2: patch zoom -- */
+
+.vsBwPatchBox {
+  fill: rgba(34, 197, 94, 0.25);
+  stroke: var(--vs-accent);
+  stroke-width: 1;
+  animation: vsBwPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes vsBwPulse {
+  0%,
+  100% {
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-opacity: 0.4;
+  }
+}
+
+.vsBwPatchZoom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.vsBwPatchZoomImg {
+  position: relative;
+  border-radius: 6px;
+  border: 1px solid var(--vs-line);
+  image-rendering: pixelated;
+  overflow: hidden;
+}
+
+.vsBwPatchGrid {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.vsBwPatchGrid line {
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+}
+
+/* -- stage 3: vocabulary -- */
+
+.vsBwVocabWrap {
+  position: relative;
+  width: min(100%, 320px);
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--vs-line);
+  line-height: 0;
+}
+
+.vsBwVocabWrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.vsBwVocabSweep {
+  fill: rgba(34, 197, 94, 0.28);
+  stroke: var(--vs-accent);
+  stroke-width: 2;
+}
+
+/* -- stage 4: histogram -- */
+
+.vsBwHistStage {
+  width: 100%;
+}
+
+.vsBwBars {
+  display: flex;
+  align-items: flex-end;
+  gap: 1px;
+  width: 100%;
+  height: 180px;
+  margin-top: 10px;
+  border-bottom: 1px solid var(--vs-line);
+}
+
+.vsBwBarCol {
+  position: relative;
+  flex: 1 1 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.vsBwBar,
+.vsBwBarGhost {
+  width: 100%;
+  transform-origin: bottom;
+}
+
+.vsBwBar {
+  background: var(--vs-accent);
+  animation: vsBwGrow 0.45s ease-out both;
+  position: relative;
+  z-index: 1;
+}
+
+.vsBwBarGhost {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #9aa89a;
+  opacity: 0.5;
+}
+
+@keyframes vsBwGrow {
+  from {
+    transform: scaleY(0);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* -- stage 5: k-NN vote -- */
+
+.vsBwKnnQuery {
+  text-align: center;
+  flex: none;
+}
+
+.vsBwKnnQuery img {
+  width: 110px;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--vs-line);
+  display: block;
+}
+
+.vsBwKnnGallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  flex: none;
+}
+
+.vsBwKnnThumb {
+  position: relative;
+  width: 64px;
+}
+
+.vsBwKnnThumb img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  border: 1px solid var(--vs-line);
+  display: block;
+}
+
+.vsBwKnnLabel {
+  display: block;
+  text-align: center;
+  font-size: 9.5px;
+  margin-top: 2px;
+  color: #7a8a78;
+}
+
+.vsBwKnnLabelFace {
+  color: var(--vs-accent-dark);
+  font-weight: 700;
+}
+
+.vsBwKnnStats {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: none;
+  min-width: 190px;
+}
+
+.vsBwKnnStat {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 10px;
+  border: 1px solid var(--vs-line);
+  border-radius: 8px;
+  background: #f4faf4;
+}
+
+.vsBwKnnStatNum {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--vs-accent-dark);
+}
+
+.vsBwKnnStatLabel {
+  font-size: 11px;
+  color: #51604f;
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+/* ---------- accuracy table ---------- */
+
+.vsBwAccWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vsBwTableScroll {
+  overflow-x: auto;
+}
+
+.vsBwTable {
+  width: 100%;
+  min-width: 460px;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.vsBwTable th,
+.vsBwTable td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--vs-line);
+  text-align: left;
+}
+
+.vsBwTable th {
+  color: #51604f;
+  font-weight: 600;
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.vsBwAccBest {
+  background: #eaf7ea;
+  font-weight: 700;
+}
+
+.vsBwAccBest td {
+  color: var(--vs-accent-dark);
+}
+
+.vsBwGallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.vsBwGalleryItem {
+  margin: 0;
+  text-align: center;
+}
+
+.vsBwGalleryItem img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--vs-line);
+  display: block;
+}
+
+.vsBwGalleryItem figcaption {
+  font-size: 10px;
+  color: #7a8a78;
+  margin-top: 2px;
+}
+
+/* ---------- bayes card ---------- */
+
+.vsBwBayes {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.vsBwBayesLik {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  height: 120px;
+  padding: 4px 6px 0;
+  border-bottom: 1px solid var(--vs-line);
+}
+
+.vsBwBayesLikCol {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+.vsBwBayesLikBars {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  justify-content: center;
+}
+
+.vsBwBayesLikBar {
+  width: 14px;
+  border-radius: 2px 2px 0 0;
+  transition: height 0.2s ease;
+}
+
+.vsBwBayesLikBarSpam {
+  background: var(--vs-accent);
+}
+
+.vsBwBayesLikBarNot {
+  background: #94a3b8;
+}
+
+.vsBwBayesBinLabel {
+  font-size: 10.5px;
+  color: #7a8a78;
+  margin-top: 4px;
+}
+
+.vsBwBayesLegend {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11.5px;
+  color: #51604f;
+  flex-wrap: wrap;
+}
+
+.vsBwBayesSwatch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  margin-left: 10px;
+}
+
+.vsBwBayesLegend .vsBwBayesSwatch:first-child {
+  margin-left: 0;
+}
+
+.vsBwBayesSwatchSpam {
+  background: var(--vs-accent);
+}
+
+.vsBwBayesSwatchNot {
+  background: #94a3b8;
+}
+
+.vsBwBayesSlider {
+  flex-wrap: nowrap;
+}
+
+.vsBwBayesSlider input[type="range"] {
+  flex: 1 1 auto;
+  min-width: 120px;
+}
+
+.vsBwBayesPost {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  height: 130px;
+  padding: 4px 6px 0;
+  border-bottom: 1px solid var(--vs-line);
+}
+
+.vsBwBayesPostCol {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.vsBwBayesPostTrack {
+  width: 20px;
+  height: 80px;
+  background: #eef2ee;
+  border-radius: 3px;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+}
+
+.vsBwBayesPostFill {
+  width: 100%;
+  background: #94a3b8;
+  transition: height 0.15s ease, background 0.15s ease;
+}
+
+.vsBwBayesPostFillSpam {
+  background: var(--vs-accent);
+}
+
+.vsBwBayesPostVal {
+  font-size: 10px;
+  color: #51604f;
+  margin-top: 4px;
+}
+
+.vsBwBayesMap {
+  font-size: 10.5px;
+  font-weight: 700;
+  color: #64748b;
+  margin-top: 2px;
+  transition: color 0.15s ease;
+}
+
+.vsBwBayesMapSpam {
+  color: var(--vs-accent-dark);
+}
+
+@media (max-width: 560px) {
+  .vsBwKnnStage {
+    flex-direction: column;
+  }
+  .vsBwPatchStage {
+    flex-direction: column;
+  }
+  .vsBwArrow {
+    transform: rotate(90deg);
+  }
+}

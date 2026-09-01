@@ -1,0 +1,171 @@
+/* CNN curves panel — prefix vsCn. Relies on tokens from ../vision.css
+   (--vs-accent, --vs-accent-dark, --vs-ink, --vs-line) applied within .vsStage. */
+
+.vsCn {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vsCnSubhead {
+  margin: 4px 0 -6px;
+  font-size: 15px;
+  color: var(--vs-ink);
+}
+
+/* ---------- config cards ---------- */
+
+.vsCnCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+}
+
+.vsCnCard {
+  position: relative;
+  border: 1px solid var(--vs-line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fbfdfb;
+}
+
+.vsCnCardBest {
+  border-color: var(--vs-accent);
+  background: #f2fbf2;
+}
+
+.vsCnBadge {
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  background: var(--vs-accent);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 7px;
+  border-radius: 999px;
+}
+
+.vsCnCardTitle {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--vs-ink);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.vsCnCardSub {
+  font-size: 10.5px;
+  font-weight: 500;
+  color: #7a8a78;
+}
+
+.vsCnCardNum {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--vs-accent-dark);
+  margin: 6px 0;
+}
+
+.vsCnCardBarTrack {
+  height: 6px;
+  border-radius: 3px;
+  background: #e6efe6;
+  overflow: hidden;
+}
+
+.vsCnCardBarFill {
+  height: 100%;
+  background: var(--vs-accent);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+}
+
+/* ---------- transfer chart ---------- */
+
+.vsCnChart {
+  border: 1px solid var(--vs-line);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fbfdfb;
+}
+
+.vsCnChartControls {
+  margin-bottom: 6px;
+  justify-content: space-between;
+}
+
+.vsCnChartSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.vsCnGrid {
+  stroke: var(--vs-line);
+  stroke-width: 1;
+}
+
+.vsCnAxisLabel {
+  font-size: 9.5px;
+  fill: #7a8a78;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.vsCnAxisTitle {
+  font-size: 10.5px;
+  fill: #51604f;
+}
+
+.vsCnLine {
+  animation: vsCnDraw 1.1s ease forwards;
+  transition: stroke-width 0.15s ease, opacity 0.15s ease;
+}
+
+@keyframes vsCnDraw {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.vsCnLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+}
+
+.vsCnLegendItem {
+  appearance: none;
+  background: none;
+  border: none;
+  padding: 2px 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--vs-ink);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.vsCnLegendItem[data-dim="true"] {
+  opacity: 0.4;
+}
+
+.vsCnSwatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex: none;
+}
+
+.vsCnCaption {
+  margin-top: 10px;
+}

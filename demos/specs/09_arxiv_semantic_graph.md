@@ -1,7 +1,16 @@
 # 09 — arXiv Semantic Graph: 50k Papers, One Graph (DTU 02807, fall 2025)
 
 Slug: `arxiv` · Fake domain: `arxiv.davids.net` · Archetype: **A** (interactive graph) + algorithm cards + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-09-01**. CORRECTIONS found at build time:
+the group repo (loayzapre/arxiv-semantic-graph) exists with the full package src (no
+embedding shards; snapshot re-downloaded via kagglehub, now 240,061 papers post-filter).
+The embedding run's real filters were min_year=2024 / min_words=200 -> 148,477 papers
+(the spec's "50k / >=2010" was only the EDA cell); histogram k=6 but graph construction
+k=50; and the REPORT chose tau=0.27 for usability over the modularity argmax 0.19
+(Q=0.934, 133k singleton-ish communities) - the demo makes that tension the story.
+hnswlib has no wheel for this machine -> exact brute-force k-NN on the 2,500 subsample
+(same cosine metric, disclosed); t-SNE layout added at build; USE embeds abstracts only
+(as embeddings.py did), so no abstracts ship.
 
 ## Summary
 

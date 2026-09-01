@@ -1,0 +1,162 @@
+/* Epipolar panel (#epipolar) — all classes prefixed vsEp. Shared tokens
+   (--vs-accent, --vs-line, ...) and .vsPanel/.vsChip/.vsBtn/.vsNote/.vsRow/
+   .vsSliderLabel/.vsMono come from ../vision.css. */
+
+.vsEpStack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.vsEpLoading {
+  color: #7a8a78;
+  font-size: 13px;
+  text-align: center;
+  padding: 30px;
+}
+
+.vsEpH3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--vs-ink);
+}
+
+.vsEpRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 12px;
+}
+
+.vsEpCanvasWrap {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 0 1 auto;
+}
+
+.vsEpCanvasWrapSmall {
+  opacity: 0.97;
+}
+
+.vsEpCanvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--vs-line);
+  background: #f4faf4;
+  cursor: crosshair;
+}
+
+.vsEpChart {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid var(--vs-line);
+  background: #fbfdfb;
+}
+
+.vsEpCaption {
+  font-size: 11.5px;
+  color: #6a7a68;
+  line-height: 1.35;
+}
+
+.vsEpShimmer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(244, 250, 244, 0.55);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.vsEpShimmer span {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--vs-line);
+  color: var(--vs-accent-dark);
+  font-size: 11.5px;
+  font-weight: 600;
+  animation: vsEpPulse 1.1s ease-in-out infinite;
+}
+
+@keyframes vsEpPulse {
+  0%, 100% { opacity: 0.55; }
+  50% { opacity: 1; }
+}
+
+.vsEpBadge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.vsEpBadgeOk {
+  background: #eef7ee;
+  border: 1px solid var(--vs-accent);
+  color: var(--vs-accent-dark);
+}
+
+.vsEpBadgeWarn {
+  background: #fff7ed;
+  border: 1px solid #f59e0b;
+  color: #b45309;
+}
+
+.vsEpEssential {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 14px;
+  padding: 10px 12px;
+  border: 1px dashed var(--vs-line);
+  border-radius: 10px;
+  background: #fbfdfb;
+}
+
+.vsEpEssentialLabel {
+  font-size: 12.5px;
+  color: var(--vs-ink);
+  font-weight: 600;
+}
+
+.vsEpEssentialSub {
+  font-size: 11.5px;
+  color: #6a7a68;
+  margin-top: 2px;
+}
+
+.vsEpEssentialRank {
+  font-size: 12.5px;
+  color: #40513f;
+}
+
+.vsEpMatrix {
+  border-collapse: collapse;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 11.5px;
+  color: var(--vs-ink);
+}
+
+.vsEpMatrix td {
+  padding: 2px 8px;
+  text-align: right;
+  border: 1px solid var(--vs-line);
+}
+
+@media (max-width: 560px) {
+  .vsEpRow {
+    flex-direction: column;
+  }
+}

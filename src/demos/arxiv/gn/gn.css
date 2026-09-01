@@ -1,0 +1,141 @@
+/* Girvan-Newman card (#girvan-newman) — prefix axN. Shared tokens/classes live in ../arxiv.css. */
+
+.axNHead {
+  justify-content: space-between;
+}
+
+.axNH3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ax-ink);
+  flex: 1 1 auto;
+}
+
+.axNTip {
+  color: #9086a6;
+  font-weight: 400;
+}
+
+.axNNote {
+  color: #6a5d87;
+  font-size: 12px;
+}
+
+.axNLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6a5d87;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.axNBody {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .axNBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+.axNGraph {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  background: #fbfaff;
+}
+
+.axNEdge {
+  stroke: #c3b8dd;
+  stroke-linecap: round;
+  transition: stroke-width 0.5s ease, stroke 0.5s ease;
+}
+
+.axNEdgeFlash {
+  stroke: #ef4444;
+  animation: axNPulse 0.55s ease-in-out;
+}
+
+@keyframes axNPulse {
+  0% {
+    stroke-opacity: 1;
+  }
+  50% {
+    stroke-opacity: 0.35;
+  }
+  100% {
+    stroke-opacity: 1;
+  }
+}
+
+.axNNode {
+  stroke: #fff;
+  stroke-width: 1.3;
+  transition: fill 0.5s ease;
+}
+
+.axNDendroWrap {
+  min-width: 0;
+}
+
+.axNDendroCols {
+  display: flex;
+  align-items: flex-end;
+  gap: 6px;
+  height: 150px;
+  padding: 6px;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  background: #fbfaff;
+  overflow-x: auto;
+}
+
+.axNDendroEmpty {
+  align-self: center;
+  padding: 0 6px;
+}
+
+.axNDendroCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 0 0 auto;
+}
+
+.axNDendroStack {
+  width: 22px;
+  height: 120px;
+  display: flex;
+  flex-direction: column-reverse;
+  border-radius: 3px;
+  overflow: hidden;
+  background: var(--ax-line);
+}
+
+.axNDendroSeg {
+  width: 100%;
+  transition: height 0.4s ease;
+}
+
+.axNDendroSeg + .axNDendroSeg {
+  border-top: 1px solid #fff;
+}
+
+.axNDendroColLabel {
+  font-size: 10px;
+  color: #9086a6;
+}
+
+.axNReadout {
+  margin-top: 10px;
+  font-size: 12px;
+  color: #453a5e;
+}

@@ -1,0 +1,130 @@
+/* Laplacian spectral card (#spectral) — prefix axS. Shared tokens/classes live in ../arxiv.css. */
+
+.axSHead {
+  justify-content: space-between;
+}
+
+.axSH3 {
+  margin: 0;
+  font-size: 15px;
+  color: var(--ax-ink);
+  flex: 1 1 auto;
+}
+
+.axSNote {
+  color: #6a5d87;
+  font-size: 12px;
+}
+
+.axSLabel {
+  font-size: 11.5px;
+  font-weight: 600;
+  color: #6a5d87;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 6px;
+}
+
+.axSHoverReadout {
+  text-transform: none;
+  color: var(--ax-accent-dark);
+  font-weight: 600;
+}
+
+.axSBody {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 16px;
+  margin-top: 14px;
+  align-items: start;
+}
+
+@media (max-width: 720px) {
+  .axSBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+.axSStem {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  background: #fbfaff;
+}
+
+.axSAxis {
+  stroke: var(--ax-line);
+  stroke-width: 1;
+}
+
+.axSHitRect {
+  fill: transparent;
+}
+
+.axSStemLine {
+  stroke: var(--ax-accent);
+  stroke-width: 1.6;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.axSStemLambda1 {
+  stroke: #f59e0b;
+}
+
+.axSStemDot {
+  fill: var(--ax-accent);
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), r 0.15s ease;
+}
+
+.axSStemDot.axSStemLambda1 {
+  fill: #f59e0b;
+}
+
+.axSGap line {
+  stroke: #9086a6;
+  stroke-width: 1;
+  stroke-dasharray: 3 2;
+}
+
+.axSGap text {
+  fill: #6a5d87;
+  font-size: 9px;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.axSNote2 {
+  margin-top: 8px;
+  font-size: 11px;
+  color: #453a5e;
+}
+
+.axSGraph {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--ax-line);
+  border-radius: 8px;
+  background: #fbfaff;
+}
+
+.axSEdge {
+  stroke: #c3b8dd;
+  stroke-width: 1;
+}
+
+.axSNode {
+  stroke: #fff;
+  stroke-width: 1.3;
+}
+
+.axSNodePos {
+  fill: #8b5cf6;
+}
+
+.axSNodeNeg {
+  fill: #f59e0b;
+}
+
+.axSCaption {
+  margin-top: 8px;
+}

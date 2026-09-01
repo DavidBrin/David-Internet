@@ -15,6 +15,8 @@ import hardhack from "@/demos/hardhack/meta";
 import esp32 from "@/demos/esp32/meta";
 import organoids from "@/demos/organoids/meta";
 import spikes from "@/demos/spikes/meta";
+import vision from "@/demos/vision/meta";
+import arxiv from "@/demos/arxiv/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
 export interface DemoSource {
@@ -49,7 +51,7 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);
