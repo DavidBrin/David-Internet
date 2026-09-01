@@ -6,7 +6,6 @@ const meta: DemoMeta = {
   slug: "arxiv",
   theme: { bg: "#f4f1fb", panel: "#e9e3f7" }, // violet — graph-paper night
   what: "a semantic graph of real arXiv papers with one knob: the similarity threshold tau",
-  why: "the whole pipeline's judgment lives in a single number: feel what tau=0.19 vs 0.27 does",
   when: "DTU 02807 Computational Tools for Data Science, Group 36, fall 2025",
   story: [
     {

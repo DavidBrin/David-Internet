@@ -60,9 +60,11 @@ export default function DemoLayout({
           <li>
             <b>What</b> {meta.what}
           </li>
-          <li>
-            <b>Why</b> {meta.why}
-          </li>
+          {meta.why ? (
+            <li>
+              <b>Why</b> {meta.why}
+            </li>
+          ) : null}
           <li>
             <b>When</b> {meta.when}
           </li>

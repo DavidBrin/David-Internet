@@ -41,7 +41,8 @@ export interface DemoMeta {
   slug: string;
   /** Three short chips under the title. */
   what: string;
-  why: string;
+  /** Optional — omit when a one-liner would oversimplify or mislead. */
+  why?: string;
   when: string;
   story: DemoStoryBeat[];
   sources: DemoSource[];
