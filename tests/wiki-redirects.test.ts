@@ -23,7 +23,11 @@ describe("wiki redirects", () => {
   });
 
   it("has one vercel.json redirect per project, pointing at its article", () => {
-    const bySource = new Map(vercelJson.redirects.map((r) => [r.source, r.destination]));
+    // Vercel treats bare parentheses in `destination` as regex groups, so the
+    // JSON percent-encodes them (%28/%29); decode before comparing.
+    const bySource = new Map(
+      vercelJson.redirects.map((r) => [r.source, decodeURIComponent(r.destination)]),
+    );
     expect(bySource.size).toBe(Object.keys(WIKI_SLUGS).length);
     for (const project of Object.keys(WIKI_SLUGS)) {
       expect(bySource.get(`/sites/${project}/docs`)).toBe(wikiUrlFor(project));

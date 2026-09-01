@@ -2,22 +2,22 @@
   "redirects": [
     {
       "source": "/sites/linear/docs",
-      "destination": "https://davids-wikipedia.vercel.app/wiki/Linear_(replica)",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Linear_%28replica%29",
       "permanent": false
     },
     {
       "source": "/sites/notion/docs",
-      "destination": "https://davids-wikipedia.vercel.app/wiki/Notion_(replica)",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Notion_%28replica%29",
       "permanent": false
     },
     {
       "source": "/sites/youtube/docs",
-      "destination": "https://davids-wikipedia.vercel.app/wiki/YouTube_(replica)",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/YouTube_%28replica%29",
       "permanent": false
     },
     {
       "source": "/sites/super-smash/docs",
-      "destination": "https://davids-wikipedia.vercel.app/wiki/Super_Smash_(replica)",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Super_Smash_%28replica%29",
       "permanent": false
     },
     {
@@ -27,7 +27,7 @@
     },
     {
       "source": "/sites/bet/docs",
-      "destination": "https://davids-wikipedia.vercel.app/wiki/Bet_(app)",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Bet_%28app%29",
       "permanent": false
     },
     {
