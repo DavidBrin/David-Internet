@@ -10,3 +10,6 @@ playwright-report/
 blob-report/
 .env*.local
 __pycache__/
+
+# demo prep caches (downloaded data)
+.cache/

@@ -1,0 +1,155 @@
+/* ============ Dissect panel — "the spike, dissected" (skDis prefix) ============ */
+
+.skDis {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- sweep strip ---- */
+
+.skDisSweepWrap {
+  height: 140px;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.skDisSweepInfo {
+  justify-content: space-between;
+}
+
+.skDisSweepInfo .skNote {
+  margin-left: auto;
+}
+
+/* ---- big axis + readouts ---- */
+
+.skDisBigRow {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+.skDisBigCanvasWrap {
+  flex: 1 1 480px;
+  height: 380px;
+  min-width: 280px;
+}
+
+.skDisReadouts {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.skDisReadoutRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 3px 0;
+  border-bottom: 1px dashed #e7dcbb;
+  transition: opacity 0.15s ease;
+}
+.skDisReadoutRow.isPending {
+  opacity: 0.32;
+}
+.skDisReadoutRow .skDisReadoutLabel {
+  color: #6f6448;
+}
+.skDisReadoutRow .skDisReadoutVal {
+  font-weight: 600;
+  color: #4a3f20;
+}
+
+.skDisBadgeRow {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  min-height: 22px;
+}
+
+.skDisFail {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: #8a7a4e;
+  font-size: 13px;
+  text-align: center;
+  padding: 20px;
+}
+
+/* ---- stage stepper ---- */
+
+.skDisStageStepper {
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.skDisStageItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: center;
+}
+
+.skDisSkgNote {
+  margin-top: -4px;
+}
+
+/* ---- feature table ---- */
+
+.skDisTableWrap {
+  max-height: 230px;
+  overflow: auto;
+  border: 1px solid #e7dcbb;
+  border-radius: 8px;
+  background: #fffdf6;
+}
+
+.skDisTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.skDisTable th,
+.skDisTable td {
+  padding: 4px 9px;
+  text-align: right;
+  white-space: nowrap;
+}
+.skDisTable th:first-child,
+.skDisTable td:first-child {
+  text-align: left;
+}
+
+.skDisTable thead th {
+  position: sticky;
+  top: 0;
+  background: #fbf3dd;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #8a7a4e;
+  border-bottom: 1px solid #e7dcbb;
+  z-index: 1;
+}
+
+.skDisRow {
+  cursor: pointer;
+}
+.skDisRow:hover td {
+  background: #fbf6e6;
+}
+.skDisRow.isActive td {
+  background: #fef3c7;
+}
+.skDisRow.isPending td {
+  color: #cabd91;
+}
+.skDisRow.isFailed td {
+  color: #b45309;
+  font-style: italic;
+}

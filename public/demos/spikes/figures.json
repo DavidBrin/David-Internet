@@ -1,0 +1,50 @@
+[
+ {
+  "file": "figures/avg-spike-by-area.webp",
+  "caption": "Average spike +-1 SD, overlapped by brain region (PFC / V1 / LIP).",
+  "w": 1000,
+  "h": 644
+ },
+ {
+  "file": "figures/avg-spike-by-species.webp",
+  "caption": "Average spike by species (Macaca fascicularis vs M. mulatta).",
+  "w": 1000,
+  "h": 644
+ },
+ {
+  "file": "figures/avg-spike-by-sex.webp",
+  "caption": "Average spike by sex.",
+  "w": 1000,
+  "h": 644
+ },
+ {
+  "file": "figures/avg-spike-by-dendrite.webp",
+  "caption": "Average spike by dendritic type (aspiny / NA / spiny).",
+  "w": 1000,
+  "h": 644
+ },
+ {
+  "file": "figures/peakamp-by-area.webp",
+  "caption": "peak_amp by brain region.",
+  "w": 1000,
+  "h": 671
+ },
+ {
+  "file": "figures/explambda-by-dendrite.webp",
+  "caption": "exp_lambda by dendritic type.",
+  "w": 1000,
+  "h": 664
+ },
+ {
+  "file": "figures/peakamp-by-species.webp",
+  "caption": "peak_amp by species.",
+  "w": 1000,
+  "h": 757
+ },
+ {
+  "file": "figures/peakwidth-by-age.webp",
+  "caption": "peak_width by age.",
+  "w": 1000,
+  "h": 674
+ }
+]

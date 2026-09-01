@@ -1,0 +1,146 @@
+/* ============ Organoids on Psychedelics — shared styles (og- prefix) ============ */
+
+.ogChapterTag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #be5f8f;
+  margin-bottom: 2px;
+}
+
+/* Chapter 1–2 carry a lab-notebook aesthetic; 4–5 the polished language. */
+.ogNotebook .demoPanelHead h2 {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Code", Consolas, monospace);
+}
+
+.ogRow {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ogBtn {
+  border: 1px solid #ecc6da;
+  background: #fffafd;
+  color: #6d2c4e;
+  border-radius: 7px;
+  padding: 5px 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.ogBtn:hover { background: #fbeaf3; }
+.ogBtn[data-active="true"], .ogBtn.ogActive {
+  background: #ec4899;
+  border-color: #db2777;
+  color: #fff;
+}
+.ogBtn:disabled { opacity: 0.45; cursor: default; }
+
+.ogNote {
+  font-size: 12.5px;
+  color: #86607a;
+  line-height: 1.5;
+}
+
+/* REQUIRED on every synthetic panel: the illustrative-data label. */
+.ogSynthBadge {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  background: #fdf2f8;
+  color: #9d174d;
+  border: 1px dashed #f472b6;
+}
+
+.ogMono {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Code", Consolas, monospace);
+  font-size: 12.5px;
+}
+
+.ogCanvasWrap {
+  position: relative;
+  border: 1px solid #f3d3e5;
+  border-radius: 10px;
+  background: #fffafd;
+  overflow: hidden;
+}
+.ogNotebook .ogCanvasWrap {
+  border-radius: 4px;
+  border-color: #e3c3d4;
+  background: #fffdfb;
+}
+
+.ogLabel {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #a4527f;
+}
+
+.ogSlider { accent-color: #ec4899; width: 100%; }
+
+.ogChip {
+  display: inline-block;
+  font-size: 11px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  background: #f9e8f1;
+  border: 1px solid #eec3da;
+  color: #82345d;
+  border-radius: 5px;
+  padding: 1px 7px;
+}
+
+/* "mirrors function()" chip that links a panel to the Source drawer */
+.ogMirror {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: #9c4a75;
+  background: #fbf0f6;
+  border: 1px solid #f0cfe1;
+  border-radius: 999px;
+  padding: 2px 9px;
+}
+
+.ogLoading {
+  padding: 40px;
+  text-align: center;
+  color: #a4527f;
+  font-size: 14px;
+}
+
+.ogFigStrip {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 10px;
+}
+.ogFigStrip figure {
+  margin: 0;
+  border: 1px solid #f3d3e5;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+}
+.ogFigStrip img { display: block; width: 100%; height: auto; }
+.ogFigStrip figcaption {
+  font-size: 11.5px;
+  color: #86607a;
+  padding: 6px 8px;
+  line-height: 1.4;
+}
+.ogFigStrip .ogFigReal {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #16a34a;
+}

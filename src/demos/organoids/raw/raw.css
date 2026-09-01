@@ -1,0 +1,133 @@
+/* ============ Chapter 1 — Raw voltage (ogRaw-) ============ */
+
+.ogRaw {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ogRawPipelineHead {
+  justify-content: space-between;
+}
+
+/* -------------------------------------------------- pipeline diagram */
+
+.ogRawPipeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 10px;
+  border: 1px solid #e3c3d4;
+  border-radius: 4px;
+  background: #fffdfb;
+}
+
+.ogRawStageGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 150px;
+}
+
+.ogRawStage {
+  border-radius: 4px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ogRawStageMono {
+  color: #82345d;
+  opacity: 0.85;
+  white-space: normal;
+  word-break: break-word;
+}
+
+.ogRawArrow {
+  align-self: center;
+  margin-top: 12px;
+  color: #c3799f;
+  font-size: 16px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+
+/* -------------------------------------------------- trace row + canvas */
+
+.ogRawTraceRow {
+  justify-content: flex-start;
+}
+
+.ogRawHdfChip {
+  margin-left: auto;
+}
+
+.ogRawCanvasWrap {
+  height: 240px;
+  width: 100%;
+}
+.ogRawCanvasWrap canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------------------------------- wells: quick picker + plate */
+
+.ogRawBelowCanvas {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ogRawWellPicker {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ogRawPlate {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ogRawPlateGrid {
+  display: grid;
+  grid-template-columns: 16px repeat(8, 18px);
+  grid-auto-rows: 18px;
+  gap: 3px;
+  align-items: center;
+  justify-items: center;
+}
+
+.ogRawPlateCorner {
+  width: 16px;
+  height: 16px;
+}
+
+.ogRawPlateColLabel,
+.ogRawPlateRowLabel {
+  font-size: 9.5px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: #a4527f;
+  text-align: center;
+}
+
+.ogRawPlateCell {
+  width: 16px;
+  height: 16px;
+  border-radius: 3px;
+  border: 1px solid #e3c3d4;
+  background: #fdf2f8;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.ogRawPlateCell:hover {
+  background: #f9e8f1;
+  border-color: #eec3da;
+}
+.ogRawPlateCell[data-active="true"] {
+  background: #ec4899;
+  border-color: #db2777;
+}

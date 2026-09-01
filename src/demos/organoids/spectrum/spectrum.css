@@ -1,0 +1,198 @@
+/* ============ Chapter 2 — What's in a spectrum (ogSpec-) ============ */
+
+.ogSpec {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ogSpecHeadRow {
+  justify-content: space-between;
+}
+
+.ogSpecMain {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* -------------------------------------------------- plate column */
+
+.ogSpecPlateCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.ogSpecPlateGrid {
+  display: grid;
+  grid-template-columns: 18px repeat(8, 1fr);
+  grid-auto-rows: 26px;
+  gap: 3px;
+  align-items: center;
+  justify-items: center;
+}
+
+.ogSpecPlateCorner {
+  width: 18px;
+  height: 18px;
+}
+
+.ogSpecPlateColLabel,
+.ogSpecPlateRowLabel {
+  font-size: 10px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+  color: #a4527f;
+  text-align: center;
+}
+
+.ogSpecPlateCell {
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  border: 1px solid #e3c3d4;
+  background: #fdf2f8;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.ogSpecPlateCell:hover {
+  background: #f9e8f1;
+  border-color: #eec3da;
+}
+.ogSpecPlateCell[data-active="true"] {
+  background: #ec4899;
+  border-color: #db2777;
+}
+
+.ogSpecModeRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-top: 4px;
+  border-top: 1px solid #f3d3e5;
+}
+
+/* -------------------------------------------------- axis column */
+
+.ogSpecAxisCol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1 1 380px;
+  min-width: 320px;
+}
+
+.ogSpecLegend {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  font-size: 11px;
+  color: #6d2c4e;
+}
+
+.ogSpecLegendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ogSpecSwatch {
+  display: inline-block;
+  width: 16px;
+  height: 0;
+  border-top: 2px solid;
+  font-style: normal;
+}
+.ogSpecSwatchSpectrum { border-color: #222222; }
+.ogSpecSwatchAp { border-color: #1f77b4; border-top-style: dashed; }
+.ogSpecSwatchPeak { border-top-width: 6px; border-color: rgba(44, 160, 44, 0.5); }
+.ogSpecSwatchModel { border-color: #d62728; }
+
+.ogSpecCanvasWrap {
+  height: 420px;
+  width: 100%;
+}
+.ogSpecCanvasWrap canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.ogSpecFlatHead {
+  justify-content: space-between;
+  margin-top: 2px;
+}
+
+.ogSpecFlatCanvasWrap {
+  height: 130px;
+  width: 100%;
+}
+.ogSpecFlatCanvasWrap canvas {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------------------------------- readouts column */
+
+.ogSpecReadouts {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  width: 210px;
+  flex-shrink: 0;
+}
+
+.ogSpecReadoutBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 10px;
+  border: 1px solid #f3d3e5;
+  border-radius: 6px;
+  background: #fffafd;
+  transition: opacity 0.2s ease;
+}
+
+.ogSpecFitHidden {
+  opacity: 0.35;
+}
+.ogSpecFitShown {
+  opacity: 1;
+}
+
+.ogSpecParamRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 12.5px;
+  color: #6d2c4e;
+}
+
+.ogSpecPeakTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+  font-family: var(--font-mono, ui-monospace, monospace);
+}
+.ogSpecPeakTable th {
+  text-align: right;
+  font-weight: 600;
+  color: #a4527f;
+  padding: 2px 0 3px;
+}
+.ogSpecPeakTable td {
+  text-align: right;
+  color: #6d2c4e;
+  padding: 1px 0;
+}
+.ogSpecPeakTable th:first-child,
+.ogSpecPeakTable td:first-child {
+  text-align: left;
+}
+.ogSpecPeakActive td {
+  color: #2ca02c;
+  font-weight: 700;
+}

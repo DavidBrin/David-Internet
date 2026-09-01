@@ -18,6 +18,8 @@ import signals from "@content/signals/site";
 import quantum from "@content/quantum/site";
 import hardhack from "@content/hardhack/site";
 import esp32 from "@content/esp32/site";
+import organoids from "@content/organoids/site";
+import spikes from "@content/spikes/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -33,6 +35,8 @@ export const manifests: SiteManifest[] = [
   quantum,
   hardhack,
   esp32,
+  organoids,
+  spikes,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes (2026-09-01).
 
 ## Decision
 
@@ -63,8 +63,8 @@ Out of scope · Open/Resolved questions.
 | # | Spec | Slug | Covers raw folders | Open items for David |
 |---|---|---|---|---|
 | 01 | Quantum Playground | `quantum` | quantum_information_qutip_raw | **built 2026-08-31** - TS simulator + 4 panels; NOTE: report's who-did-what table omits David (see spec 01) - neutral attribution used, confirm with David |
-| 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | none |
-| 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | none |
+| 02 | Organoids on Psychedelics | `organoids` | psychedelic_organoids_raw | **built 2026-09-01** - 5 chapters, TS FOOOF 1.1 port fixture-tested (fixed+knee); synthetic panels labeled, 25 real figures ship; library has 25 fns (spec said 26) |
+| 03 | Anatomy of a Spike | `spikes` | spike_proj_raw, spikeparam_raw | **built 2026-09-01** - data is DANDI:001776 (spec's dandiset IDs 000014/000245/000502 were wrong); current release all-marmoset, 2024 figures include pre-release macaques (disclosed) |
 | 04 | Nocturnal Neuro | `nocturnal` | nocturnal_neuro_raw | **built 2026-08-30** — kicad-cli layer/sheet exports, EEG at 250 Hz, canvases; DSP cell completed |
 | 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | **built 2026-08-31** - page-wide sim, 13 table tests; scrubbed sources in demos/hardhack_src/ |
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
@@ -155,4 +155,25 @@ directives (memory points here).
 - This machine's `py -3.12`: TensorFlow 2.21 + numpy 2.5 live in the *user* site-packages
   (`pip install --user`; plain install hits system-dir permission errors). The stale system
   pandas/scipy break under user numpy - keep pandas/scipy/sklearn/pillow user-site too.
+  Same class of breakage hit statsmodels + matplotlib on 02/03 (fixed by user-site
+  reinstall; matplotlib needed a manual `rm -rf` of the orphaned package dir first) and
+  neurodsp (old system copy imported the removed scipy.signal.morlet - `pip install --user
+  -U neurodsp`). fooof/neurodsp import matplotlib at import time, so a broken matplotlib
+  breaks them too.
+- Welch trap (02): neurodsp's `compute_spectrum(..., method='welch')` does NOT call
+  scipy.signal.welch - it calls scipy.signal.spectrogram, whose default `noverlap` is
+  nperseg//8 (welch's is nperseg//2), then averages segments itself. A "welch port" must
+  match the spectrogram path or PSDs are ~1-2% off at low frequencies.
+- Verify spec claims against live sources before shipping numbers (02/03): the 03 spec's
+  DANDI IDs didn't exist - the real dataset (Primate Cell Type Database) had moved to
+  DANDI:001776 with renamed files and different species coverage; the 02 spec said "26
+  functions" but the file defines 25. Documents/upstream win; disclose drift on the page.
+- Panel agents sharing one Playwright MCP browser fight over the "current tab" - screenshots
+  land on a sibling's page mid-run. Tell agents to re-check `location.href` (or target
+  their `Page` via `context().pages()`) before trusting any capture, and to expect
+  transient module-not-found/CSS-chunk dropouts from siblings' HMR churn (final dev-server
+  restart clears it).
+- Two panel agents ended their turn "waiting for a background notification" that can never
+  arrive (subagents aren't woken by others' tasks). Prompt agents to verify immediately and
+  never wait; if one stops early anyway, a SendMessage nudge resumes it with context intact.
 

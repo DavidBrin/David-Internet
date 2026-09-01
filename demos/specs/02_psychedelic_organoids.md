@@ -1,7 +1,14 @@
 # 02 — Organoids on Psychedelics (Voytek Lab, Jul 2024 – Jun 2025)
 
 Slug: `organoids` · Fake domain: `organoids.davids.net` · Archetype: **B (scrollytelling timeline) + A (interactive panels)**
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-09-01** - five chapters live with the polish ramp
+(ch1-2 notebook aesthetic, ch4-5 polished); TS port of FOOOF 1.1 (fixed+knee, robust ap fit +
+iterative peak search + joint refit) fixture-tested vs the real package; welch matches the
+notebooks' actual path (scipy spectrogram, noverlap=nperseg//8); isi/burst/network-event ports
+exact-match. 25 curated real figures ship (~30 planned); interactive panels all synthetic +
+labeled. CORRECTION: `General_LFP_analysis_functions.py` defines **25** top-level functions,
+not 26. `lfp_processing.m` ships as a scrubbed copy (collaborator path redacted) in
+demos/organoids_src/.
 
 ## Summary
 

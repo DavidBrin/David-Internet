@@ -1,7 +1,17 @@
 # 03 — Anatomy of a Spike (spike_proj + spikeparam, Voytek Lab, 2024)
 
 Slug: `spikes` · Fake domain: `spikes.davids.net` · Archetype: **A** (interactive) + Story rail
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-09-01**. CORRECTIONS found at build time: the
+dandiset IDs below (000014/000245/000502) were wrong - the data is the **Primate Cell Type
+Database** (primatedatabase.com), published as **DANDI:001776** (CC-BY-4.0); the current
+release is all-marmoset (Callithrix jacchus) with renamed files (sub-M03G/...), so the live
+feature table (10 files, 2,676 spikes, 4 shipped sweeps) has subject-level metadata only
+(subject/sex/age/weight), while the 2024 figures show macaque/LIP groups from a pre-release
+copy - disclosed on the page. Also: fs is 50 kHz in these files (the notebooks hardcoded
+20 kHz), and pvc-6_param_means.npy holds piecewise-poly params, not SKG params - the SKG
+sandbox defaults were fit at build to the dataset mean spike (r2=0.9997). TS ports (LOWESS,
+control points, bounded exp fit) match Python detection sample-for-sample on the shipped
+sweeps.
 
 ## Summary
 

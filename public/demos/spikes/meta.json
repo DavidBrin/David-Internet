@@ -1,0 +1,126 @@
+{
+ "dandiset": "001776",
+ "dandisetName": "Primate Cell Type Database - Intracellular Recordings (Feyerabend, Pommer, Mestern et al.)",
+ "dandisetUrl": "https://dandiarchive.org/dandiset/001776",
+ "license": "CC-BY-4.0",
+ "portal": "https://www.primatedatabase.com/",
+ "files": [
+  {
+   "file": "sub-A10W_ses-20210602T212414_icephys.nwb",
+   "subject": "A10W",
+   "age": "P3.23Y",
+   "description": "basic subject data",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "A10W",
+   "weight": "0.42 kg"
+  },
+  {
+   "file": "sub-A15W_ses-20211112T223806_icephys.nwb",
+   "subject": "A15W",
+   "age": "P7.53Y",
+   "description": "basic subject data",
+   "sex": "F",
+   "species": "Callithrix jacchus",
+   "subject_id": "A15W",
+   "weight": "0.47 kg"
+  },
+  {
+   "file": "sub-A20W_ses-20220421T170422_icephys.nwb",
+   "subject": "A20W",
+   "age": "P10.89Y",
+   "description": "basic subject data",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "A20W",
+   "weight": "0.32 kg"
+  },
+  {
+   "file": "sub-A25W_ses-20220803T134549_icephys.nwb",
+   "subject": "A25W",
+   "age": "P1.52Y",
+   "description": "basic subject data",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "A25W",
+   "weight": "0.4 kg"
+  },
+  {
+   "file": "sub-A33W_ses-20230714T172242_icephys.nwb",
+   "subject": "A33W",
+   "age": "P4.48Y",
+   "description": "basic subject data",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "A33W",
+   "weight": "0.0 kg"
+  },
+  {
+   "file": "sub-M03G_ses-20220126T182837_icephys.nwb",
+   "subject": "M03G",
+   "age": "P15.37Y",
+   "description": "Barnebie",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "M03G",
+   "weight": "0.307 kg"
+  },
+  {
+   "file": "sub-M08G_ses-20220308T143942_obj-fq7jfj_icephys.nwb",
+   "subject": "M08G",
+   "age": "P13.97Y",
+   "description": "Orilito",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "M08G",
+   "weight": "0.403 kg"
+  },
+  {
+   "file": "sub-M15G_ses-20220419T154408_icephys.nwb",
+   "subject": "M15G",
+   "age": "P2.9Y",
+   "description": "Inaxo",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "M15G",
+   "weight": "0.374 kg"
+  },
+  {
+   "file": "sub-M18G_ses-20220426T164423_icephys.nwb",
+   "subject": "M18G",
+   "age": "P2.89Y",
+   "description": "Eskorial",
+   "sex": "M",
+   "species": "Callithrix jacchus",
+   "subject_id": "M18G",
+   "weight": "0.456 kg"
+  },
+  {
+   "file": "sub-M23G_ses-20240406T143102_icephys.nwb",
+   "subject": "M23G",
+   "age": "P8.7Y",
+   "description": "Ohlena",
+   "sex": "F",
+   "species": "Callithrix jacchus",
+   "subject_id": "M23G",
+   "weight": "0.412 kg"
+  }
+ ],
+ "settings": {
+  "thresh_amp": 0,
+  "window_length": [
+   5,
+   5
+  ],
+  "smooth_frac": 0.01,
+  "thresh_ms": 1.0,
+  "pre_peak_ms": [
+   -4,
+   -1
+  ],
+  "pre_inflection_ms": 1,
+  "exp_shift_right": 2,
+  "exp_duration": 5
+ },
+ "note": "Rebuilt 2026-09-01 from the current public release (all Callithrix jacchus); the original 2024 analysis also included macaque files that predate this release."
+}

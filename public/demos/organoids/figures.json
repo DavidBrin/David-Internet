@@ -1,0 +1,202 @@
+[
+ {
+  "file": "figures/ch1-raw-trace-100s.webp",
+  "chapter": "raw",
+  "caption": "A first look: 100 s of downsampled LFP from one well (100 Hz).",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 563,
+  "h": 413
+ },
+ {
+  "file": "figures/ch1-raw-trace-600s.webp",
+  "chapter": "raw",
+  "caption": "The full 10-minute recording of the same well.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 563,
+  "h": 413
+ },
+ {
+  "file": "figures/ch1-first-welch.webp",
+  "chapter": "raw",
+  "caption": "The first Welch power spectrum (well A4), log-log.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 590,
+  "h": 590
+ },
+ {
+  "file": "figures/ch1-welch-grid.webp",
+  "chapter": "raw",
+  "caption": "Welch spectra for every well - the 6x8 grid habit begins.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 1100,
+  "h": 823
+ },
+ {
+  "file": "figures/ch1-spike-heatmap.webp",
+  "chapter": "raw",
+  "caption": "Spike counts per well from the .spk file.",
+  "source": "Spike_data_psych_org.ipynb",
+  "w": 961,
+  "h": 650
+ },
+ {
+  "file": "figures/ch1-electrode-heatmaps.webp",
+  "chapter": "raw",
+  "caption": "Per-electrode spike heatmaps embedded at each well position.",
+  "source": "Spike_data_psych_org.ipynb",
+  "w": 1100,
+  "h": 889
+ },
+ {
+  "file": "figures/ch2-first-fooof.webp",
+  "chapter": "spectrum",
+  "caption": "An early FOOOF fit: aperiodic 1/f plus a broad beta peak.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 839,
+  "h": 640
+ },
+ {
+  "file": "figures/ch2-fooof-sharp-peak.webp",
+  "chapter": "spectrum",
+  "caption": "Another well, same day: a sharp ~23 Hz peak on the same aperiodic background.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 839,
+  "h": 640
+ },
+ {
+  "file": "figures/ch2-platea-fooof.webp",
+  "chapter": "spectrum",
+  "caption": "Plate A pre-stim: full model fit with the knee visible below 10 Hz.",
+  "source": "PlateA-prestim.ipynb",
+  "w": 839,
+  "h": 640
+ },
+ {
+  "file": "figures/ch2-platea-offsets.webp",
+  "chapter": "spectrum",
+  "caption": "Aperiodic offset heatmap across the recorded wells.",
+  "source": "PlateA-prestim.ipynb",
+  "w": 804,
+  "h": 701
+ },
+ {
+  "file": "figures/ch2-platea-exponents.webp",
+  "chapter": "spectrum",
+  "caption": "Aperiodic exponent heatmap - the parameter that becomes the story.",
+  "source": "PlateA-prestim.ipynb",
+  "w": 804,
+  "h": 701
+ },
+ {
+  "file": "figures/ch2-platea-dose-box.webp",
+  "chapter": "spectrum",
+  "caption": "First dose comparison: offsets / knees / exponents, eGFP vs CheRiff.",
+  "source": "PlateA-prestim.ipynb",
+  "w": 1100,
+  "h": 782
+ },
+ {
+  "file": "figures/ch2-exponent-heatmap.webp",
+  "chapter": "spectrum",
+  "caption": "Aperiodic exponents across the full 48-well plate.",
+  "source": "ds_lfp_07-29-24.ipynb",
+  "w": 804,
+  "h": 701
+ },
+ {
+  "file": "figures/ch3-fr-across-days.webp",
+  "chapter": "dose",
+  "caption": "Firing rate per well across recording days.",
+  "source": "PlateD_comparison.ipynb",
+  "w": 996,
+  "h": 1058
+ },
+ {
+  "file": "figures/ch3-heatmaps-days.webp",
+  "chapter": "dose",
+  "caption": "Offset heatmaps, one plate per day, D-1 to D20.",
+  "source": "PlateD_comparison.ipynb",
+  "w": 1100,
+  "h": 156
+ },
+ {
+  "file": "figures/ch3-params-by-dose.webp",
+  "chapter": "dose",
+  "caption": "Offsets and exponents across files, grouped by dose.",
+  "source": "PlateD_comparison.ipynb",
+  "w": 1100,
+  "h": 660
+ },
+ {
+  "file": "figures/ch3-deviation-exponent.webp",
+  "chapter": "dose",
+  "caption": "Deviation of the exponent from the D-1 baseline, per dose.",
+  "source": "DeviationD.ipynb",
+  "w": 1100,
+  "h": 412
+ },
+ {
+  "file": "figures/ch3-deviation-by-group.webp",
+  "chapter": "dose",
+  "caption": "Average exponent deviation by dose group across days.",
+  "source": "DeviationD.ipynb",
+  "w": 1100,
+  "h": 361
+ },
+ {
+  "file": "figures/ch4-spike-heatmaps.webp",
+  "chapter": "compounds",
+  "caption": "Spike-count heatmaps for every recording day of Plate F.",
+  "source": "PlateF_comparison.ipynb",
+  "w": 1100,
+  "h": 275
+ },
+ {
+  "file": "figures/ch4-fr-across-days.webp",
+  "chapter": "compounds",
+  "caption": "Firing rate per well, D-1 to D60.",
+  "source": "PlateF_comparison.ipynb",
+  "w": 996,
+  "h": 1058
+ },
+ {
+  "file": "figures/ch4-param-heatmaps.webp",
+  "chapter": "compounds",
+  "caption": "Exponent heatmaps across days (fixed mode).",
+  "source": "PlateF_comparison.ipynb",
+  "w": 1100,
+  "h": 121
+ },
+ {
+  "file": "figures/ch4-params-by-dose.webp",
+  "chapter": "compounds",
+  "caption": "Offsets and exponents by file and dose - psilocybin / LSD / psilocin / vehicle.",
+  "source": "PlateF_comparison.ipynb",
+  "w": 1100,
+  "h": 660
+ },
+ {
+  "file": "figures/ch4-knee-params-by-dose.webp",
+  "chapter": "compounds",
+  "caption": "The same comparison re-fit in knee mode.",
+  "source": "PlateF_comparison-knee.ipynb",
+  "w": 1100,
+  "h": 660
+ },
+ {
+  "file": "figures/ch4-deviation-exponent.webp",
+  "chapter": "compounds",
+  "caption": "Exponent deviation from baseline across files, per dose.",
+  "source": "Deviation.ipynb",
+  "w": 1100,
+  "h": 415
+ },
+ {
+  "file": "figures/ch4-deviation-fr.webp",
+  "chapter": "compounds",
+  "caption": "Average firing-rate deviation by dose group.",
+  "source": "Deviation.ipynb",
+  "w": 1100,
+  "h": 361
+ }
+]

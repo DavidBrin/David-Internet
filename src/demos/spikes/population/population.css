@@ -1,0 +1,166 @@
+/* ============ Population panel (skPop prefix) ============ */
+
+.skPopRoot {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.skPopTop {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 16px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .skPopTop {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skPopScatterCol,
+.skPopWaveCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.skPopControls {
+  row-gap: 8px;
+}
+
+.skPopField {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.skPopSelect {
+  border: 1px solid #d9c89a;
+  background: #fffdf6;
+  color: #4a3f20;
+  border-radius: 7px;
+  padding: 4px 8px;
+  font-size: 12.5px;
+  font-family: inherit;
+}
+
+.skPopLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.skPopLegendChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.skPopSwatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex: 0 0 auto;
+}
+
+.skPopScatterWrap {
+  height: 460px;
+  touch-action: none;
+}
+
+.skPopScatterWrap canvas {
+  cursor: crosshair;
+}
+
+.skPopWaveHead {
+  align-items: center;
+}
+
+.skPopWaveWrap {
+  height: 460px;
+}
+
+.skPopBottom {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skPopModeRow {
+  align-items: center;
+}
+
+.skPopBoxNote {
+  margin: 0;
+}
+
+.skPopBoxWrap {
+  border: 1px solid #e7dcbb;
+  border-radius: 10px;
+  background: #fffdf6;
+  overflow: hidden;
+}
+
+.skPopBoxWrap svg {
+  display: block;
+  width: 100%;
+  height: 300px;
+}
+
+.skPopGrid {
+  stroke: #e7dcbb;
+  stroke-width: 1;
+}
+
+.skPopPlotFrame {
+  fill: none;
+  stroke: #4a3f20;
+  stroke-width: 1;
+}
+
+.skPopWhisker {
+  stroke: #8a7a4e;
+  stroke-width: 1.2;
+}
+
+.skPopAxisText {
+  fill: #4a3f20;
+  font-size: 9.5px;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+.skPopAxisTextMuted {
+  fill: #8a7a4e;
+  font-size: 8.5px;
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
+
+.skPopCorrWrap {
+  border: 1px solid #e7dcbb;
+  border-radius: 10px;
+  background: #fffdf6;
+  overflow: hidden;
+  height: 380px;
+}
+
+.skPopFigures {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.skPopRealTag {
+  display: inline-block;
+  font-size: 10.5px;
+  font-weight: 600;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+  border-radius: 999px;
+  padding: 1px 8px;
+  margin-left: 4px;
+}
