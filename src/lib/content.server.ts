@@ -288,7 +288,7 @@ export function loadAllSearchDocs(): SearchDoc[] {
 function howThisWorksDoc(): SearchDoc {
   const body = [
     "David's Internet indexes projects David built. It uses the familiar shape of a search engine to make the archive easy to explore.",
-    "The index covers working replicas of real products, including an issue tracker, video platform, block editor, fighting game, and prediction market. It includes homepages, deep links, documentation, and design-decision logs.",
+    "The index covers working replicas of real products, including an issue tracker, video platform, block editor, fighting game, prediction market, and a browser DAW. It includes homepages, deep links, documentation, and design-decision logs.",
     "Results use a fake display URL and open the live deployment when it is available. Project documentation opens its article on David's Wikipedia. Autocomplete, did-you-mean, and I'm Feeling Lucky use the same browser-based index.",
   ].join("\n\n");
   return {

@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "dollar-pixels",
   displayName: "Dollar Pixels",
   fakeDomain: "pixels.davids.net",
-  liveUrl: null,
+  liveUrl: "https://dollar-pixels-david.vercel.app",
   tagline: "$1 buys nine pixels — a Million Dollar Homepage rebuild in blocks of nine",
   description:
     "A rebuild of the 2005 Million Dollar Homepage where blocks of nine pixels (a 3x3 square) sell for $1 on a 1200x1200 grid of 160,000 blocks. Unlike the original, buyers can make their own page and claims never link anywhere — Play money is the default, with a one-env-var switch to real Stripe payments through the same settlement code path.",

@@ -20,6 +20,7 @@ export const WIKI_SLUGS: Record<string, string> = {
   "fake-phone": "Fake_Phone",
   bet: "Bet_(app)",
   "dollar-pixels": "Dollar_Pixels",
+  "fl-studio": "FL_Studio_(replica)",
   verilog: "Verilog",
   nocturnal: "Nocturnal_Neuro",
   signals: "Signals_and_Systems_Lab",

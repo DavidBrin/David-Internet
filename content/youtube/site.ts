@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "youtube",
   displayName: "YouTube (Replica)",
   fakeDomain: "youtube.davids.net",
-  liveUrl: null,
+  liveUrl: "https://youtube-david.vercel.app",
   tagline: "the video platform, with the transcoding moved to the uploader",
   description:
     "A from-scratch rebuild of YouTube's core: upload, an adaptive HLS player, channels, subscriptions, playlists, threaded comments, search, a co-visitation recommender, watch history, Shorts, and audio-fingerprint Content ID. The architectural bet is that the uploader's browser encodes the entire rendition ladder before anything is sent, so the server never opens a codec and there is no transcode queue, worker pool, or backlog to manage.",

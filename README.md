@@ -22,7 +22,7 @@ pnpm build          # static export → out/ (deployable anywhere, e.g. Vercel H
 
 ## Deployment status & how to route to a newly deployed project
 
-**None of the replicas are deployed yet.** Every manifest currently has `liveUrl: null`, which makes all of that project's results fall back to its article on the deployed **Wikipedia replica** (`src/lib/wiki.ts` holds the base URL and per-project article slugs; the old `/sites/<project>/docs` cached-copy routes now redirect there — via `vercel.json` in production, client-side elsewhere, kept in sync by `tests/wiki-redirects.test.ts`). Nothing else needs stubbing: the moment a deployment exists, flipping one field routes every result, image, and deep link to the live app.
+**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels). YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
 
 To wire up a deployment:
 
@@ -44,17 +44,18 @@ To wire up a deployment:
 
 Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
-## The seven sites of David's Internet
+## The eight sites of David's Internet
 
 | Site | Fake domain | Needs DB | Status |
 |---|---|---|---|
-| Linear replica | linear.davids.net | yes (Neon) | not deployed → wiki fallback |
-| YouTube replica | youtube.davids.net | yes (Neon) | not deployed → wiki fallback |
-| Super Smash | smash.davids.net | no | not deployed → wiki fallback |
-| fake-phone | fake-phone.davids.net | no | not deployed → wiki fallback |
-| Bet | bet.davids.net | no | not deployed → wiki fallback |
-| Dollar Pixels | pixels.davids.net | yes (Neon) | not deployed → wiki fallback |
-| Notion replica | notion.davids.net | no | not deployed → wiki fallback |
+| Linear replica | linear.davids.net | yes (Neon) | [linear-david.vercel.app](https://linear-david.vercel.app) |
+| YouTube replica | youtube.davids.net | yes (Neon + R2) | not deployed → wiki fallback |
+| Super Smash | smash.davids.net | no | [smash-david.vercel.app](https://smash-david.vercel.app) |
+| fake-phone | fake-phone.davids.net | no | [fake-phone-david.vercel.app](https://fake-phone-david.vercel.app) |
+| Bet | bet.davids.net | no | [bet-david.vercel.app](https://bet-david.vercel.app) |
+| Dollar Pixels | pixels.davids.net | yes (Neon) | [dollar-pixels-david.vercel.app](https://dollar-pixels-david.vercel.app) |
+| Notion replica | notion.davids.net | no | [notion-david.vercel.app](https://notion-david.vercel.app) |
+| FL Studio replica | flstudio.davids.net | no | [fl-studio-david.vercel.app](https://fl-studio-david.vercel.app) |
 
 ## About page
 

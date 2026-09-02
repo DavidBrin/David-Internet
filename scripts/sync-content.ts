@@ -39,6 +39,7 @@ const SOURCES: Record<string, string> = {
   bet: path.join(REPLICATES_ROOT, "bet"),
   "dollar-pixels": path.join(REPLICATES_ROOT, "dollar-pixels"),
   notion: path.join(REPLICATES_ROOT, "Notion"),
+  "fl-studio": path.join(REPLICATES_ROOT, "fl-studio"),
 };
 
 if (!fs.existsSync(REPLICATES_ROOT)) {
@@ -71,7 +72,14 @@ function syncProject(slug: string, sourceDir: string) {
   const copiedDocs: string[] = [];
   const missingDocs: string[] = [];
   for (const file of DOC_FILES) {
-    const ok = copyFileIfPresent(path.join(sourceDir, file), path.join(contentDir, file));
+    let ok = copyFileIfPresent(path.join(sourceDir, file), path.join(contentDir, file));
+    // FL Studio (and any later replica) logs decisions as design-decisions.md.
+    if (!ok && file === "DECISIONS.md") {
+      ok = copyFileIfPresent(
+        path.join(sourceDir, "design-decisions.md"),
+        path.join(contentDir, file),
+      );
+    }
     (ok ? copiedDocs : missingDocs).push(file);
   }
   console.log(`  docs: ${copiedDocs.length ? copiedDocs.join(", ") : "(none)"}`);

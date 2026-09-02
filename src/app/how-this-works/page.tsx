@@ -48,7 +48,7 @@ export default function HowThisWorksPage() {
           <p>
             The index covers {manifests.length} sites, including working replicas of
             real products (an issue tracker, a video platform, a block editor, a
-            fighting game, a prediction market, and more), each rebuilt from the ground
+            fighting game, a prediction market, a browser DAW, and more), each rebuilt from the ground
             up. For every site it indexes the homepage, the pages worth deep-linking
             into, and the project&apos;s own documentation and design-decision logs, so
             one query can surface several results from the same site, just like the

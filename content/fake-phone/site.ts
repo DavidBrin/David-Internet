@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "fake-phone",
   displayName: "fake-phone",
   fakeDomain: "fake-phone.davids.net",
-  liveUrl: null,
+  liveUrl: "https://fake-phone-david.vercel.app",
   tagline: "A staged incoming call, so you never feel alone.",
   description:
     "A personal-safety web app that opens directly into a ringing fake incoming call, with pixel-faithful iOS and Android call-screen replicas and a fake live-stream broadcast mode. Built research-first with three voice tiers (silent, scripted, and an AI tier that's fully wired but inert without an API key), it's designed as a deterrent and social cover, never as a prank or a way to contact emergency services.",

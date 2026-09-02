@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "linear",
   displayName: "Linear",
   fakeDomain: "linear.davids.net",
-  liveUrl: null,
+  liveUrl: "https://linear-david.vercel.app",
   tagline:
     "The issue tracker, rebuilt from measurements — issues, projects and teams with real multi-user permissions.",
   description:

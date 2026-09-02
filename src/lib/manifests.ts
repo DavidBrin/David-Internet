@@ -12,6 +12,7 @@ import fakePhone from "@content/fake-phone/site";
 import bet from "@content/bet/site";
 import dollarPixels from "@content/dollar-pixels/site";
 import notion from "@content/notion/site";
+import flStudio from "@content/fl-studio/site";
 import verilog from "@content/verilog/site";
 import nocturnal from "@content/nocturnal/site";
 import signals from "@content/signals/site";
@@ -36,6 +37,7 @@ export const manifests: SiteManifest[] = [
   bet,
   dollarPixels,
   notion,
+  flStudio,
   verilog,
   nocturnal,
   signals,

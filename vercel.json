@@ -36,6 +36,11 @@
       "permanent": false
     },
     {
+      "source": "/sites/fl-studio/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/FL_Studio_%28replica%29",
+      "permanent": false
+    },
+    {
       "source": "/sites/verilog/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Verilog",
       "permanent": false

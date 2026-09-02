@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "bet",
   displayName: "Bet",
   fakeDomain: "bet.davids.net",
-  liveUrl: null,
+  liveUrl: "https://bet-david-pink.vercel.app",
   tagline: "wanna bet? — make the groupchat put their money where their mouth is",
   description:
     "A private, friend-first prediction market where every bet lives inside a group and carries its own groupchat where trades appear inline as they happen. It ships with a fully seeded play-money world (12 users, 3 groups, 10 private markets, ~24 public Explore markets) and a public read-only Explore surface styled as a Kalshi x Polymarket hybrid. Play money only — no real currency, payments, or deposits.",

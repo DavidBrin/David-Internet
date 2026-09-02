@@ -13,10 +13,11 @@ test.describe("Knowledge panel", () => {
     await expect(panel).toBeVisible();
     await expect(panel.getByRole("heading", { name: "Linear" })).toBeVisible();
 
-    // liveUrl is null for every project, so both links go to the wiki article.
-    await expect(panel.getByRole("link", { name: "Read the wiki" })).toHaveAttribute(
+    // liveUrl is set, so Visit site goes to the replica and Wikipedia stays
+    // on the encyclopedia article.
+    await expect(panel.getByRole("link", { name: "Visit site" })).toHaveAttribute(
       "href",
-      "https://davids-wikipedia.vercel.app/wiki/Linear_(replica)",
+      "https://linear-david.vercel.app",
     );
     await expect(panel.getByRole("link", { name: "Wikipedia" })).toHaveAttribute(
       "href",

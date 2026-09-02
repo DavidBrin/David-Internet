@@ -58,6 +58,9 @@ const journey: Journey = {
       media: [],
       effect: "wash-sand",
       branch: { label: "many threads at once", rejoins: true },
+      demos: [
+        { slug: "modeling", label: "Early 3D Modeling", status: "live" },
+      ],
     },
     {
       id: "ventures",
@@ -78,7 +81,7 @@ const journey: Journey = {
       effect: "fork",
       branch: { label: "service · teaching · a first pitch", rejoins: true },
       demos: [
-        { slug: "early-builds", label: "Early builds", status: "in-progress", needsAssets: true },
+        { slug: "earlycode", label: "Early Code", status: "live" },
       ],
     },
     {
@@ -102,6 +105,7 @@ const journey: Journey = {
         { slug: "signals", label: "Signals", status: "live" },
         { slug: "esp32", label: "ESP32", status: "live" },
         { slug: "vision", label: "Computer Vision", status: "live" },
+        { slug: "p300", label: "P300 Speller", status: "live" },
       ],
     },
     {
@@ -147,7 +151,7 @@ const journey: Journey = {
       demos: [
         { slug: "nocturnal", label: "Nocturnal Neuro", status: "live" },
         { slug: "autonomous-car", label: "Autonomous car", status: "in-progress", needsAssets: true },
-        { slug: "microct-segmentation", label: "Microtomography", status: "in-progress", needsAssets: true },
+        { slug: "crossteach", label: "Cross-Teaching", status: "live" },
       ],
     },
     {
@@ -169,6 +173,7 @@ const journey: Journey = {
       demos: [
         { slug: "quantum", label: "Quantum", status: "live" },
         { slug: "arxiv", label: "ArXiv", status: "live" },
+        { slug: "sql", label: "SQL Playground", status: "live" },
       ],
     },
     {
@@ -261,6 +266,7 @@ const journey: Journey = {
         { slug: "bet", label: "Bet", status: "docs" },
         { slug: "dollar-pixels", label: "Dollar Pixels", status: "docs" },
         { slug: "notion", label: "Notion", status: "docs" },
+        { slug: "fl-studio", label: "FL Studio", status: "docs" },
       ],
     },
   ],

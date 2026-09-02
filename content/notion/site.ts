@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "notion",
   displayName: "Notion",
   fakeDomain: "notion.davids.net",
-  liveUrl: null,
+  liveUrl: "https://notion-david.vercel.app",
   tagline: "A working Notion replica — real block editor, real databases, all in the browser.",
   description:
     "A full-fidelity clone of Notion's marketing site and product, built by a team of coding agents in a single session. Pages are made of editable blocks, databases render as board/table/list/calendar views with drag-and-drop, and everything persists locally via IndexedDB with no server or database required.",

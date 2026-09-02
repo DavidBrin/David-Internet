@@ -4,7 +4,7 @@ const site: SiteManifest = {
   project: "super-smash",
   displayName: "Super Smash",
   fakeDomain: "smash.davids.net",
-  liveUrl: null,
+  liveUrl: "https://smash-david.vercel.app",
   tagline:
     "Eight fighters, one keyboard, sixty frames a second — a browser rebuild of Smash Ultimate's versus mode",
   description:

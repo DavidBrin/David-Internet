@@ -63,4 +63,37 @@ describe("search corpus wiki routing", () => {
     const top = createEngine(docs).search("wikipedia")[0];
     expect(top?.doc.id).toBe("wikipedia");
   });
+
+  it("indexes a home document for every registered project", () => {
+    for (const m of manifests) {
+      const home = docs.find((d) => d.id === `${m.project}:home`);
+      expect(home, `missing home doc for ${m.project}`).toBeTruthy();
+      expect(home?.href).toBeTruthy();
+    }
+  });
+
+  it("finds every project when searching its display name", () => {
+    const engine = createEngine(docs);
+    for (const m of manifests) {
+      const hits = engine.search(m.displayName);
+      expect(
+        hits.some((h) => h.doc.project === m.project),
+        `${m.displayName} should hit ${m.project}`,
+      ).toBe(true);
+    }
+  });
+
+  it("ranks FL Studio first for a fl studio query", () => {
+    const top = createEngine(docs).search("fl studio")[0];
+    expect(top?.doc.project).toBe("fl-studio");
+    expect(top?.doc.kind).toBe("home");
+    expect(top?.doc.href).toBe("https://fl-studio-david.vercel.app");
+  });
+
+  it("ranks Dollar Pixels first for a dollar pixels query", () => {
+    const top = createEngine(docs).search("dollar pixels")[0];
+    expect(top?.doc.project).toBe("dollar-pixels");
+    expect(top?.doc.kind).toBe("home");
+    expect(top?.doc.href).toBe("https://dollar-pixels-david.vercel.app");
+  });
 });
