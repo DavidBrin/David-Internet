@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 
 interface EmptyStateProps {
   query: string;
@@ -21,7 +22,11 @@ export default function EmptyState({ query, noun = "documents" }: EmptyStateProp
         <li>Try fewer keywords.</li>
       </ul>
       <p className="empty-links">
-        Or browse everything on <Link href="/about">About David&apos;s Internet</Link>.
+        Browse <Link href="/about">About David</Link> or{" "}
+        <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noopener noreferrer">
+          Wikipedia
+        </a>
+        .
       </p>
     </div>
   );

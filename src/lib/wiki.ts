@@ -20,9 +20,19 @@ export const WIKI_SLUGS: Record<string, string> = {
   "fake-phone": "Fake_Phone",
   bet: "Bet_(app)",
   "dollar-pixels": "Dollar_Pixels",
+  verilog: "Verilog",
+  nocturnal: "Nocturnal_Neuro",
+  signals: "Signals_and_Systems_Lab",
+  quantum: "Quantum_Playground",
+  hardhack: "HardHack_2026",
+  esp32: "ESP32_Thermal_TinyML",
+  organoids: "Organoids_on_Psychedelics",
+  spikes: "Anatomy_of_a_Spike",
+  vision: "Computer_Vision",
+  arxiv: "ArXiv_Semantic_Graph",
 };
 
-/** true when the project has an encyclopedia article (replicas do; internal demos don't). */
+/** true when the project has an encyclopedia article. */
 export function hasWikiArticle(project: string): boolean {
   return project in WIKI_SLUGS;
 }

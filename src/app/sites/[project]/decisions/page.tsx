@@ -26,9 +26,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { project } = await params;
   const manifest = getManifest(project);
-  if (!manifest) return { title: "Not found — David's Internet" };
+  if (!manifest) return { title: "Not found - David's Internet" };
   return {
-    title: `${manifest.displayName} — Design decisions`,
+    title: `${manifest.displayName} - Design decisions`,
     description: manifest.tagline,
   };
 }
@@ -57,15 +57,14 @@ export default async function DecisionsPage({
             <strong>{manifest.fakeDomain}</strong>
             {manifest.liveUrl ? (
               <>
-                {" "}
-                — the live site is at{" "}
+                . The live site is at{" "}
                 <a href={manifest.liveUrl} target="_blank" rel="noopener noreferrer">
                   {manifest.liveUrl.replace(/^https?:\/\//, "")}
                 </a>
                 .
               </>
             ) : (
-              <> — the live deployment isn&apos;t up yet.</>
+              <>. The live deployment isn&apos;t up yet.</>
             )}{" "}
             What you&apos;re reading is the project&apos;s own decision log, vendored
             straight from the source repository.
@@ -87,7 +86,7 @@ export default async function DecisionsPage({
         <p className="cachedCrumb">
           {manifest.favicon} {manifest.fakeDomain} › decisions
         </p>
-        <h1 className="cachedTitle">{manifest.displayName} — Design decisions</h1>
+        <h1 className="cachedTitle">{manifest.displayName} - Design decisions</h1>
         <p className="cachedTagline">{manifest.tagline}</p>
       </header>
 
@@ -97,7 +96,7 @@ export default async function DecisionsPage({
         <div className="cachedEmpty">
           <p>
             No decisions doc for this project. {manifest.displayName} didn&apos;t keep a
-            separate DECISIONS.md — the reasoning that would live here is folded into its
+            separate DECISIONS.md. The reasoning that would live here is folded into its
             README instead.
           </p>
           <p>

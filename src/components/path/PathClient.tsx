@@ -11,6 +11,7 @@
 import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import type { Journey, JourneyPhase } from "@/lib/journey";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 import RiverHero from "./RiverHero";
 import JourneyPhaseSection from "./JourneyPhaseSection";
 import RiverRibbon, { type PhaseGeom } from "./RiverRibbon";
@@ -116,7 +117,13 @@ export default function PathClient({ journey }: { journey: Journey }) {
       <div className={`pathBar${barHidden ? " pathBar--hidden" : ""}`}>
         <div className="pathBarInner">
           <span>path.davids.net</span>
-          <Link href="/">David&apos;s Internet</Link>
+          <span>
+            <Link href="/">David&apos;s Internet</Link>
+            {" · "}
+            <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noreferrer">
+              Wikipedia
+            </a>
+          </span>
         </div>
       </div>
 

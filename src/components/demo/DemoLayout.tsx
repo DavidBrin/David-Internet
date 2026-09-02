@@ -7,6 +7,7 @@ import type { CSSProperties, ReactNode } from "react";
 import Link from "next/link";
 import type { SiteManifest } from "@/lib/types";
 import type { DemoMeta } from "@/lib/demos";
+import { hasWikiArticle, wikiUrlFor } from "@/lib/wiki";
 import SourceDrawer, { type SourceTab } from "./SourceDrawer";
 
 export default function DemoLayout({
@@ -46,7 +47,11 @@ export default function DemoLayout({
             <a href="#story">Story</a>
             <a href="#stage">Demo</a>
             <a href="#source">Source</a>
-            {manifest.docs.readme ? (
+            {hasWikiArticle(manifest.project) ? (
+              <a href={wikiUrlFor(manifest.project)} target="_blank" rel="noopener noreferrer">
+                Wikipedia
+              </a>
+            ) : manifest.docs.readme ? (
               <Link href={`/sites/${manifest.project}/docs`}>About this page</Link>
             ) : null}
           </nav>

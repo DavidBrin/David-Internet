@@ -6,35 +6,15 @@
  */
 import type { Metadata } from "next";
 import journeyData from "@content/path/journey";
-import type { Journey } from "@/lib/journey";
-import { getManifest } from "@/lib/manifests";
-import { resolveHref } from "@/lib/types";
+import { resolveJourney } from "@/lib/resolve-journey";
 import PathClient from "@/components/path/PathClient";
 import "./path.css";
 
 export const metadata: Metadata = {
-  title: "The Path — David's Internet",
+  title: "The Path - David's Internet",
   description:
     "Follow the river: a scroll-born stream that flows through the chapters of David's life, from the Sierra Nevada to the sea.",
 };
-
-function resolveJourney(journey: Journey): Journey {
-  return {
-    ...journey,
-    phases: journey.phases.map((phase) => ({
-      ...phase,
-      demos: phase.demos?.map((demo) => {
-        const manifest = getManifest(demo.slug);
-        if (!manifest || demo.status === "in-progress") return demo;
-        return {
-          ...demo,
-          href: resolveHref(manifest, "/"),
-          status: manifest.liveUrl ? ("live" as const) : ("docs" as const),
-        };
-      }),
-    })),
-  };
-}
 
 export default function PathPage() {
   return <PathClient journey={resolveJourney(journeyData)} />;

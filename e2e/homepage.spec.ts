@@ -23,4 +23,15 @@ test.describe("Homepage", () => {
 
     await expect(page).toHaveURL(/\/search\?q=youtube$/);
   });
+
+  test("topnav has a Wikipedia link and the avatar still goes to the resume", async ({
+    page,
+  }) => {
+    await page.goto("/");
+    await expect(page.getByRole("navigation", { name: "Account and apps" }).getByRole("link", { name: "Wikipedia" })).toHaveAttribute(
+      "href",
+      "https://davids-wikipedia.vercel.app",
+    );
+    await expect(page.getByRole("link", { name: "About David" })).toHaveAttribute("href", "/about");
+  });
 });

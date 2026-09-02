@@ -27,9 +27,9 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const manifest = getManifest(slug);
-  if (!manifest) return { title: "Not found — David's Internet" };
+  if (!manifest) return { title: "Not found - David's Internet" };
   return {
-    title: `${manifest.displayName} — ${manifest.tagline}`,
+    title: `${manifest.displayName} - ${manifest.tagline}`,
     description: manifest.description,
   };
 }

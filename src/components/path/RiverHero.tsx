@@ -37,7 +37,7 @@ interface Props {
 
 export default function RiverHero({ title, subtitle, tagline }: Props) {
   return (
-    <section className="heroSection" data-progress="scrub" aria-label={`${title} — ${tagline}`}>
+    <section className="heroSection" data-progress="scrub" aria-label={`${title}: ${tagline}`}>
       <div className="heroSticky">
         <SceneBackdrop scene={HERO_SCENE} active />
 

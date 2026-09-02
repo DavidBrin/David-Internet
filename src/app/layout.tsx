@@ -14,7 +14,7 @@ const FAVICON_DATA_URI = `data:image/svg+xml,${encodeURIComponent(FAVICON_SVG)}`
 export const metadata: Metadata = {
   title: "David's Internet",
   description:
-    "A search engine for a very small internet — the projects, replicas and experiments David has built.",
+    "A search engine for a very small internet: the projects, replicas and experiments David has built.",
   icons: {
     icon: [{ url: FAVICON_DATA_URI, type: "image/svg+xml" }],
     shortcut: [{ url: FAVICON_DATA_URI, type: "image/svg+xml" }],

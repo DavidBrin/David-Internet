@@ -23,6 +23,7 @@ import VideoList from "./VideoList";
 import EmptyState from "./EmptyState";
 import Footer from "./Footer";
 import { AppsGridIcon } from "./Icons";
+import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
 
 interface SearchPageClientProps {
   docs: SearchDoc[];
@@ -113,6 +114,14 @@ export default function SearchPageClient({ docs }: SearchPageClientProps) {
             <SearchBox variant="serp" docs={docs} initialQuery={query} />
           </div>
           <div className="serp-header-right">
+            <a
+              className="topnav-link"
+              href={WIKIPEDIA_BASE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Wikipedia
+            </a>
             <button type="button" className="icon-button" aria-label="David apps">
               <AppsGridIcon size={24} />
             </button>
@@ -135,7 +144,11 @@ export default function SearchPageClient({ docs }: SearchPageClientProps) {
                   indexed here was built by David.
                 </p>
                 <p className="empty-links">
-                  Not sure where to start? <Link href="/about">Read about this place</Link>.
+                  Not sure where to start? <Link href="/about">Read about this place</Link> or{" "}
+                  <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noopener noreferrer">
+                    visit Wikipedia
+                  </a>
+                  .
                 </p>
               </div>
             </div>

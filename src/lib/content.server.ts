@@ -1,5 +1,5 @@
 /**
- * Build-time content loader — content team owns this file. Server-only (uses fs).
+ * Build-time content loader, content team owns this file. Server-only (uses fs).
  * FROZEN API: loadAllSearchDocs() is what pages call to get the full corpus.
  */
 import fs from "node:fs";
@@ -7,7 +7,14 @@ import path from "node:path";
 import type { SearchDoc, SiteManifest } from "./types";
 import { resolveHref, displayUrlFor, isExternalUrl } from "./types";
 import { manifests } from "./manifests";
-import { WIKIPEDIA_FAKE_DOMAIN, WIKI_SLUGS, hasWikiArticle, wikiUrlFor, wikiTitleFor } from "./wiki";
+import {
+  WIKIPEDIA_BASE_URL,
+  WIKIPEDIA_FAKE_DOMAIN,
+  WIKI_SLUGS,
+  hasWikiArticle,
+  wikiUrlFor,
+  wikiTitleFor,
+} from "./wiki";
 
 /** Where `pnpm sync-content` drops the vendored markdown. */
 const CONTENT_ROOT = path.join(process.cwd(), "content");
@@ -20,13 +27,13 @@ const SNIPPET_CHARS = 300;
 
 /** About-page bio, also indexed as the "about" SearchDoc body. */
 export const ABOUT_BODY = [
-  "David Brin — San Diego, California. Co-founder of Katalyxt AI, an enterprise AI platform that translates fragmented business data and organizational context into AI-accessible insight.",
+  "David Brin, San Diego, California. Co-founder of Katalyxt AI, an enterprise AI platform that translates fragmented business data and organizational context into AI-accessible insight.",
   "Raised a $200K pre-seed from NFX, KP Scout and Long Journey; reached $30K ARR in a one-month sprint with four industry design partners. Leads product and engineering across design, DevOps, cloud infrastructure, security, and ML / LLM / memory systems.",
   "B.S. Computer Engineering, UC San Diego (2026). Regents Scholar, 3.9 GPA, with an exchange semester at DTU covering Deep Learning, Quantum Information, Databases and Computational Data Science.",
   "Previously: embedded firmware in C for a camera driver and control system at General Atomics; neural-data pipelines for patch-clamp and multi-electrode-array recordings at UC San Diego's Voytek Lab; cohort lead at Berkeley Coding Academy.",
   "Projects: semi-supervised microtomography segmentation with a U-Net and ViT cross-teaching ensemble; an autonomous car on ROS 2 with onboard NVIDIA compute; an EEG-based bipolar-disorder diagnostic concept; drone PCB design in Altium.",
   "Skills: Python, C, C++, TypeScript, PyTorch, computer vision, embedded systems, Linux, ROS 2, Azure.",
-  "This whole site is a tour of David's personal projects, dressed up as a search engine. Search for anything.",
+  "This site indexes David's personal projects. Search for anything.",
   "Contact: david.e.brin@gmail.com",
 ].join("\n\n");
 
@@ -93,7 +100,7 @@ function homeDoc(m: SiteManifest): SearchDoc {
     id: `${m.project}:home`,
     project: m.project,
     kind: "home",
-    title: `${m.displayName} — ${m.tagline}`,
+    title: `${m.displayName} - ${m.tagline}`,
     snippet: defaultSnippet(m.description),
     body,
     displayUrl: m.fakeDomain,
@@ -124,7 +131,7 @@ function deepLinkDocs(m: SiteManifest): SearchDoc[] {
 }
 
 /**
- * The project's encyclopedia article on the Wikipedia replica — this is where
+ * The project's encyclopedia article on the Wikipedia replica. This is where
  * "documentation" results send people now. The body still indexes the vendored
  * README + SPEC text so content queries keep finding the article.
  */
@@ -156,14 +163,14 @@ function wikipediaDoc(m: SiteManifest, raw: string, extraRaw?: string | null): S
   };
 }
 
-/** A demo's vendored README, still served as an internal cached-copy page (demos have no wiki article). */
+/** Fallback docs SearchDoc if a project has a README but no encyclopedia article. */
 function demoDocsDoc(m: SiteManifest, raw: string, extraRaw?: string | null): SearchDoc {
   const text = markdownToText(extraRaw ? `${raw}\n\n${extraRaw}` : raw);
   return {
     id: `${m.project}:docs`,
     project: m.project,
     kind: "docs",
-    title: `${m.displayName} — Documentation`,
+    title: `${m.displayName} - Documentation`,
     snippet: defaultSnippet(text),
     body: capBody(text),
     displayUrl: `${m.fakeDomain} › docs`,
@@ -181,7 +188,7 @@ function decisionsDoc(m: SiteManifest, raw: string): SearchDoc {
     id: `${m.project}:decisions`,
     project: m.project,
     kind: "decisions",
-    title: `${m.displayName} — Design decisions`,
+    title: `${m.displayName} - Design decisions`,
     snippet: defaultSnippet(text),
     body: capBody(text),
     displayUrl: `${m.fakeDomain} › decisions`,
@@ -226,6 +233,24 @@ function aboutDoc(): SearchDoc {
   };
 }
 
+/** The encyclopedia's home page, indexed separately from individual articles. */
+function wikipediaHomeDoc(): SearchDoc {
+  return {
+    id: "wikipedia",
+    project: null,
+    kind: "about",
+    title: "Wikipedia",
+    snippet: "An encyclopedia of David's projects: replicas, lab demos, and the search engine that indexes them.",
+    body: "David's Wikipedia is a Vector-style encyclopedia of the projects on David's Internet. Each replica and each shipped interactive demo has an article with an infobox, references, and a link to the live page.",
+    displayUrl: WIKIPEDIA_FAKE_DOMAIN,
+    href: WIKIPEDIA_BASE_URL,
+    keywords: ["wikipedia", "wiki", "encyclopedia", "david's wikipedia", "project articles"],
+    favicon: "🌐",
+    accentColor: "#4285F4",
+    external: true,
+  };
+}
+
 /**
  * Build the full SearchDoc corpus at build time:
  *  - one "home" doc per project (fake domain root → live URL or docs fallback)
@@ -254,6 +279,7 @@ export function loadAllSearchDocs(): SearchDoc[] {
   }
 
   docs.push(aboutDoc());
+  docs.push(wikipediaHomeDoc());
   docs.push(howThisWorksDoc());
   return docs;
 }
@@ -261,15 +287,15 @@ export function loadAllSearchDocs(): SearchDoc[] {
 /** The footer's "How this works" explainer, indexed so it's findable by search too. */
 function howThisWorksDoc(): SearchDoc {
   const body = [
-    "David's Internet is a portfolio dressed up as a search engine. It looks like Google because, for this tiny parallel internet, it is Google: the front door to every website that exists here — and every one of them is a project David built from scratch.",
-    "The index covers full-scale working replicas of real products — an issue tracker, a video platform, a block editor, a fighting game, a prediction market, and more — each rebuilt from the ground up. For every site it indexes the homepage, deep links, documentation, and design-decision logs.",
-    "Results show a fake display URL but link to the real destination: the live deployment when a site is up, or the project's article on David's Wikipedia — a working replica of the encyclopedia, whose articles are these projects — until then. Autocomplete, did-you-mean, and I'm Feeling Lucky all run against the same index, entirely in your browser.",
+    "David's Internet indexes projects David built. It uses the familiar shape of a search engine to make the archive easy to explore.",
+    "The index covers working replicas of real products, including an issue tracker, video platform, block editor, fighting game, and prediction market. It includes homepages, deep links, documentation, and design-decision logs.",
+    "Results use a fake display URL and open the live deployment when it is available. Project documentation opens its article on David's Wikipedia. Autocomplete, did-you-mean, and I'm Feeling Lucky use the same browser-based index.",
   ].join("\n\n");
   return {
     id: "how-this-works",
     project: null,
     kind: "about",
-    title: "How this works — David's Internet",
+    title: "How this works - David's Internet",
     snippet: defaultSnippet(body),
     body,
     displayUrl: "davids.net › how-search-works",
