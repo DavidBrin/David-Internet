@@ -1,4 +1,4 @@
-# Art Canvas (C 13, Python) - extracted from C 13 .vrpython (VEXcode VR, 2020).
+# Art Canvas (C 13, Python): extracted from C 13 .vrpython (VEXcode VR, 2020).
 # Playground: ArtCanvas. The template header ('Author: VEX') is VEXcode's own.
 
 # ------------------------------------------

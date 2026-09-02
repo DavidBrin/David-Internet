@@ -453,7 +453,7 @@ export default function ExchangePanel() {
               onChange={(e) => setThreshold(Number(e.target.value))}
             />
             <span className="ctChip ctMono">{threshold.toFixed(2)}</span>
-            <span className="ctXSliderNote">training-run gate: 0.75 - this slider is exploratory</span>
+            <span className="ctXSliderNote">training-run gate: 0.75; this slider is exploratory</span>
           </div>
 
           <div className="ctXEnsemble">

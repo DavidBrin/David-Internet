@@ -173,7 +173,7 @@ def prep_dbs():
 
 SCHEMAS = {
     "university": {
-        "title": "University", "origin": "UniversityDB.sql - the Silberschatz textbook script the course ships (naming polished)",
+        "title": "University", "origin": "UniversityDB.sql: the Silberschatz textbook script the course ships (naming polished)",
         "tables": {
             "Classroom": {"pk": ["Building", "Room"], "cols": ["Building", "Room", "Capacity"]},
             "Department": {"pk": ["DeptName"], "cols": ["DeptName", "Building", "Budget"]},
@@ -198,12 +198,12 @@ SCHEMAS = {
         ],
     },
     "family": {
-        "title": "Family", "origin": "FamilyDB.sql - the first-week warm-up (one table, two rows)",
+        "title": "Family", "origin": "FamilyDB.sql: the first-week warm-up (one table, two rows)",
         "tables": {"family": {"pk": ["PersonName"], "cols": ["PersonName", "Birthday"]}},
         "fks": [],
     },
     "cinema": {
-        "title": "Cinema", "origin": "cinema.sql - the exam database (rooms, seats, movies, projections, tickets)",
+        "title": "Cinema", "origin": "cinema.sql: the exam database (rooms, seats, movies, projections, tickets)",
         "tables": {
             "room": {"pk": ["rid"], "cols": ["rid", "rname", "screensize"]},
             "seat": {"pk": ["sno", "rid"], "cols": ["sno", "rid", "row"]},
@@ -217,7 +217,7 @@ SCHEMAS = {
         ],
     },
     "takeaway": {
-        "title": "Takeaway", "origin": "w12_part1_database.sql - provided; integrity constraints were the exercise",
+        "title": "Takeaway", "origin": "w12_part1_database.sql: provided; integrity constraints were the exercise",
         "tables": {
             "FoodCategory": {"pk": ["catId"], "cols": ["catId", "catName"]},
             "FoodItem": {"pk": ["itemId"], "cols": ["itemId", "description", "catId", "unitPrice"]},
@@ -231,7 +231,7 @@ SCHEMAS = {
         ],
     },
     "busservice": {
-        "title": "Bus Service", "origin": "w13_part1_database.sql - provided; referential integrity deliberately omitted",
+        "title": "Bus Service", "origin": "w13_part1_database.sql: provided; referential integrity deliberately omitted",
         "tables": {
             "Station": {"pk": ["stationID"], "cols": ["stationID", "city"]},
             "Bus": {"pk": ["busLicensePlate"], "cols": ["busLicensePlate", "capacity"]},
@@ -246,7 +246,7 @@ SCHEMAS = {
         ],
     },
     "bikeshop": {
-        "title": "Bike Shop", "origin": "RECONSTRUCTED (2026-09-01) from the design project's Data Sheet + Data Modification script - the group's DDL was never archived",
+        "title": "Bike Shop", "origin": "RECONSTRUCTED (2026-09-01) from the design project's Data Sheet + Data Modification script; the group's DDL was never archived",
         "tables": {
             "Customer": {"pk": ["customer_id"], "cols": ["customer_id", "email", "phone", "full_name"]},
             "Address": {"pk": ["customer_id"], "cols": ["customer_id", "street_name", "civic_number", "city", "zip_code", "county"]},
@@ -294,10 +294,10 @@ PRESETS = {
           "SELECT DeptName, count(*), avg(Credits)\nFROM course\nGROUP BY DeptName\nORDER BY avg(Credits) DESC, DeptName;"),
         P("uni3", "Per student: courses taken vs passed",
           "SELECT StudID, StudName, count(CourseID), count(Grade)\nFROM takes NATURAL JOIN student\nGROUP BY StudID;",
-          note="count(Grade) skips NULLs - that asymmetry is the whole trick."),
+          note="count(Grade) skips NULLs; that asymmetry is the whole trick."),
         P("uni4", "Courses above their department's average credits",
           "SELECT CourseID, Title, Credits\nFROM course AS c1\nWHERE credits > (SELECT avg(c2.Credits)\n    FROM course AS c2\n    WHERE c2.DeptName = c1.DeptName);",
-          note="The correlated subquery - week 3's boss fight (the notebook kept two wrong attempts above it)."),
+          note="The correlated subquery, week 3's boss fight (the notebook kept two wrong attempts above it)."),
         P("uni5", "Courses with no prerequisites",
           "SELECT CourseID, Title\nFROM course\nWHERE CourseID NOT IN (\n    SELECT CourseID\n    FROM Prereq);"),
         P("uni6", "Students who never enrolled in anything",
@@ -379,7 +379,7 @@ PRESETS = {
           note="Adapted: MariaDB's SIGNAL becomes SQLite's RAISE(ABORT). Run it, then try the next preset."),
         P("bus8", "3.3 The insert that trips the trigger",
           "INSERT INTO\nTrip(tripID, depDate, depTime, duration, fromStation, toStation, busLicensePlate)\nVALUES ('BusDK999', '2023-09-01', '10:00:00', '00:30:00', 'DK001', 'DK001', 'DS45678');",
-          note="Errors ON PURPOSE once the trigger from 3.1 is installed - that abort is the answer.",
+          note="Errors ON PURPOSE once the trigger from 3.1 is installed; that abort is the answer.",
           expectError=True),
     ],
     "bikeshop": [

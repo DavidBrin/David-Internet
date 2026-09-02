@@ -216,7 +216,7 @@ export default function JUnitLab({ reducedMotion }: JUnitLabProps) {
 
       <p className="eSFilterNote">
         filter() has its own quirk: result.add(0, s) inserts every match at the front, so matches come back
-        reversed - filter([{FILTER_SAMPLE.join(", ")}], keepAll) returns [{filterSampleResult.join(", ")}].
+        reversed: filter([{FILTER_SAMPLE.join(", ")}], keepAll) returns [{filterSampleResult.join(", ")}].
       </p>
     </div>
   );

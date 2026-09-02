@@ -39,7 +39,7 @@ export default function BarsChart({ binary, mcnnMembers }: BarsChartProps) {
 
   return (
     <div className="pR-bars">
-      <p className="pR-axisNote">Axis starts at {AXIS_MIN}% — no model here scores below it.</p>
+      <p className="pR-axisNote">Axis starts at {AXIS_MIN}%; no model here scores below it.</p>
 
       <div className="pR-axisRow" aria-hidden="true">
         <div className="pR-labelCol" />
@@ -126,7 +126,7 @@ export default function BarsChart({ binary, mcnnMembers }: BarsChartProps) {
                   {beat === members.length
                     ? `beats all ${members.length} members it averages together`
                     : `beats ${beat} of the ${members.length} members it averages together`}{" "}
-                  — the point of ensembling.
+                  (the point of ensembling).
                 </p>
               </div>
             )}

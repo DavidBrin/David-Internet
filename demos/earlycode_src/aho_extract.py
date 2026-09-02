@@ -1,4 +1,4 @@
-# aho_corasick_string_matching.ipynb (CSE 100, 2024) - code cells extracted.
+# aho_corasick_string_matching.ipynb (CSE 100, 2024): code cells extracted.
 # The notebook builds its automaton with the pyahocorasick LIBRARY and counts
 # 106 nodes; the page implements the algorithm from scratch to show what the
 # library call hides (src/demos/earlycode/core/aho.ts).

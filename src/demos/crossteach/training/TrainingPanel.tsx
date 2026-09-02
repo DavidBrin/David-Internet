@@ -103,7 +103,7 @@ export default function TrainingPanel() {
     <div className="ctPanel">
       <h2 className="ctH2">Training replay + two verdicts</h2>
       <p className="ctIntro">
-        These are the committed per-epoch metrics from the GitHub repo (curves.json), not a re-run - scrub or replay
+        These are the committed per-epoch metrics from the GitHub repo (curves.json), not a re-run; scrub or replay
         the eight logged epochs below.
       </p>
 

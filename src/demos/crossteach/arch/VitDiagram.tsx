@@ -196,7 +196,7 @@ export default function VitDiagram({
         </button>
       </div>
       <p className="ctNote">
-        Real attention from the shipped cross-taught ViT checkpoint - hover (or tap) a patch to see where it looks.
+        Real attention from the shipped cross-taught ViT checkpoint; hover (or tap) a patch to see where it looks.
       </p>
     </div>
   );

@@ -90,7 +90,7 @@ export default function TeachAnimation({ wrapRef, vitColRef, unetColRef, phase, 
       <div className="ctXTeachLayer" aria-hidden="true">
         {anchor && (
           <div className="ctXFlash" style={{ left: anchor.x, top: anchor.y, opacity }}>
-            below gate - no teaching
+            below gate: no teaching
           </div>
         )}
       </div>

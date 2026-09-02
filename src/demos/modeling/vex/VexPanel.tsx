@@ -368,9 +368,9 @@ export default function VexPanel() {
           </div>
 
           {activeProgram && <p className="mdNote">{activeProgram.blurb}</p>}
-          <p className="mdNote">Playgrounds are approximations drawn for this page - no VEX assets copied.</p>
+          <p className="mdNote">Playgrounds are approximations drawn for this page; no VEX assets copied.</p>
           {activeProgram?.reconstructed && (
-            <p className="mdNote">This block file did not survive - the listing above is reconstructed from the screenshot.</p>
+            <p className="mdNote">This block file did not survive; the listing above is reconstructed from the screenshot.</p>
           )}
         </>
       )}

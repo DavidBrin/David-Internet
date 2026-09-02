@@ -179,7 +179,7 @@ export default function ReplayZone({ docs, corpusNote, reducedMotion }: ReplayZo
   return (
     <div>
       <p className="eSCredit">
-        Server.java - the HTTP plumbing - was course-provided; the handlers are David&apos;s.
+        Server.java, the HTTP plumbing, was course-provided; the handlers are David&apos;s.
       </p>
 
       <div className="eSTabs" role="tablist">

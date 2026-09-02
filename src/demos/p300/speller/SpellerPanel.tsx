@@ -572,7 +572,7 @@ export default function SpellerPanel() {
       </div>
 
       <p className="ppNote">
-        The notebook uses a CNN for this score; the sim stands in template matching - the letter-decoding
+        The notebook uses a CNN for this score; the sim stands in template matching; the letter-decoding
         downstream is the notebook&apos;s logic, ported and fixture-tested.
       </p>
 
@@ -610,7 +610,7 @@ export default function SpellerPanel() {
 
       <div className="pSFigures">
         <details className="pSFigure">
-          <summary>The real experiment setup - BCI Competition III</summary>
+          <summary>The real experiment setup: BCI Competition III</summary>
           <img
             src="/demos/p300/experiment.webp"
             alt="Subject wired for EEG in front of a P300 speller matrix"
@@ -618,7 +618,7 @@ export default function SpellerPanel() {
           />
         </details>
         <details className="pSFigure">
-          <summary>Row x column intersection - the decoding idea</summary>
+          <summary>Row x column intersection: the decoding idea</summary>
           <img
             src="/demos/p300/speller-system.webp"
             alt="Diagram of a flashing row and column intersecting on the target letter"

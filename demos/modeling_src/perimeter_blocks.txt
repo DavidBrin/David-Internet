@@ -1,4 +1,4 @@
-Perimeter octagon (C 4.2) - block listing extracted from RECONSTRUCTED from the C 4.2 screenshot (no block file survives) (VEXcode VR, 2020).
+Perimeter octagon (C 4.2): block listing extracted from RECONSTRUCTED from the C 4.2 screenshot (no block file survives) (VEXcode VR, 2020).
 Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.
 
 when started

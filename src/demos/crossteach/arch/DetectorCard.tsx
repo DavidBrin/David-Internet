@@ -44,7 +44,7 @@ export default function DetectorCard() {
         <div className="ctADetectorText">
           <p className="ctADetectorPara">
             The same repo also holds <span className="ctMono">CrossDetection.py</span>: cross-teaching rebuilt for
-            object detection instead of segmentation - a torchvision Faster R-CNN with a ResNet-50 FPN backbone
+            object detection instead of segmentation: a torchvision Faster R-CNN with a ResNet-50 FPN backbone
             exchanging pseudo-boxes with a custom ViT detection head (a per-patch classifier plus a bounding-box
             regressor) over the 37 Oxford-Pet breeds.
           </p>
@@ -52,7 +52,7 @@ export default function DetectorCard() {
             &quot;We never got to testing, training, or even proofreading this code.&quot;
           </blockquote>
           <p className="ctADetectorPara ctADetectorNote">
-            This card is explanation and visualization only - the sketch above is static, no checkpoint backs it, and
+            This card is explanation and visualization only; the sketch above is static, no checkpoint backs it, and
             the pair was never trained or evaluated. Read the untouched code in the CrossDetection.py tab of the
             Source drawer above.
           </p>

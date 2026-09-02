@@ -1,4 +1,4 @@
-Dance (C 7) - block listing extracted from C 7-dance.vrblocks (VEXcode VR, 2020).
+Dance (C 7): block listing extracted from C 7-dance.vrblocks (VEXcode VR, 2020).
 Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.
 
 when started

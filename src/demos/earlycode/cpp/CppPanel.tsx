@@ -358,7 +358,7 @@ export default function CppPanel() {
       <p className="eC-intro elIntro">
         Summer 2021, ten homeworks in six weeks. The final read a numbers file and tallied occurrences up to a
         max you choose. This terminal runs a faithful TypeScript port of that final over the real shipped
-        files - quirks included: the header line silently swallowed, numbers above your max read but never
+        files, quirks included: the header line silently swallowed, numbers above your max read but never
         tallied, and a very specific answer when every count comes back zero.
       </p>
 

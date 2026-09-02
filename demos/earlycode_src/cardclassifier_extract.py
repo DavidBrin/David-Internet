@@ -1,4 +1,4 @@
-# CardClassifier.ipynb (2024) - code cells extracted. A PyTorch tutorial
+# CardClassifier.ipynb (2024): code cells extracted. A PyTorch tutorial
 # follow-along (playing-card classification, EfficientNet-B0 via timm, 53
 # classes). The Kaggle dataset is not on disk, so no predictions ship -
 # the notebook is referenced on the page, not re-run.

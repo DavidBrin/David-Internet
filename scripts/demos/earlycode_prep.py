@@ -234,7 +234,7 @@ TOPICS = [
 def prep_corpus():
     docs = [{"path": "technical/%s.txt" % slug, "text": text} for slug, text in TOPICS]
     write(os.path.join(OUT, "corpus.json"), json.dumps({
-        "note": "Synthetic 30-document stand-in - the real corpus (OANC technical/) is not shipped.",
+        "note": "Synthetic 30-document stand-in; the real corpus (OANC technical/) is not shipped.",
         "docs": docs,
     }))
     print("corpus.json: %d synthetic docs" % len(docs))
@@ -292,21 +292,21 @@ def prep_sources():
     for name in ["RPS.java", "MyArrayList.java"]:
         write(os.path.join(SRC_DIR, name), read(os.path.join(CSE12_DST, name)))
     extract_notebook(os.path.join(MISC, "aho_corasick_string_matching.ipynb"), "aho_extract.py",
-                     ("# aho_corasick_string_matching.ipynb (CSE 100, 2024) - code cells extracted.",
+                     ("# aho_corasick_string_matching.ipynb (CSE 100, 2024): code cells extracted.",
                       "# The notebook builds its automaton with the pyahocorasick LIBRARY and counts",
                       "# 106 nodes; the page implements the algorithm from scratch to show what the",
                       "# library call hides (src/demos/earlycode/core/aho.ts)."))
     extract_notebook(os.path.join(MISC, "CardClassifier.ipynb"), "cardclassifier_extract.py",
-                     ("# CardClassifier.ipynb (2024) - code cells extracted. A PyTorch tutorial",
+                     ("# CardClassifier.ipynb (2024): code cells extracted. A PyTorch tutorial",
                       "# follow-along (playing-card classification, EfficientNet-B0 via timm, 53",
                       "# classes). The Kaggle dataset is not on disk, so no predictions ship -",
                       "# the notebook is referenced on the page, not re-run."))
     # hw one-liners for the strip
     hws = [
-        {"id": "hw1", "line": "cout, strings and arithmetic - the first program (6/29/2021)"},
+        {"id": "hw1", "line": "cout, strings and arithmetic: the first program (6/29/2021)"},
         {"id": "hw2", "line": "volume + surface area of a rectangular prism (cin, doubles)"},
         {"id": "hw3", "line": "formatting output with iomanip"},
-        {"id": "hw4", "line": "quotient and remainder - integer division"},
+        {"id": "hw4", "line": "quotient and remainder, integer division"},
         {"id": "hw5", "line": "random numbers"},
         {"id": "hw6", "line": "loops: everything divisible by d, starting from 10"},
         {"id": "hw7", "line": "reading files: smallest, largest, average, above/below counts"},

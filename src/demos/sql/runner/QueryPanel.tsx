@@ -312,7 +312,7 @@ export default function QueryPanel() {
         Pick a course database, fire a weekly preset (or type your own), and watch the tables it touches light up.
       </p>
       <p className="sqNote">
-        Runs entirely in your browser via sql.js (SQLite in WebAssembly); the weekly originals were MariaDB - adapted
+        Runs entirely in your browser via sql.js (SQLite in WebAssembly); the weekly originals were MariaDB, adapted
         presets show their original.
       </p>
 
@@ -396,7 +396,7 @@ export default function QueryPanel() {
             </>
           )}
           {result && !result.error && result.columns.length === 0 && (
-            <p className="qQMeta">executed - no result set - {runMs?.toFixed(1)} ms</p>
+            <p className="qQMeta">executed, no result set, {runMs?.toFixed(1)} ms</p>
           )}
 
           {touchedTables.length > 0 && (

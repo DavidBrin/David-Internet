@@ -159,7 +159,7 @@ def prep_head():
         "subsets": SUBSETS,
         "filters": filters,
         "filtersNote": "ILLUSTRATIVE weights (seeded random smooth maps; filter 1 seeded centro-parietal). "
-                       "No trained checkpoint was archived - these show what the kernel-size-1 spatial "
+                       "No trained checkpoint was archived; these show what the kernel-size-1 spatial "
                        "convolution reads, not what CNN1 learned.",
         "posNote": "Approximate 10-20 layout; montage order verified against the repo's CNN2a index mapping.",
     }
@@ -189,15 +189,15 @@ def extract_notebook(nb_rel, out_name, header_lines):
 def prep_sources():
     os.makedirs(SRC_DIR, exist_ok=True)
     common = ("# From the open-source p300-speller project by Manuel Carzaniga and Lorenzo",
-              "# Gualniera (github.com/Manucar/p300-speller) - the codebase archived and studied",
+              "# Gualniera (github.com/Manucar/p300-speller), the codebase archived and studied",
               "# on Triton Neurotech's ML team. Code cells extracted for the Source drawer;",
               "# outputs and embedded figures stripped (originals in demos/p300_speller_bci_raw/).")
     extract_notebook("notebook-scripts/P300speller.ipynb", "p300speller_extract.py",
-                     ("# P300speller.ipynb - the speller pipeline: windows -> CNN scores -> letter.",) + common)
+                     ("# P300speller.ipynb: the speller pipeline: windows -> CNN scores -> letter.",) + common)
     extract_notebook("notebook-scripts/CNN1.ipynb", "cnn1_extract.py",
-                     ("# CNN1.ipynb - the base 5-layer 1D CNN on all 64 electrodes.",) + common)
+                     ("# CNN1.ipynb: the base 5-layer 1D CNN on all 64 electrodes.",) + common)
     extract_notebook("notebook-scripts/MCNN1.ipynb", "mcnn1_extract.py",
-                     ("# MCNN1.ipynb - ensemble of five CNN1s on balanced subsets.",) + common)
+                     ("# MCNN1.ipynb: ensemble of five CNN1s on balanced subsets.",) + common)
     # vendor cnn2a.py unchanged
     with open(os.path.join(RAW, "magician", "cnn2a.py"), encoding="utf-8") as f:
         body = f.read()

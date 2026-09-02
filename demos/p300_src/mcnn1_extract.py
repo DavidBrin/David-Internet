@@ -1,6 +1,6 @@
-# MCNN1.ipynb - ensemble of five CNN1s on balanced subsets.
+# MCNN1.ipynb: ensemble of five CNN1s on balanced subsets.
 # From the open-source p300-speller project by Manuel Carzaniga and Lorenzo
-# Gualniera (github.com/Manucar/p300-speller) - the codebase archived and studied
+# Gualniera (github.com/Manucar/p300-speller), the codebase archived and studied
 # on Triton Neurotech's ML team. Code cells extracted for the Source drawer;
 # outputs and embedded figures stripped (originals in demos/p300_speller_bci_raw/).
 

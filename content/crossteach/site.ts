@@ -35,7 +35,7 @@ const site: SiteManifest = {
       path: "#architectures",
       title: "U-Net vs ViT, inside",
       snippet:
-        "Real encoder activations stage by stage, the image tiled into 196 patches, and attention rollout from the shipped ViT checkpoint - hover a patch to see where it looks. Plus CrossDetection.py, the deeper detector pair that never ran.",
+        "Real encoder activations stage by stage, the image tiled into 196 patches, and attention rollout from the shipped ViT checkpoint; hover a patch to see where it looks. Plus CrossDetection.py, the deeper detector pair that never ran.",
       keywords: ["u-net", "vision transformer", "attention rollout", "skip connections", "faster r-cnn", "receptive field"],
     },
     {

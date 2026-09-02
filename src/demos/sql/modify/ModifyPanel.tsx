@@ -389,7 +389,7 @@ export default function ModifyPanel() {
         triggerInstalled ? { kind: "blocked", message: result.error } : { kind: "error", message: result.error }
       );
     } else {
-      setTripResult({ kind: "inserted", message: "Row inserted - nothing stopped it." });
+      setTripResult({ kind: "inserted", message: "Row inserted; nothing stopped it." });
     }
   }, [bus8, triggerInstalled]);
 
@@ -425,7 +425,7 @@ export default function ModifyPanel() {
           <span className="sqChip">{fkOn ? "ON" : "OFF"}</span>
         </label>
         <p className="qMFkNote">
-          Off by default - SQLite&apos;s own default, and MariaDB&apos;s posture in the course files. On,
+          Off by default, matching SQLite&apos;s own default and MariaDB&apos;s posture in the course files. On,
           every insert, update and delete below is checked against the schema&apos;s FK references
           immediately.
         </p>
@@ -548,7 +548,7 @@ export default function ModifyPanel() {
         <h3 className="qMTriggerHead">Bus Service: the week-13 guard trigger</h3>
         <p className="sqNote">
           A BEFORE INSERT trigger that refuses a trip whose departure and arrival station are the same.
-          Its own session database - separate from the bike-shop steps above.
+          Its own session database, separate from the bike-shop steps above.
         </p>
 
         {busError && (
@@ -619,7 +619,7 @@ export default function ModifyPanel() {
       </div>
 
       <p className="sqNote">
-        The bike-shop schema itself is reconstructed - its DDL was never archived, only the data sheet
+        The bike-shop schema itself is reconstructed; its DDL was never archived, only the data sheet
         and this modification script survive, so the tables and seed rows here were rebuilt for this
         page. The schema browser above says more about what was invented.
       </p>

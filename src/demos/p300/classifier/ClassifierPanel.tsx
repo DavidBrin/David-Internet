@@ -74,8 +74,8 @@ interface StageSpec {
 
 const STAGES: StageSpec[] = [
   { name: "window", desc: "raw input patch", shape: "(78, N)" },
-  { name: "Conv1D k=1 x10", desc: "mixes channels at each instant — a filter over the scalp", shape: "(78, 10)" },
-  { name: "Conv1D k=13 s=11 x50", desc: "slides over the window — temporal convolution", shape: "(6, 50)" },
+  { name: "Conv1D k=1 x10", desc: "mixes channels at each instant, a filter over the scalp", shape: "(78, 10)" },
+  { name: "Conv1D k=13 s=11 x50", desc: "slides over the window: temporal convolution", shape: "(6, 50)" },
   { name: "Flatten", desc: "", shape: "(300)" },
   { name: "Dense 100", desc: "", shape: "(100)" },
   { name: "Dense 1, sigmoid", desc: "P300 or not", shape: "(1)" },
@@ -89,18 +89,18 @@ const AUTOPLAY_ORDER: SubsetKey[] = ["all", "cnn2b_A", "cnn2b_B", "F", "C", "P",
 const AUTOPLAY_STEP_MS = 900;
 
 const SUBSET_INFO: Record<SubsetKey, { label: string; note: string }> = {
-  all: { label: "all 64", note: "The full montage — CNN1 trains on every electrode, no selection." },
+  all: { label: "all 64", note: "The full montage. CNN1 trains on every electrode, no selection." },
   cnn2a: {
     label: "CNN2a's 8 (prefixed)",
     note: "CNN2a keeps the classic P300 sites, chosen by hand from the ERP literature: Fz, Cz, Pz, P3, P4, PO7, PO8, Oz.",
   },
   cnn2b_A: {
     label: "CNN2b subject A (learned)",
-    note: "CNN2b picks its 8 electrodes by reading off CNN1's first-layer weights — subject A's data-driven set.",
+    note: "CNN2b picks its 8 electrodes by reading off CNN1's first-layer weights; this is subject A's data-driven set.",
   },
   cnn2b_B: {
     label: "CNN2b subject B (learned)",
-    note: "Subject B's learned set — and it disagrees with subject A: only 3 electrodes are shared between the two.",
+    note: "Subject B's learned set disagrees with subject A: only 3 electrodes are shared between the two.",
   },
   F: { label: "F", note: "CNN2c's topological experiment: train on the frontal lobe alone." },
   C: { label: "C", note: "CNN2c's topological experiment: train on the central lobe alone." },
@@ -264,16 +264,16 @@ export default function ClassifierPanel() {
 
   const filterCaption =
     displayedFilter === null
-      ? "Hover or click a filter (1–10) to color every electrode by that filter's spatial weight."
+      ? "Hover or click a filter (1-10) to color every electrode by that filter's spatial weight."
       : displayedFilter === 0
-        ? "Filter 1 — seeded centro-parietal: heaviest over Pz/Cz/parietal sites, the same region the P300 peaks over."
-        : `Filter ${displayedFilter + 1} of 10 — an illustrative spatial-filter weight map.`;
+        ? "Filter 1, seeded centro-parietal: heaviest over Pz/Cz/parietal sites, the same region the P300 peaks over."
+        : `Filter ${displayedFilter + 1} of 10, an illustrative spatial-filter weight map.`;
 
   return (
     <div className="ppPanel">
       <h2 className="ppH2">From a window to a classifier</h2>
       <p className="ppIntro pCIntro">
-        Every flash opens a 650 ms window across the electrodes — bandpassed, downsampled, z-scored — and P300
+        Every flash opens a 650 ms window across the electrodes (bandpassed, downsampled, z-scored), and P300
         detection becomes binary image classification on that window. Below: what the window looks like, how CNN1
         reads it in two convolutions, and where the electrodes it can choose from actually sit on the scalp.
       </p>
@@ -295,7 +295,7 @@ export default function ClassifierPanel() {
           </div>
         </div>
         <p className="ppNote">
-          Bandpass 0.1–20 Hz, downsampled 240 → 120 Hz, z-scored per window. This heatmap is illustrative only — no
+          Bandpass 0.1-20 Hz, downsampled 240 to 120 Hz, z-scored per window. This heatmap is illustrative only; no
           real EEG ships with this page; seeded noise plus a synthetic P300 bump around the 300 ms column stands in
           for a real windowed epoch.
         </p>
@@ -327,7 +327,7 @@ export default function ClassifierPanel() {
             className="pCDiagFigure"
           />
           <p className="ppNote pCDiagFigureCaption">
-            The project&rsquo;s own architecture figure (Manucar/Gualor, p300-speller repo) — hover a box above for
+            The project&rsquo;s own architecture figure (Manucar/Gualor, p300-speller repo); hover a box above for
             its tensor shape.
           </p>
         </div>

@@ -204,19 +204,19 @@ PROGRAMS = [
      "blurb": "Drive the Wall Maze: dead reckoning to the entrance, then wall-following with the front eye until the down eye sees the green finish."},
     {"id": "perimeter", "title": "Perimeter octagon (C 4.2)", "src": None, "kind": "blocks",
      "screenshot": "vex/screens/c-4-2-perimeter.webp",
-     "blurb": "Pen down, repeat 8: drive 200 mm, turn 45 degrees - the first loop that draws. RECONSTRUCTED from the screenshot; the block file didn't survive."},
+     "blurb": "Pen down, repeat 8: drive 200 mm, turn 45 degrees: the first loop that draws. RECONSTRUCTED from the screenshot; the block file didn't survive."},
     {"id": "dance", "title": "Dance (C 7)", "src": "C 7-dance.vrblocks", "kind": "blocks",
      "screenshot": "vex/screens/c-7-1.webp",
-     "blurb": "Nested repeats: 4x4 spins, drives and reverses ending back at heading 0 - choreography as control flow."},
+     "blurb": "Nested repeats: 4x4 spins, drives and reverses ending back at heading 0. Choreography as control flow."},
     {"id": "random", "title": "Random drive (C 14)", "src": "C 14- Random drive.vrblocks", "kind": "blocks",
      "screenshot": "vex/screens/c-14.webp",
-     "blurb": "Pen down, drive forever; on the front eye seeing an object turn a random 90-180 degrees, on a bumper hit back off - a screensaver with sensors."},
+     "blurb": "Pen down, drive forever; on the front eye seeing an object turn a random 90-180 degrees, on a bumper hit back off. A screensaver with sensors."},
     {"id": "artcanvas", "title": "Art Canvas (C 13, Python)", "src": "C 13 .vrpython", "kind": "python",
      "screenshot": "vex/screens/c-13.webp",
      "blurb": "The first text program: position polling loops, distance-sensor arithmetic, and a math.sqrt(2) diagonal."},
     {"id": "experiment", "title": "Grid experiment (Python)", "src": "Experiment text project.vrpython", "kind": "python",
      "screenshot": None,
-     "blurb": "A free-form Python session on the Grid: a heading-conditioned square, a 565.685 mm diagonal (sqrt 2 again), and operation_circle - 90 tiny arcs."},
+     "blurb": "A free-form Python session on the Grid: a heading-conditioned square, a 565.685 mm diagonal (sqrt 2 again), and operation_circle, 90 tiny arcs."},
 ]
 
 
@@ -244,13 +244,13 @@ def prep_programs():
         # drawer copy
         if prog["kind"] == "python":
             with open(os.path.join(SRC_DIR, prog["id"] + ".py"), "w", encoding="utf-8", newline="\n") as f:
-                f.write("# %s - extracted from %s (VEXcode VR, 2020).\n" % (prog["title"], prog["src"]))
+                f.write("# %s: extracted from %s (VEXcode VR, 2020).\n" % (prog["title"], prog["src"]))
                 f.write("# Playground: %s. The template header ('Author: VEX') is VEXcode's own.\n\n" % entry["playground"])
                 f.write(entry["python"])
         else:
             with open(os.path.join(SRC_DIR, prog["id"] + "_blocks.txt"), "w", encoding="utf-8", newline="\n") as f:
                 src_note = prog["src"] or "RECONSTRUCTED from the C 4.2 screenshot (no block file survives)"
-                f.write("%s - block listing extracted from %s (VEXcode VR, 2020).\n" % (prog["title"], src_note))
+                f.write("%s: block listing extracted from %s (VEXcode VR, 2020).\n" % (prog["title"], src_note))
                 f.write("Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.\n\n")
                 for item in entry["listing"]:
                     f.write("  " * item["d"] + item["t"] + "\n")

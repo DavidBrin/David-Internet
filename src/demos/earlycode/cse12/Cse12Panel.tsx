@@ -334,7 +334,7 @@ export default function Cse12Panel() {
             ))}
           </div>
 
-          <p className="eJCaption">David&apos;s CSE 12 MyArrayList, ported - the shifting is what the O(n) means.</p>
+          <p className="eJCaption">David&apos;s CSE 12 MyArrayList, ported. The shifting is what the O(n) means.</p>
         </div>
 
         <div className="eJZone eJZoneRps">
@@ -350,7 +350,7 @@ export default function Cse12Panel() {
           </label>
           {moveSet === "five" && (
             <p className="elNote">
-              with 5 moves, each beats exactly one - not the real lizard-spock rules, but exactly what the
+              with 5 moves, each beats exactly one: not the real lizard-spock rules, but exactly what the
               modular rule produces.
             </p>
           )}
@@ -389,7 +389,7 @@ export default function Cse12Panel() {
           </ul>
 
           <p className="eJCaption">
-            winner = (loser + 1) mod moves.length - David&apos;s determineWinner, verbatim, with a seeded
+            winner = (loser + 1) mod moves.length, David&apos;s determineWinner, verbatim, with a seeded
             java.util.Random(12) standing in for the CPU.
           </p>
         </div>

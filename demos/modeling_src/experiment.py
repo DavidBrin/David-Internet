@@ -1,4 +1,4 @@
-# Grid experiment (Python) - extracted from Experiment text project.vrpython (VEXcode VR, 2020).
+# Grid experiment (Python): extracted from Experiment text project.vrpython (VEXcode VR, 2020).
 # Playground: Grid. The template header ('Author: VEX') is VEXcode's own.
 
 # ------------------------------------------

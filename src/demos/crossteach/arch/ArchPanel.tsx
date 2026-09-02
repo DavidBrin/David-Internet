@@ -45,8 +45,8 @@ export default function ArchPanel() {
     <div className="ctPanel">
       <h2 className="ctH2">U-Net vs ViT, inside</h2>
       <p className="ctIntro">
-        The U-Net&apos;s convolutions read texture through a growing receptive field - conv1 sees edges, layer4 sees
-        whole shapes - with skip connections carrying the fine detail lost to downsampling back to the decoder. The
+        The U-Net&apos;s convolutions read texture through a growing receptive field (conv1 sees edges, layer4 sees
+        whole shapes), with skip connections carrying the fine detail lost to downsampling back to the decoder. The
         ViT chops the image into 196 patches and lets every patch attend to every other patch from layer one, no
         growing required. Cross-teaching pairs the two because they make different mistakes: local precision against
         global context.

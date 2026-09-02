@@ -168,7 +168,7 @@ export default function GalleryPanel() {
       )}
 
       <p className="mdNote">
-        Models exist only as Inventor .ipt/.iam files - a 3D viewer appears here when they&apos;re
+        Models exist only as Inventor .ipt/.iam files; a 3D viewer appears here when they&apos;re
         exported to GLB (public/demos/modeling/glb/). Feature stories inferred from the part
         filenames.
       </p>

@@ -44,14 +44,14 @@ const ART_ITEMS: ArtItem[] = [
     key: "meeting-room",
     src: "/demos/sql/er-meeting-room.webp",
     alt: "Hand-drawn ER diagram for a meeting-room booking design exercise",
-    lead: "Design exercise - meeting-room booker.",
+    lead: "Design exercise: meeting-room booker.",
     rest: "Does not correspond to a shipped schema.",
   },
   {
     key: "news-items",
     src: "/demos/sql/er-news-items.webp",
     alt: "Hand-drawn ER diagram for a news-broadcast design exercise, with weak entities and role attributes",
-    lead: "Design exercise - news broadcast schema.",
+    lead: "Design exercise: news broadcast schema.",
     rest: "Weak entities and role attributes; does not correspond to a shipped schema.",
   },
   {
@@ -405,7 +405,7 @@ export default function SchemaPanel() {
                   </div>
                 ))}
               </div>
-              <p className="sqNote">translated from the MariaDB originals at build - originals in the Source drawer.</p>
+              <p className="sqNote">translated from the MariaDB originals at build; originals in the Source drawer.</p>
             </div>
           </div>
         </>

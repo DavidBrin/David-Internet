@@ -809,7 +809,7 @@ export default function AhoPanel() {
           </div>
           <p className="eANodeCount" data-match={isNotebookConfig}>
             {isNotebookConfig
-              ? `${nodeCountVal} nodes - exactly what pyahocorasick reported`
+              ? `${nodeCountVal} nodes, exactly what pyahocorasick reported`
               : `${nodeCountVal} nodes`}
           </p>
         </div>
@@ -922,7 +922,7 @@ export default function AhoPanel() {
         </div>
 
         <div className="eAChips">
-          {matcher.emits.length === 0 && <span className="elNote">no matches yet - press play or step</span>}
+          {matcher.emits.length === 0 && <span className="elNote">no matches yet; press play or step</span>}
           {matcher.emits.map((e) => (
             <span key={e.key} className="elChip eAChip">{`(end=${e.end}, ${e.pattern})`}</span>
           ))}
@@ -942,7 +942,7 @@ export default function AhoPanel() {
       <div className="eAComplexity">
         <p className="elMono">O(n + m + z) - text + patterns + matches; the failure links are why there&apos;s no backtracking.</p>
         <p className="elNote">
-          the notebook is three cells and the library does everything - this panel is the page&apos;s own implementation of
+          the notebook is three cells and the library does everything; this panel is the page&apos;s own implementation of
           what that hides.
         </p>
       </div>

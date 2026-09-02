@@ -34,7 +34,7 @@ export default function ResultsPanel() {
     <div className="ppPanel">
       <h2 className="ppH2">What the numbers said</h2>
       <p className="ppIntro">
-        Single 650&nbsp;ms windows are hard to call — but the speller never bets on one. It averages scores across
+        Single 650&nbsp;ms windows are hard to call, but the speller never bets on one. It averages scores across
         repetitions before picking a row and a column. Below: every model&apos;s window accuracy, how character accuracy
         builds up as repetitions accumulate, and the actual 100-letter sentence the pipeline spelled.
       </p>
