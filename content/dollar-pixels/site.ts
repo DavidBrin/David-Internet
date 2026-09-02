@@ -7,7 +7,7 @@ const site: SiteManifest = {
   liveUrl: "https://dollar-pixels-david.vercel.app",
   tagline: "$1 buys nine pixels — a Million Dollar Homepage rebuild in blocks of nine",
   description:
-    "A rebuild of the 2005 Million Dollar Homepage where blocks of nine pixels (a 3x3 square) sell for $1 on a 1200x1200 grid of 160,000 blocks. The flagship grid is the Art-Wall (also called The Wall): a chalkboard-framed pixel canvas where buyers leave captions and colour. Unlike the original, buyers can make their own page and claims never link anywhere — Play money is the default, with a one-env-var switch to real Stripe payments through the same settlement code path.",
+    "A rebuild of the 2005 Million Dollar Homepage where blocks of nine pixels (a 3x3 square) sell for $1 on a 1200x1200 grid of 160,000 blocks. Unlike the original, buyers can make their own page and claims never link anywhere — Play money is the default, with a one-env-var switch to real Stripe payments through the same settlement code path.",
   accentColor: "#FFD700",
   favicon: "🟨",
   techStack: [
@@ -34,17 +34,10 @@ const site: SiteManifest = {
     },
     {
       path: "/p/the-wall",
-      title: "The Art-Wall — the flagship 1200x1200 pixel grid",
+      title: "The Wall — the flagship 1200x1200 pixel grid",
       snippet:
-        "The Art-Wall (also called The Wall): a 400x400-block grid worth $160,000 in face value, where you drag to select and buy blocks of nine pixels on a chalkboard-framed canvas.",
-      keywords: [
-        "art-wall",
-        "art wall",
-        "the wall",
-        "pixel wall",
-        "buy blocks",
-        "million dollar homepage clone",
-      ],
+        "The flagship page: a 400x400-block grid worth $160,000 in face value, where you drag to select and buy blocks of nine pixels.",
+      keywords: ["the wall", "pixel wall", "buy blocks", "million dollar homepage clone"],
     },
     {
       path: "/pages",
@@ -112,9 +105,6 @@ const site: SiteManifest = {
     "pixel grid",
     "internet history clone",
     "pixel art wall",
-    "art-wall",
-    "art wall",
-    "the art-wall",
     "sell pixels for money",
     "advertising pixels",
   ],

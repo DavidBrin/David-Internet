@@ -267,6 +267,7 @@ const journey: Journey = {
         { slug: "dollar-pixels", label: "Dollar Pixels", status: "docs" },
         { slug: "notion", label: "Notion", status: "docs" },
         { slug: "fl-studio", label: "FL Studio", status: "docs" },
+        { slug: "art-wall", label: "Art Wall", status: "docs" },
       ],
     },
   ],

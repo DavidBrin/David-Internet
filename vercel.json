@@ -41,6 +41,11 @@
       "permanent": false
     },
     {
+      "source": "/sites/art-wall/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Art_Wall",
+      "permanent": false
+    },
+    {
       "source": "/sites/verilog/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Verilog",
       "permanent": false

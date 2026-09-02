@@ -42,6 +42,11 @@ const SOURCES: Record<string, string> = {
   "fl-studio": path.join(REPLICATES_ROOT, "fl-studio"),
 };
 
+const PERSONAL_PROJECTS_ROOT = path.resolve(REPO_ROOT, "..");
+const EXTRA_SOURCES: Record<string, string> = {
+  "art-wall": path.join(PERSONAL_PROJECTS_ROOT, "ArtWall"),
+};
+
 if (!fs.existsSync(REPLICATES_ROOT)) {
   console.error(
     `Source root not found: ${REPLICATES_ROOT}\n` +
@@ -109,7 +114,7 @@ function syncProject(slug: string, sourceDir: string) {
 
 function main() {
   console.log(`Vendoring content into ${REPO_ROOT}`);
-  for (const [slug, sourceDir] of Object.entries(SOURCES)) {
+  for (const [slug, sourceDir] of Object.entries({ ...SOURCES, ...EXTRA_SOURCES })) {
     syncProject(slug, sourceDir);
   }
   console.log("\nDone.");

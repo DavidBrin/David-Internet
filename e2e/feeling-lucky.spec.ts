@@ -9,6 +9,7 @@ const WIKI_SLUGS = [
   "Dollar_Pixels",
   "Notion_(replica)",
   "FL_Studio_(replica)",
+  "Art_Wall",
 ];
 
 const LIVE_REPLICA_HOSTS = [
@@ -19,6 +20,7 @@ const LIVE_REPLICA_HOSTS = [
   "bet-david.vercel.app",
   "fl-studio-david.vercel.app",
   "dollar-pixels-david.vercel.app",
+  "art-wall-pi.vercel.app",
 ];
 
 test.describe("I'm Feeling Lucky", () => {
@@ -35,7 +37,7 @@ test.describe("I'm Feeling Lucky", () => {
 
     await Promise.all([
       page.waitForURL(
-        /davids-wikipedia\.vercel\.app\/wiki\/.+|\/demos\/.+|linear-david\.vercel\.app|notion-david\.vercel\.app|smash-david\.vercel\.app|fake-phone-david\.vercel\.app|bet-david\.vercel\.app|fl-studio-david\.vercel\.app|dollar-pixels-david\.vercel\.app/,
+        /davids-wikipedia\.vercel\.app\/wiki\/.+|\/demos\/.+|linear-david\.vercel\.app|notion-david\.vercel\.app|smash-david\.vercel\.app|fake-phone-david\.vercel\.app|bet-david\.vercel\.app|fl-studio-david\.vercel\.app|dollar-pixels-david\.vercel\.app|art-wall-pi\.vercel\.app/,
       ),
       page.getByRole("button", { name: "I'm Feeling Lucky" }).click(),
     ]);

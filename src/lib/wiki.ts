@@ -21,6 +21,7 @@ export const WIKI_SLUGS: Record<string, string> = {
   bet: "Bet_(app)",
   "dollar-pixels": "Dollar_Pixels",
   "fl-studio": "FL_Studio_(replica)",
+  "art-wall": "Art_Wall",
   verilog: "Verilog",
   nocturnal: "Nocturnal_Neuro",
   signals: "Signals_and_Systems_Lab",

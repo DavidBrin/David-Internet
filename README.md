@@ -22,11 +22,11 @@ pnpm build          # static export → out/ (deployable anywhere, e.g. Vercel H
 
 ## Deployment status & how to route to a newly deployed project
 
-**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels). YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
+**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels), plus **Art Wall** as its own app. YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
 
 To wire up a deployment:
 
-1. Deploy the replica (Vercel: one project per replica, same Replicates repo, distinct **Root Directory**; add a free Neon Postgres for the ones with `needsDatabase: true` — linear, youtube, dollar-pixels).
+1. Deploy the replica (Vercel: one project per replica, same Replicates repo, distinct **Root Directory**; add a free Neon Postgres for the ones with `needsDatabase: true` — linear, youtube, dollar-pixels). Art Wall is a separate repo (`ArtWall`) with its own Vercel project.
 2. Edit `content/<project>/site.ts` and set:
    ```ts
    liveUrl: "https://youtube-david.vercel.app",   // was null
@@ -44,7 +44,7 @@ To wire up a deployment:
 
 Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
-## The eight sites of David's Internet
+## The nine sites of David's Internet
 
 | Site | Fake domain | Needs DB | Status |
 |---|---|---|---|
@@ -56,6 +56,7 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 | Dollar Pixels | pixels.davids.net | yes (Neon) | [dollar-pixels-david.vercel.app](https://dollar-pixels-david.vercel.app) |
 | Notion replica | notion.davids.net | no | [notion-david.vercel.app](https://notion-david.vercel.app) |
 | FL Studio replica | flstudio.davids.net | no | [fl-studio-david.vercel.app](https://fl-studio-david.vercel.app) |
+| Art Wall | artwall.davids.net | yes (Neon) | [art-wall-pi.vercel.app](https://art-wall-pi.vercel.app) |
 
 ## About page
 

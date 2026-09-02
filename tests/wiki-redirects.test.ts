@@ -97,10 +97,9 @@ describe("search corpus wiki routing", () => {
     expect(top?.doc.href).toBe("https://dollar-pixels-david.vercel.app");
   });
 
-  it("ranks the Art-Wall deep link first for an art wall query", () => {
+  it("ranks Art Wall first for an art wall query", () => {
     const top = createEngine(docs).search("art wall")[0];
-    expect(top?.doc.project).toBe("dollar-pixels");
-    expect(top?.doc.kind).toBe("deeplink");
-    expect(top?.doc.href).toBe("https://dollar-pixels-david.vercel.app/p/the-wall");
+    expect(top?.doc.project).toBe("art-wall");
+    expect(top?.doc.href).toBe("https://art-wall-pi.vercel.app");
   });
 });
