@@ -1,7 +1,18 @@
 # 10 — SQL: ER Diagrams to Running Queries (DTU Databases, fall 2025)
 
 Slug: `sql` · Fake domain: `sql.davids.net` · Archetype: **A** (in-browser database) — small page
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-09-01**. Drift, documents won: the two
+hand-drawn ER diagrams are DESIGN EXERCISES (meeting room, news items) that do not
+correspond to any shipped schema - so the schema panel draws live table/FK graphs from
+the DDL instead and shows the drawings as artifacts, labeled. A sixth database was
+added: the bike-shop design project (only its Data Sheet.png + Data Modification.sql
+survive; schema + seed RECONSTRUCTED, disclosed) - it powers the modification panel,
+including the FK-enforcement toggle punchline (with FKs on, the script fails at step 4:
+it references part P108 before inserting it). MariaDB-only features (session variables,
+stored functions, >= ALL, SIGNAL triggers) run as adapted SQLite presets with originals
+shown. The join-lines animation was scoped down to touched-table highlighting + row
+animations. Student ID scrubbed from vendored sources. 44 presets fixture-tested
+(python sqlite3 vs the page's sql.js).
 
 ## Summary
 

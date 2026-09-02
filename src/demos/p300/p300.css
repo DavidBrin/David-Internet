@@ -1,0 +1,88 @@
+/* P300 Speller — shared stage styles (panel-specific styles live in each
+ * panel's own css file with its prefix: pS speller, pC classifier, pR results). */
+
+.ppStage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ppSection {
+  scroll-margin-top: 70px;
+}
+
+.ppPanel {
+  background: #fff;
+  border: 1px solid #ddd0f0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.ppH2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.ppIntro {
+  color: #445;
+  font-size: 0.92rem;
+  margin: 0 0 14px;
+  max-width: 72ch;
+}
+
+.ppChip {
+  display: inline-block;
+  background: var(--demo-panel, #e9e1f6);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #6b21a8;
+}
+
+.ppBtn {
+  appearance: none;
+  border: 1px solid #a855f7;
+  background: #fff;
+  color: #7e22ce;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ppBtn:hover {
+  background: #faf5ff;
+}
+
+.ppBtn[data-active="true"],
+.ppBtn.ppBtnPrimary {
+  background: #a855f7;
+  color: #fff;
+}
+
+.ppBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.ppNote {
+  font-size: 0.8rem;
+  color: #667;
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.ppRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.ppMono {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.85rem;
+}

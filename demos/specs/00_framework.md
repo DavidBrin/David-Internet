@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01), 08 Cross-Teaching (2026-09-01).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01), 08 Cross-Teaching, 12 P300, 10 SQL, 14 Modeling, 15 Early Code (2026-09-01) - ALL 15 BUILT.
 
 ## Decision
 
@@ -71,12 +71,12 @@ Out of scope · Open/Resolved questions.
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | **built 2026-08-31** - 76 features (spec said 65 - documents won), int8 kernels bit-faithful vs TFLite |
 | 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | **built 2026-09-01** - NO retraining: real checkpoints found in DavidBrin/Semi-supervised-image-model (Git LFS) + committed per-epoch metrics; repo config differs from local raw copy (labeled 20%, image-level gate 0.75, weight 0.05, warmup 2, 8 epochs - documents won); micro-CT slices are public in DavidBrin/Semi-supervised-Microtomography-Segmentation (shipped 3); the bbox to-do exists as never-run CrossDetection.py (shown, not run) |
 | 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | **built 2026-09-01** - group repo recovered (full package src); real filters were 2024/200-words -> 148,477 papers; report tau=0.27 vs modularity argmax 0.19 is the story; brute-force k-NN + t-SNE disclosed |
-| 10 | SQL Playground | `sql` | dtu_databases_raw | none |
+| 10 | SQL Playground | `sql` | dtu_databases_raw | **built 2026-09-01** - sql.js (dep added; wasm shipped); MariaDB->SQLite translation w/ adapted presets (originals shown); bikeshop schema RECONSTRUCTED from data sheet + modification script; 44 presets fixture-tested python-sqlite3-vs-sql.js; ER drawings are design exercises (don't match shipped schemas - stated) |
 | 11 | Computer Vision | `vision` | computer_vision_cse152_raw | **built 2026-09-01** - stereo inputs re-rendered from facedata (data.pickle never archived; original lights recovered from notebook prints); HW4 curves extracted from archived run, not re-trained; corner_detect mode="full" quirk kept |
-| 12 | P300 Speller | `p300` | p300_speller_bci_raw | resolved: illustrative filters; "ML team, not UI" |
+| 12 | P300 Speller | `p300` | p300_speller_bci_raw | **built 2026-09-01** - ATTRIBUTION DRIFT: the archived codebase is the public Manucar/p300-speller repo (Carzaniga & Gualniera, AY19/20) - credited on-page; framed as ML-team study material; results are subject B only (the notebooks' committed runs); decode logic ported + fixture-tested; sim EEG synthetic; filters illustrative as resolved |
 | 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | **built 2026-08-30** - blur N=464 (causal); TS MT19937 randperm; 5 panels, SciPy-fixture tests |
-| 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | none |
-| 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | resolved: CSE 12 added; card dataset checked at build |
+| 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | **built 2026-09-01** - renders-only gallery (no 3D exports exist; GLB hook); 'Wing simulator' render is NASA FoilSim JS (attributed, shown separately); 'C 10- David Lim.vrblocks' EXCLUDED (name provenance unclear - ask David); perimeter C4.2 reconstructed from screenshot; TS vexcode engine runs 6 ported programs (headless-traced) |
+| 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | **built 2026-09-01** - card dataset absent -> reel omitted per resolved q (notebook referenced only); CSE 12 gathered into java_servers_raw/cse12/ (PID/email scrubbed); from-scratch Aho-Corasick = the notebook's exact 106 nodes; cpp final + aho fixture-tested vs python references; OANC corpus replaced by synthetic 30 docs (labeled) |
 
 Build order suggestion: shared plumbing → 01 → 13 → 06 → 05 → 07 → 02 → 03 → 04 → 11 →
 09 → 08 → 12 → 10 → 14 → 15 (roughly: most self-contained and highest-impact first;

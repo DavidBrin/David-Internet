@@ -1,0 +1,95 @@
+{
+ "subject": "B",
+ "note": "Committed notebook outputs, subject B (each notebook archives exactly one run). Weighted window accuracy: test samples reweighted so the 5:1 noP300/P300 imbalance does not inflate the score.",
+ "binary": [
+  {
+   "model": "CNN1",
+   "acc": 79.03,
+   "channels": "all 64",
+   "desc": "base model, class-weighted training"
+  },
+  {
+   "model": "CNN2a",
+   "acc": 76.2,
+   "channels": "8 prefixed",
+   "desc": "the classic P300 sites: Fz Cz Pz P3 P4 PO7 PO8 Oz"
+  },
+  {
+   "model": "CNN2b",
+   "acc": 77.31,
+   "channels": "8 learned",
+   "desc": "8 electrodes read off CNN1's first-layer weights"
+  },
+  {
+   "model": "CNN2c (O)",
+   "acc": 75.31,
+   "channels": "occipital lobe",
+   "desc": "the archived CNN2c run uses the occipital subset"
+  },
+  {
+   "model": "CNN3",
+   "acc": 73.73,
+   "channels": "all 64",
+   "desc": "single spatial filter in layer 1"
+  },
+  {
+   "model": "MCNN1",
+   "acc": 78.78,
+   "channels": "all 64",
+   "desc": "5x CNN1 on balanced subsets, votes averaged"
+  },
+  {
+   "model": "MCNN2",
+   "acc": 79.56,
+   "channels": "all 64",
+   "desc": "5x CNN1 on contiguous subsets (temporality kept)"
+  },
+  {
+   "model": "MCNN3",
+   "acc": 79.33,
+   "channels": "all 64",
+   "desc": "3x CNN1, full trainset, different random inits"
+  }
+ ],
+ "mcnnMembers": {
+  "MCNN1": [
+   76.3,
+   77.77,
+   78.21,
+   76.94,
+   77.38
+  ],
+  "MCNN2": [
+   75.16,
+   75.45,
+   71.84,
+   72.14,
+   78.78
+  ],
+  "MCNN3": [
+   78.54,
+   78.63,
+   80.09
+  ]
+ },
+ "spellerCurve": [
+  37,
+  51,
+  63,
+  71,
+  76,
+  83,
+  87,
+  89,
+  88,
+  93,
+  93,
+  94,
+  94,
+  93,
+  93
+ ],
+ "spellerModel": "MCNN1",
+ "wordTrue": "MERMIROOMUHJPXJOHUVLEORZP3GLOO7AUFDKEFTWEOOALZOP9ROCGZET1Y19EWX65QUYU7NAK_4YCJDVDNGQXODBEV2B5EFDIDNR",
+ "wordPred": "MERMIROOMUZJPXJOHUVLQORZQ3GLOO7CUFFKEFTWEOOALZOP9ROCGZE11Y19CWX65QUYU7NAK_4YCJDVDNGQXODBEV2B5EFDIDNR"
+}

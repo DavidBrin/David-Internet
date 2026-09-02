@@ -1,7 +1,15 @@
 # 15 — Early Code (C++ 2021 · Java servers · Aho-Corasick · card classifier)
 
 Slug: `earlycode` · Fake domain: `earlycode.davids.net` · Archetype: **A** (small live widgets) + timeline
-Status: spec agreed 2026-08-30; **not built**.
+Status: spec agreed 2026-08-30; **built 2026-09-01**. Card-classifier dataset absent
+from disk -> reel omitted per resolved question 2 (notebook referenced in story +
+drawer only). CSE 12 gathered into demos/java_servers_raw/cse12/ at build per resolved
+question 1, PID/email scrubbed. The Aho notebook turned out to be just 3 cells (build
+via pyahocorasick + count 106 nodes - no matching demo in it); the page's from-scratch
+implementation reproduces the exact 106-node count and pyahocorasick's (end, pattern)
+tuple semantics, fixture-tested against a pure-Python reference. numbers-large.txt
+(8 MB) ships truncated to 300 lines, disclosed. OANC corpus replaced by a labeled
+synthetic 30-doc stand-in. RPS CPU uses a bit-exact java.util.Random port (seed 12).
 
 Kept as its own page (see `14_early_3d_modeling.md` for why it wasn't merged).
 

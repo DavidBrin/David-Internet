@@ -1,0 +1,374 @@
+/* #aho -- Aho-Corasick, from scratch. Prefix eA. Clean whiteboard aesthetic:
+ * crisp white surfaces, thin slate rules, marker-color accents (blue for
+ * structure/hover, green for the matcher's live state, red for failure
+ * jumps -- like different dry-erase pens on the same board). */
+
+.eAPanel {
+  position: relative;
+}
+
+.eAH3 {
+  font-size: 0.98rem;
+  font-weight: 650;
+  margin: 22px 0 6px;
+}
+
+/* ---------------------------------------------------------------- layout */
+
+.eALayout {
+  display: grid;
+  grid-template-columns: 232px 1fr;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+@media (max-width: 760px) {
+  .eALayout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eARail {
+  border: 1px solid #e2e5eb;
+  border-radius: 10px;
+  padding: 12px;
+  background: #fafbfc;
+  background-image: radial-gradient(#e5e8ee 1px, transparent 1px);
+  background-size: 14px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-self: start;
+}
+
+.eARailLabel {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #7c8698;
+  margin: 0 0 2px;
+}
+
+.eARailRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-radius: 6px;
+  padding: 2px 3px;
+  transition: background 120ms ease;
+}
+
+.eARailRow[data-building="true"] {
+  background: #dbeafe;
+}
+
+.eARailIdx {
+  width: 16px;
+  flex: none;
+  font-size: 0.72rem;
+  color: #94a3b8;
+  text-align: right;
+}
+
+.eARailInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid #d4d8e0;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 0.78rem;
+  background: #fff;
+}
+
+.eARailInput:focus {
+  outline: 2px solid #93c5fd;
+  outline-offset: 0;
+}
+
+.eARailRemove {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  cursor: pointer;
+  font-size: 0.78rem;
+  line-height: 1;
+}
+
+.eARailRemove:hover:not(:disabled) {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fecaca;
+}
+
+.eARailRemove:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.eARailActions {
+  margin-top: 4px;
+  gap: 6px;
+}
+
+.eARailActions .elBtn {
+  padding: 5px 10px;
+  font-size: 0.76rem;
+}
+
+.eANodeCount {
+  font-size: 0.8rem;
+  margin: 2px 0 0;
+  color: #475569;
+}
+
+.eANodeCount[data-match="true"] {
+  color: #0f766e;
+  font-weight: 600;
+}
+
+/* ---------------------------------------------------------------- stage */
+
+.eAStage {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.eACanvasControls {
+  gap: 8px;
+}
+
+.eACanvasControls .elBtn {
+  padding: 5px 11px;
+  font-size: 0.78rem;
+}
+
+.eABuildStatus {
+  margin: 0;
+  font-family: var(--font-mono, ui-monospace, Consolas, monospace);
+}
+
+.eACanvasWrap {
+  position: relative;
+  height: 380px;
+  border: 1px solid #d4d8e0;
+  border-radius: 10px;
+  background: #fff;
+  background-image: linear-gradient(#eef1f5 1px, transparent 1px), linear-gradient(90deg, #eef1f5 1px, transparent 1px);
+  background-size: 16px 16px;
+  overflow: hidden;
+  cursor: grab;
+}
+
+.eACanvasWrap:active {
+  cursor: grabbing;
+}
+
+.eACanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.eATooltip {
+  position: absolute;
+  z-index: 3;
+  pointer-events: none;
+  background: #1e293b;
+  color: #f1f5f9;
+  border-radius: 8px;
+  padding: 7px 10px;
+  font-size: 0.74rem;
+  line-height: 1.5;
+  max-width: 240px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.28);
+}
+
+.eATooltipPrefix {
+  font-weight: 700;
+  color: #93c5fd;
+  margin-bottom: 2px;
+  word-break: break-all;
+}
+
+.eATooltipRow {
+  color: #cbd5e1;
+}
+
+.eATooltipRow .elMono {
+  color: #f1f5f9;
+}
+
+/* ---------------------------------------------------------------- matcher */
+
+.eAMatcher {
+  margin-top: 4px;
+}
+
+.eAMatcherControls {
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.eASpeedLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: #475569;
+}
+
+.eATextStripWrap {
+  border: 1px solid #d4d8e0;
+  border-radius: 10px;
+  background: #fff;
+  background-image: radial-gradient(#eef1f5 1px, transparent 1px);
+  background-size: 12px 12px;
+  padding: 12px 14px 8px;
+  overflow-x: auto;
+}
+
+.eATextGrid {
+  display: grid;
+  grid-auto-rows: min-content;
+  row-gap: 3px;
+  width: max-content;
+  min-width: 100%;
+}
+
+.eAChar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.15em;
+  padding: 1px 1px;
+  font-size: 0.86rem;
+  color: #334155;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  white-space: pre;
+}
+
+.eAChar[data-current="true"] {
+  border-color: #16a34a;
+  background: #dcfce7;
+  font-weight: 700;
+  color: #14532d;
+}
+
+.eAHighlightBar {
+  height: 6px;
+  border-radius: 3px;
+  margin-top: 1px;
+  opacity: 0.75;
+}
+
+.eAHighlightBar[data-tone="0"] {
+  background: #60a5fa;
+}
+.eAHighlightBar[data-tone="1"] {
+  background: #f59e0b;
+}
+.eAHighlightBar[data-tone="2"] {
+  background: #a78bfa;
+}
+.eAHighlightBar[data-tone="3"] {
+  background: #34d399;
+}
+
+.eAChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0 4px;
+  min-height: 24px;
+}
+
+.eAChip {
+  background: #eef2ff;
+  color: #3730a3;
+  animation: eAChipPop 220ms ease-out;
+}
+
+@keyframes eAChipPop {
+  from {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.eAResultsWrap {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.eAResultsList {
+  max-height: 130px;
+  overflow-y: auto;
+  border: 1px dashed #cbd5e1;
+  border-radius: 8px;
+  padding: 8px 10px;
+  flex: 1;
+  min-width: 220px;
+  color: #334155;
+}
+
+.eAResultsList div {
+  padding: 1px 0;
+}
+
+.eATextInputRow {
+  margin-bottom: 10px;
+}
+
+.eATextInput {
+  flex: 1;
+  min-width: 220px;
+  border: 1px solid #d4d8e0;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-family: var(--font-mono, ui-monospace, Consolas, monospace);
+}
+
+/* ---------------------------------------------------------------- captions */
+
+.eAComplexity {
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px dashed #cbd5e1;
+}
+
+.eAComplexity .elMono {
+  font-size: 0.88rem;
+  color: #1e293b;
+  font-weight: 600;
+}
+
+.eABridge {
+  margin-top: 16px;
+  padding: 10px 0 0 16px;
+  border-top: 1px solid #e2e5eb;
+  position: relative;
+}
+
+.eABridge::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #64748b;
+}

@@ -1,0 +1,226 @@
+/* CSE 12 panel — MyArrayList visualizer + RPS. Prefix eJ.
+ * Plain-editor aesthetic: light mono blocks, a step up in modernity from
+ * the fake-terminal C++ panel above it. Accent #64748B (slate). */
+
+.eJHeaderChip {
+  margin-bottom: 12px;
+}
+
+.eJGrid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 20px;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .eJGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.eJZone {
+  background: #f8f9fb;
+  border: 1px solid #dde1e8;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.eJZoneTitle {
+  font-size: 0.95rem;
+  font-weight: 650;
+  margin: 0 0 10px;
+  color: #334155;
+}
+
+.eJCaption {
+  font-size: 0.8rem;
+  color: #667;
+  margin: 10px 0 0;
+}
+
+/* ---- MyArrayList slots ---- */
+
+.eJSlotsWrap {
+  --eJ-slot-w: 46px;
+  margin: 12px 0 6px;
+}
+
+.eJSlots {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.eJSlot {
+  width: 40px;
+  height: 40px;
+  border: 1.5px solid #94a3b8;
+  border-radius: 6px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 120ms ease, border-color 120ms ease, transform 120ms ease;
+  flex: 0 0 auto;
+}
+
+.eJSlot[data-filled="true"] {
+  background: #eef1f6;
+  border-color: #64748b;
+}
+
+.eJSlot[data-hi="true"] {
+  border-color: #334155;
+  background: #dbe4f0;
+  transform: translateY(-2px);
+}
+
+.eJSlotsWrap[data-reduced="true"] .eJSlot {
+  transition: none;
+  transform: none;
+}
+
+.eJSlotIdx {
+  font-size: 0.6rem;
+  color: #94a3b8;
+  line-height: 1;
+}
+
+.eJSlotVal {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #1e293b;
+  line-height: 1.3;
+}
+
+.eJBracketRow {
+  height: 18px;
+  margin-top: 2px;
+}
+
+.eJBracket {
+  border-bottom: 2px solid #94a3b8;
+  font-size: 0.68rem;
+  color: #64748b;
+  padding-bottom: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.eJBracketLength {
+  border-bottom-color: #334155;
+  color: #334155;
+}
+
+.eJFrameNote {
+  min-height: 1.1em;
+  font-size: 0.78rem;
+  color: #475569;
+  margin: 6px 0 10px;
+}
+
+.eJControls {
+  margin-bottom: 8px;
+}
+
+.eJLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: #445;
+}
+
+.eJSelect {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 3px 6px;
+  font-size: 0.82rem;
+  background: #fff;
+}
+
+.eJLog {
+  margin-top: 10px;
+  max-height: 150px;
+  overflow-y: auto;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 6px;
+}
+
+.eJLogEntry {
+  font-size: 0.76rem;
+  color: #475569;
+  padding: 2px 0;
+}
+
+.eJLogEntry:first-child {
+  color: #1e293b;
+  font-weight: 600;
+}
+
+/* ---- RPS ---- */
+
+.eJToggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: #334155;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.eJRpsMoves {
+  margin-bottom: 10px;
+}
+
+.eJMoveIcon {
+  margin-right: 4px;
+}
+
+.eJExplain {
+  font-size: 0.78rem;
+  color: #334155;
+  background: #eef1f6;
+  border-radius: 6px;
+  padding: 6px 8px;
+  margin: 0 0 10px;
+}
+
+.eJScoreboard {
+  margin-bottom: 8px;
+}
+
+.eJScoreItem {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.78rem;
+  color: #334155;
+  background: #fff;
+  border: 1px solid #dde1e8;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+
+.eJHistory {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 140px;
+  overflow-y: auto;
+  border-top: 1px dashed #cbd5e1;
+  padding-top: 6px;
+}
+
+.eJHistoryItem {
+  font-size: 0.76rem;
+  color: #475569;
+  padding: 2px 0;
+}
+
+.eJHistoryItem:first-child {
+  color: #1e293b;
+  font-weight: 600;
+}

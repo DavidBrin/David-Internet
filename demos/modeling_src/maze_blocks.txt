@@ -1,0 +1,35 @@
+Wall Maze (C 5.1) - block listing extracted from C 5.1.vrblocks (VEXcode VR, 2020).
+Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.
+
+when started
+set drive velocity (500)
+set turn velocity (500)
+repeat (3)
+  turn to heading FALSE (0)
+  drive for fwd mm FALSE (250)
+  turn to heading FALSE (270)
+  drive for fwd mm FALSE (250)
+turn to heading FALSE (0)
+drive for fwd mm FALSE (250)
+turn to heading FALSE (90)
+drive for fwd mm FALSE (750)
+turn for left FALSE (90)
+drive for fwd mm FALSE (250)
+set drive velocity (50)
+repeat (2)
+  turn for right FALSE (90)
+  drive fwd
+  wait until (color fronteye red)
+turn for left FALSE (90)
+drive for fwd mm FALSE (200)
+turn for left FALSE (90)
+set drive velocity (50)
+drive fwd
+wait until (color downeye green)
+drive for rev mm FALSE (200)
+turn for left FALSE (90)
+drive for fwd mm FALSE (250)
+turn for right FALSE (90)
+drive for fwd mm FALSE (260)
+turn for left FALSE (90)
+drive for fwd mm FALSE (750)

@@ -1,0 +1,237 @@
+/* Query runner panel — #queries. Prefix qQ. */
+
+.qQBody {
+  display: grid;
+  grid-template-columns: minmax(200px, 260px) 1fr;
+  gap: 16px;
+  margin-top: 10px;
+}
+
+@media (max-width: 720px) {
+  .qQBody {
+    grid-template-columns: 1fr;
+  }
+}
+
+.qQSide {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.qQPresetList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-height: 320px;
+  overflow-y: auto;
+  border: 1px solid #cfe3e9;
+  border-radius: 8px;
+  padding: 6px;
+  background: #f7fbfc;
+}
+
+.qQPresetItem {
+  appearance: none;
+  border: 1px solid transparent;
+  background: transparent;
+  text-align: left;
+  padding: 6px 8px;
+  border-radius: 6px;
+  font-size: 0.84rem;
+  color: #234;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: space-between;
+}
+
+.qQPresetItem:hover {
+  background: #ecfeff;
+}
+
+.qQPresetItem[data-active="true"] {
+  background: #0891b2;
+  color: #fff;
+  border-color: #0891b2;
+}
+
+.qQPresetLabel {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: break-word;
+}
+
+.qQAdaptedChip {
+  flex-shrink: 0;
+  display: inline-block;
+  background: #fde68a;
+  color: #7c4a03;
+  border-radius: 999px;
+  padding: 1px 7px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.qQPresetItem[data-active="true"] .qQAdaptedChip {
+  background: #fff;
+  color: #7c4a03;
+}
+
+.qQMain {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.qQTextarea {
+  width: 100%;
+  min-height: 9.5em;
+  resize: vertical;
+  border: 1px solid #cfe3e9;
+  border-radius: 8px;
+  padding: 10px 12px;
+  background: #0b2530;
+  color: #d6f3f8;
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  box-sizing: border-box;
+}
+
+.qQTextarea:focus {
+  outline: 2px solid #0891b2;
+  outline-offset: 1px;
+}
+
+.qQOriginalBox {
+  border: 1px dashed #cfe3e9;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #f7fbfc;
+}
+
+.qQOriginalPre {
+  margin: 6px 0 0;
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #445;
+}
+
+.qQMeta {
+  font-size: 0.78rem;
+  color: #5a7580;
+  margin: 0;
+}
+
+.qQErrorBox {
+  border: 1px solid #e2a5a5;
+  background: #fdf1f1;
+  color: #8a2b2b;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+}
+
+.qQErrorBox[data-success="true"] {
+  border-color: #8fd0b0;
+  background: #f0fbf5;
+  color: #14663f;
+}
+
+.qQNull {
+  color: #9aa;
+  font-style: italic;
+}
+
+.qQTablesRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.qQTableChip {
+  appearance: none;
+  border: 1px solid #67c9de;
+  background: #e3fbff;
+  color: #0e5c6d;
+  border-radius: 999px;
+  padding: 3px 12px;
+  font-size: 0.78rem;
+  font-weight: 650;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(8, 145, 178, 0);
+}
+
+.qQTableChip[data-pulse="true"] {
+  animation: qQPulse 650ms ease-out;
+}
+
+.qQTableChip[data-open="true"] {
+  background: #0891b2;
+  color: #fff;
+}
+
+@keyframes qQPulse {
+  0% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(8, 145, 178, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(8, 145, 178, 0); }
+}
+
+.qQPreview {
+  border: 1px solid #cfe3e9;
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: #fbfeff;
+}
+
+.qQPreviewTitle {
+  margin: 0 0 6px;
+  font-size: 0.8rem;
+  font-weight: 650;
+  color: #234;
+}
+
+.qQRowIn {
+  animation: qQRowIn 320ms ease both;
+}
+
+@keyframes qQRowIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+table.qQTable {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+table.qQTable th,
+table.qQTable td {
+  border-bottom: 1px solid #e2eff2;
+  padding: 4px 10px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+table.qQTable th {
+  color: #0e5c6d;
+  font-weight: 650;
+  background: #f2fafb;
+  position: sticky;
+  top: 0;
+}

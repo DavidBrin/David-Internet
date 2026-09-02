@@ -54,6 +54,7 @@ const meta: DemoMeta = {
     { name: "hw2 epipolar geometry", path: `${SRC}/hw2_extract.py`, lang: "python", note: "Edges, the Sobel corner detector, SSD/NCC matching, and the normalized 8-point algorithm (extracted from the notebook)." },
     { name: "hw3 bag of words", path: `${SRC}/hw3_extract.py`, lang: "python", note: "Interest-point sampling, patch/SIFT features, k-means vocabulary, histograms, k-NN (extracted from the notebook)." },
     { name: "hw4 CNNs", path: `${SRC}/hw4_extract.py`, lang: "python", note: "FashionMNIST CNN, optimizer/dropout/learning-rate studies, STL-10 transfer learning (extracted from the notebook)." },
+    { name: "152B superpoint + metric learning", path: `${SRC}/hw152b_extract.py`, lang: "python", note: "The deeper networks from CSE 152B: SuperPoint/MagicPoint keypoint pipeline and the triplet-loss fashion-retrieval CNN (extracted from the notebook; referenced on the page, not runnable in the demo)." },
     { name: "stereo.ts", path: "src/demos/vision/core/stereo.ts", lang: "ts", note: "TS port of photometric_stereo + horn_integrate + lambertian, fixture-tested against NumPy." },
     { name: "fmatrix.ts", path: "src/demos/vision/core/fmatrix.ts", lang: "ts", note: "TS port of the normalized 8-point algorithm on a one-sided Jacobi SVD." },
     { name: "features.ts", path: "src/demos/vision/core/features.ts", lang: "ts", note: "TS port of David's corner detector, including its convolve2d mode='full' quirk." },

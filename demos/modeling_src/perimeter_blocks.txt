@@ -1,0 +1,11 @@
+Perimeter octagon (C 4.2) - block listing extracted from RECONSTRUCTED from the C 4.2 screenshot (no block file survives) (VEXcode VR, 2020).
+Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.
+
+when started
+set drive velocity 500 %
+set turn velocity 500 %
+drive fwd 400 mm
+move pen down
+repeat 8
+  drive fwd 200 mm
+  turn right 45 degrees

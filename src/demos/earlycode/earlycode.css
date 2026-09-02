@@ -1,0 +1,101 @@
+/* Early Code — shared stage styles (panel-specific styles live in each
+ * panel's own css file with its prefix: eC cpp, eJ cse12, eS servers, eA aho).
+ * The page's look modernizes down the timeline: panels may lean on elEra
+ * modifiers but own their exact styling. */
+
+.elStage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.elSection {
+  scroll-margin-top: 70px;
+}
+
+.elPanel {
+  background: #fff;
+  border: 1px solid #d4d8e0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.elH2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.elIntro {
+  color: #445;
+  font-size: 0.92rem;
+  margin: 0 0 14px;
+  max-width: 72ch;
+}
+
+.elChip {
+  display: inline-block;
+  background: var(--demo-panel, #e3e5ea);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #334155;
+}
+
+.elBtn {
+  appearance: none;
+  border: 1px solid #64748b;
+  background: #fff;
+  color: #475569;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.elBtn:hover {
+  background: #f1f5f9;
+}
+
+.elBtn[data-active="true"],
+.elBtn.elBtnPrimary {
+  background: #64748b;
+  color: #fff;
+}
+
+.elBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.elNote {
+  font-size: 0.8rem;
+  color: #667;
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.elRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.elMono {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.85rem;
+}
+
+/* Era chip shown at each panel's top-right ("2021", "2024", ...). */
+.elEra {
+  float: right;
+  font-family: var(--font-mono, ui-monospace, Consolas, monospace);
+  font-size: 0.78rem;
+  color: #64748b;
+  border: 1px dashed #94a3b8;
+  border-radius: 6px;
+  padding: 1px 8px;
+}

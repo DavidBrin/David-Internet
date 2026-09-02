@@ -23,6 +23,10 @@ import spikes from "@content/spikes/site";
 import vision from "@content/vision/site";
 import arxiv from "@content/arxiv/site";
 import crossteach from "@content/crossteach/site";
+import p300 from "@content/p300/site";
+import sql from "@content/sql/site";
+import modeling from "@content/modeling/site";
+import earlycode from "@content/earlycode/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -43,6 +47,10 @@ export const manifests: SiteManifest[] = [
   vision,
   arxiv,
   crossteach,
+  p300,
+  sql,
+  modeling,
+  earlycode,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

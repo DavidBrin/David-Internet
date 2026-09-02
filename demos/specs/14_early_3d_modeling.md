@@ -1,7 +1,15 @@
 # 14 — Early 3D Modeling (Autodesk Inventor + VEXcode VR, ~2020–2021)
 
 Slug: `modeling` · Fake domain: `modeling.davids.net` · Archetype: **C** (gallery) + **A** (VEX VR robot sim)
-Status: spec agreed 2026-08-30; **not built**.
+Status: spec agreed 2026-08-30; **built 2026-09-01**. Drift, documents won: the
+'Wing simulator' render is NASA Glenn's FoilSim JS screenshot, not an Inventor render -
+shown as a separate attributed card. 'C 10- David Lim.vrblocks' + its screenshot were
+EXCLUDED (filename carries a different name; provenance unclear - flagged for David).
+'2D List.vrblocks' is empty (a bare when-started block) - not shipped. Perimeter
+(C 4.2) has no surviving block file - reconstructed from its screenshot, labeled. Six
+programs ported to a TS vexcode engine (generator coroutines; maze/perimeter/dance/
+random/artcanvas/experiment) and verified by a headless numeric trace - which caught a
+real sensor-geometry bug in the approximated maze before shipping.
 
 Page name per David: **"Early 3D Modeling"** (not "Origins"). Early Code is its own page
 (`15_early_code.md`) — the two were kept separate because this page's name is specific to

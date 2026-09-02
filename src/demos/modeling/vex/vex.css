@@ -1,0 +1,146 @@
+/* #vex panel styles. Prefix mV. Shared classes (mdPanel, mdH2, mdIntro, mdChip,
+ * mdBtn, mdNote, mdRow, mdMono) come from ../modeling.css. */
+
+.mVPicker {
+  margin-bottom: 14px;
+}
+
+.mVChipBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.mVReconChip {
+  font-size: 0.68rem;
+  padding: 1px 7px;
+}
+
+.mVLayout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: flex-start;
+}
+
+.mVSimCol {
+  flex: 1 1 360px;
+  min-width: 280px;
+  max-width: 480px;
+}
+
+.mVCanvasWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #e2dccd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #faf7ef;
+  outline: none;
+}
+
+.mVCanvasWrap:focus-visible {
+  box-shadow: 0 0 0 2px #f59e0b;
+}
+
+.mVCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.mVControls {
+  margin-top: 10px;
+}
+
+.mVSpeedGroup {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.mVSpeedBtn {
+  padding: 6px 10px;
+}
+
+.mVBrain {
+  margin-top: 12px;
+  background: #14171a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mVBrainHead {
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8b95a1;
+  padding: 6px 10px 0;
+}
+
+.mVBrainBody {
+  padding: 4px 10px 10px;
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.82rem;
+  color: #4ade80;
+  min-height: 3.2em;
+  max-height: 6.4em;
+  overflow-y: auto;
+}
+
+.mVBrainDim {
+  color: #4b5563;
+}
+
+.mVBrainDone {
+  color: #f59e0b;
+  margin-top: 2px;
+}
+
+.mVListingCol {
+  flex: 1 1 300px;
+  min-width: 260px;
+}
+
+.mVListing {
+  border: 1px solid #e2dccd;
+  border-radius: 10px;
+  background: #fff;
+  max-height: 360px;
+  overflow-y: auto;
+  padding: 8px 0;
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.78rem;
+  line-height: 1.55;
+}
+
+.mVListingLine {
+  padding-right: 10px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #454236;
+}
+
+.mVListingLine[data-current="true"] {
+  background: #fef3c7;
+  color: #92400e;
+  font-weight: 600;
+}
+
+.mVShot {
+  margin: 14px 0 0;
+  padding: 0;
+}
+
+.mVShot img {
+  display: block;
+  max-width: 340px;
+  width: 100%;
+  border: 1px solid #e2dccd;
+  border-radius: 8px;
+}
+
+.mVShot figcaption {
+  font-size: 0.72rem;
+  color: #6b675c;
+  margin-top: 4px;
+}

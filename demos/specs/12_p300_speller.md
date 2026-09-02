@@ -1,7 +1,19 @@
 # 12 — P300 Speller (Triton Neurotech, ML team)
 
 Slug: `p300` · Fake domain: `p300.davids.net` · Archetype: **A** (live speller sim) + precomputed model panels
-Status: spec agreed 2026-08-30; **not built**.
+Status: spec agreed 2026-08-30; **built 2026-09-01**. Major attribution drift, documents
+won: the archived codebase is NOT the team's - the notebooks link to the public
+`Manucar/p300-speller` repo (AUTHORS.md: Manuel Carzaniga, Lorenzo Gualniera; an
+AY19/20 project), so the page credits them and frames the archive as study material
+from David's time on Triton Neurotech's ML team ("ML side, not the UI" kept, per the
+resolved question). All committed notebook runs are subject B (each notebook archives
+exactly one run; CNN2c's is the occipital subset), so the results panel shows subject
+B only - there is no A/B table to extract. The live sim runs the notebook's decoding
+logic ported to TS (fixture-tested; the per-flash CNN score is stood in by template
+matching, stated on the page); spatial filters are illustrative as resolved. The
+64-channel montage was verified against the repo's CNN2a index mapping (8/8 names).
+CNN2b's learned electrodes differ per subject (A: [10,14,17,50,55,57,59,60], B:
+[17,50,55,56,57,58,59,60]) - both shown on the head map.
 
 ## Summary
 

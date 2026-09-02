@@ -1,0 +1,13 @@
+Random drive (C 14) - block listing extracted from C 14- Random drive.vrblocks (VEXcode VR, 2020).
+Rendered from the Blockly XML; original screenshots in demos/vexcode_vr_raw/.
+
+when started
+move pen down
+forever
+  drive fwd
+  if then (object fronteye)
+    turn for right FALSE (90 random 90 180)
+  if then (bumper rightbumper)
+    turn for right FALSE (90 random 45 90)
+  if then (bumper leftbumper)
+    turn for left FALSE (90 random 45 90)

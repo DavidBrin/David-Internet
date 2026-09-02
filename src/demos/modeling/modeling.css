@@ -1,0 +1,88 @@
+/* Early 3D Modeling — shared stage styles (panel-specific styles live in each
+ * panel's own css file with its prefix: mG gallery, mV vex). */
+
+.mdStage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.mdSection {
+  scroll-margin-top: 70px;
+}
+
+.mdPanel {
+  background: #fff;
+  border: 1px solid #e2dccd;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.mdH2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.mdIntro {
+  color: #454236;
+  font-size: 0.92rem;
+  margin: 0 0 14px;
+  max-width: 72ch;
+}
+
+.mdChip {
+  display: inline-block;
+  background: var(--demo-panel, #eae6dd);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #92400e;
+}
+
+.mdBtn {
+  appearance: none;
+  border: 1px solid #f59e0b;
+  background: #fff;
+  color: #b45309;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.mdBtn:hover {
+  background: #fffbeb;
+}
+
+.mdBtn[data-active="true"],
+.mdBtn.mdBtnPrimary {
+  background: #f59e0b;
+  color: #fff;
+}
+
+.mdBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.mdNote {
+  font-size: 0.8rem;
+  color: #6b675c;
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.mdRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.mdMono {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.85rem;
+}

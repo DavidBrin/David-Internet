@@ -1,0 +1,314 @@
+/* Speller panel (#speller) - prefix pS. Shared classes (p300.css): ppPanel
+ * ppH2 ppIntro ppChip ppBtn ppBtnPrimary ppNote ppRow ppMono. */
+
+.pSGate {
+  background: #fdf4ff;
+  border: 1px solid #e9b8ff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  margin: 0 0 14px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+}
+
+.pSGateWarn {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #7e22ce;
+  flex: 1 1 260px;
+}
+
+/* --- controls --- */
+
+.pSControls {
+  margin-bottom: 10px;
+}
+
+.pSControlGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 8px;
+  border: 1px solid #e6dbf5;
+  border-radius: 8px;
+  background: #fbf8fe;
+}
+
+.pSControlLabel {
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: #6b21a8;
+  margin-right: 2px;
+}
+
+.pSWordInput {
+  border: 1px solid #a855f7;
+  border-radius: 8px;
+  padding: 6px 10px;
+  font-size: 0.88rem;
+  width: 210px;
+  max-width: 100%;
+  color: #3a2050;
+  text-transform: uppercase;
+}
+
+.pSWordInput:disabled {
+  opacity: 0.6;
+}
+
+/* --- matrix + decode column --- */
+
+.pSMatrixWrap {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 14px 0 6px;
+}
+
+.pSGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 5px;
+  width: 100%;
+  max-width: 340px;
+}
+
+.pSCell {
+  appearance: none;
+  aspect-ratio: 1 / 1;
+  border-radius: 6px;
+  border: 1px solid #ddc9f2;
+  background: #f6effc;
+  color: #4c2a6b;
+  font-size: 0.92rem;
+  font-weight: 600;
+  cursor: default;
+  transition: none;
+}
+
+.pSMatrixWrap:not([data-reduced]) .pSCell {
+  transition: none;
+}
+
+.pSMatrixWrap[data-reduced] .pSCell {
+  transition: background-color var(--pS-off-ms, 75ms) ease-out, box-shadow var(--pS-off-ms, 75ms) ease-out;
+}
+
+.pSMatrixWrap[data-reduced] .pSCell[data-flash] {
+  transition: background-color var(--pS-on-ms, 100ms) ease-in, box-shadow var(--pS-on-ms, 100ms) ease-in;
+}
+
+button.pSCell:not(:disabled) {
+  cursor: pointer;
+}
+
+button.pSCell:not(:disabled):hover {
+  border-color: #a855f7;
+}
+
+.pSCell[data-target] {
+  box-shadow: 0 0 0 2px #7e22ce inset;
+}
+
+.pSCell[data-flash] {
+  background: #a855f7;
+  color: #fff;
+  border-color: #a855f7;
+  box-shadow: 0 0 12px 2px rgba(168, 85, 247, 0.85);
+}
+
+.pSCell[data-decoded] {
+  background: #f3e6fd;
+  border-color: #c084fc;
+}
+
+.pSCell[data-locked] {
+  background: #e9d5ff;
+  border-color: #7e22ce;
+}
+
+.pSCell[data-hit] {
+  background: #7e22ce;
+  color: #fff;
+  box-shadow: 0 0 0 2px #4c1d7a inset;
+}
+
+/* --- decode readout --- */
+
+.pSDecodeCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  min-width: 180px;
+  flex: 1 1 180px;
+}
+
+.pSBigLetter {
+  font-size: 3rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #7e22ce;
+  background: #f6effc;
+  border: 2px solid #ddc9f2;
+  border-radius: 12px;
+  width: 92px;
+  height: 92px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pSBigLetter[data-locked] {
+  background: #7e22ce;
+  color: #fff;
+  border-color: #4c1d7a;
+  box-shadow: 0 0 0 4px #e9d5ff;
+}
+
+.pSBigLetterCaption {
+  font-size: 0.72rem;
+  color: #667;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.pSBars {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 70px;
+  width: 100%;
+  padding-top: 4px;
+}
+
+.pSBar {
+  flex: 1 1 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  height: 100%;
+  gap: 2px;
+}
+
+.pSBar[data-kind="row"] {
+  border-left: 1px dashed #ddc9f2;
+  padding-left: 4px;
+}
+
+.pSBarFill {
+  width: 100%;
+  min-height: 2px;
+  background: #d8c2f0;
+  border-radius: 3px 3px 0 0;
+}
+
+.pSBar[data-active] .pSBarFill {
+  background: #7e22ce;
+}
+
+.pSBarLabel {
+  font-size: 0.6rem;
+  color: #889;
+}
+
+/* --- output strip --- */
+
+.pSOutputStrip {
+  margin: 4px 0 12px;
+}
+
+.pSOutputChip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 26px;
+  height: 26px;
+  padding: 0 6px;
+  border-radius: 6px;
+  background: #eee;
+  color: #445;
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.pSOutputChip[data-correct] {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.pSOutputChip[data-miss] {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+/* --- traces --- */
+
+.pSTraceRow {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  margin: 14px 0 4px;
+}
+
+@media (max-width: 720px) {
+  .pSTraceRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.pSTraceHead {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #445;
+  margin-bottom: 4px;
+}
+
+.pSCanvasWrap {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #e6dbf5;
+  overflow: hidden;
+  background: #faf7fd;
+}
+
+.pSCanvas {
+  width: 100%;
+  display: block;
+}
+
+/* --- figures --- */
+
+.pSFigures {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+  border-top: 1px dashed #e6dbf5;
+  padding-top: 12px;
+}
+
+.pSFigure {
+  flex: 1 1 260px;
+}
+
+.pSFigure summary {
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #6b21a8;
+}
+
+.pSFigureImg {
+  display: block;
+  max-width: 420px;
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #e6dbf5;
+}

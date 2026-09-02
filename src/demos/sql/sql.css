@@ -1,0 +1,94 @@
+/* SQL Playground — shared stage styles (panel-specific styles live in each
+ * panel's own css file with its prefix: qS schemas, qQ runner, qM modify). */
+
+.sqStage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.sqSection {
+  scroll-margin-top: 70px;
+}
+
+.sqPanel {
+  background: #fff;
+  border: 1px solid #cfe3e9;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.sqH2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.sqIntro {
+  color: #445;
+  font-size: 0.92rem;
+  margin: 0 0 14px;
+  max-width: 72ch;
+}
+
+.sqChip {
+  display: inline-block;
+  background: var(--demo-panel, #ddeef2);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0e5c6d;
+}
+
+.sqBtn {
+  appearance: none;
+  border: 1px solid #0891b2;
+  background: #fff;
+  color: #0e7490;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sqBtn:hover {
+  background: #ecfeff;
+}
+
+.sqBtn[data-active="true"],
+.sqBtn.sqBtnPrimary {
+  background: #0891b2;
+  color: #fff;
+}
+
+.sqBtn:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.sqNote {
+  font-size: 0.8rem;
+  color: #667;
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.sqRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.sqMono {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.85rem;
+}
+
+/* Wide result tables must scroll inside their own container — never the page. */
+.sqTableWrap {
+  overflow-x: auto;
+  max-width: 100%;
+}

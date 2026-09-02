@@ -1,0 +1,388 @@
+/* #modify - data modification panel. Prefix qM. Accent #0891B2 (matches the
+ * shared sqBtn/sqChip accent already defined in ../sql.css). */
+
+.qMTop {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  background: #f3fafc;
+  border: 1px solid #cfe3e9;
+  border-radius: 10px;
+}
+
+.qMFkLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #12414c;
+}
+
+.qMSwitch {
+  appearance: none;
+  position: relative;
+  width: 40px;
+  height: 22px;
+  border-radius: 999px;
+  border: 1px solid #9dc3cc;
+  background: #d9ecf0;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+  flex: none;
+}
+
+.qMSwitch::after {
+  content: "";
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease;
+}
+
+.qMSwitch[data-on="true"] {
+  background: #0891b2;
+  border-color: #0891b2;
+}
+
+.qMSwitch[data-on="true"]::after {
+  transform: translateX(18px);
+}
+
+.qMFkNote {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #556;
+  max-width: 48ch;
+}
+
+.qMGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  gap: 18px;
+  align-items: start;
+}
+
+@media (max-width: 760px) {
+  .qMGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.qMStepperHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.qMStepperTitle {
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #0e5c6d;
+  margin: 0;
+}
+
+.qMStepper {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 560px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.qMStep {
+  border: 1px solid #d7e7ea;
+  border-radius: 9px;
+  background: #fff;
+  padding: 8px 10px;
+}
+
+.qMStep[data-state="pending"] {
+  opacity: 0.55;
+}
+
+.qMStep[data-state="next"] {
+  border-color: #0891b2;
+  box-shadow: 0 0 0 1px #0891b2 inset;
+  background: #f2fcfe;
+}
+
+.qMStep[data-state="done"] {
+  cursor: pointer;
+}
+
+.qMStep[data-state="done"]:hover {
+  background: #f6fbfc;
+}
+
+.qMStep[data-active="true"] {
+  border-color: #0e7490;
+  box-shadow: 0 0 0 2px #0e749033;
+}
+
+.qMStepHead {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.86rem;
+}
+
+.qMStepIdx {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.75rem;
+  color: #789;
+  flex: none;
+  width: 1.4em;
+}
+
+.qMStepCheck {
+  color: #16794e;
+  font-weight: 700;
+  flex: none;
+  font-size: 0;
+}
+
+.qMStepCheck::before {
+  content: "\2713";
+  font-size: 0.9rem;
+}
+
+.qMStepLabel {
+  font-weight: 600;
+  color: #113;
+}
+
+.qMStepBody {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.qMSql {
+  background: #0b2530;
+  color: #d8f3f8;
+  border-radius: 7px;
+  padding: 8px 10px;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
+}
+
+.qMStepActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
+.qMBtnSm {
+  appearance: none;
+  border: 1px solid #b7cdd3;
+  background: #fff;
+  color: #45606a;
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.qMBtnSm:hover {
+  background: #eef8fa;
+}
+
+.qMOriginal {
+  background: #fff8ec;
+  border: 1px dashed #e2c68a;
+  border-radius: 7px;
+  padding: 6px 8px;
+  font-size: 0.78rem;
+  color: #6b5322;
+}
+
+.qMOriginal pre {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.qMStepNote {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #667;
+}
+
+/* -------------------------------------------------------------- centerpiece */
+
+.qMCenter {
+  min-height: 120px;
+}
+
+.qMCenterEmpty {
+  color: #789;
+  font-size: 0.88rem;
+  padding: 24px 8px;
+  text-align: center;
+  border: 1px dashed #cfe3e9;
+  border-radius: 10px;
+}
+
+.qMTableBlock {
+  margin-bottom: 16px;
+}
+
+.qMTableBlockHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.qMTableName {
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-weight: 700;
+  font-size: 0.88rem;
+  color: #0e5c6d;
+}
+
+.qMTable {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.82rem;
+}
+
+.qMTable th,
+.qMTable td {
+  border: 1px solid #e2edef;
+  padding: 4px 8px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.qMTable th {
+  background: #f3fafc;
+  font-weight: 700;
+  color: #12414c;
+}
+
+.qMRow td {
+  animation: qMRowFade 0.25s ease;
+}
+
+@keyframes qMRowFade {
+  from {
+    filter: saturate(0.2) brightness(1.15);
+  }
+  to {
+    filter: none;
+  }
+}
+
+.qMRowIns td {
+  background: #e7f8ee;
+}
+
+.qMRowDel td {
+  background: #fbe9ea;
+  color: #8a3a3a;
+  text-decoration: line-through;
+}
+
+.qMRowUpd td {
+  background: #fdf3d9;
+}
+
+.qMCellChanged {
+  outline: 2px solid #d69b00;
+  outline-offset: -2px;
+  font-weight: 700;
+}
+
+.qMBadge {
+  display: inline-block;
+  margin-left: 6px;
+  background: #fbe0e0;
+  color: #8a2e2e;
+  border-radius: 999px;
+  padding: 1px 8px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* -------------------------------------------------------------- callouts */
+
+.qMCallout {
+  border-radius: 9px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  margin: 6px 0 14px;
+  border: 1px solid transparent;
+}
+
+.qMCalloutError {
+  background: #fdecec;
+  border-color: #e8b4b4;
+  color: #7a2626;
+}
+
+.qMCalloutOk {
+  background: #e9f9f0;
+  border-color: #a9dcc0;
+  color: #1c5f3c;
+}
+
+.qMCalloutInfo {
+  background: #eef7fa;
+  border-color: #b9dde6;
+  color: #17505c;
+}
+
+.qMCalloutTitle {
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.qMCalloutMsg {
+  margin: 0;
+  font-family: var(--font-mono, ui-monospace, "Cascadia Mono", Consolas, monospace);
+  font-size: 0.78rem;
+  opacity: 0.85;
+}
+
+/* -------------------------------------------------------------- trigger card */
+
+.qMTrigger {
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid #dcebee;
+}
+
+.qMTriggerHead {
+  font-size: 1rem;
+  font-weight: 650;
+  margin: 0 0 4px;
+}
+
+.qMTriggerRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin: 10px 0;
+}
