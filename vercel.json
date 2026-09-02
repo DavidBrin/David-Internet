@@ -84,6 +84,31 @@
       "source": "/sites/arxiv/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/ArXiv_Semantic_Graph",
       "permanent": false
+    },
+    {
+      "source": "/sites/crossteach/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Cross-Teaching_Segmentation",
+      "permanent": false
+    },
+    {
+      "source": "/sites/p300/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/P300_Speller",
+      "permanent": false
+    },
+    {
+      "source": "/sites/sql/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/SQL_Playground",
+      "permanent": false
+    },
+    {
+      "source": "/sites/modeling/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Early_3D_Modeling",
+      "permanent": false
+    },
+    {
+      "source": "/sites/earlycode/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Early_Code",
+      "permanent": false
     }
   ]
 }

@@ -30,6 +30,11 @@ export const WIKI_SLUGS: Record<string, string> = {
   spikes: "Anatomy_of_a_Spike",
   vision: "Computer_Vision",
   arxiv: "ArXiv_Semantic_Graph",
+  crossteach: "Cross-Teaching_Segmentation",
+  p300: "P300_Speller",
+  sql: "SQL_Playground",
+  modeling: "Early_3D_Modeling",
+  earlycode: "Early_Code",
 };
 
 /** true when the project has an encyclopedia article. */
