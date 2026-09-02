@@ -1,0 +1,279 @@
+/* Training panel (#training) — prefix ctT. Shared classes come from crossteach.css. */
+
+.ctTError {
+  color: #b91c1c;
+}
+
+/* --- scrubber row --- */
+
+.ctTScrubRow {
+  margin-bottom: 10px;
+}
+
+.ctTScrubber {
+  flex: 1 1 220px;
+  min-width: 140px;
+  accent-color: var(--demo-accent, #14b8a6);
+}
+
+/* --- main curves chart --- */
+
+.ctTCurvesBlock {
+  margin-bottom: 4px;
+}
+
+.ctTCurves {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ctTLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+}
+
+.ctTLegendItem {
+  appearance: none;
+  border: none;
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: #334155;
+  cursor: pointer;
+  padding: 2px 4px;
+  border-radius: 6px;
+}
+
+.ctTLegendItem:hover {
+  background: #f1f5f9;
+}
+
+.ctTLegendItem[data-off="true"] {
+  color: #a3aab5;
+  text-decoration: line-through;
+}
+
+.ctTSwatch {
+  display: inline-block;
+  width: 14px;
+  height: 0;
+  border-top-width: 2.5px;
+  border-radius: 2px;
+}
+
+/* --- strip chart --- */
+
+.ctTStripLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #445;
+  margin: 14px 0 4px;
+}
+
+.ctTStripBlock {
+  margin-bottom: 16px;
+}
+
+.ctTStripWrap {
+  width: 100%;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ctTStripLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 6px;
+}
+
+.ctTStripLegendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: #556;
+}
+
+/* --- results tabs --- */
+
+.ctTResults {
+  margin-top: 18px;
+  border-top: 1px solid #e2e8f0;
+  padding-top: 14px;
+}
+
+.ctTTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.ctTTab {
+  appearance: none;
+  border: 1px solid #cbd5e1;
+  background: #fff;
+  color: #334155;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ctTTab[data-active="true"] {
+  background: var(--demo-accent, #14b8a6);
+  border-color: var(--demo-accent, #14b8a6);
+  color: #fff;
+}
+
+.ctTTabPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ctTTableWrap {
+  overflow-x: auto;
+}
+
+.ctTTable {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+}
+
+.ctTTable th,
+.ctTTable td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid #e6edea;
+  white-space: nowrap;
+}
+
+.ctTTable th {
+  color: #667;
+  font-weight: 600;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ctTRowCT td {
+  background: #f4fbfa;
+}
+
+.ctTRowEns td {
+  font-weight: 700;
+}
+
+.ctTVerdict {
+  font-size: 0.88rem;
+  color: #0f5c52;
+  background: #ecfdf8;
+  border: 1px solid #bff0e6;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin: 0;
+  max-width: 76ch;
+}
+
+/* --- micro-ct slices --- */
+
+.ctTSliceGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+  margin-top: 4px;
+}
+
+.ctTSlice {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctTSliceCanvasWrap {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d3e5e0;
+  background: #0f172a;
+}
+
+.ctTSliceRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.ctTSliceId {
+  font-size: 0.78rem;
+  color: #556;
+}
+
+.ctTSliceToggle {
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  align-self: flex-start;
+}
+
+/* --- report figure --- */
+
+.ctTFigureBlock {
+  margin-top: 6px;
+}
+
+.ctTFigureThumb {
+  position: relative;
+  display: inline-block;
+  width: 220px;
+  max-width: 100%;
+  cursor: pointer;
+  border: 1px solid #d3e5e0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.ctTFigureThumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ctTFigureHint {
+  position: absolute;
+  right: 6px;
+  bottom: 6px;
+  background: rgba(15, 23, 42, 0.72);
+  color: #fff;
+  font-size: 0.68rem;
+  padding: 2px 6px;
+  border-radius: 999px;
+}
+
+.ctTFigureExpanded {
+  margin-top: 10px;
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #d3e5e0;
+  border-radius: 8px;
+}
+
+.ctTFigureExpanded img {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  height: auto;
+}

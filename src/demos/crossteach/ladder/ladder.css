@@ -1,0 +1,624 @@
+/* #ladder -- "The learning ladder" panel. Prefix ctL. */
+
+.ctLPanel {
+  position: relative;
+}
+
+.ctLStrip {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 4px 4px 12px;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.ctLCard {
+  flex: 0 0 300px;
+  min-width: 300px;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: #f8fdfc;
+  border: 1px solid #d3e5e0;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.ctLCardWide {
+  flex-basis: 340px;
+  min-width: 340px;
+  max-width: 340px;
+}
+
+.ctLCardHead {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ctLWeek {
+  flex: 0 0 auto;
+}
+
+.ctLCardTitle {
+  font-size: 0.98rem;
+  font-weight: 650;
+  margin: 0;
+}
+
+.ctLBody {
+  font-size: 0.85rem;
+  color: #33413d;
+  line-height: 1.45;
+  margin: 0;
+}
+
+.ctLLive {
+  display: inline-block;
+  align-self: flex-start;
+  background: var(--demo-accent, #14b8a6);
+  color: #fff;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.ctLIllus {
+  font-size: 0.72rem;
+  color: #7a8b86;
+  font-style: italic;
+  margin: 0;
+  border-top: 1px dashed #d3e5e0;
+  padding-top: 8px;
+}
+
+/* --- 3.2 Autodiff --- */
+
+.ctLGraph {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.ctLNode rect,
+.ctLNode {
+  fill: #eaf6f3;
+  stroke: #14b8a6;
+  stroke-width: 1.4;
+}
+
+.ctLNodeLoss {
+  fill: #fdf1e6;
+  stroke: #f59e0b;
+}
+
+.ctLNodeLabel {
+  font-size: 10px;
+  font-weight: 700;
+  fill: #0f5c52;
+}
+
+.ctLNodeValue {
+  font-size: 9px;
+  fill: #445;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.ctLEdge {
+  stroke: #b7cbc5;
+  stroke-width: 1.6;
+  transition: stroke 0.15s ease, stroke-width 0.15s ease;
+}
+
+.ctLEdgeDone {
+  stroke: #99c7bd;
+  stroke-width: 2;
+}
+
+.ctLEdgeActive {
+  stroke: #f59e0b;
+  stroke-width: 3;
+}
+
+.ctLArrowHead {
+  fill: #b7cbc5;
+}
+
+.ctLGradLabel {
+  font-size: 8.5px;
+  fill: #b45309;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.ctLSliders {
+  gap: 14px;
+}
+
+.ctLSlider {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.72rem;
+  color: #556;
+}
+
+.ctLSlider input[type="range"] {
+  accent-color: var(--demo-accent, #14b8a6);
+  width: 84px;
+}
+
+/* --- 3.3 Half moon --- */
+
+.ctLCanvasWrap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #d3e5e0;
+  align-self: flex-start;
+}
+
+.ctLCanvas {
+  display: block;
+}
+
+/* --- 3.4 MNIST --- */
+
+.ctLMnistRow {
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.ctLDigitCanvas {
+  display: block;
+  border-radius: 6px;
+  border: 1px solid #d3e5e0;
+}
+
+.ctLBars {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+}
+
+.ctLBarCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.ctLBarTrack {
+  width: 10px;
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  background: #eef4f2;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ctLBar {
+  width: 100%;
+  background: #99c7bd;
+  transition: height 700ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.ctLBarPeak {
+  background: var(--demo-accent, #14b8a6);
+}
+
+.ctLBarLabel {
+  font-size: 0.62rem;
+  color: #778;
+}
+
+/* --- 4.1 CNN intro --- */
+
+.ctLKernelCanvas {
+  display: block;
+}
+
+/* --- 4.2 / 4.3 CNN blocks --- */
+
+.ctLBlocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 4px;
+  align-items: center;
+}
+
+.ctLBlockGroup {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ctLBlock {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  min-width: 46px;
+  padding: 8px 6px;
+  border-radius: 6px;
+  background: #eaf6f3;
+  border: 1px solid #b7dfd6;
+}
+
+.ctLBlockFrozen {
+  background: #eef1f4;
+  border-color: #c7cfd6;
+  opacity: 0.75;
+}
+
+.ctLBlockHead {
+  background: #fdf1e6;
+  border-color: #f59e0b;
+}
+
+.ctLBlockLabel {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0f5c52;
+}
+
+.ctLBlockFrozen .ctLBlockLabel {
+  color: #56606b;
+}
+
+.ctLBlockCh {
+  font-size: 0.62rem;
+  color: #667;
+}
+
+.ctLBlockArrow {
+  color: #99a;
+  font-size: 0.8rem;
+}
+
+.ctLLock {
+  position: absolute;
+  top: -6px;
+  right: -4px;
+  width: 12px;
+  height: 14px;
+}
+
+.ctLLockShackle {
+  position: absolute;
+  top: 0;
+  left: 1px;
+  width: 8px;
+  height: 6px;
+  border: 1.6px solid #64748b;
+  border-bottom: none;
+  border-radius: 5px 5px 0 0;
+}
+
+.ctLLockBody {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 12px;
+  height: 8px;
+  background: #64748b;
+  border-radius: 2px;
+}
+
+/* --- 5.1 RNN --- */
+
+.ctLRnnChain {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.ctLRnnCells {
+  display: flex;
+  align-items: center;
+}
+
+.ctLRnnStepWrap {
+  display: flex;
+  align-items: center;
+}
+
+.ctLRnnCell {
+  width: 44px;
+  height: 34px;
+  border-radius: 7px;
+  background: #eaf6f3;
+  border: 1.4px solid #14b8a6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: ctLCellPulse 3s ease-in-out infinite;
+}
+
+@keyframes ctLCellPulse {
+  0%, 70%, 100% { box-shadow: none; }
+  10% { box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.25); }
+}
+
+.ctLRnnH {
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #0f5c52;
+}
+
+.ctLRnnArrow {
+  color: #99a;
+  padding: 0 4px;
+  font-size: 0.85rem;
+}
+
+.ctLRnnTrack {
+  position: relative;
+  height: 6px;
+  border-radius: 3px;
+  background: #eef4f2;
+  overflow: hidden;
+}
+
+.ctLRnnToken {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--demo-accent, #14b8a6);
+  animation: ctLTokenFlow 3.2s linear infinite;
+}
+
+@keyframes ctLTokenFlow {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(100% - 10px)); }
+}
+
+.ctLAttnThumbs {
+  display: flex;
+  gap: 8px;
+}
+
+.ctLAttnThumb {
+  appearance: none;
+  background: none;
+  border: 1px solid #d3e5e0;
+  border-radius: 6px;
+  padding: 4px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  text-align: left;
+}
+
+.ctLAttnThumb:hover {
+  border-color: #14b8a6;
+}
+
+.ctLAttnThumb img {
+  width: 100%;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 4px;
+  display: block;
+}
+
+.ctLAttnCaption {
+  font-size: 0.6rem;
+  color: #667;
+  line-height: 1.25;
+}
+
+/* --- 7.1 Autoencoder --- */
+
+.ctLHourglass {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-self: center;
+}
+
+.ctLHourglassCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+}
+
+.ctLHourglassBar {
+  height: 12px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #14b8a6, #0f766e);
+}
+
+.ctLHourglassDim {
+  font-size: 0.6rem;
+  color: #667;
+}
+
+.ctLHourglassTag {
+  font-size: 0.68rem;
+  color: #556;
+}
+
+.ctLHourglassTagZ {
+  color: #b45309;
+  font-weight: 700;
+}
+
+/* --- 7.2 VAE --- */
+
+.ctLVaeSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+  touch-action: none;
+}
+
+.ctLVaeDivider {
+  stroke: #d3e5e0;
+  stroke-width: 1;
+}
+
+.ctLVaeDot {
+  fill: #b7cbc5;
+}
+
+.ctLVaeBlob {
+  fill: rgba(20, 184, 166, 0.22);
+  stroke: #14b8a6;
+  stroke-width: 1.6;
+}
+
+.ctLVaeProbe {
+  fill: #f59e0b;
+  stroke: #fff;
+  stroke-width: 1.5;
+  cursor: grab;
+}
+
+/* --- 7.3 GAN --- */
+
+.ctLGan {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ctLGanBlock {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+.ctLGanGen {
+  background: #eaf6f3;
+  border: 1.4px solid #14b8a6;
+  color: #0f5c52;
+}
+
+.ctLGanDis {
+  background: #fdf1e6;
+  border: 1.4px solid #f59e0b;
+  color: #92400e;
+}
+
+.ctLGanTug {
+  position: relative;
+  flex: 1;
+  height: 14px;
+  border-radius: 7px;
+  background: #eef4f2;
+  overflow: hidden;
+}
+
+.ctLGanTugFillGen {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: var(--demo-accent, #14b8a6);
+  animation: ctLTugGen 4s ease-in-out infinite;
+}
+
+.ctLGanTugFillDis {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #f59e0b;
+  animation: ctLTugDis 4s ease-in-out infinite;
+}
+
+@keyframes ctLTugGen {
+  0%, 100% { width: 35%; }
+  50% { width: 65%; }
+}
+
+@keyframes ctLTugDis {
+  0%, 100% { width: 65%; }
+  50% { width: 35%; }
+}
+
+/* --- forward card --- */
+
+.ctLForwardCard {
+  flex: 0 0 200px;
+  min-width: 200px;
+  max-width: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+  background: #eaf6f3;
+  border: 1.4px dashed #14b8a6;
+  border-radius: 10px;
+  padding: 14px;
+}
+
+.ctLForwardText {
+  font-size: 0.82rem;
+  color: #33413d;
+  margin: 0;
+}
+
+.ctLForwardLink {
+  text-decoration: none;
+}
+
+/* --- lightbox (confined to the panel) --- */
+
+.ctLLightbox {
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  padding: 20px;
+  z-index: 20;
+}
+
+.ctLLightboxInner {
+  background: #fff;
+  border-radius: 10px;
+  padding: 14px;
+  max-width: 92%;
+  max-height: 92%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+}
+
+.ctLLightboxInner img {
+  max-width: 100%;
+  max-height: 58vh;
+  border-radius: 6px;
+  display: block;
+}
+
+.ctLLightboxCaption {
+  font-size: 0.8rem;
+  color: #445;
+  text-align: center;
+  max-width: 60ch;
+}

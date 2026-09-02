@@ -39,9 +39,9 @@ const meta: DemoMeta = {
       anchor: "#cnn",
     },
     {
-      title: "152B: learned keypoints",
+      title: "152B: the deeper networks",
       body:
-        "The graduate follow-on (CSE 152B) revisited interest points with SuperPoint: a detector pre-trained as MagicPoint on synthetic corners, then generalized to real images by homographic adaptation, evaluated on repeatability against SIFT and Harris. It needs a GPU and the HPatches dataset, so it stays a story beat, but it is the same question panel 2 asks, answered by a network.",
+        "The graduate follow-on (CSE 152B) went past HW4's two-conv-layer nets to real deep architectures, referenced here even though they can't run in a browser. SuperPoint is a full deep detector-descriptor network: pre-trained as MagicPoint on synthetic corners, generalized to real images by homographic adaptation, and evaluated on HPatches against SIFT and Harris - the same question panel 2 asks, answered by a network (the vendored pytorch-superpoint repo ran on the course GPU cluster and wasn't archived; the notebook with David's answers is in the Source drawer). The second half trained a CNN embedding for fashion-image retrieval with metric learning - triplet loss, margin studies, hard-negative mining.",
     },
     {
       title: "Rebuilt for this page (2026-09-01)",

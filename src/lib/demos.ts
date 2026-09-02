@@ -17,6 +17,7 @@ import organoids from "@/demos/organoids/meta";
 import spikes from "@/demos/spikes/meta";
 import vision from "@/demos/vision/meta";
 import arxiv from "@/demos/arxiv/meta";
+import crossteach from "@/demos/crossteach/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
 export interface DemoSource {
@@ -52,7 +53,7 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);

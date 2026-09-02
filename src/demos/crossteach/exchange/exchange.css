@@ -1,0 +1,285 @@
+/* Exchange panel (#exchange) - prefix ctX. Shared classes (crossteach.css):
+ * ctPanel ctH2 ctIntro ctChip ctBtn ctNote ctRow ctMono. */
+
+/* --- image picker --- */
+
+.ctXPicker {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 4px 2px 10px;
+  margin-bottom: 10px;
+  scrollbar-width: thin;
+}
+
+.ctXThumb {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 68px;
+  padding: 5px;
+  border: 1px solid #d3e5e0;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  appearance: none;
+}
+
+.ctXThumb:hover {
+  border-color: #14b8a6;
+}
+
+.ctXThumb[data-active="true"] {
+  border-color: #14b8a6;
+  background: #ecfdf8;
+  box-shadow: 0 0 0 1px #14b8a6 inset;
+}
+
+.ctXThumbImg {
+  width: 56px;
+  height: 56px;
+  border-radius: 7px;
+  object-fit: cover;
+  display: block;
+  background: #eef5f3;
+}
+
+.ctXThumbLabel {
+  font-size: 0.62rem;
+  color: #456;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 62px;
+}
+
+/* --- controls --- */
+
+.ctXControlsRow {
+  margin-bottom: 12px;
+}
+
+.ctXToggleGroup {
+  display: inline-flex;
+  gap: 6px;
+}
+
+/* --- columns --- */
+
+.ctXColumns {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+@media (max-width: 640px) {
+  .ctXColumns {
+    grid-template-columns: 1fr;
+  }
+}
+
+.ctXCol {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.ctXColHead {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #234;
+}
+
+.ctXCanvasWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #e7f2ef;
+  border: 1px solid #d3e5e0;
+}
+
+.ctXCanvas {
+  width: 100%;
+  height: 100%;
+}
+
+.ctXChipRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.ctXCoverage {
+  font-size: 0.72rem;
+  color: #567;
+}
+
+.ctXGateBadge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.ctXGateBadge[data-state="teaches"] {
+  background: #14b8a6;
+  color: #fff;
+}
+
+.ctXGateBadge[data-state="held-back"] {
+  background: #dbe3e0;
+  color: #556;
+}
+
+/* --- confidence slider --- */
+
+.ctXSliderRow {
+  margin-bottom: 16px;
+}
+
+.ctXSliderLabel {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #234;
+}
+
+.ctXSlider {
+  flex: 1 1 160px;
+  min-width: 120px;
+  accent-color: var(--demo-accent, #14b8a6);
+}
+
+.ctXSliderNote {
+  font-size: 0.72rem;
+  color: #678;
+}
+
+/* --- ensemble strip --- */
+
+.ctXEnsemble {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #d3e5e0;
+}
+
+.ctXEnsembleCanvasWrap {
+  position: relative;
+  flex: 0 0 84px;
+  width: 84px;
+  height: 84px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #e7f2ef;
+  border: 1px solid #d3e5e0;
+}
+
+.ctXEnsembleText {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.ctXEnsembleText .ctNote {
+  margin-top: 4px;
+}
+
+/* --- teach animation --- */
+
+.ctXTeachLayer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.ctXGhost {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  transition: opacity 0.1s linear;
+}
+
+.ctXGhostCanvas {
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(15, 92, 82, 0.35);
+  border: 2px solid #14b8a6;
+}
+
+.ctXGhostLabel {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: #0f766e;
+  background: #fff;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid #14b8a6;
+  white-space: nowrap;
+}
+
+.ctXLanding {
+  position: absolute;
+  transform: translate(-50%, calc(-50% - 46px));
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: #fff;
+  background: #0f766e;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ctXFlash {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #78350f;
+  background: #fef3c7;
+  border: 1px solid #f59e0b;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.ctXConsistency {
+  position: absolute;
+  left: 50%;
+  bottom: -6px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ctXConsistencyTrack {
+  width: 70px;
+  height: 5px;
+  border-radius: 999px;
+  background: #dbe3e0;
+  overflow: hidden;
+}
+
+.ctXConsistencyFill {
+  height: 100%;
+  background: #14b8a6;
+}
+
+.ctXConsistencyLabel {
+  font-size: 0.64rem;
+  color: #567;
+  white-space: nowrap;
+}

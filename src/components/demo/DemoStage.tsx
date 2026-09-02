@@ -22,6 +22,7 @@ const STAGES: Record<string, ComponentType> = {
   spikes: dynamic(() => import("@/demos/spikes/Stage"), { ssr: false, loading: Loading }),
   vision: dynamic(() => import("@/demos/vision/Stage"), { ssr: false, loading: Loading }),
   arxiv: dynamic(() => import("@/demos/arxiv/Stage"), { ssr: false, loading: Loading }),
+  crossteach: dynamic(() => import("@/demos/crossteach/Stage"), { ssr: false, loading: Loading }),
 };
 
 export default function DemoStage({ slug }: { slug: string }) {

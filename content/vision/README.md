@@ -36,6 +36,10 @@ matching, then learning.
   claims a re-run.
 - The `BatchGradientDescentFromScratch` notebook is excluded from scope (decided
   2026-08-30).
+- The CSE 152B deeper networks (SuperPoint/MagicPoint, the metric-learning
+  triplet-loss CNN) are referenced in the story and shown as a Source-drawer extract
+  (`demos/vision_src/hw152b_extract.py`), not run: the vendored pytorch-superpoint repo
+  and its weights lived on the course GPU cluster and were never archived.
 
 ## Building
 

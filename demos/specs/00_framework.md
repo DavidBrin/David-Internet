@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01).
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01), 08 Cross-Teaching (2026-09-01).
 
 ## Decision
 
@@ -69,7 +69,7 @@ Out of scope · Open/Resolved questions.
 | 05 | HardHack Break-in Simulator | `hardhack` | hardhack2026_intrusion_system_raw | **built 2026-08-31** - page-wide sim, 13 table tests; scrubbed sources in demos/hardhack_src/ |
 | 06 | Verilog | `verilog` | viterbi_decoder_fpga_raw, ece111_rtl_library_raw | **built 2026-08-30** — all presets simulated, 17/17 module benches pass |
 | 07 | ESP32 Thermal TinyML | `esp32` | tinyml_esp32_raw, esp32_iot_fastapi_raw | **built 2026-08-31** - 76 features (spec said 65 - documents won), int8 kernels bit-faithful vs TFLite |
-| 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | resolved: retrain if no checkpoints on disk/GitHub; micro-CT when cleared; bbox skipped |
+| 08 | Cross-Teaching Segmentation | `crossteach` | cross_teaching_segmentation_raw, dtu_deep_learning_notebooks_raw | **built 2026-09-01** - NO retraining: real checkpoints found in DavidBrin/Semi-supervised-image-model (Git LFS) + committed per-epoch metrics; repo config differs from local raw copy (labeled 20%, image-level gate 0.75, weight 0.05, warmup 2, 8 epochs - documents won); micro-CT slices are public in DavidBrin/Semi-supervised-Microtomography-Segmentation (shipped 3); the bbox to-do exists as never-run CrossDetection.py (shown, not run) |
 | 09 | arXiv Semantic Graph | `arxiv` | arxiv_semantic_graph_raw | **built 2026-09-01** - group repo recovered (full package src); real filters were 2024/200-words -> 148,477 papers; report tau=0.27 vs modularity argmax 0.19 is the story; brute-force k-NN + t-SNE disclosed |
 | 10 | SQL Playground | `sql` | dtu_databases_raw | none |
 | 11 | Computer Vision | `vision` | computer_vision_cse152_raw | **built 2026-09-01** - stereo inputs re-rendered from facedata (data.pickle never archived; original lights recovered from notebook prints); HW4 curves extracted from archived run, not re-trained; corner_detect mode="full" quirk kept |

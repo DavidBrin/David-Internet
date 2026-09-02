@@ -1,0 +1,84 @@
+/* Cross-Teaching Segmentation — shared stage styles (panel-specific styles live
+ * in each panel's own css file with its prefix: ctX exchange, ctT training,
+ * ctA architectures, ctL ladder). */
+
+.ctStage {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.ctSection {
+  scroll-margin-top: 70px;
+}
+
+.ctPanel {
+  background: #fff;
+  border: 1px solid #d3e5e0;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+
+.ctH2 {
+  font-size: 1.15rem;
+  font-weight: 650;
+  margin: 0 0 6px;
+}
+
+.ctIntro {
+  color: #445;
+  font-size: 0.92rem;
+  margin: 0 0 14px;
+  max-width: 72ch;
+}
+
+.ctChip {
+  display: inline-block;
+  background: var(--demo-panel, #dff0ec);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #0f5c52;
+}
+
+.ctBtn {
+  appearance: none;
+  border: 1px solid #14b8a6;
+  background: #fff;
+  color: #0f766e;
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.ctBtn:hover {
+  background: #ecfdf8;
+}
+
+.ctBtn[data-active="true"],
+.ctBtn.ctBtnPrimary {
+  background: #14b8a6;
+  color: #fff;
+}
+
+.ctNote {
+  font-size: 0.8rem;
+  color: #667;
+  margin: 8px 0 0;
+  max-width: 76ch;
+}
+
+.ctRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.ctMono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.85em;
+}

@@ -22,6 +22,7 @@ import organoids from "@content/organoids/site";
 import spikes from "@content/spikes/site";
 import vision from "@content/vision/site";
 import arxiv from "@content/arxiv/site";
+import crossteach from "@content/crossteach/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -41,6 +42,7 @@ export const manifests: SiteManifest[] = [
   spikes,
   vision,
   arxiv,
+  crossteach,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

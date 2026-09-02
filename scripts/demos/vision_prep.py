@@ -737,14 +737,28 @@ def prep_sources():
     """
     src_dir = REPO / "demos" / "vision_src"
     src_dir.mkdir(exist_ok=True)
-    for key, rel in NB_PATHS.items():
+    nb_paths = dict(NB_PATHS)
+    nb_paths["hw152b"] = "cse152b_superpoint/HW1.ipynb"
+    headers = {
+        "hw152b": (
+            "# CSE 152B HW1 (UCSD, spring 2025) - code cells + questions extracted for the Source drawer.",
+            "# SuperPoint/MagicPoint inference on HPatches (the vendored pytorch-superpoint repo and its",
+            "# pretrained weights ran on the course GPU cluster and were not archived) and Q2's metric-learning",
+            "# CNN with triplet loss + hard negative mining (pytorch_metric_learning) - referenced on the page,",
+            "# not runnable in the demo.",
+        )
+    }
+    for key, rel in nb_paths.items():
         nb = json.load(open(RAW / rel, encoding="utf-8"))
-        lines = [
-            f"# {Path(rel).name} - code cells extracted for the Source drawer.",
-            "# CSE 152A (UCSD, winter 2025) course template + David's solutions;",
-            "# outputs and embedded figures stripped (the originals live in demos/computer_vision_cse152_raw/).",
-            "",
-        ]
+        header = headers.get(
+            key,
+            (
+                f"# {Path(rel).name} - code cells extracted for the Source drawer.",
+                "# CSE 152A (UCSD, winter 2025) course template + David's solutions;",
+                "# outputs and embedded figures stripped (the originals live in demos/computer_vision_cse152_raw/).",
+            ),
+        )
+        lines = [*header, ""]
         for c in nb["cells"]:
             src = "".join(c["source"]).rstrip()
             if c["cell_type"] == "markdown":

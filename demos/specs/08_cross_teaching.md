@@ -1,7 +1,22 @@
 # 08 — Cross-Teaching: Two Models Teaching Each Other (DTU 02456 Deep Learning, fall 2025)
 
 Slug: `crossteach` · Fake domain: `crossteach.davids.net` · Archetype: **A** (precomputed interactive) + Story rail + Learning ladder
-Status: spec agreed 2026-08-29; **not built**.
+Status: spec agreed 2026-08-29; **built 2026-09-01**. Major drift from spec, documents won:
+the "build pipeline" never ran because the trained checkpoints (plus committed per-epoch
+metrics JSONs) were found in the public `DavidBrin/Semi-supervised-image-model` repo
+(Git LFS) — the page runs those four checkpoints at prep time instead of retraining, so
+there are no per-2-3-epoch prediction morphs (the repo keeps only final/best weights);
+the training replay scrubs the real 8-epoch metric histories instead. The repo HEAD
+supersedes the raw folder's scripts: labeled fraction 0.2 (not 0.5), IMAGE-level
+confidence gate at 0.75 (not per-pixel at 0.9), consistency weight 0.05 (after a scaling
+fix; `cross_teaching_checkpoint_eval.json` records the post-hoc re-eval), 2-epoch
+warmup, 8 epochs, logit-averaged ensembling. Micro-CT: the slices turned out to be
+public in `DavidBrin/Semi-supervised-Microtomography-Segmentation` (published by David,
+Dec 2025) — 3 shipped with Otsu-binarized masks. The `head_bbox` to-do was actually
+written later as `CrossDetection.py` ("never got to testing, training, or even
+proofreading") — shown as source + explainer card, not run, per David's directive that
+non-runnable deeper networks still get mentioned. Ladder: notebooks are output-stripped,
+so only autodiff + half-moon run live; the rest are explanation/visualization cards.
 
 ## Summary
 
