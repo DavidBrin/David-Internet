@@ -198,7 +198,7 @@ export default function AboutPage() {
             </li>
           </ul>
           <p className="aboutNote">
-            {demos.length} of these are playable in the browser —{" "}
+            {demos.length} demos are playable in the browser —{" "}
             <Link href="/demos">see all the demos</Link>, or read the write-ups on{" "}
             <a href={WIKIPEDIA_BASE_URL} target="_blank" rel="noopener noreferrer">
               David&apos;s Wikipedia
