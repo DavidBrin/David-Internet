@@ -1,18 +1,20 @@
 /**
  * The Path: story data. David edits this file; components never hardcode copy.
  *
- * STATUS: design-pass scaffold.
+ * STATUS: content pass over the design scaffold.
  *   - Dates are fact (résumés; see spec Appendix A).
  *   - Phase bodies are a first pass from the résumé and about page; David can rewrite.
- *   - `messages` is a PLACEHOLDER pool until the "Daily Dose of Damn" export
- *     lands. The desk-etched anchor line is real and fixed.
- *   - Demo slugs without a manifest render as inert "coming soon" stones.
+ *   - `messages` are house lines in the page's own voice, standing in until the
+ *     "Daily Dose of Damn" export lands. The desk-etched anchor line is real and fixed.
+ *   - Photo frames with `placeholder: true` have no asset yet (see PHOTOS.md);
+ *     their copy is written to read as a held place, not as a missing file.
+ *   - A demo that isn't rebuilt yet stays inert and carries a `note` saying why.
  */
 import type { Journey } from "@/lib/journey";
 
 const journey: Journey = {
   hero: {
-    // Title pending David's final call (spec §0.1); "Flowstate" is the recommendation.
+    // Spec §0.1 recommended "Flowstate" with "meander & milestones"; adopted.
     title: "Flowstate",
     subtitle: "meander & milestones",
     tagline: "Flow through the path of my life.",
@@ -35,8 +37,8 @@ const journey: Journey = {
         waterMood: "trickle",
       },
       media: [
-        { src: "", alt: "David as a child", caption: "Needed: an early childhood photo", placeholder: true, reveal: "wash-paper" },
-        { src: "", alt: "David's first robot project", caption: "Needed: a photo of an early robot build", placeholder: true, reveal: "wash-paper" },
+        { src: "", alt: "A childhood photo belongs here", caption: "San Diego, before any of this had a name.", placeholder: true, reveal: "wash-paper" },
+        { src: "", alt: "A first-robot photo belongs here", caption: "Robolink, 2017 — where taking robots apart turned into a habit.", placeholder: true, reveal: "wash-paper" },
       ],
       effect: "etch-anchor",
     },
@@ -150,7 +152,13 @@ const journey: Journey = {
       branch: { label: "three projects, one valley", rejoins: true },
       demos: [
         { slug: "nocturnal", label: "Nocturnal Neuro", status: "live" },
-        { slug: "autonomous-car", label: "Autonomous car", status: "in-progress", needsAssets: true },
+        {
+          slug: "autonomous-car",
+          label: "Autonomous car",
+          status: "in-progress",
+          needsAssets: true,
+          note: "Spring 2025 · ROS 2 and onboard NVIDIA compute. Not rebuilt yet — the original lives on another machine.",
+        },
         { slug: "crossteach", label: "Cross-Teaching", status: "live" },
       ],
     },
@@ -192,7 +200,7 @@ const journey: Journey = {
         waterMood: "stream",
       },
       media: [
-        { src: "", alt: "David during his General Atomics work", caption: "Needed: a General Atomics-era photo", placeholder: true, reveal: "wash-paper" },
+        { src: "", alt: "A photo from the General Atomics year belongs here", caption: "San Diego, 2025–26 — a year of embedded C and hardware with no patience for almost-working.", placeholder: true, reveal: "wash-paper" },
       ],
       effect: "wash-paper",
     },
@@ -232,12 +240,12 @@ const journey: Journey = {
         waterMood: "rapids",
       },
       media: [
-        { src: "/path/co-founders/gallery/01.jpg", alt: "The co-founders, years before Katalyxt", caption: "Katalyxt caption pending", reveal: "wash-paper" },
-        { src: "/path/co-founders/gallery/25.jpg", alt: "The co-founders, growing up", caption: "Katalyxt caption pending", reveal: "wash-paper" },
-        { src: "/path/co-founders/headshots/david.jpg", alt: "David Brin", caption: "David", reveal: "fade" },
-        { src: "/path/co-founders/headshots/brennan.jpg", alt: "Brennan Lim", caption: "Brennan", reveal: "fade" },
-        { src: "/path/co-founders/headshots/sahil.jpg", alt: "Sahil Simma", caption: "Sahil", reveal: "fade" },
-        { src: "/path/co-founders/headshots/dilan.jpg", alt: "Dilan Doshi", caption: "Dilan", reveal: "fade" },
+        { src: "/path/co-founders/gallery/01.jpg", alt: "The co-founders, years before Katalyxt", caption: "The four of us, years before there was a company to found.", reveal: "wash-paper" },
+        { src: "/path/co-founders/gallery/25.jpg", alt: "The co-founders, growing up", caption: "A decade of reps, most of them long before the pitch deck.", reveal: "wash-paper" },
+        { src: "/path/co-founders/headshots/david.jpg", alt: "David Brin", caption: "David Brin", reveal: "fade" },
+        { src: "/path/co-founders/headshots/brennan.jpg", alt: "Brennan Lim", caption: "Brennan Lim", reveal: "fade" },
+        { src: "/path/co-founders/headshots/sahil.jpg", alt: "Sahil Simma", caption: "Sahil Simma", reveal: "fade" },
+        { src: "/path/co-founders/headshots/dilan.jpg", alt: "Dilan Doshi", caption: "Dilan Doshi", reveal: "fade" },
       ],
       effect: "wash-paper",
       links: [{ label: "katalyxt.ai", href: "https://katalyxt.ai", external: true }],
@@ -277,14 +285,15 @@ const journey: Journey = {
     cta: { label: "Back to David's Internet", href: "/" },
   },
 
-  // PLACEHOLDER pool; replaced by the "Daily Dose of Damn" export.
+  // House lines in the page's own voice, one per odd phase. They stand in until
+  // the "Daily Dose of Damn" export lands; the anchor line is the real, fixed one.
   messages: [
     { text: "DON'T FIND YOUR PLACE IN THE WORLD, MAKE IT", fixed: true },
-    { text: "placeholder: daily dose of damn #1" },
-    { text: "placeholder: daily dose of damn #2" },
-    { text: "placeholder: daily dose of damn #3" },
-    { text: "placeholder: daily dose of damn #4" },
-    { text: "placeholder: daily dose of damn #5" },
+    { text: "Every river is only weather that kept going." },
+    { text: "Nothing on this bank was assigned." },
+    { text: "The bend isn't a detour. The bend is the river." },
+    { text: "Water never waits for permission. It finds the low ground and goes." },
+    { text: "Build it badly first; the current sorts out the rest." },
   ],
 };
 
