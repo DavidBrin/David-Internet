@@ -29,12 +29,13 @@ const SNIPPET_CHARS = 300;
 export const ABOUT_BODY = [
   "David Brin, San Diego, California. Co-founder of Katalyxt AI, an enterprise AI platform that translates fragmented business data and organizational context into AI-accessible insight.",
   "Raised a $200K pre-seed from NFX, KP Scout and Long Journey; reached $30K ARR in a one-month sprint with four industry design partners. Leads product and engineering across design, DevOps, cloud infrastructure, security, and ML / LLM / memory systems.",
-  "B.S. Computer Engineering, UC San Diego (2026). Regents Scholar, 3.9 GPA, with an exchange semester at DTU covering Deep Learning, Quantum Information, Databases and Computational Data Science.",
-  "Previously: embedded firmware in C for a camera driver and control system at General Atomics; neural-data pipelines for patch-clamp and multi-electrode-array recordings at UC San Diego's Voytek Lab; cohort lead at Berkeley Coding Academy.",
-  "Projects: semi-supervised microtomography segmentation with a U-Net and ViT cross-teaching ensemble; an autonomous car on ROS 2 with onboard NVIDIA compute; an EEG-based bipolar-disorder diagnostic concept; drone PCB design in Altium.",
-  "Skills: Python, C, C++, TypeScript, PyTorch, computer vision, embedded systems, Linux, ROS 2, Azure.",
-  "This site indexes David's personal projects. Search for anything.",
-  "Contact: david.e.brin@gmail.com",
+  "B.S. Computer Engineering, UC San Diego (2026). Regents Scholar, 3.9 GPA, with coursework across machine learning, computer vision, embedded systems, computer architecture, algorithms, circuits and signal analysis, and an exchange semester at DTU covering Deep Learning, Quantum Information, Databases and Computational Data Science.",
+  "Awards and certifications: Regents Scholarship (2023-2026), CRA Undergraduate Research Award (2025-2026), Microsoft Azure AZ-900, Databricks Fundamentals.",
+  "Previously: electrical technologies intern at General Atomics, writing embedded firmware in C for a camera driver and control system; undergraduate researcher at UC San Diego's Voytek Lab, building neural-data pipelines for patch-clamp and organoid multi-electrode-array recordings; PCB layout in Altium for Triton Unmanned Aerial Systems; cohort lead at Berkeley Coding Academy.",
+  "Projects: semi-supervised microtomography segmentation with a U-Net and ViT cross-teaching ensemble; Nocturnal Neuro, an overnight EEG wearable proposed as objective data for mental-health diagnosis; an embedded intrusion system built at HardHack 2026; an autonomous car on ROS 2 with onboard NVIDIA compute.",
+  "Skills: Python, C, C++, TypeScript, PyTorch, computer vision, embedded systems, Linux, ROS 2, MATLAB, Verilog, Altium, MQTT, Azure.",
+  "This site indexes David's personal projects. Search for anything. The Path tells the same story as a river you scroll.",
+  "Contact: david.e.brin@gmail.com. Code: github.com/DavidBrin. Company: katalyxt.ai.",
 ].join("\n\n");
 
 /** Read a vendored markdown file, or null if it wasn't vendored. */

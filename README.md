@@ -60,9 +60,11 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 
 ## About page
 
-`/about` contains a **preliminary bio distilled from `db_resume_2026.pdf`**.
+`/about` is a bio distilled from `db_resume_2026.pdf` (chronology mirrored in the Path spec's Appendix A) plus the story copy in `content/path/journey.ts`. It carries a short "the short version" voice section, per-project commentary that links into the demos, and an "Elsewhere" block (email, GitHub, katalyxt.ai, The Path).
 
-> **TODO (David):** update the résumé source and flesh out the About page — the current description is a first pass generated from the resume; add more personality, links (GitHub, LinkedIn), and per-project commentary.
+The same prose is indexed as the `about` SearchDoc — edit `ABOUT_BODY` in `src/lib/content.server.ts` alongside the page so search snippets stay in step.
+
+> **Still David's to supply:** a LinkedIn URL (deliberately omitted — no URL exists anywhere in the repo) and any bio facts newer than the 2026 résumé.
 
 ## Idea list (fun layer, not yet built)
 
