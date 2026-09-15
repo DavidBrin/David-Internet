@@ -63,13 +63,21 @@
   margin: 0 0 4px;
 }
 
-.aboutContact {
+.aboutLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
   font-size: 14px;
   margin: 10px 0 0;
 }
 
-.aboutContact a {
+.aboutLinks a {
   color: #1a0dab;
+  text-decoration: none;
+}
+
+.aboutLinks a:hover {
+  text-decoration: underline;
 }
 
 .aboutLede {
@@ -146,6 +154,32 @@
 
 .aboutList li {
   margin: 0 0 6px;
+}
+
+.aboutList a,
+.aboutEntryTitle a {
+  color: #1a0dab;
+  text-decoration: none;
+}
+
+.aboutList a:hover,
+.aboutEntryTitle a:hover {
+  text-decoration: underline;
+}
+
+.aboutSection .aboutNote {
+  font-size: 13px;
+  color: #5f6368;
+  margin: 14px 0 0;
+}
+
+.aboutNote a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+
+.aboutNote a:hover {
+  text-decoration: underline;
 }
 
 .aboutChips {

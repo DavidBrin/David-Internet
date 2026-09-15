@@ -1,11 +1,12 @@
 /**
  * DemoStone — a project "rock" in the river. Manifest-backed demos link out;
- * in-progress demos render as inert "coming soon" stones (label only — never
- * describe unfinished content).
+ * a project with no demo yet renders as an inert stone that says so, carrying
+ * its `note` instead of pretending there is something behind the click.
  */
 import type { DemoRef } from "@/lib/journey";
 
 export default function DemoStone({ demo }: { demo: DemoRef }) {
+  const pending = demo.status === "in-progress";
   const inner = (
     <>
       <span className="stoneShape" aria-hidden="true">
@@ -14,13 +15,14 @@ export default function DemoStone({ demo }: { demo: DemoRef }) {
       <span className="stoneText">
         <span className="stoneLabel">{demo.label}</span>
         <span className="stoneMeta">
-          {demo.status === "in-progress" ? "coming soon" : demo.status === "live" ? "visit" : "read the wiki"}
+          {pending ? "not a demo yet" : demo.status === "live" ? "visit" : "read the wiki"}
         </span>
+        {pending && demo.note && <span className="stoneNote">{demo.note}</span>}
       </span>
     </>
   );
 
-  if (demo.href && demo.status !== "in-progress") {
+  if (demo.href && !pending) {
     return (
       <div className="demoStoneGroup">
         <a className={`demoStone demoStone--${demo.status}`} href={demo.href}>

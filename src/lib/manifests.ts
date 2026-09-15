@@ -29,6 +29,7 @@ import p300 from "@content/p300/site";
 import sql from "@content/sql/site";
 import modeling from "@content/modeling/site";
 import earlycode from "@content/earlycode/site";
+import agentMemory from "@content/agent-memory/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -55,6 +56,7 @@ export const manifests: SiteManifest[] = [
   sql,
   modeling,
   earlycode,
+  agentMemory,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

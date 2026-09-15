@@ -119,6 +119,11 @@
       "source": "/sites/earlycode/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Early_Code",
       "permanent": false
+    },
+    {
+      "source": "/sites/agent-memory/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Agent_Memory",
+      "permanent": false
     }
   ]
 }

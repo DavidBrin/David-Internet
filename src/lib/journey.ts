@@ -39,12 +39,14 @@ export interface PhaseMedia {
   placeholder?: boolean;
 }
 
-/** A project demo placed on the river. In-progress ⇒ inert "coming soon" stone. */
+/** A project demo placed on the river. In-progress ⇒ inert, un-rebuilt stone. */
 export interface DemoRef {
   slug: string;
   label: string;
   status: "live" | "docs" | "in-progress";
   needsAssets?: boolean;
+  /** Honest one-liner for a stone with nothing to click yet: what it was, why there's no demo. */
+  note?: string;
   href?: string;
   /** Optional encyclopedia article, shown alongside a distinct demo link. */
   wikiHref?: string;

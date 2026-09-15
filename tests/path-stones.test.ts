@@ -28,6 +28,13 @@ describe("Path stones", () => {
     }
   });
 
+  it("gives every un-rebuilt stone a note saying why there is nothing to click", () => {
+    for (const stone of stones) {
+      if (stone.status !== "in-progress") continue;
+      expect(stone.note, `${stone.slug} needs a note`).toBeTruthy();
+    }
+  });
+
   it("does not keep placeholder stones for demos that are now live", () => {
     expect(bySlug.has("early-builds")).toBe(false);
     expect(bySlug.has("microct-segmentation")).toBe(false);
