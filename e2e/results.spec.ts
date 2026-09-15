@@ -18,11 +18,10 @@ test.describe("Search results (All tab)", () => {
     expect(await youtubeResults.count()).toBeGreaterThan(1);
 
     const first = results.first();
-    // liveUrl is null for every project (content/youtube/site.ts), so every href
-    // resolves to the project's Wikipedia article.
+    // YouTube has a liveUrl, so home and deep-link results leave David's Internet.
     await expect(first.locator(".result-title-link")).toHaveAttribute(
       "href",
-      "https://davids-wikipedia.vercel.app/wiki/YouTube_(replica)",
+      "https://youtube-david.vercel.app",
     );
     await expect(first.locator(".result-favicon")).toBeVisible();
     await expect(first.locator(".result-url")).toBeVisible();
