@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import type { AgentMemoryTrace, SnapshotId, TraceSnapshot } from "./core/trace";
 import { chapterFromHash, type TimelineChapter } from "./core/chapters";
 import { supersedesArrow } from "./core/relationships";
+import { recordsForSnapshot } from "./core/snapshot-records";
 
 type Chapter = TimelineChapter;
 
@@ -95,15 +96,7 @@ function RagBaseline() {
 }
 
 function SnapshotDiagram({ snapshot, temporal }: { snapshot: TraceSnapshot; temporal: boolean }) {
-  const preferenceRecords = snapshot.records.filter((record) => record.entities.includes("summary_style"));
-  const packetRecordIds = new Set([
-    ...(snapshot.query?.entries.map((entry) => entry.memory_id) ?? []),
-    ...(snapshot.query?.excluded.map((entry) => entry.memory_id) ?? []),
-  ]);
-  const packetRecords = snapshot.records.filter((record) => packetRecordIds.has(record.memory_id));
-  const records = (temporal || snapshot.id === "after-deletion") && preferenceRecords.length
-    ? preferenceRecords
-    : packetRecords.length ? packetRecords : snapshot.records.filter((record) => !record.deleted).slice(-3);
+  const records = recordsForSnapshot(snapshot, temporal);
   const primary = snapshot.event;
   const decision = snapshot.decision;
   const packet = snapshot.query;
@@ -241,7 +234,7 @@ function SnapshotDiagram({ snapshot, temporal }: { snapshot: TraceSnapshot; temp
       {packet && (
         <div className="amRetrievalFlow" aria-label="Recorded retrieval stages">
           <div>
-            <p className="amKicker">Records named by the packet</p>
+            <p className="amKicker">Records shown in this snapshot</p>
             {records.length ? <ul>{records.map((record) => <li key={record.memory_id}>{record.memory_id}: {record.content}</li>)}</ul> : <p>No record is named by this captured packet.</p>}
           </div>
           <div>

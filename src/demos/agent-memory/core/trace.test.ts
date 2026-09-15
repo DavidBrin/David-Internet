@@ -39,6 +39,12 @@ describe("Agent Memory Timeline trace", () => {
     expect(() => parseTrace({ version: 2, generatedAt: "2026-01-01T00:00:00Z", snapshots: [] })).toThrow("version 1");
   });
 
+  it("rejects an invalid checkpoint timestamp before rendering it", () => {
+    const trace = shippedTrace() as { snapshots: Array<Record<string, unknown>> };
+    trace.snapshots[0].at = "not-a-timestamp";
+    expect(() => parseTrace(trace)).toThrow("valid timestamp");
+  });
+
   it("rejects duplicate snapshot IDs", () => {
     const trace = shippedTrace() as { snapshots: unknown[] };
     trace.snapshots.push(trace.snapshots[0]);

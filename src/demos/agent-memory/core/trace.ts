@@ -119,6 +119,12 @@ function string(value: unknown, label: string): string {
   return value;
 }
 
+function timestamp(value: unknown, label: string): string {
+  const text = string(value, label);
+  if (Number.isNaN(Date.parse(text))) throw new Error(`${label} must be a valid timestamp`);
+  return text;
+}
+
 function number(value: unknown, label: string): number {
   if (typeof value !== "number" || !Number.isFinite(value)) throw new Error(`${label} must be a finite number`);
   return value;
@@ -138,6 +144,10 @@ function stringOrNull(value: unknown, label: string): string | null {
   return value === null ? null : string(value, label);
 }
 
+function timestampOrNull(value: unknown, label: string): string | null {
+  return value === null ? null : timestamp(value, label);
+}
+
 function event(value: unknown, label: string): TraceEvent {
   const item = object(value, label);
   return {
@@ -146,7 +156,7 @@ function event(value: unknown, label: string): TraceEvent {
     kind: string(item.kind, `${label}.kind`),
     content: string(item.content, `${label}.content`),
     session_id: string(item.session_id, `${label}.session_id`),
-    ts: string(item.ts, `${label}.ts`),
+    ts: timestamp(item.ts, `${label}.ts`),
     entity_hints: strings(item.entity_hints, `${label}.entity_hints`),
   };
 }
@@ -178,8 +188,8 @@ function record(value: unknown, label: string): TraceRecord {
     content: string(item.content, `${label}.content`),
     source_event_ids: strings(item.source_event_ids, `${label}.source_event_ids`),
     entities: strings(item.entities, `${label}.entities`),
-    valid_from: string(item.valid_from, `${label}.valid_from`),
-    valid_until: stringOrNull(item.valid_until, `${label}.valid_until`),
+    valid_from: timestamp(item.valid_from, `${label}.valid_from`),
+    valid_until: timestampOrNull(item.valid_until, `${label}.valid_until`),
     trust_level: string(item.trust_level, `${label}.trust_level`),
     sensitivity: string(item.sensitivity, `${label}.sensitivity`),
     confidence: number(item.confidence, `${label}.confidence`),
@@ -200,8 +210,8 @@ function edge(value: unknown, label: string): TraceEdge {
     src: string(item.src, `${label}.src`),
     dst: string(item.dst, `${label}.dst`),
     rel: string(item.rel, `${label}.rel`),
-    valid_from: string(item.valid_from, `${label}.valid_from`),
-    valid_until: stringOrNull(item.valid_until, `${label}.valid_until`),
+    valid_from: timestamp(item.valid_from, `${label}.valid_from`),
+    valid_until: timestampOrNull(item.valid_until, `${label}.valid_until`),
     visible: boolean(item.visible, `${label}.visible`),
   };
 }
@@ -212,7 +222,7 @@ function query(value: unknown, label: string): TraceQueryResult {
   const excluded = Array.isArray(item.excluded) ? item.excluded : (() => { throw new Error(`${label}.excluded must be an array`); })();
   return {
     query: string(item.query, `${label}.query`),
-    as_of: string(item.as_of, `${label}.as_of`),
+    as_of: timestamp(item.as_of, `${label}.as_of`),
     session_id: stringOrNull(item.session_id, `${label}.session_id`),
     clearance: string(item.clearance, `${label}.clearance`),
     entries: entries.map((entryValue, index) => {
@@ -259,7 +269,7 @@ export function parseTrace(value: unknown): AgentMemoryTrace {
     }
     const snapshot: TraceSnapshot = {
       id: id as SnapshotId,
-      at: string(item.at, `trace.snapshots[${index}].at`),
+      at: timestamp(item.at, `trace.snapshots[${index}].at`),
       focus: focus as SnapshotFocus,
       records: item.records.map((recordValue, recordIndex) => record(recordValue, `trace.snapshots[${index}].records[${recordIndex}]`)),
       edges: item.edges.map((edgeValue, edgeIndex) => edge(edgeValue, `trace.snapshots[${index}].edges[${edgeIndex}]`)),
@@ -303,7 +313,7 @@ export function parseTrace(value: unknown): AgentMemoryTrace {
   }
   const integrity = snapshots.find((snapshot) => snapshot.id === "integrity-check")!;
   if (!integrity.integrity) throw new Error("Agent Memory trace integrity-check snapshot must contain integrity data");
-  return { version: 1, generatedAt: string(trace.generatedAt, "trace.generatedAt"), snapshots };
+  return { version: 1, generatedAt: timestamp(trace.generatedAt, "trace.generatedAt"), snapshots };
 }
 
 export function getSnapshot(trace: AgentMemoryTrace, id: SnapshotId): TraceSnapshot {
