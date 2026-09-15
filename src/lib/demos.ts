@@ -22,6 +22,7 @@ import p300 from "@/demos/p300/meta";
 import sql from "@/demos/sql/meta";
 import modeling from "@/demos/modeling/meta";
 import earlycode from "@/demos/earlycode/meta";
+import agentMemory from "@/demos/agent-memory/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
 export interface DemoSource {
@@ -57,7 +58,7 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode, agentMemory];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);

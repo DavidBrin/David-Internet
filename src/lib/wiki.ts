@@ -37,6 +37,7 @@ export const WIKI_SLUGS: Record<string, string> = {
   sql: "SQL_Playground",
   modeling: "Early_3D_Modeling",
   earlycode: "Early_Code",
+  "agent-memory": "Agent_Memory",
 };
 
 /** true when the project has an encyclopedia article. */
