@@ -61,19 +61,21 @@ export default function DemoLayout({
       <header className="demoHeader">
         <h1 className="demoTitle">{manifest.displayName}</h1>
         <p className="demoTagline">{manifest.tagline}</p>
-        <ul className="demoChips">
-          <li>
-            <b>What</b> {meta.what}
-          </li>
-          {meta.why ? (
+        {meta.hideChips ? null : (
+          <ul className="demoChips">
             <li>
-              <b>Why</b> {meta.why}
+              <b>What</b> {meta.what}
             </li>
-          ) : null}
-          <li>
-            <b>When</b> {meta.when}
-          </li>
-        </ul>
+            {meta.why ? (
+              <li>
+                <b>Why</b> {meta.why}
+              </li>
+            ) : null}
+            <li>
+              <b>When</b> {meta.when}
+            </li>
+          </ul>
+        )}
       </header>
 
       <div className="demoBody">

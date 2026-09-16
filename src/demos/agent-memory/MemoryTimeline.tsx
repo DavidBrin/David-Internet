@@ -346,7 +346,7 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
   return (
     <section className="amTimeline" id="memory-timeline" aria-labelledby="am-title">
       <header className="amHero">
-        <p className="amKicker">Agent Memory Timeline</p>
+        <p className="amKicker">Agent Memory</p>
         <h2 id="am-title">Memory is a hierarchy. Governed memory is a trace.</h2>
         <p>This page replays one deterministic Memory OS v0 run. It is an explanation of the experiment, not a browser chat agent or a production memory service.</p>
       </header>
@@ -373,7 +373,7 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
         </ol>
       </div>
 
-      <nav className="amChapters" aria-label="Agent Memory Timeline chapters">
+      <nav className="amChapters" aria-label="Agent Memory chapters">
         {CHAPTERS.map((item) => (
           <button key={item.id} type="button" className="amChapterButton" aria-pressed={chapter === item.id} data-active={chapter === item.id} onClick={() => selectChapter(item.id)}>
             <span>{item.label}</span><small>{item.detail}</small>

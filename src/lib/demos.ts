@@ -56,6 +56,8 @@ export interface DemoMeta {
   sourceFooter?: string;
   /** Page-wide tint matching the project's vibe (bg = page, panel = bars/hovers). Defaults to white/grey. */
   theme?: { bg: string; panel?: string };
+  /** Hide the What/Why/When chips in the demo-page header (they still appear on the demos index card). */
+  hideChips?: boolean;
 }
 
 export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode, agentMemory];

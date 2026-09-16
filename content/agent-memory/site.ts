@@ -3,7 +3,7 @@ import type { SiteManifest } from "@/lib/types";
 const site: SiteManifest = {
   project: "agent-memory",
   kind: "demo",
-  displayName: "Agent Memory Timeline",
+  displayName: "Agent Memory",
   fakeDomain: "memory.davids.net",
   liveUrl: "/demos/agent-memory",
   tagline:
