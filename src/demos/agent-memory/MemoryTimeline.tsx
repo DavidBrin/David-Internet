@@ -9,13 +9,15 @@ import { recordsForSnapshot } from "./core/snapshot-records";
 
 type Chapter = TimelineChapter;
 
-const HIERARCHY = [
-  "KV cache",
-  "working context",
-  "session memory",
-  "long-term episodic memory",
-  "semantic + procedural memory",
-  "cold archival storage",
+type MemoryIcon = "kv" | "context" | "session" | "episodic" | "semantic" | "archival";
+
+const MEMORY_TYPES: { name: string; holds: string; life: string; icon: MemoryIcon }[] = [
+  { name: "KV cache", holds: "Attention key/value tensors for the tokens in the current forward pass.", life: "Per decode · discarded", icon: "kv" },
+  { name: "Working context", holds: "The tokens actually inside the model's context window right now.", life: "This turn only", icon: "context" },
+  { name: "Session memory", holds: "Facts and preferences scoped to the active conversation.", life: "Until the session ends", icon: "session" },
+  { name: "Long-term episodic", holds: "Timestamped past events, recalled by time or by entity.", life: "Durable · replayable", icon: "episodic" },
+  { name: "Semantic + procedural", holds: "Distilled facts and learned procedures, consolidated from episodes.", life: "Durable · consolidated", icon: "semantic" },
+  { name: "Cold archival storage", holds: "Rarely-touched records retained for audit and provenance.", life: "Retained · slow recall", icon: "archival" },
 ];
 
 const TEMPORAL_IDS: { id: SnapshotId; label: string }[] = [
@@ -38,16 +40,78 @@ const CHAPTERS: { id: Chapter; anchor: string; label: string; detail: string }[]
   { id: "graph", anchor: "context-graph-retrieval", label: "3. Context graph retrieval", detail: "captured packets" },
 ];
 
-function compact(text: string, limit = 42): string {
-  return text.length <= limit ? text : `${text.slice(0, limit - 1).trimEnd()}…`;
-}
-
 function date(text: string): string {
   return new Intl.DateTimeFormat("en", { month: "short", day: "numeric", year: "numeric", timeZone: "UTC" }).format(new Date(text));
 }
 
 function statusClass(action?: string): string {
   return action ? `amStatus amStatus--${action}` : "amStatus";
+}
+
+function MemoryGlyph({ icon }: { icon: MemoryIcon }) {
+  return (
+    <svg viewBox="0 0 48 48" className="amTypeGlyphSvg" aria-hidden="true" focusable="false">
+      {icon === "kv" && (
+        <>
+          <path d="M26 5 L14 26 L22 26 L20 43 L34 20 L25 20 Z" />
+          <path d="M6 14 h4 M6 24 h4 M6 34 h4" className="amGlyphFaint" />
+        </>
+      )}
+      {icon === "context" && (
+        <>
+          <rect x="8" y="10" width="32" height="28" rx="3" />
+          <line x1="14" y1="19" x2="34" y2="19" />
+          <line x1="14" y1="25" x2="30" y2="25" />
+          <line x1="14" y1="31" x2="24" y2="31" />
+        </>
+      )}
+      {icon === "session" && (
+        <>
+          <path d="M9 12 h30 a3 3 0 0 1 3 3 v13 a3 3 0 0 1 -3 3 H21 l-7 6 v-6 h-5 a3 3 0 0 1 -3 -3 V15 a3 3 0 0 1 3 -3 Z" />
+          <circle cx="17" cy="22" r="1.6" className="amGlyphDot" />
+          <circle cx="24" cy="22" r="1.6" className="amGlyphDot" />
+          <circle cx="31" cy="22" r="1.6" className="amGlyphDot" />
+        </>
+      )}
+      {icon === "episodic" && (
+        <>
+          <line x1="7" y1="30" x2="41" y2="30" />
+          <line x1="14" y1="30" x2="14" y2="19" />
+          <line x1="24" y1="30" x2="24" y2="13" />
+          <line x1="34" y1="30" x2="34" y2="22" />
+          <circle cx="14" cy="19" r="2.4" className="amGlyphDot" />
+          <circle cx="24" cy="13" r="2.4" className="amGlyphDot" />
+          <circle cx="34" cy="22" r="2.4" className="amGlyphDot" />
+        </>
+      )}
+      {icon === "semantic" && (
+        <>
+          <line x1="24" y1="10" x2="12" y2="23" />
+          <line x1="24" y1="10" x2="36" y2="23" />
+          <line x1="12" y1="23" x2="24" y2="38" />
+          <line x1="36" y1="23" x2="24" y2="38" />
+          <line x1="12" y1="23" x2="36" y2="23" />
+          <circle cx="24" cy="10" r="3" className="amGlyphDot" />
+          <circle cx="12" cy="23" r="3" className="amGlyphDot" />
+          <circle cx="36" cy="23" r="3" className="amGlyphDot" />
+          <circle cx="24" cy="38" r="3" className="amGlyphDot" />
+        </>
+      )}
+      {icon === "archival" && (
+        <>
+          <ellipse cx="21" cy="13" rx="12" ry="4" />
+          <path d="M9 13 V33 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4 V13" />
+          <path d="M9 23 c0 2.2 5.4 4 12 4 s12 -1.8 12 -4" />
+          <g className="amGlyphFaint">
+            <line x1="39" y1="30" x2="39" y2="42" />
+            <line x1="33" y1="36" x2="45" y2="36" />
+            <line x1="35" y1="32" x2="43" y2="40" />
+            <line x1="43" y1="32" x2="35" y2="40" />
+          </g>
+        </>
+      )}
+    </svg>
+  );
 }
 
 function RagBaseline() {
@@ -128,7 +192,9 @@ function SnapshotDiagram({ snapshot, temporal }: { snapshot: TraceSnapshot; temp
           <g className="amSvgNode">
             <rect x="36" y="72" width="266" height="196" rx="8" />
             <text x="58" y="104" className="amSvgEyebrow">{primary ? `${primary.actor} · ${primary.kind}` : "captured checkpoint"}</text>
-            <text x="58" y="138" className="amSvgTitle">{primary ? compact(primary.content, 39) : snapshot.id}</text>
+            <foreignObject x={58} y={120} width={222} height={28}>
+              <div className="amSvgTitleHtml" title={primary ? primary.content : snapshot.id}>{primary ? primary.content : snapshot.id}</div>
+            </foreignObject>
             <text x="58" y="174" className="amSvgCopy">{primary ? date(primary.ts) : date(snapshot.at)}</text>
             <text x="58" y="206" className="amSvgCopy">event remains auditable</text>
             <text x="58" y="238" className="amSvgMono">{primary ? primary.event_id : "integrity snapshot"}</text>
@@ -137,7 +203,9 @@ function SnapshotDiagram({ snapshot, temporal }: { snapshot: TraceSnapshot; temp
             <rect x="374" y="112" width="240" height="116" rx="8" />
             <text x="396" y="144" className="amSvgEyebrow">OUTCOME</text>
             <text x="396" y="178" className="amSvgTitle">{decision ? decision.action.replace("_", " ") : "recorded state"}</text>
-            <text x="396" y="204" className="amSvgCopy">{decision ? compact(decision.reasons[0] ?? "", 31) : "no new gate decision"}</text>
+            <foreignObject x={396} y={190} width={196} height={24}>
+              <div className="amSvgCopyHtml" title={decision ? (decision.reasons[0] ?? "") : "no new gate decision"}>{decision ? (decision.reasons[0] ?? "") : "no new gate decision"}</div>
+            </foreignObject>
           </g>
           {records.map((record, index) => {
             const y = 72 + index * 112;
@@ -145,7 +213,9 @@ function SnapshotDiagram({ snapshot, temporal }: { snapshot: TraceSnapshot; temp
               <g key={record.memory_id} className={`amSvgNode ${record.visible ? "" : "amSvgNode--muted"}`}>
                 <rect x="656" y={y} width="348" height="88" rx="8" />
                 <text x="678" y={y + 28} className="amSvgEyebrow">{record.type} · {record.trust_level}</text>
-                <text x="678" y={y + 54} className="amSvgTitle">{compact(record.content, 48)}</text>
+                <foreignObject x={678} y={y + 38} width={304} height={24}>
+                  <div className="amSvgTitleHtml" title={record.content}>{record.content}</div>
+                </foreignObject>
                 <text x="678" y={y + 76} className="amSvgMono">{record.deleted ? "deleted" : record.visible ? "live" : "not visible"} · {record.memory_id}</text>
               </g>
             );
@@ -302,9 +372,26 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
         <p>This page replays one deterministic Memory OS v0 run. It is an explanation of the experiment, not a browser chat agent or a production memory service.</p>
       </header>
 
-      <div className="amHierarchy" aria-label="Agent memory hierarchy">
-        <p className="amKicker">Memory hierarchy</p>
-        <ol>{HIERARCHY.map((tier, index) => <li key={tier}><span>{tier}</span>{index < HIERARCHY.length - 1 && <b aria-hidden="true">→</b>}</li>)}</ol>
+      <div className="amMemoryTypes" aria-label="Agent memory hierarchy">
+        <div className="amMemoryTypesHead">
+          <p className="amKicker">Memory hierarchy — six kinds of memory</p>
+          <p className="amMemoryAxis" aria-hidden="true">
+            <span>faster · smaller · ephemeral</span>
+            <b>→</b>
+            <span>slower · larger · durable</span>
+          </p>
+        </div>
+        <ol className="amMemoryGrid">
+          {MEMORY_TYPES.map((tier, index) => (
+            <li key={tier.name} className="amMemoryCard">
+              <span className="amMemoryStep" aria-hidden="true">{index + 1}</span>
+              <span className="amTypeGlyph"><MemoryGlyph icon={tier.icon} /></span>
+              <h3 className="amMemoryName">{tier.name}</h3>
+              <p className="amMemoryHolds">{tier.holds}</p>
+              <span className="amMemoryLife">{tier.life}</span>
+            </li>
+          ))}
+        </ol>
       </div>
 
       <nav className="amChapters" aria-label="Agent Memory Timeline chapters">

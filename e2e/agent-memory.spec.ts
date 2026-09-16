@@ -19,6 +19,39 @@ test.describe("Agent Memory Timeline demo", () => {
     await expect(section.locator(".amBadge")).toContainText(/not in Memory OS v0/i);
   });
 
+  test("the memory hierarchy renders a diagram card for each of the six memory types", async ({ page }) => {
+    await page.goto("/demos/agent-memory");
+    const hierarchy = page.locator("#memory-timeline .amMemoryTypes");
+
+    await expect(hierarchy).toBeVisible();
+    const cards = hierarchy.locator(".amMemoryCard");
+    await expect(cards).toHaveCount(6);
+    // Each card names a memory type and carries its own visual glyph.
+    await expect(cards.locator(".amTypeGlyphSvg")).toHaveCount(6);
+    for (const name of ["KV cache", "Working context", "Session memory", "Long-term episodic", "Semantic + procedural", "Cold archival storage"]) {
+      await expect(hierarchy.getByRole("heading", { name, level: 3 })).toBeVisible();
+    }
+  });
+
+  test("captured-trace boxes keep their text within the box bounds", async ({ page }) => {
+    await page.goto("/demos/agent-memory");
+    const section = page.locator("#memory-timeline");
+    await section.getByRole("button", { name: /Context graph retrieval/i }).click();
+    await section.getByRole("button", { name: /quarantine contrast/i }).click();
+
+    // The quarantine record holds the widest (all-caps) string; its text is
+    // truncated with an ellipsis and must not spill past the box's right edge.
+    const box = section.locator(".amFigure--trace svg g.amSvgNode").last();
+    const rect = box.locator("rect").first();
+    const label = box.locator("foreignObject .amSvgTitleHtml").first();
+    const rectBox = await rect.boundingBox();
+    const labelBox = await label.boundingBox();
+    expect(rectBox).not.toBeNull();
+    expect(labelBox).not.toBeNull();
+    // Right edge of the text stays inside the right edge of its box.
+    expect(labelBox!.x + labelBox!.width).toBeLessThanOrEqual(rectBox!.x + rectBox!.width + 1);
+  });
+
   test("the after-correction snapshot exposes the detailed-summary record", async ({ page }) => {
     await page.goto("/demos/agent-memory");
     const section = page.locator("#memory-timeline");

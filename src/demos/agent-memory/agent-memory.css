@@ -44,41 +44,147 @@
   text-transform: uppercase;
 }
 
-.amHierarchy {
+.amMemoryTypes {
   background: var(--am-panel);
   border: 1px solid var(--am-border);
   border-radius: 10px;
   margin: 28px 0 18px;
-  padding: 18px 20px;
+  padding: 18px 20px 20px;
 }
 
-.amHierarchy ol {
-  align-items: center;
+.amMemoryTypesHead {
+  align-items: baseline;
   display: flex;
   flex-wrap: wrap;
+  gap: 8px 16px;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.amMemoryTypesHead .amKicker {
+  margin: 0;
+}
+
+.amMemoryAxis {
+  align-items: center;
+  color: var(--am-quiet);
+  display: inline-flex;
+  font-size: 0.72rem;
+  font-weight: 600;
   gap: 8px;
+  letter-spacing: 0.02em;
+  margin: 0;
+  text-transform: uppercase;
+}
+
+.amMemoryAxis b {
+  color: var(--am-slate);
+  font-size: 0.95rem;
+}
+
+.amMemoryGrid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
-.amHierarchy li {
-  align-items: center;
-  display: inline-flex;
-  gap: 8px;
-}
-
-.amHierarchy span {
+.amMemoryCard {
   background: var(--am-paper);
   border: 1px solid var(--am-border);
-  border-radius: 5px;
-  font-size: 0.84rem;
-  padding: 6px 9px;
+  border-radius: 9px;
+  padding: 14px 14px 13px;
+  position: relative;
 }
 
-.amHierarchy b {
+.amMemoryStep {
+  color: var(--am-quiet);
+  font-size: 0.72rem;
+  font-weight: 750;
+  position: absolute;
+  right: 12px;
+  top: 11px;
+}
+
+.amTypeGlyph {
+  align-items: center;
+  background: #fff;
+  border: 1px solid var(--am-border);
+  border-radius: 8px;
+  display: inline-flex;
+  height: 44px;
+  justify-content: center;
+  width: 44px;
+}
+
+.amTypeGlyphSvg {
+  fill: none;
+  height: 30px;
+  stroke: var(--am-slate);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2;
+  width: 30px;
+}
+
+.amTypeGlyphSvg .amGlyphDot {
+  fill: var(--am-slate);
+  stroke: none;
+}
+
+.amTypeGlyphSvg .amGlyphFaint {
+  opacity: 0.45;
+  stroke-width: 1.6;
+}
+
+.amMemoryName {
+  color: var(--am-ink);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin: 11px 0 5px;
+}
+
+.amMemoryHolds {
   color: var(--am-slate);
-  font-weight: 500;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin: 0 0 10px;
+}
+
+.amMemoryLife {
+  background: #f1f5f9;
+  border: 1px solid var(--am-border);
+  border-radius: 999px;
+  color: var(--am-quiet);
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 650;
+  padding: 3px 9px;
+}
+
+.amSvgTitleHtml,
+.amSvgCopyHtml {
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.amSvgTitleHtml {
+  color: var(--am-ink);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+.amSvgCopyHtml {
+  color: var(--am-quiet);
+  font-size: 12px;
+  line-height: 24px;
 }
 
 .amChapters,
@@ -368,9 +474,19 @@
   margin: 28px 0;
 }
 
+@media (max-width: 860px) {
+  .amMemoryGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 720px) {
   .amChapterHead {
     display: block;
+  }
+
+  .amMemoryGrid {
+    grid-template-columns: 1fr;
   }
 
   .amBadge,
