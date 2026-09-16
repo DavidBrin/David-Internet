@@ -6,6 +6,7 @@ import { chapterFromHash, type TimelineChapter } from "./core/chapters";
 import { focusChapterAnchor } from "./core/navigation";
 import { supersedesArrow } from "./core/relationships";
 import { recordsForSnapshot } from "./core/snapshot-records";
+import { VectorSearchDiagram, TemporalQueryDiagram, GraphQueryDiagram } from "./RetrievalDiagrams";
 
 type Chapter = TimelineChapter;
 
@@ -125,35 +126,13 @@ function RagBaseline() {
         <span className="amBadge">Conceptual baseline — not in Memory OS v0</span>
       </div>
       <figure className="amFigure">
-        <svg viewBox="0 0 900 210" role="img" aria-label="Conceptual RAG flow from a query through similarity search to top-k snippets">
-          <defs>
-            <marker id="am-rag-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto">
-              <path d="M0,0 L8,4 L0,8 Z" className="amArrowHead" />
-            </marker>
-          </defs>
-          <line x1="256" y1="102" x2="362" y2="102" className="amArrow" markerEnd="url(#am-rag-arrow)" />
-          <line x1="536" y1="102" x2="642" y2="102" className="amArrow" markerEnd="url(#am-rag-arrow)" />
-          <g className="amSvgNode">
-            <rect x="54" y="50" width="202" height="104" rx="8" />
-            <text x="76" y="84" className="amSvgEyebrow">INPUT</text>
-            <text x="76" y="116" className="amSvgTitle">query</text>
-            <text x="76" y="138" className="amSvgCopy">“How should I write?”</text>
-          </g>
-          <g className="amSvgNode amSvgNode--muted">
-            <rect x="362" y="50" width="174" height="104" rx="8" />
-            <text x="384" y="84" className="amSvgEyebrow">RANK</text>
-            <text x="384" y="116" className="amSvgTitle">similarity search</text>
-            <text x="384" y="138" className="amSvgCopy">nearest text only</text>
-          </g>
-          <g className="amSvgNode">
-            <rect x="642" y="50" width="204" height="104" rx="8" />
-            <text x="664" y="84" className="amSvgEyebrow">OUTPUT</text>
-            <text x="664" y="116" className="amSvgTitle">top-k snippets</text>
-            <text x="664" y="138" className="amSvgCopy">no time or policy gate</text>
-          </g>
-        </svg>
+        <div className="amMechanismHead">
+          <p className="amKicker">How retrieval works at inference time</p>
+          <span className="amBadge">Conceptual — not in Memory OS v0</span>
+        </div>
+        <VectorSearchDiagram />
         <figcaption>
-          This is the comparison point only. The following chapters replay the prototype&apos;s captured write and retrieval decisions.
+          Flat RAG embeds the query and returns the nearest document vectors by cosine similarity. Nothing checks whether a match is current, trusted, or permitted — that is what the next chapters add. This is the comparison point only; the following chapters replay the prototype&apos;s captured write and retrieval decisions.
         </figcaption>
       </figure>
     </div>
@@ -413,6 +392,18 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
             </div>
             <p className="amTraceNote">Precomputed checkpoints only</p>
           </div>
+          <figure className="amFigure amFigure--mechanism">
+            <div className="amMechanismHead">
+              <p className="amKicker">How retrieval works at inference time</p>
+              <span className="amBadge">Mechanism — not the captured run</span>
+            </div>
+            {chapter === "temporal" ? <TemporalQueryDiagram /> : <GraphQueryDiagram />}
+            <figcaption>
+              {chapter === "temporal"
+                ? "A read is a point-in-time query: retrieval returns the record whose validity window contains the query time, so a correction that closes the earlier window changes what is live while the superseded version stays auditable."
+                : "Candidates come from deterministic lexical matching, not embeddings. Records that survive the validity, trust, and clearance filters can follow an entity link exactly one hop, surfacing a related episode that enters the packet with a citation."}
+            </figcaption>
+          </figure>
           <div className="amSnapshotControls" aria-label={`${chapter === "temporal" ? "Temporal" : "Retrieval"} snapshots`}>
             {(chapter === "temporal" ? TEMPORAL_IDS : GRAPH_IDS).map((item) => (
               <button key={item.id} type="button" aria-pressed={selectedId === item.id} data-active={selectedId === item.id} onClick={() => chapter === "temporal" ? setTemporalId(item.id) : setGraphId(item.id)}>{item.label}</button>

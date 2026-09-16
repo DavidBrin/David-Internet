@@ -16,7 +16,7 @@ test.describe("Agent Memory Timeline demo", () => {
     await expect(section.getByRole("heading", { level: 2 })).toContainText(/governed memory is a trace/i);
 
     // The default chapter is the flat-RAG comparison baseline.
-    await expect(section.locator(".amBadge")).toContainText(/not in Memory OS v0/i);
+    await expect(section.locator(".amChapterHead .amBadge")).toContainText(/not in Memory OS v0/i);
   });
 
   test("the memory hierarchy renders a diagram card for each of the six memory types", async ({ page }) => {
@@ -50,6 +50,23 @@ test.describe("Agent Memory Timeline demo", () => {
     expect(labelBox).not.toBeNull();
     // Right edge of the text stays inside the right edge of its box.
     expect(labelBox!.x + labelBox!.width).toBeLessThanOrEqual(rectBox!.x + rectBox!.width + 1);
+  });
+
+  test("each chapter shows its inference-time retrieval diagram", async ({ page }) => {
+    await page.goto("/demos/agent-memory");
+    const section = page.locator("#memory-timeline");
+
+    // Flat RAG chapter: the vector-search mechanism diagram.
+    await expect(section.getByRole("img", { name: /Flat RAG retrieval/i })).toBeVisible();
+
+    // Temporal chapter: the as-of validity-window query diagram.
+    await section.getByRole("button", { name: /Temporal memory/i }).click();
+    await expect(section.locator(".amFigure--mechanism")).toBeVisible();
+    await expect(section.getByRole("img", { name: /Temporal retrieval/i })).toBeVisible();
+
+    // Context-graph chapter: the lexical-candidate + one-hop traversal diagram.
+    await section.getByRole("button", { name: /Context graph retrieval/i }).click();
+    await expect(section.getByRole("img", { name: /Context-graph retrieval pipeline/i })).toBeVisible();
   });
 
   test("the after-correction snapshot exposes the detailed-summary record", async ({ page }) => {
