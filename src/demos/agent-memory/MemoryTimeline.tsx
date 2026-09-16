@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import type { AgentMemoryTrace, SnapshotId, TraceSnapshot } from "./core/trace";
 import { chapterFromHash, type TimelineChapter } from "./core/chapters";
+import { focusChapterAnchor } from "./core/navigation";
 import { supersedesArrow } from "./core/relationships";
 import { recordsForSnapshot } from "./core/snapshot-records";
 
@@ -51,7 +52,7 @@ function statusClass(action?: string): string {
 
 function RagBaseline() {
   return (
-    <div className="amChapter" id="rag-baseline">
+    <div className="amChapter" id="rag-baseline" tabIndex={-1}>
       <div className="amChapterHead">
         <div>
           <p className="amKicker">Flat RAG</p>
@@ -263,23 +264,34 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
   const [chapter, setChapter] = useState<Chapter>("rag");
   const [temporalId, setTemporalId] = useState<SnapshotId>("temporal-after-correction");
   const [graphId, setGraphId] = useState<SnapshotId>("graph-expansion");
+  const [anchorToFocus, setAnchorToFocus] = useState<string | null>(null);
   const selectedId = chapter === "temporal" ? temporalId : graphId;
   const selected = useMemo(() => trace?.snapshots.find((snapshot) => snapshot.id === selectedId), [selectedId, trace]);
 
   useEffect(() => {
     const syncChapterFromHash = () => {
       const fromHash = chapterFromHash(window.location.hash);
-      if (fromHash) setChapter(fromHash);
+      if (fromHash) {
+        setChapter(fromHash);
+        setAnchorToFocus(window.location.hash.slice(1));
+      }
     };
     syncChapterFromHash();
     window.addEventListener("hashchange", syncChapterFromHash);
     return () => window.removeEventListener("hashchange", syncChapterFromHash);
   }, []);
 
+  useEffect(() => {
+    if (anchorToFocus && focusChapterAnchor(anchorToFocus)) setAnchorToFocus(null);
+  }, [anchorToFocus, chapter]);
+
   function selectChapter(next: Chapter) {
     setChapter(next);
     const anchor = CHAPTERS.find((item) => item.id === next)?.anchor;
-    if (anchor) window.history.replaceState(null, "", `#${anchor}`);
+    if (anchor) {
+      setAnchorToFocus(anchor);
+      window.history.replaceState(null, "", `#${anchor}`);
+    }
   }
 
   return (
@@ -297,7 +309,7 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
 
       <nav className="amChapters" aria-label="Agent Memory Timeline chapters">
         {CHAPTERS.map((item) => (
-          <button key={item.id} type="button" className="amChapterButton" data-active={chapter === item.id} onClick={() => selectChapter(item.id)}>
+          <button key={item.id} type="button" className="amChapterButton" aria-pressed={chapter === item.id} data-active={chapter === item.id} onClick={() => selectChapter(item.id)}>
             <span>{item.label}</span><small>{item.detail}</small>
           </button>
         ))}
@@ -306,7 +318,7 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
       {chapter === "rag" && <RagBaseline />}
 
       {chapter !== "rag" && (
-        <div className="amChapter" id={chapter === "temporal" ? "temporal-memory" : "context-graph-retrieval"}>
+        <div className="amChapter" id={chapter === "temporal" ? "temporal-memory" : "context-graph-retrieval"} tabIndex={-1}>
           <div className="amChapterHead">
             <div>
               <p className="amKicker">{chapter === "temporal" ? "Temporal memory" : "Context graph retrieval"}</p>
@@ -316,7 +328,7 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
           </div>
           <div className="amSnapshotControls" aria-label={`${chapter === "temporal" ? "Temporal" : "Retrieval"} snapshots`}>
             {(chapter === "temporal" ? TEMPORAL_IDS : GRAPH_IDS).map((item) => (
-              <button key={item.id} type="button" data-active={selectedId === item.id} onClick={() => chapter === "temporal" ? setTemporalId(item.id) : setGraphId(item.id)}>{item.label}</button>
+              <button key={item.id} type="button" aria-pressed={selectedId === item.id} data-active={selectedId === item.id} onClick={() => chapter === "temporal" ? setTemporalId(item.id) : setGraphId(item.id)}>{item.label}</button>
             ))}
           </div>
           {error ? <p className="amLoadError" role="alert">The captured trace could not load: {error}</p> : selected ? <SnapshotDiagram snapshot={selected} temporal={chapter === "temporal"} /> : <p className="amLoadState">Loading the captured trace…</p>}
