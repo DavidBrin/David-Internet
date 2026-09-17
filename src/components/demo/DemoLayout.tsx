@@ -44,8 +44,12 @@ export default function DemoLayout({
             {manifest.favicon} {manifest.fakeDomain}
           </span>
           <nav className="demoBarLinks" aria-label="Page links">
-            <a href="#story">Story</a>
-            <a href="#stage">Demo</a>
+            {meta.hideStoryAndDemoLinks ? null : (
+              <>
+                <a href="#story">Story</a>
+                <a href="#stage">Demo</a>
+              </>
+            )}
             <a href="#source">Source</a>
             {hasWikiArticle(manifest.project) ? (
               <a href={wikiUrlFor(manifest.project)} target="_blank" rel="noopener noreferrer">
