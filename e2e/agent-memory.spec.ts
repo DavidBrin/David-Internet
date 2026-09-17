@@ -69,6 +69,38 @@ test.describe("Agent Memory Timeline demo", () => {
     await expect(section.getByRole("img", { name: /Context-graph retrieval pipeline/i })).toBeVisible();
   });
 
+  test("chapter selection changes content without moving the chapter controls", async ({ page }) => {
+    await page.goto("/demos/agent-memory");
+    const section = page.locator("#memory-timeline");
+    const temporalButton = section.getByRole("button", { name: /Temporal memory/i });
+
+    await temporalButton.scrollIntoViewIfNeeded();
+    const before = await page.evaluate(() => window.scrollY);
+    await temporalButton.click();
+
+    await expect(page).toHaveURL(/#temporal-memory$/);
+    await expect(temporalButton).toHaveAttribute("aria-pressed", "true");
+    await expect(section.getByRole("heading", { name: /A correction closes a validity window/i })).toBeVisible();
+    await expect(temporalButton).toBeInViewport();
+    await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(before);
+  });
+
+  test("does not show redundant Story and Demo links in the page bar", async ({ page }) => {
+    await page.goto("/demos/agent-memory");
+    const pageLinks = page.getByRole("navigation", { name: "Page links" });
+
+    await expect(pageLinks.getByRole("link", { name: "Story", exact: true })).toHaveCount(0);
+    await expect(pageLinks.getByRole("link", { name: "Demo", exact: true })).toHaveCount(0);
+  });
+
+  test("keeps Story and Demo links on other demo pages", async ({ page }) => {
+    await page.goto("/demos/verilog");
+    const pageLinks = page.getByRole("navigation", { name: "Page links" });
+
+    await expect(pageLinks.getByRole("link", { name: "Story", exact: true })).toHaveCount(1);
+    await expect(pageLinks.getByRole("link", { name: "Demo", exact: true })).toHaveCount(1);
+  });
+
   test("the after-correction snapshot exposes the detailed-summary record", async ({ page }) => {
     await page.goto("/demos/agent-memory");
     const section = page.locator("#memory-timeline");

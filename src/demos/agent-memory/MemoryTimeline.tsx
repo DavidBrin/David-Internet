@@ -338,7 +338,6 @@ export default function MemoryTimeline({ trace, error }: { trace?: AgentMemoryTr
     setChapter(next);
     const anchor = CHAPTERS.find((item) => item.id === next)?.anchor;
     if (anchor) {
-      setAnchorToFocus(anchor);
       window.history.replaceState(null, "", `#${anchor}`);
     }
   }

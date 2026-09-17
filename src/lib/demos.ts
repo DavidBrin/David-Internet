@@ -58,6 +58,8 @@ export interface DemoMeta {
   theme?: { bg: string; panel?: string };
   /** Hide the What/Why/When chips in the demo-page header (they still appear on the demos index card). */
   hideChips?: boolean;
+  /** Hide the Story and Demo jump links when this page is entirely devoted to its stage. */
+  hideStoryAndDemoLinks?: boolean;
 }
 
 export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode, agentMemory];

@@ -6,6 +6,7 @@ const meta: DemoMeta = {
   slug: "agent-memory",
   theme: { bg: "#eef1f5", panel: "#e2e7ee" },
   hideChips: true,
+  hideStoryAndDemoLinks: true,
   what: "an append-only record of how an agent decides what deserves to become memory",
   why: "memory needs provenance, validity windows, and policy boundaries—not just similar snippets",
   when: "active Agent_Memory research, replayed from a deterministic Memory OS v0 run",
