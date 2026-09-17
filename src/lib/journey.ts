@@ -37,6 +37,17 @@ export interface PhaseMedia {
   reveal?: "wash-sand" | "wash-paper" | "fade" | "none";
   /** No asset yet — render an empty "photo coming" frame. */
   placeholder?: boolean;
+  /**
+   * How the image sits in the 4:3 frame. Default "cover" crops to fill;
+   * "contain" letterboxes the whole image (for wide slides/banners that
+   * shouldn't be cropped) against a dark mat.
+   */
+  fit?: "cover" | "contain";
+  /**
+   * object-position for a cover crop (e.g. "50% 25%"), to keep the subject —
+   * usually a face — in frame when a tall photo is cropped to the wide slot.
+   */
+  focus?: string;
 }
 
 /** A project demo placed on the river. In-progress ⇒ inert, un-rebuilt stone. */

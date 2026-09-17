@@ -57,7 +57,10 @@ const journey: Journey = {
         light: "day",
         waterMood: "stream",
       },
-      media: [],
+      media: [
+        { src: "/path/high-school/model-un.jpg", alt: "David with the Model UN delegation, 2022", caption: "Model UN, 2022 — one of several channels running at once.", reveal: "wash-paper" },
+        { src: "/path/high-school/hs-graduation.png", alt: "David at his Scripps Ranch High graduation in cap and gown", caption: "Scripps Ranch High, 2023 — cords, tassels, and the end of the wide braid.", focus: "50% 28%", reveal: "wash-paper" },
+      ],
       effect: "wash-sand",
       branch: { label: "many threads at once", rejoins: true },
       demos: [
@@ -79,7 +82,11 @@ const journey: Journey = {
         light: "dusk",
         waterMood: "stream",
       },
-      media: [],
+      media: [
+        { src: "/path/ventures/gatsvi-ecox-award.png", alt: "GATSVI ecoX — 2020 Gold Award Winners slide listing David Brin and teammates", caption: "GATSVI's ecoX, a 2020 gold award — pitching at fifteen.", fit: "contain", reveal: "wash-paper" },
+        { src: "/path/ventures/feeding-san-diego-line.png", alt: "A Feeding San Diego distribution line of bottled water and snack packs", caption: "Feeding San Diego, 2022 — weekends on the distribution line.", reveal: "wash-paper" },
+        { src: "/path/ventures/feeding-san-diego-badge.png", alt: "A Feeding San Diego volunteer badge hand-labeled “David”", caption: "The badge that made it official.", reveal: "wash-paper" },
+      ],
       effect: "fork",
       branch: { label: "service · teaching · a first pitch", rejoins: true },
       demos: [
@@ -101,7 +108,12 @@ const journey: Journey = {
         light: "day",
         waterMood: "stream",
       },
-      media: [],
+      media: [
+        { src: "/path/ucsd/triton-uas.png", alt: "David building a fixed-wing aircraft at Triton UAS", caption: "Triton UAS — soldering and building for aircraft that had to actually fly.", focus: "50% 40%", reveal: "wash-paper" },
+        { src: "/path/ucsd/pcb-solder-mask.png", alt: "Octagonal green PCBs with solder mask beside a solder-paste stencil", caption: "Boards back from fab — solder mask on, stencil ready.", focus: "50% 72%", reveal: "wash-paper" },
+        { src: "/path/ucsd/eeg-workshop.png", alt: "David wearing an EEG cap and holding its electrode leads at a UCSD workshop", caption: "First EEG workshop, 2023 — the first time the signals were mine to read.", focus: "50% 60%", reveal: "wash-paper" },
+        { src: "/path/ucsd/ucsd-graduation.png", alt: "David in cap and gown before a UC San Diego “Congrats Grads” banner", caption: "UC San Diego, 2026 — the sharp meander, come full circle.", focus: "50% 22%", reveal: "wash-paper" },
+      ],
       demos: [
         { slug: "verilog", label: "Verilog", status: "live" },
         { slug: "signals", label: "Signals", status: "live" },
@@ -131,6 +143,7 @@ const journey: Journey = {
         { slug: "organoids", label: "Organoids", status: "live" },
         { slug: "spikes", label: "Spikes", status: "live" },
       ],
+      links: [{ label: "On the Voytek Lab alumni page", href: "https://voyteklab.com/members", external: true }],
     },
     {
       id: "braided",
@@ -147,7 +160,11 @@ const journey: Journey = {
         light: "dusk",
         waterMood: "rapids",
       },
-      media: [],
+      media: [
+        { src: "/path/braided/autonomous-car.jpg", alt: "The finished 1/10-scale autonomous car with camera mast and onboard compute", caption: "The autonomous car, 2025 — ROS 2 and onboard compute on a scale chassis.", reveal: "wash-paper" },
+        { src: "/path/braided/av-lane-detection.png", alt: "The car's camera view with detected lane lines overlaid, running live", caption: "Lane detection from the car's own camera, live.", focus: "50% 42%", reveal: "wash-paper" },
+        { src: "/path/braided/av-object-detection.png", alt: "The car's perception stack detecting an object in the lane with a bounding box", caption: "Object detection holding a lock on a target in-lane.", focus: "50% 30%", reveal: "wash-paper" },
+      ],
       effect: "fork",
       branch: { label: "three projects, one valley", rejoins: true },
       demos: [
@@ -176,7 +193,10 @@ const journey: Journey = {
         light: "day",
         waterMood: "stream",
       },
-      media: [],
+      media: [
+        { src: "/path/dtu/dtu-sign.jpg", alt: "The red DTU letters on campus in Kongens Lyngby, autumn leaves on the ground", caption: "Kongens Lyngby — a cold, clear detour, autumn already turning.", focus: "50% 55%", reveal: "wash-paper" },
+        { src: "/path/dtu/dtu-quantum-lecture.jpg", alt: "A DTU lecture hall with quantum-algorithm derivations (Deutsch–Jozsa, Simon's) across green chalkboards", caption: "Quantum information on the boards — Deutsch–Jozsa, Simon's, and the first real speedups.", reveal: "wash-paper" },
+      ],
       branch: { label: "exchange semester", rejoins: true },
       demos: [
         { slug: "quantum", label: "Quantum", status: "live" },
@@ -200,7 +220,7 @@ const journey: Journey = {
         waterMood: "stream",
       },
       media: [
-        { src: "", alt: "A photo from the General Atomics year belongs here", caption: "San Diego, 2025–26 — a year of embedded C and hardware with no patience for almost-working.", placeholder: true, reveal: "wash-paper" },
+        { src: "/path/general-atomics/ga-team.jpg", alt: "David and three teammates at the General Atomics Electromagnetics sign", caption: "San Diego, 2025–26 — the team, in front of the sign; a year of embedded C and hardware with no patience for almost-working.", focus: "50% 65%", reveal: "wash-paper" },
       ],
       effect: "wash-paper",
     },
@@ -219,7 +239,9 @@ const journey: Journey = {
         light: "dawn",
         waterMood: "rapids",
       },
-      media: [],
+      media: [
+        { src: "/path/runup/hardhack-build.png", alt: "A HardHacks workbench mid-build: breadboards, an Arduino, jump wires, sensors, and two laptops", caption: "IEEE HardHacks — the bench mid-build, something about to work.", focus: "50% 45%", reveal: "wash-paper" },
+      ],
       demos: [
         { slug: "hardhack", label: "HardHack", status: "live" },
       ],

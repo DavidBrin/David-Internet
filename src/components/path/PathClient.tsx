@@ -178,6 +178,15 @@ export default function PathClient({ journey }: { journey: Journey }) {
           <Link className="outroCta" href={journey.outro.cta.href}>
             {journey.outro.cta.label}
           </Link>
+          <p className="outroFootnote">
+            <a
+              href="https://boolish.printify.me/product/29025840"
+              target="_blank"
+              rel="noreferrer"
+            >
+              funny engineering shirt
+            </a>
+          </p>
         </div>
       </section>
     </div>

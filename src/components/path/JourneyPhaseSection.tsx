@@ -96,11 +96,17 @@ export default function JourneyPhaseSection({ phase, index, side, message, ancho
                   key={i}
                   className={`mediaFigure mediaFigure--${m.reveal ?? "fade"}${m.placeholder ? " mediaFigure--placeholder" : ""}`}
                 >
-                  <div className="mediaFrame">
+                  <div className={`mediaFrame${m.fit === "contain" ? " mediaFrame--contain" : ""}`}>
                     {m.placeholder ? (
                       <span className="mediaPlaceholder">{m.alt}</span>
                     ) : (
-                      <Image src={m.src} alt={m.alt} fill sizes="(max-width: 700px) 45vw, 260px" />
+                      <Image
+                        src={m.src}
+                        alt={m.alt}
+                        fill
+                        sizes="(max-width: 700px) 45vw, 260px"
+                        style={m.focus ? { objectPosition: m.focus } : undefined}
+                      />
                     )}
                     <span className="mediaWash" aria-hidden="true" />
                   </div>

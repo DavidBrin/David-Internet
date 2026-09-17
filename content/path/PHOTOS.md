@@ -1,12 +1,14 @@
 # Path photo wish list
 
-Drop files into `public/path/` (or tell me the paths) and I can wire them. Captions can stay short.
+Drop files into `public/path/<phase>/` (or tell me the paths) and I can wire them.
+Swapping a real file in is a one-line edit in `content/path/journey.ts`: set `src`,
+drop `placeholder: true`, and replace the "belongs here" alt text with a
+description of what's actually in the shot.
 
-Every frame below already reads as an intentional held place on the page — the
-caption carries the moment even while the image is missing — so nothing looks
-broken until the photos land. Swapping a real file in is a one-line edit in
-`content/path/journey.ts`: set `src`, drop `placeholder: true`, and replace the
-"belongs here" alt text with a description of what's actually in the shot.
+Each frame reads as an intentional held place until its photo lands, so nothing
+looks broken. Frames crop to 4:3 (or 16:9 for the first two when a phase has 3+
+photos). Use `fit: "contain"` for wide slides that shouldn't be cropped, and
+`focus: "50% 60%"` (object-position) to keep a face in frame under a crop.
 
 ## Still empty frames
 
@@ -14,25 +16,28 @@ broken until the photos land. Swapping a real file in is a one-line edit in
   caption: *"San Diego, before any of this had a name."*
 - **Roots:** an early robot or Robolink build. Frame reads "A first-robot photo
   belongs here"; caption: *"Robolink, 2017 — where taking robots apart turned into a habit."*
-- **General Atomics:** a photo from that year (lab, bench, or team). Frame reads
-  "A photo from the General Atomics year belongs here"; caption: *"San Diego,
-  2025–26 — a year of embedded C and hardware with no patience for almost-working."*
 
-## Already on the page
+These two are the only frames still on placeholders.
 
-Katalyxt gallery shots in `public/path/co-founders/gallery/` (01.jpg, 25.jpg) and
-the four headshots. Captions are written from what `ASSETS.md` actually
-establishes — the four co-founders growing up, "a decade of reps" — and the
-headshots are captioned with full names. If you can date the gallery shots or say
-who's in each one, the captions can get more specific.
+## Now on the page (wired 2026-09-17)
 
-## Optional extras that would help
+- **Scripps Ranch High:** Model UN 2022, high-school graduation.
+- **First ventures & service:** GATSVI ecoX 2020 gold-award slide (`fit: contain`),
+  Feeding San Diego distribution line, Feeding San Diego volunteer badge.
+- **UC San Diego:** Triton UAS build, PCBs with solder mask, first EEG workshop (2023),
+  college graduation (2026).
+- **Voytek Lab:** no lab photo — links to the Voytek Lab alumni page instead
+  (`https://voyteklab.com/members`).
+- **The braided reach:** the finished autonomous car, live lane detection, live object detection.
+- **DTU, Denmark:** the DTU campus sign, a quantum-information lecture.
+- **General Atomics:** David and the team at the General Atomics Electromagnetics sign.
+- **The run-up:** a HardHacks bench mid-build.
+- **Katalyxt:** co-founder gallery shots + the four headshots (unchanged).
 
-- Scripps Ranch / high-school maker photo
-- Voytek Lab bench or MEA plate
-- DTU / Kongens Lyngby
-- HardHack weekend
-- UCSD campus or Triton UAS board
+## Staged but not placed (backups in `public/path/ucsd/`)
+
+- `triton-fit-park.jpg`, `lecture.png` — extra UCSD options if any of the four
+  placed shots gets swapped out.
 
 ## Not a photo, but the other open ask
 
