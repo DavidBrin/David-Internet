@@ -557,12 +557,18 @@
     linear-gradient(160deg, #d9cbb2, #c3b190);
 }
 
+/*
+ * Each .mediaFigure carries its own [data-progress], so --sp here is the
+ * figure's own crossing of the viewport — a stacked photo unlocks as it comes
+ * into view, not when the whole (tall) section has scrolled past. Reveal early:
+ * it completes around the time the figure reaches the vertical middle.
+ */
 .mediaFigure--wash-paper .mediaWash {
-  clip-path: inset(0 0 0 calc(clamp(0, calc((var(--sp, 0) - 0.34) * 3.2), 1) * 100%));
+  clip-path: inset(0 0 0 calc(clamp(0, calc((var(--sp, 0) - 0.15) * 4), 1) * 100%));
 }
 
 .mediaFigure--fade .mediaWash {
-  opacity: calc(1 - clamp(0, calc((var(--sp, 0) - 0.3) * 3.4), 1));
+  opacity: calc(1 - clamp(0, calc((var(--sp, 0) - 0.12) * 4), 1));
 }
 
 .mediaFigure--placeholder .mediaFrame {

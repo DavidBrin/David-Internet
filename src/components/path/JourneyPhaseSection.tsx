@@ -94,6 +94,7 @@ export default function JourneyPhaseSection({ phase, index, side, message, ancho
               {phase.media.map((m, i) => (
                 <figure
                   key={i}
+                  data-progress
                   className={`mediaFigure mediaFigure--${m.reveal ?? "fade"}${m.placeholder ? " mediaFigure--placeholder" : ""}`}
                 >
                   <div className={`mediaFrame${m.fit === "contain" ? " mediaFrame--contain" : ""}`}>

@@ -110,9 +110,8 @@ const journey: Journey = {
       },
       media: [
         { src: "/path/ucsd/triton-uas.png", alt: "David building a fixed-wing aircraft at Triton UAS", caption: "Triton UAS — soldering and building for aircraft that had to actually fly.", focus: "50% 40%", reveal: "wash-paper" },
+        { src: "/path/ucsd/ucsd-graduation.png", alt: "David in cap and gown before a UC San Diego “Congrats Grads” banner", caption: "UC San Diego, 2026 — the sharp meander, come full circle.", focus: "50% 30%", reveal: "wash-paper" },
         { src: "/path/ucsd/pcb-solder-mask.png", alt: "Octagonal green PCBs with solder mask beside a solder-paste stencil", caption: "Boards back from fab — solder mask on, stencil ready.", focus: "50% 72%", reveal: "wash-paper" },
-        { src: "/path/ucsd/eeg-workshop.png", alt: "David wearing an EEG cap and holding its electrode leads at a UCSD workshop", caption: "First EEG workshop, 2023 — the first time the signals were mine to read.", focus: "50% 60%", reveal: "wash-paper" },
-        { src: "/path/ucsd/ucsd-graduation.png", alt: "David in cap and gown before a UC San Diego “Congrats Grads” banner", caption: "UC San Diego, 2026 — the sharp meander, come full circle.", focus: "50% 22%", reveal: "wash-paper" },
       ],
       demos: [
         { slug: "verilog", label: "Verilog", status: "live" },
@@ -163,6 +162,7 @@ const journey: Journey = {
       media: [
         { src: "/path/braided/autonomous-car.jpg", alt: "The finished 1/10-scale autonomous car with camera mast and onboard compute", caption: "The autonomous car, 2025 — ROS 2 and onboard compute on a scale chassis.", reveal: "wash-paper" },
         { src: "/path/braided/av-lane-detection.png", alt: "The car's camera view with detected lane lines overlaid, running live", caption: "Lane detection from the car's own camera, live.", focus: "50% 42%", reveal: "wash-paper" },
+        { src: "/path/braided/eeg-workshop.png", alt: "David wearing an EEG cap and holding its electrode leads", caption: "Hands on the EEG rig — the brain-signal work behind the diagnostic concept.", focus: "50% 60%", reveal: "wash-paper" },
         { src: "/path/braided/av-object-detection.png", alt: "The car's perception stack detecting an object in the lane with a bounding box", caption: "Object detection holding a lock on a target in-lane.", focus: "50% 30%", reveal: "wash-paper" },
       ],
       effect: "fork",
@@ -262,8 +262,8 @@ const journey: Journey = {
         waterMood: "rapids",
       },
       media: [
-        { src: "/path/co-founders/gallery/01.jpg", alt: "The co-founders, years before Katalyxt", caption: "The four of us, years before there was a company to found.", reveal: "wash-paper" },
-        { src: "/path/co-founders/gallery/25.jpg", alt: "The co-founders, growing up", caption: "A decade of reps, most of them long before the pitch deck.", reveal: "wash-paper" },
+        { src: "/path/co-founders/after-first-raise-2026.png", alt: "The founding team in NFX hoodies holding an “An NFX Company” plaque after the pre-seed raise", caption: "The founding team, just after our first raise — May 2026.", focus: "50% 38%", reveal: "wash-paper" },
+        { src: "/path/co-founders/team-2023.png", alt: "The four co-founders together on a jungle trail, an overhead shot from 2023", caption: "The same four, 2023 — a long trail before there was a company.", reveal: "wash-paper" },
         { src: "/path/co-founders/headshots/david.jpg", alt: "David Brin", caption: "David Brin", reveal: "fade" },
         { src: "/path/co-founders/headshots/brennan.jpg", alt: "Brennan Lim", caption: "Brennan Lim", reveal: "fade" },
         { src: "/path/co-founders/headshots/sahil.jpg", alt: "Sahil Simma", caption: "Sahil Simma", reveal: "fade" },
