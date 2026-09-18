@@ -307,15 +307,15 @@ const journey: Journey = {
     cta: { label: "Back to David's Internet", href: "/" },
   },
 
-  // House lines in the page's own voice, one per odd phase. They stand in until
-  // the "Daily Dose of Damn" export lands; the anchor line is the real, fixed one.
+  // David's own lines from the "Daily Dose of Damn" journal, one wash-away aside
+  // per odd phase (in array order). The anchor line is the real, fixed desk carving.
   messages: [
     { text: "DON'T FIND YOUR PLACE IN THE WORLD, MAKE IT", fixed: true },
-    { text: "Every river is only weather that kept going." },
-    { text: "Nothing on this bank was assigned." },
-    { text: "The bend isn't a detour. The bend is the river." },
-    { text: "Water never waits for permission. It finds the low ground and goes." },
-    { text: "Build it badly first; the current sorts out the rest." },
+    { text: "I will not be categorized." },
+    { text: "Seek comfort within discomfort." },
+    { text: "A puzzle isn't fun if you already know how to solve it." },
+    { text: "My passion is finding passion." },
+    { text: "Meaning isn't found, it's made." },
   ],
 };
 
