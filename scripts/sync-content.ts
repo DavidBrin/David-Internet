@@ -40,6 +40,7 @@ const SOURCES: Record<string, string> = {
   "dollar-pixels": path.join(REPLICATES_ROOT, "dollar-pixels"),
   notion: path.join(REPLICATES_ROOT, "Notion"),
   "fl-studio": path.join(REPLICATES_ROOT, "fl-studio"),
+  "island-empire": path.join(REPLICATES_ROOT, "island-empire"),
 };
 
 const PERSONAL_PROJECTS_ROOT = path.resolve(REPO_ROOT, "..");

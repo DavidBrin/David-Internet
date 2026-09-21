@@ -20,6 +20,7 @@ const LIVE_REPLICA_HOSTS = [
   "fake-phone-david.vercel.app",
   "bet-david-pink.vercel.app",
   "fl-studio-david.vercel.app",
+  "island-empire-david.vercel.app",
   "dollar-pixels-david.vercel.app",
   "art-wall-pi.vercel.app",
 ];
@@ -38,7 +39,7 @@ test.describe("I'm Feeling Lucky", () => {
 
     await Promise.all([
       page.waitForURL(
-        /davids-wikipedia\.vercel\.app\/wiki\/.+|\/demos\/.+|linear-david\.vercel\.app|youtube-david\.vercel\.app|notion-david\.vercel\.app|smash-david\.vercel\.app|fake-phone-david\.vercel\.app|bet-david-pink\.vercel\.app|fl-studio-david\.vercel\.app|dollar-pixels-david\.vercel\.app|art-wall-pi\.vercel\.app/,
+        /davids-wikipedia\.vercel\.app\/wiki\/.+|\/demos\/.+|linear-david\.vercel\.app|youtube-david\.vercel\.app|notion-david\.vercel\.app|smash-david\.vercel\.app|fake-phone-david\.vercel\.app|bet-david-pink\.vercel\.app|fl-studio-david\.vercel\.app|island-empire-david\.vercel\.app|dollar-pixels-david\.vercel\.app|art-wall-pi\.vercel\.app/,
       ),
       page.getByRole("button", { name: "I'm Feeling Lucky" }).click(),
     ]);

@@ -44,7 +44,7 @@ To wire up a deployment:
 
 Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
-## The nine sites of David's Internet
+## The ten sites of David's Internet
 
 | Site | Fake domain | Needs DB | Status |
 |---|---|---|---|
@@ -56,6 +56,7 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 | Dollar Pixels | pixels.davids.net | yes (Neon) | [dollar-pixels-david.vercel.app](https://dollar-pixels-david.vercel.app) |
 | Notion replica | notion.davids.net | no | [notion-david.vercel.app](https://notion-david.vercel.app) |
 | FL Studio replica | flstudio.davids.net | no | [fl-studio-david.vercel.app](https://fl-studio-david.vercel.app) |
+| Island Empire replica | island-empire.davids.net | yes (Neon) | [island-empire-david.vercel.app](https://island-empire-david.vercel.app) |
 | Art Wall | artwall.davids.net | yes (Neon) | [art-wall-pi.vercel.app](https://art-wall-pi.vercel.app) |
 
 ## About page
