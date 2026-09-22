@@ -1,0 +1,403 @@
+/* Delta Cloud — stage styles. Prefix dc. Cool slate page, AWS-orange accent for what is lit. */
+
+.dcStage {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.dcSection {
+  scroll-margin-top: 70px;
+}
+
+.dcFlowBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 12px;
+}
+
+.dcMapWrap {
+  border: 1px solid var(--demo-line);
+  border-radius: 8px;
+  background: #fbfcfd;
+  padding: 6px;
+  overflow: hidden;
+}
+
+.dcMap {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #334155;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dcVpc {
+  fill: #eef4fb;
+  stroke: #94a3b8;
+  stroke-width: 1.2;
+  stroke-dasharray: 6 4;
+}
+
+.dcVpcLabel {
+  font-size: 11px;
+  font-weight: 700;
+  fill: #475569;
+  letter-spacing: 0.02em;
+}
+
+.dcBand rect {
+  fill: rgba(255, 255, 255, 0.55);
+  stroke: #cbd5e1;
+  stroke-width: 1;
+}
+
+.dcBand text {
+  font-size: 10px;
+  font-weight: 700;
+  fill: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dcBand--gpu rect {
+  fill: rgba(255, 237, 213, 0.45);
+  stroke: #fdba74;
+}
+
+.dcBand--data rect {
+  fill: rgba(220, 252, 231, 0.45);
+  stroke: #86efac;
+}
+
+.dcBand--account rect,
+.dcBand--outside rect {
+  fill: rgba(241, 245, 249, 0.6);
+}
+
+/* ----- nodes ----- */
+
+.dcNode {
+  cursor: pointer;
+  outline: none;
+}
+
+.dcNode rect {
+  fill: #fff;
+  stroke: #64748b;
+  stroke-width: 1.2;
+  transition: stroke 120ms, fill 120ms;
+}
+
+.dcNode:hover rect,
+.dcNode:focus-visible rect {
+  stroke: var(--demo-accent);
+  stroke-width: 1.8;
+}
+
+.dcNode.isSelected rect {
+  fill: #fff7ed;
+  stroke: var(--demo-accent);
+  stroke-width: 2.2;
+}
+
+.dcNode.isHot rect {
+  fill: #fff7ed;
+  stroke: var(--demo-accent);
+  stroke-width: 2;
+}
+
+.dcNode--gpu rect {
+  fill: #fffaf3;
+}
+
+.dcNode--data rect {
+  fill: #f6fdf8;
+}
+
+.dcNodeLabel {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #0f172a;
+  pointer-events: none;
+}
+
+.dcNodeSub {
+  font-size: 10px;
+  fill: #64748b;
+  pointer-events: none;
+}
+
+/* ----- edges ----- */
+
+.dcEdge polyline {
+  stroke: currentColor;
+  stroke-width: 1.4;
+  stroke-linejoin: round;
+  transition: opacity 200ms, stroke 200ms;
+}
+
+.dcEdge.isQuiet {
+  opacity: 0.22;
+}
+
+.dcEdge.isDashed polyline {
+  stroke-dasharray: 5 4;
+}
+
+.dcEdge.isLit {
+  opacity: 1;
+}
+
+.dcEdge.isLit polyline {
+  stroke: var(--demo-accent);
+  stroke-width: 2.2;
+}
+
+.dcEdge.isActive polyline {
+  stroke-width: 3;
+}
+
+.dcEdgeLabel {
+  font-size: 10px;
+  fill: #475569;
+  paint-order: stroke;
+  stroke: #fbfcfd;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.dcEdge.isLit .dcEdgeLabel {
+  fill: #9a3412;
+  font-weight: 700;
+}
+
+.dcPulse {
+  fill: var(--demo-accent);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+
+/* ----- detail card ----- */
+
+.dcCard {
+  margin-top: 12px;
+  min-height: 120px;
+  border: 1px solid var(--demo-line);
+  border-left: 4px solid var(--demo-accent);
+  border-radius: 8px;
+  padding: 12px 16px;
+  background: #fff;
+}
+
+.dcCardKicker {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--demo-muted);
+}
+
+.dcCardTitle {
+  margin: 2px 0 6px;
+  font-size: 17px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.dcCardSub {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--demo-muted);
+}
+
+.dcCardPhrase {
+  margin: 0 0 8px;
+  font-size: 14px;
+  font-style: italic;
+  color: #1e293b;
+}
+
+.dcCardPoints {
+  margin: 0;
+  padding-left: 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 80ch;
+}
+
+.dcCardPoints li + li {
+  margin-top: 4px;
+}
+
+.dcCardLinks {
+  margin: 10px 0 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  font-size: 12px;
+  color: var(--demo-muted);
+}
+
+.dcLinkChip {
+  border: 1px solid var(--demo-line);
+  background: var(--demo-panel);
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 12px;
+  cursor: pointer;
+  color: #1e293b;
+}
+
+.dcLinkChip:hover {
+  border-color: var(--demo-accent);
+}
+
+.dcLinkChip em {
+  font-style: normal;
+  color: var(--demo-muted);
+}
+
+.dcSteps {
+  margin: 0 0 10px;
+  padding-left: 22px;
+  font-size: 13px;
+  line-height: 1.5;
+  max-width: 80ch;
+}
+
+.dcSteps li button {
+  all: unset;
+  display: block;
+  text-align: left;
+  cursor: pointer;
+  color: #64748b;
+}
+
+.dcSteps li.isDone button {
+  color: #1e293b;
+}
+
+.dcSteps li.isCurrent button {
+  color: #9a3412;
+  font-weight: 700;
+}
+
+.dcSteps li button:hover {
+  text-decoration: underline;
+}
+
+/* ----- compute planes figure ----- */
+
+.dcFigure {
+  margin: 0;
+}
+
+.dcPlanes {
+  display: block;
+  width: 100%;
+  height: auto;
+  color: #334155;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.dcPlaneTitle {
+  font-size: 13px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.dcPlaneBox {
+  fill: #fff;
+  stroke: #64748b;
+  stroke-width: 1.2;
+}
+
+.dcPlaneLabel {
+  font-size: 12px;
+  font-weight: 700;
+  fill: #0f172a;
+}
+
+.dcPlaneSub {
+  font-size: 10.5px;
+  fill: #475569;
+}
+
+.dcPlaneEdge {
+  stroke: currentColor;
+  stroke-width: 1.4;
+}
+
+.dcPlaneEdge.isDashed {
+  stroke-dasharray: 5 4;
+}
+
+.dcGpu {
+  stroke-width: 1.4;
+}
+
+.dcGpu.isWarm {
+  fill: #fff7ed;
+  stroke: var(--demo-accent);
+}
+
+.dcGpu.isGhost {
+  fill: none;
+  stroke: #cbd5e1;
+  stroke-dasharray: 4 3;
+}
+
+.dcDivider {
+  stroke: #cbd5e1;
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+
+/* ----- environments table ----- */
+
+.dcEnvTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.dcEnvTable th,
+.dcEnvTable td {
+  text-align: left;
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--demo-line);
+  vertical-align: top;
+}
+
+.dcEnvTable thead th {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--demo-muted);
+}
+
+.dcEnvTable tbody th {
+  font-weight: 600;
+  color: #1e293b;
+  width: 12rem;
+}
+
+@media (max-width: 720px) {
+  .dcEnvTable tbody th {
+    width: auto;
+  }
+
+  /* The map is a 1000-unit drawing; let it scroll sideways rather than shrink to illegibility. */
+  .dcMapWrap {
+    overflow-x: auto;
+  }
+
+  .dcMap {
+    min-width: 760px;
+  }
+}

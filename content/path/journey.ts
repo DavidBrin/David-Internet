@@ -271,6 +271,7 @@ const journey: Journey = {
       ],
       effect: "wash-paper",
       links: [{ label: "katalyxt.ai", href: "https://katalyxt.ai", external: true }],
+      demos: [{ slug: "delta-cloud", label: "Delta Cloud", status: "live" }],
     },
     {
       id: "delta",

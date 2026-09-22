@@ -129,6 +129,11 @@
       "source": "/sites/agent-memory/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Agent_Memory",
       "permanent": false
+    },
+    {
+      "source": "/sites/delta-cloud/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Delta_Cloud",
+      "permanent": false
     }
   ]
 }
