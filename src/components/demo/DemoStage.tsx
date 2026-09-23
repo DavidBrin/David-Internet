@@ -28,6 +28,7 @@ const STAGES: Record<string, ComponentType> = {
   modeling: dynamic(() => import("@/demos/modeling/Stage"), { ssr: false, loading: Loading }),
   earlycode: dynamic(() => import("@/demos/earlycode/Stage"), { ssr: false, loading: Loading }),
   "agent-memory": dynamic(() => import("@/demos/agent-memory/Stage"), { ssr: false, loading: Loading }),
+  "autonomous-car": dynamic(() => import("@/demos/autonomous-car/Stage"), { ssr: false, loading: Loading }),
 };
 
 export default function DemoStage({ slug }: { slug: string }) {

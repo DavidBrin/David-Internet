@@ -169,13 +169,7 @@ const journey: Journey = {
       branch: { label: "three projects, one valley", rejoins: true },
       demos: [
         { slug: "nocturnal", label: "Nocturnal Neuro", status: "live" },
-        {
-          slug: "autonomous-car",
-          label: "Autonomous car",
-          status: "in-progress",
-          needsAssets: true,
-          note: "Spring 2025 · ROS 2 and onboard NVIDIA compute. Not rebuilt yet — the original lives on another machine.",
-        },
+        { slug: "autonomous-car", label: "Autonomous car", status: "live" },
         { slug: "crossteach", label: "Cross-Teaching", status: "live" },
       ],
     },

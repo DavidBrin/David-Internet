@@ -1,0 +1,1291 @@
+/* #ros panel: the ROS 2 graph (prefix acRo). Asphalt stage, safety-yellow wiring. */
+
+.acRoPanel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  min-width: 0;
+}
+
+/* ------------------------------------------------------------ controls */
+
+.acRoControls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.acRoModes {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  flex: 1 1 560px;
+  min-width: 0;
+}
+
+.acRoMode {
+  appearance: none;
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  text-align: left;
+  padding: 8px 10px;
+  border-radius: 9px;
+  border: 1px solid var(--ac-line);
+  background: var(--ac-soft);
+  color: var(--ac-ink);
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  min-width: 0;
+}
+
+.acRoMode:hover {
+  border-color: var(--ac-accent);
+  background: #fdf6d8;
+}
+
+.acRoMode[data-active="true"] {
+  background: var(--ac-asphalt);
+  border-color: var(--ac-asphalt);
+  color: #f4f3ee;
+  box-shadow: inset 0 -3px 0 var(--ac-accent);
+}
+
+.acRoModeKey {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  background: #e9e7df;
+  color: var(--ac-ink);
+}
+
+.acRoMode[data-active="true"] .acRoModeKey {
+  background: var(--ac-accent);
+  color: #1b1c1e;
+}
+
+.acRoModeLabel {
+  display: block;
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.acRoModeSub {
+  display: block;
+  margin-top: 2px;
+  font-size: 11.5px;
+  line-height: 1.3;
+  color: var(--ac-muted);
+}
+
+.acRoMode[data-active="true"] .acRoModeSub {
+  color: #b9bcc1;
+}
+
+.acRoButtons {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.acRoButtons .acBtn {
+  min-width: 78px;
+}
+
+.acRoWhy {
+  margin: 0;
+  font-size: 13px;
+  color: #3f444b;
+  line-height: 1.5;
+}
+
+.acRoWhy b {
+  color: var(--ac-accent-dark);
+}
+
+/* ------------------------------------------------------------ stage */
+
+.acRoStage {
+  background: var(--ac-asphalt);
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1.2px),
+    linear-gradient(180deg, #2a2c30, #232528);
+  background-size: 14px 14px, 100% 100%;
+  border-radius: 12px;
+  padding: 10px 12px 12px;
+  color: #e6e6e3;
+  position: relative;
+  overflow: hidden;
+}
+
+.acRoStatus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 12px;
+  color: #a9adb3;
+  padding: 2px 2px 8px;
+  border-bottom: 1px dashed rgba(234, 179, 8, 0.28);
+  margin-bottom: 6px;
+}
+
+.acRoStatus b {
+  color: #f1f0ea;
+  font-weight: 600;
+}
+
+.acRoStatus b.acRoY,
+.acRoY {
+  color: var(--ac-accent);
+}
+
+.acRoGraphWrap {
+  width: 100%;
+  min-height: 200px;
+}
+
+.acRoGraphWrap[data-layout="tall"] {
+  max-width: 460px;
+  margin: 0 auto;
+}
+
+.acRoLoading {
+  color: #a9adb3;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.acRoSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-geist-sans, system-ui, sans-serif);
+  user-select: none;
+}
+
+/* edges */
+.acRoEdge {
+  fill: none;
+  stroke: #767b83;
+  stroke-width: 1.6;
+  transition: stroke 0.25s, stroke-width 0.25s, opacity 0.25s;
+}
+
+.acRoEdge[data-s="chosen"] {
+  stroke: var(--ac-accent);
+  stroke-width: 3;
+}
+
+.acRoEdge[data-s="faint"] {
+  stroke: #6a6f77;
+  stroke-dasharray: 5 6;
+  opacity: 0.55;
+}
+
+.acRoEdge[data-s="off"] {
+  stroke: #5b6068;
+  stroke-dasharray: 2 6;
+  opacity: 0.35;
+}
+
+.acRoEdge[data-s="wait"] {
+  stroke: #5b6068;
+  stroke-dasharray: 3 5;
+  opacity: 0.5;
+}
+
+.acRoEdge[data-s="nopub"] {
+  opacity: 0.45;
+}
+
+.acRoEdge[data-s="probe"] {
+  stroke: #fbbf24;
+  stroke-width: 2;
+  stroke-dasharray: 7 5;
+  animation: acRoMarch 0.6s linear infinite;
+}
+
+.acRoEdge[data-s="spawn"] {
+  stroke: #8a8f97;
+  stroke-dasharray: 4 5;
+}
+
+@keyframes acRoMarch {
+  to {
+    stroke-dashoffset: -12;
+  }
+}
+
+.acRoEdgeLabel {
+  font-size: 0.8em;
+  font-style: italic;
+  fill: #9da1a8;
+  paint-order: stroke;
+  stroke: #26282b;
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
+
+.acRoEdgeLabel[data-s="chosen"] {
+  fill: var(--ac-accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.acRoEdgeLabel[data-s="faint"],
+.acRoEdgeLabel[data-s="off"] {
+  fill: #c7a64a;
+  font-style: normal;
+}
+
+.acRoEdgeLabel[data-s="probe"] {
+  fill: #fbbf24;
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* topic pills */
+.acRoPill {
+  cursor: pointer;
+  outline: none;
+}
+
+.acRoPillBg {
+  fill: #17191b;
+  stroke: #676c74;
+  stroke-width: 1.2;
+  transition: stroke 0.2s;
+}
+
+.acRoPill:hover .acRoPillBg,
+.acRoPill:focus-visible .acRoPillBg {
+  stroke: #d9d6c8;
+}
+
+.acRoPill[data-focus="true"] .acRoPillBg {
+  stroke: var(--ac-accent);
+  stroke-width: 2;
+}
+
+.acRoPillFlash {
+  fill: rgba(234, 179, 8, 0.3);
+  stroke: var(--ac-accent);
+  stroke-width: 1.5;
+  pointer-events: none;
+}
+
+.acRoPillText {
+  fill: #eeede8;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.92em;
+  pointer-events: none;
+}
+
+.acRoPillType {
+  fill: #8d9299;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 0.76em;
+  pointer-events: none;
+}
+
+.acRoPill[data-absent="true"] {
+  opacity: 0.42;
+}
+
+.acRoPill[data-absent="true"] .acRoPillBg {
+  stroke-dasharray: 3 4;
+}
+
+/* nodes */
+.acRoNode {
+  cursor: pointer;
+  outline: none;
+}
+
+.acRoNodeBg {
+  fill: #1a1c1f;
+  stroke: #4d5158;
+  stroke-width: 1.3;
+  transition: stroke 0.2s;
+}
+
+.acRoNode:hover .acRoNodeBg,
+.acRoNode:focus-visible .acRoNodeBg {
+  stroke: #cfccbf;
+}
+
+.acRoNode[data-sel="true"] .acRoNodeBg {
+  stroke: var(--ac-accent);
+  stroke-width: 2.2;
+}
+
+.acRoNodeFlash {
+  fill: rgba(234, 179, 8, 0.1);
+  pointer-events: none;
+}
+
+.acRoNodeStripe {
+  fill: var(--ac-accent);
+  opacity: 0.9;
+}
+
+.acRoNodeName {
+  fill: #f4f3ee;
+  font-weight: 700;
+  font-size: 1.04em;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  pointer-events: none;
+}
+
+.acRoNodeFile {
+  fill: #8d9299;
+  font-size: 0.82em;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  pointer-events: none;
+}
+
+.acRoNodeStatus {
+  fill: var(--ac-accent);
+  font-size: 0.86em;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  pointer-events: none;
+}
+
+.acRoNodeTag {
+  fill: #9da1a8;
+  font-size: 0.74em;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  pointer-events: none;
+}
+
+.acRoNode[data-id="vesc"] .acRoNodeStripe {
+  fill: #9aa0a8;
+}
+
+.acRoNode[data-id="servo"] .acRoNodeBg {
+  stroke-dasharray: 6 5;
+  fill: #1d1f22;
+}
+
+.acRoNode[data-id="servo"] .acRoNodeStripe {
+  opacity: 0.25;
+}
+
+.acRoNode[data-id="servo"] {
+  opacity: 0.62;
+  transition: opacity 0.25s;
+}
+
+.acRoNode[data-id="servo"][data-on="true"] {
+  opacity: 1;
+}
+
+.acRoNode[data-id="servo"][data-on="true"] .acRoNodeBg {
+  stroke: var(--ac-accent);
+  stroke-width: 2.2;
+  stroke-dasharray: none;
+  fill: #2b2612;
+}
+
+.acRoNode[data-id="servo"][data-on="true"] .acRoNodeStripe {
+  opacity: 1;
+}
+
+.acRoNode[data-off="partial"] .acRoNodeStripe {
+  fill: #7b8088;
+}
+
+/* message dots */
+.acRoDot {
+  pointer-events: none;
+  stroke: #111315;
+  stroke-width: 1;
+}
+
+.acRoDot-img {
+  fill: #7cc4ff;
+}
+
+.acRoDot-f32 {
+  fill: var(--ac-accent);
+}
+
+.acRoDot-bool {
+  fill: #e5e7eb;
+}
+
+.acRoDot-twist {
+  fill: #4ade80;
+}
+
+.acRoDot-spawn {
+  fill: #fb923c;
+}
+
+.acRoLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(234, 179, 8, 0.22);
+  font-size: 11.5px;
+  color: #b3b7bd;
+  align-items: center;
+}
+
+.acRoLegend > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.acRoLegendHint {
+  margin-left: auto;
+  color: #8d9299;
+  font-style: italic;
+}
+
+.acRoLg {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.acRoLg-img {
+  background: #7cc4ff;
+}
+
+.acRoLg-f32 {
+  background: var(--ac-accent);
+}
+
+.acRoLg-bool {
+  background: #e5e7eb;
+}
+
+.acRoLg-twist {
+  background: #4ade80;
+}
+
+.acRoLn {
+  width: 22px;
+  height: 0;
+  display: inline-block;
+  border-top: 3px solid var(--ac-accent);
+}
+
+.acRoLn-faint {
+  border-top: 2px dashed #8a8f97;
+}
+
+.acRoLn-probe {
+  border-top: 2px dashed #fbbf24;
+}
+
+/* mode (c) terminal state */
+.acRoIdle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 10px 12px;
+  border-radius: 9px;
+  border: 1px solid rgba(234, 179, 8, 0.55);
+  background: repeating-linear-gradient(-45deg, rgba(234, 179, 8, 0.1) 0 10px, rgba(234, 179, 8, 0.03) 10px 20px);
+  font-size: 13px;
+  color: #f1f0ea;
+}
+
+.acRoIdle b {
+  color: var(--ac-accent);
+}
+
+.acRoIdle .acMono {
+  font-size: 12px;
+  color: #cfd2d6;
+}
+
+.acRoIdleSub {
+  margin-top: 3px;
+  font-size: 12px;
+  color: #a9adb3;
+}
+
+.acRoModeNote {
+  margin-top: 0;
+}
+
+/* ------------------------------------------------------------ lower grids */
+
+.acRoGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 16px;
+  align-items: start;
+}
+
+.acRoCol {
+  min-width: 0;
+}
+
+.acRoH3 {
+  margin: 4px 0 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ac-muted);
+}
+
+.acRoMuted {
+  color: #8d9299;
+}
+
+.acRoMutedDark {
+  color: var(--ac-muted);
+  font-size: 12.5px;
+}
+
+/* terminal chrome shared by echo + log */
+.acRoTermBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 7px 10px;
+  border-bottom: 1px solid #25282c;
+  font-size: 11.5px;
+  color: #9da1a8;
+}
+
+.acRoTermDots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.acRoTermDots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3a3d42;
+}
+
+.acRoTermDots i:first-child {
+  background: var(--ac-accent);
+}
+
+.acRoTermHint {
+  margin-left: auto;
+  font-style: italic;
+  color: #6f747b;
+}
+
+.acRoPrompt {
+  color: var(--ac-accent);
+}
+
+/* echo */
+.acRoEcho {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.acRoEchoList {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 0;
+  border-bottom: 1px solid #25282c;
+}
+
+.acRoEchoRow {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1px 10px;
+  padding: 5px 10px 5px 8px;
+  border-left: 2px solid transparent;
+  font-size: 12px;
+}
+
+.acRoEchoRow:hover {
+  background: #1a1c1f;
+}
+
+.acRoEchoRow[data-focus="true"] {
+  background: #1d1e16;
+  border-left-color: var(--ac-accent);
+}
+
+.acRoEchoRow[data-absent="true"] {
+  opacity: 0.45;
+}
+
+.acRoEchoName {
+  color: #eeede8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.acRoEchoRow[data-focus="true"] .acRoEchoName {
+  color: var(--ac-accent);
+}
+
+.acRoEchoMeta {
+  color: #7d828a;
+  font-size: 11px;
+  white-space: pre;
+  text-align: right;
+}
+
+.acRoEchoVal {
+  color: #cfe6ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 11.5px;
+}
+
+.acRoEchoAge {
+  color: #7d828a;
+  font-size: 11px;
+  text-align: right;
+}
+
+.acRoEchoFocusHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding: 7px 10px 4px;
+  font-size: 12px;
+  color: #e6e6e3;
+}
+
+.acRoEchoType {
+  margin-left: auto;
+  color: #7d828a;
+  font-size: 11px;
+}
+
+.acRoEchoStream {
+  height: 200px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 2px 10px 10px;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+.acRoEchoMsg {
+  margin: 0;
+  font: inherit;
+  color: #b9bcc1;
+  white-space: pre-wrap;
+}
+
+.acRoEchoMsg[data-new="true"] {
+  color: #f1f0ea;
+}
+
+/* probe */
+.acRoProbe {
+  background: var(--ac-soft);
+  border: 1px solid var(--ac-line);
+  border-radius: 10px;
+  padding: 12px;
+  min-height: 200px;
+}
+
+.acRoProbeHead {
+  margin-bottom: 8px;
+}
+
+.acRoSteps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.acRoSteps > li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  opacity: 0.35;
+  transition: opacity 0.25s;
+}
+
+.acRoSteps > li[data-on="true"] {
+  opacity: 1;
+}
+
+.acRoStepN {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--ac-asphalt);
+  color: var(--ac-accent);
+  margin-top: 1px;
+}
+
+.acRoGrow {
+  flex: 1;
+  min-width: 0;
+}
+
+.acRoLogStr {
+  font-size: 12px;
+  color: var(--ac-ink);
+  line-height: 1.45;
+  word-break: break-word;
+}
+
+.acRoStepCode {
+  font-size: 12px;
+  color: var(--ac-accent-dark);
+}
+
+.acRoTopicList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.acRoTopicChip {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--ac-line);
+  background: #fff;
+  color: #4a4f57;
+}
+
+.acRoTopicChip[data-hit="true"] {
+  border-color: var(--ac-accent);
+  background: #fdf3c7;
+  color: var(--ac-ink);
+  font-weight: 600;
+}
+
+.acRoTopicChip[data-miss="true"] {
+  border-style: dashed;
+  border-color: var(--ac-red);
+  color: var(--ac-red);
+  background: #fff5f5;
+}
+
+.acRoCode {
+  margin: 0;
+  padding: 9px 11px;
+  background: #111315;
+  color: #e6e6e3;
+  border-radius: 8px;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 11.5px;
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.acRoCodeSmall {
+  margin-top: 6px;
+  font-size: 11px;
+}
+
+.acRoSpin {
+  margin-top: 8px;
+}
+
+.acRoTicks {
+  display: grid;
+  grid-template-columns: repeat(30, minmax(0, 1fr));
+  gap: 2px;
+}
+
+.acRoTicks i {
+  height: 14px;
+  border-radius: 2px;
+  background: #e2e0d8;
+  transition: background 0.1s;
+}
+
+.acRoTicks i[data-s="done"] {
+  background: #6b7078;
+}
+
+.acRoTicks i[data-s="msg"] {
+  background: var(--ac-accent);
+  box-shadow: 0 0 0 2px rgba(234, 179, 8, 0.35);
+}
+
+.acRoSpinRead {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4px;
+  font-size: 11.5px;
+  color: #3f444b;
+}
+
+.acRoCountdown {
+  font-weight: 700;
+  color: var(--ac-ink);
+}
+
+.acRoVerdict {
+  margin-top: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  padding: 7px 10px;
+  border-radius: 8px;
+  background: var(--ac-asphalt);
+  color: #d4d6da;
+  font-size: 11.5px;
+}
+
+.acRoVerdict .acMono {
+  word-break: break-all;
+}
+
+.acRoVerdict b {
+  margin-left: auto;
+  color: #1b1c1e;
+  background: var(--ac-accent);
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  white-space: nowrap;
+}
+
+.acRoVerdict[data-garbage="true"] b {
+  background: #fb923c;
+}
+
+/* node card */
+.acRoNodeTabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.acRoNodeTab {
+  appearance: none;
+  border: 1px solid var(--ac-line);
+  background: var(--ac-soft);
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 11px;
+  color: #3f444b;
+  cursor: pointer;
+}
+
+.acRoNodeTab:hover {
+  border-color: var(--ac-accent);
+}
+
+.acRoNodeTab[data-active="true"] {
+  background: var(--ac-asphalt);
+  border-color: var(--ac-asphalt);
+  color: var(--ac-accent);
+}
+
+.acRoCard {
+  container-type: inline-size;
+  border: 1px solid var(--ac-line);
+  border-top: 4px solid var(--ac-accent);
+  border-radius: 10px;
+  padding: 12px;
+  background: #fff;
+}
+
+.acRoCard[data-id="vesc"] {
+  border-top-color: #9aa0a8;
+}
+
+.acRoCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 6px 12px;
+}
+
+.acRoCardName {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ac-ink);
+}
+
+.acRoCardFile {
+  font-size: 12px;
+  color: var(--ac-muted);
+}
+
+.acRoLive {
+  font-size: 11.5px;
+  background: var(--ac-asphalt);
+  color: var(--ac-accent);
+  border-radius: 6px;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+
+.acRoCardOrigin {
+  margin: 8px 0 10px;
+  font-size: 12.5px;
+  line-height: 1.5;
+  color: #3f444b;
+}
+
+.acRoLabel {
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #7a7f86;
+  margin: 8px 0 3px;
+}
+
+.acRoWires {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 14px;
+}
+
+.acRoWire {
+  margin-bottom: 5px;
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.acRoWireTopic {
+  color: var(--ac-ink);
+  font-weight: 600;
+  word-break: break-all;
+}
+
+.acRoWireType {
+  color: var(--ac-accent-dark);
+  font-size: 11px;
+}
+
+.acRoWireNote {
+  color: var(--ac-muted);
+  font-size: 11.5px;
+}
+
+.acRoRate {
+  font-size: 12px;
+  color: var(--ac-ink);
+  word-break: break-word;
+}
+
+.acRoParams {
+  margin: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 2px 14px;
+}
+
+.acRoParams > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 0;
+  border-bottom: 1px dotted #e3e1da;
+  font-size: 11.5px;
+  min-width: 0;
+}
+
+.acRoParams dt {
+  color: var(--ac-muted);
+  overflow-wrap: anywhere;
+}
+
+.acRoParams dd {
+  margin: 0;
+  color: var(--ac-ink);
+  font-weight: 600;
+  text-align: right;
+  overflow-wrap: anywhere;
+}
+
+.acRoExcerpt {
+  margin-top: 12px;
+}
+
+.acRoExcerptHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 11px;
+  color: #6b7078;
+  padding: 0 2px 4px;
+}
+
+.acRoCard .acNote code,
+.acRoLaunch .acNote code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  font-size: 11.5px;
+  background: #f3efdc;
+  padding: 0 4px;
+  border-radius: 4px;
+}
+
+/* guidance log */
+.acRoLog {
+  container-type: inline-size;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.acRoLogBody {
+  height: 470px;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 8px 10px 10px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: #d8d8d4;
+}
+
+.acRoLogLine[data-level="WARN"] {
+  color: #facc15;
+}
+
+.acRoLogLevel {
+  color: #9da1a8;
+}
+
+.acRoLogLine[data-level="WARN"] .acRoLogLevel {
+  color: #facc15;
+  font-weight: 700;
+}
+
+.acRoLogTime,
+.acRoLogProc {
+  color: #6f747b;
+}
+
+.acRoLogLine[data-level="WARN"] .acRoLogTime,
+.acRoLogLine[data-level="WARN"] .acRoLogProc {
+  color: #b8931a;
+}
+
+/* launch strip */
+.acRoLaunch {
+  container-type: inline-size;
+  border: 1px solid var(--ac-line);
+  border-radius: 10px;
+  padding: 12px;
+  background: var(--ac-soft);
+}
+
+.acRoLaunchHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  margin-bottom: 10px;
+}
+
+.acRoLaunchParam {
+  font-size: 11.5px;
+  color: var(--ac-ink);
+}
+
+.acRoLaunchRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) minmax(0, 1.05fr);
+  gap: 8px;
+}
+
+.acRoLaunchItem {
+  display: flex;
+  gap: 9px;
+  align-items: flex-start;
+  background: var(--ac-asphalt);
+  color: #e6e6e3;
+  border-radius: 9px;
+  padding: 9px 10px;
+  box-shadow: inset 0 -3px 0 var(--ac-accent);
+  min-width: 0;
+}
+
+.acRoLaunchN {
+  flex: none;
+  font-size: 11px;
+  color: #1b1c1e;
+  background: var(--ac-accent);
+  border-radius: 4px;
+  padding: 0 5px;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.acRoLaunchName {
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #f4f3ee;
+  overflow-wrap: anywhere;
+}
+
+.acRoLaunchPkg {
+  font-size: 11px;
+  color: #9da1a8;
+  overflow-wrap: anywhere;
+}
+
+.acRoLaunchOff {
+  border: 1px dashed #cfccbf;
+  border-radius: 9px;
+  padding: 2px 10px 8px;
+  font-size: 11px;
+  color: #7a7f86;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.acRoLaunchOff .acRoLabel {
+  margin-top: 6px;
+}
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 860px) {
+  .acRoGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .acRoLaunchRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .acRoLogBody {
+    height: 340px;
+  }
+}
+
+@media (max-width: 640px) {
+  .acRoModes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .acRoButtons {
+    width: 100%;
+  }
+
+  .acRoButtons .acBtn {
+    flex: 1;
+  }
+
+  .acRoStage {
+    padding: 8px 8px 10px;
+  }
+
+  .acRoLegendHint {
+    margin-left: 0;
+  }
+
+  .acRoIdle {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .acRoLogProc {
+    display: none;
+  }
+
+  .acRoWires,
+  .acRoParams {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .acRoLaunchRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 520px) {
+  .acRoWires,
+  .acRoParams {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 760px) {
+  .acRoLaunchRow {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 440px) {
+  .acRoLaunchRow {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@container (max-width: 400px) {
+  .acRoEchoPub {
+    display: none;
+  }
+
+  .acRoEchoRow {
+    gap: 1px 6px;
+  }
+}
+
+@container (max-width: 640px) {
+  .acRoLogProc {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .acRoEdge[data-s="probe"] {
+    animation: none;
+  }
+}
+
+/* long file:function chips wrap instead of pushing the page wide */
+.acRoPanel .acChip {
+  white-space: normal;
+  border-radius: 10px;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}

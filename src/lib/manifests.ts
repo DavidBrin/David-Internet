@@ -30,6 +30,7 @@ import sql from "@content/sql/site";
 import modeling from "@content/modeling/site";
 import earlycode from "@content/earlycode/site";
 import agentMemory from "@content/agent-memory/site";
+import autonomousCar from "@content/autonomous-car/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -57,6 +58,7 @@ export const manifests: SiteManifest[] = [
   modeling,
   earlycode,
   agentMemory,
+  autonomousCar,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {

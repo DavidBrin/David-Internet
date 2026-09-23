@@ -38,6 +38,7 @@ export const WIKI_SLUGS: Record<string, string> = {
   modeling: "Early_3D_Modeling",
   earlycode: "Early_Code",
   "agent-memory": "Agent_Memory",
+  "autonomous-car": "Autonomous_Car",
 };
 
 /** true when the project has an encyclopedia article. */

@@ -124,6 +124,11 @@
       "source": "/sites/agent-memory/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Agent_Memory",
       "permanent": false
+    },
+    {
+      "source": "/sites/autonomous-car/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Autonomous_Car",
+      "permanent": false
     }
   ]
 }
