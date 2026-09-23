@@ -59,6 +59,15 @@ const meta: DemoMeta = {
     { name: "features.ts", path: "src/demos/spikes/core/features.ts", lang: "ts", note: "TS port of the ramp/peak/decay features with a small bounded Levenberg–Marquardt fitter." },
     { name: "prep script", path: "scripts/demos/spikes_prep.py", lang: "python", note: "Build-time prep: downloads a per-subject sample of DANDI:001776, runs the real spikeparam pipeline, writes assets + fixtures." },
   ],
+  links: [
+    {
+      kind: "Paper",
+      label: "Action potential waveforms are state-dependent",
+      href: "https://doi.org/10.64898/2026.09.15.751814",
+      note:
+        "Martin-Burgos, Juavinett, Riviere, Hammonds & Voytek — bioRxiv preprint, 21 September 2026. The Voytek Lab's paper from the action-potential parameterization work this page runs on; David is not an author.",
+    },
+  ],
   sourceFooter:
     "spikeparam is a Voytek Lab package (NIH R01 GM134363) — David used it, and the lab's files above are shown as lab code. Data: Primate Cell Type Database, DANDI:001776 (CC-BY-4.0). The statistical analysis is unpublished; this page describes methods, not findings.",
 };

@@ -44,6 +44,16 @@ export interface DemoStoryBeat {
   anchor?: string;
 }
 
+export interface DemoLink {
+  /** Short kind shown as a chip: "Paper", "Dataset", "Package". */
+  kind: string;
+  /** Link text — a title, not a URL. */
+  label: string;
+  href: string;
+  /** One line of context: who wrote it, where it sits, how it relates to the page. */
+  note?: string;
+}
+
 export interface DemoMeta {
   slug: string;
   /** Three short chips under the title. */
@@ -55,6 +65,8 @@ export interface DemoMeta {
   sources: DemoSource[];
   /** Single attribution/footer line under the Source drawer. */
   sourceFooter?: string;
+  /** Outbound links (paper, dataset, package) shown in a "Further reading" block at the bottom of the page. */
+  links?: DemoLink[];
   /** Page-wide tint matching the project's vibe (bg = page, panel = bars/hovers). Defaults to white/grey. */
   theme?: { bg: string; panel?: string };
   /** Hide the What/Why/When chips in the demo-page header (they still appear on the demos index card). */

@@ -108,6 +108,26 @@ export default function DemoLayout({
 
       <SourceDrawer tabs={sources} footer={meta.sourceFooter} />
 
+      {meta.links?.length ? (
+        <section className="demoLinks" id="reading" aria-label="Further reading">
+          <h2 className="demoLinksHeading">Further reading</h2>
+          <ul className="demoLinksList">
+            {meta.links.map((l) => (
+              <li key={l.href} className="demoLink">
+                <span className="demoLinkKind">{l.kind}</span>
+                <div>
+                  <a href={l.href} target="_blank" rel="noopener noreferrer">
+                    {l.label}
+                  </a>
+                  {l.note ? <p className="demoLinkNote">{l.note}</p> : null}
+                  <span className="demoLinkHref">{l.href.replace(/^https?:\/\//, "")}</span>
+                </div>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
+
       <footer className="demoFooter">
         <Link href="/">Back to search</Link>
       </footer>
