@@ -110,10 +110,13 @@ export class PathPlanner {
   }
 
   /** check_topic_availability (3 s timeout): the subscription is chosen once, at startup. */
-  probe(objectDataSeen: boolean, objectTopicExists: boolean, t = 0): Topic {
+  probe(objectDataSeen: boolean, objectTopicExists: boolean, t = 0, objectTopicType = "std_msgs/msg/Float32"): Topic {
     this.log(t, "Checking topic availability...");
     if (!objectTopicExists) {
       this.log(t, "Topic /object_detections/centroid not found. Using /centroid");
+      this.topic = "/centroid";
+    } else if (objectTopicType !== "std_msgs/msg/Float32") {
+      this.log(t, "Topic /object_detections/centroid has wrong message type. Using /centroid", "WARN");
       this.topic = "/centroid";
     } else if (objectDataSeen) {
       this.log(t, "Topic /object_detections/centroid found. Testing for active data...");

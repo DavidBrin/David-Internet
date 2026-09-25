@@ -87,8 +87,11 @@ export function useRaf(step: (dt: number) => void, running: boolean) {
 /** true once the element has scrolled near the viewport (so heavy panels start lazily). */
 export function useNearViewport<T extends Element>(margin = "300px") {
   const [near, setNear] = useState(false);
+  const ioRef = useRef<IntersectionObserver | null>(null);
   const ref = useCallback(
     (el: T | null) => {
+      ioRef.current?.disconnect();
+      ioRef.current = null;
       if (!el || near) return;
       const io = new IntersectionObserver(
         (entries) => {
@@ -99,6 +102,7 @@ export function useNearViewport<T extends Element>(margin = "300px") {
         },
         { rootMargin: margin },
       );
+      ioRef.current = io;
       io.observe(el);
     },
     [near, margin],

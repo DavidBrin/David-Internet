@@ -7,7 +7,7 @@ const meta: DemoMeta = {
   slug: "autonomous-car",
   theme: { bg: "#f1f1ee", panel: "#e5e4df" }, // parking-lot asphalt; the accent is the tape
   what: "a ROS 2 robocar's vision, node graph and controller, running live on a simulated lot",
-  why: "the car is gone, but its nodes still run: same OpenCV calls, same messages, same PID",
+  why: "the car is gone, but its nodes live on as ports checked against the originals: same OpenCV calls, same messages, same PID",
   when: "ECE/MAE 148, UC San Diego, spring 2025",
   story: [
     {

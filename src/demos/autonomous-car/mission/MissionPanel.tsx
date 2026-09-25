@@ -79,11 +79,15 @@ export default function MissionPanel() {
     building.current = true;
     setStatus("loading");
     // let the loading line paint before the bake blocks the main thread
-    window.setTimeout(() => {
+    const id = window.setTimeout(() => {
       worldRef.current = new World({ garbage: [] });
       runRef.current = new MissionRun(worldRef.current, "twist");
       setStatus("ready");
     }, 40);
+    return () => {
+      window.clearTimeout(id);
+      if (!worldRef.current) building.current = false;
+    };
   }, [inView]);
 
   useEffect(() => {

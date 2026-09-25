@@ -8,7 +8,8 @@
  *
  * Quirks kept on purpose:
  *  - the gray conversion reads H,S,V as if they were B,G,R;
- *  - the crop is fixed from the first frame's size (camera_init);
+ *  - the crop is fixed from the first frame's size (camera_init): pass that `box` when
+ *    streaming frames of changing size (every frame on this page is 640x480);
  *  - in the curve branch every line inside the threshold band is replaced by error 1,
  *    so a curve with all lines near centre steers hard right.
  */

@@ -246,6 +246,15 @@ describe("lane_guidance_node3.PathPlanner", () => {
       expect(pl.logs.map((l) => l.msg)).toEqual(data.probes[name].logs);
     }
   });
+
+  it("falls back to /centroid when the detection topic has the wrong message type", () => {
+    const src = fs.readFileSync(path.join(process.cwd(), "demos/autonomous_car_raw/Code/lane_guidance_node3.py"), "utf-8");
+    expect(src).toContain("!= 'std_msgs/msg/Float32'");
+    expect(src).toContain("has wrong message type. Using {CENTROID_TOPIC_NAME}");
+    const pl = new PathPlanner(GUIDANCE_PARAMS);
+    expect(pl.probe(true, true, 0, "std_msgs/msg/Int32")).toBe("/centroid");
+    expect(pl.logs.at(-1)).toEqual({ t: 0, level: "WARN", msg: "Topic /object_detections/centroid has wrong message type. Using /centroid" });
+  });
 });
 
 describe("servo_sweeper", () => {
