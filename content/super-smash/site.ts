@@ -6,9 +6,9 @@ const site: SiteManifest = {
   fakeDomain: "smash.davids.net",
   liveUrl: "https://smash-david.vercel.app",
   tagline:
-    "Eight fighters, one keyboard, sixty frames a second — a browser rebuild of Smash Ultimate's versus mode",
+    "Eight fighters, one keyboard, sixty frames a second: a browser rebuild of Smash Ultimate's versus mode",
   description:
-    "A browser rebuild of Super Smash Bros. Ultimate's versus mode, with menus, HUD and physics reproduced from measured values rather than approximated by feel — the knockback equation is Ultimate's, the stage geometry is Kurogane Hammer's, and frame data comes from the game's own decompiled scripts. Fighters are drawn entirely from code (a bone hierarchy of capsules and circles posed from keyframe data), since no Nintendo art is used anywhere. It adds rollback netcode over WebRTC, something the original (delay-based) doesn't have.",
+    "A browser rebuild of Super Smash Bros. Ultimate's versus mode, with menus, HUD and physics reproduced from measured values rather than approximated by feel: the knockback equation is Ultimate's, the stage geometry is Kurogane Hammer's, and frame data comes from the game's own decompiled scripts. Fighters are drawn entirely from code (a bone hierarchy of capsules and circles posed from keyframe data), since no Nintendo art is used anywhere. It adds rollback netcode over WebRTC, something the original (delay-based) doesn't have.",
   accentColor: "#E60012",
   favicon: "🎮",
   techStack: [
@@ -27,56 +27,56 @@ const site: SiteManifest = {
   deepLinks: [
     {
       path: "/",
-      title: "Super Smash — Title",
+      title: "Super Smash: Title",
       snippet:
         "PRESS ANY BUTTON over the wordmark. The entry point to an eight-fighter browser brawl with no keys, no database, no account required.",
       keywords: ["super smash", "smash bros title screen", "browser fighting game"],
     },
     {
       path: "/menu",
-      title: "Main Menu — Super Smash",
+      title: "Main Menu: Super Smash",
       snippet:
         "The main menu: five diagonally-slashed mode tiles, reproduced pixel-for-pixel from Ultimate's sheared visual language.",
       keywords: ["smash main menu", "game menu"],
     },
     {
       path: "/fighters",
-      title: "Character Select — Super Smash",
+      title: "Character Select: Super Smash",
       snippet:
-        "A portrait grid ordered by fighter number — Mario, Donkey Kong, Link, Samus, Kirby, Fox, Pikachu and Marth — with sheared player panels below.",
+        "A portrait grid ordered by fighter number (Mario, Donkey Kong, Link, Samus, Kirby, Fox, Pikachu and Marth) with sheared player panels below.",
       keywords: ["smash character select", "fighter roster", "pick a character"],
     },
     {
       path: "/stage",
-      title: "Stage Select — Super Smash",
+      title: "Stage Select: Super Smash",
       snippet:
         "Six competitive-legal stages with real blast-zone geometry from Kurogane Hammer, plus a Normal / Battlefield / Omega toggle.",
       keywords: ["smash stage select", "battlefield final destination"],
     },
     {
       path: "/rules",
-      title: "Rules — Super Smash",
+      title: "Rules: Super Smash",
       snippet:
         "Set stock or time, stock count, and whether the Smash Ball spawns before the match begins.",
       keywords: ["smash rules", "stock or time"],
     },
     {
       path: "/play",
-      title: "Match — Super Smash",
+      title: "Match: Super Smash",
       snippet:
         "The brawl itself: fixed-point deterministic physics, real knockback formulas, and rollback netcode for online play.",
       keywords: ["play super smash", "smash bros match", "fighting game online"],
     },
     {
       path: "/controls",
-      title: "Controls — Super Smash",
+      title: "Controls: Super Smash",
       snippet:
         "Two mirrored keyboard schemes (Arrows and WASD) plus a third preset for local co-op, all rebindable per player.",
       keywords: ["smash keyboard controls", "control scheme"],
     },
     {
       path: "/results",
-      title: "Results — Super Smash",
+      title: "Results: Super Smash",
       snippet: "Final placings, KOs, falls and self-destructs after the match ends.",
       keywords: ["smash match results", "kos and stocks"],
     },
@@ -84,7 +84,7 @@ const site: SiteManifest = {
   images: [
     {
       src: "/content/super-smash/screenshots/title.png",
-      caption: "Title screen — PRESS ANY BUTTON over the wordmark",
+      caption: "Title screen, PRESS ANY BUTTON over the wordmark",
       targetPath: "/",
     },
     {
@@ -138,12 +138,12 @@ const site: SiteManifest = {
   knowledgePanel: {
     type: "Browser game",
     facts: {
-      Roster: "8 fighters — Mario, Donkey Kong, Link, Samus, Kirby, Fox, Pikachu, Marth",
+      Roster: "8 fighters: Mario, Donkey Kong, Link, Samus, Kirby, Fox, Pikachu, Marth",
       Physics:
         "Fixed 60Hz simulation using Q12 fixed-point integers and a trig lookup table for cross-browser determinism",
       Netcode: "Rollback over WebRTC (via Trystero), 2 frames of input delay, 8-frame prediction cap",
       Stages: "6 competitive-legal stages with geometry sourced from Kurogane Hammer",
-      Art: "No Nintendo assets — every fighter is a code-drawn bone hierarchy; all sound is synthesized",
+      Art: "No Nintendo assets; every fighter is a code-drawn bone hierarchy, and all sound is synthesized",
     },
   },
   docs: { readme: true, spec: true, decisions: true },

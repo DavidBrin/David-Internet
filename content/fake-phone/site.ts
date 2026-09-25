@@ -25,9 +25,9 @@ const site: SiteManifest = {
   deepLinks: [
     {
       path: "/",
-      title: "fake-phone — Incoming Call",
+      title: "fake-phone: Incoming Call",
       snippet:
-        "Cold-boot lands you straight on a ringing incoming-call screen — no splash, no menu. Answer to start the fake call, or decline/end to reveal settings.",
+        "Cold-boot lands you straight on a ringing incoming-call screen: no splash, no menu. Answer to start the fake call, or decline/end to reveal settings.",
       keywords: [
         "fake call",
         "incoming call",
@@ -38,16 +38,16 @@ const site: SiteManifest = {
     },
     {
       path: "/home",
-      title: "fake-phone — Home & Settings",
+      title: "fake-phone: Home & Settings",
       snippet:
         "The only way in is by ending a call: configure caller name, photo, call skin, voice tier, persona, ring delay, and live-mode settings from here.",
       keywords: ["fake phone settings", "caller id settings", "personal safety app settings"],
     },
     {
       path: "/live",
-      title: "fake-phone — Live Mode",
+      title: "fake-phone: Live Mode",
       snippet:
-        "Puts your front camera on screen with a LIVE badge, rising viewer count, scrolling comments and floating hearts — implying many people are watching right now.",
+        "Puts your front camera on screen with a LIVE badge, rising viewer count, scrolling comments and floating hearts, implying many people are watching right now.",
       keywords: [
         "fake live stream",
         "fake instagram live",
@@ -79,7 +79,7 @@ const site: SiteManifest = {
     },
     {
       src: "/content/fake-phone/screenshots/home.png",
-      caption: "Home / settings surface — dark, calm, amber accent",
+      caption: "Home / settings surface, dark, calm, amber accent",
       targetPath: "/home",
     },
     {
@@ -122,11 +122,11 @@ const site: SiteManifest = {
       Category: "Personal-safety / de-escalation tool",
       "Voice tiers": "Silent, Scripted (default), AI (Anthropic-powered, inert without an API key)",
       Storage:
-        "Fully client-side — all settings and photos saved to localStorage, no backend database",
+        "Fully client-side: all settings and photos saved to localStorage, no backend database",
       "App Store stance":
         "Deliberately avoids 'prank'/'joke' language and never simulates contact with emergency services",
       "Build approach":
-        "One-shot, research-first build — six parallel research lanes followed by six parallel build slices against a frozen contract",
+        "One-shot, research-first build: six parallel research lanes followed by six parallel build slices against a frozen contract",
     },
   },
   docs: { readme: true, spec: true, decisions: true },

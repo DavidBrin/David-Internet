@@ -58,7 +58,7 @@ const site: SiteManifest = {
       path: "/studio/upload",
       title: "Upload Studio - YouTube Replica",
       snippet:
-        "The real upload pipeline: your browser demuxes, decodes once, fans frames out to multiple VideoEncoders, muxes fMP4, and uploads an HLS ladder — the server never opens a codec.",
+        "The real upload pipeline: your browser demuxes, decodes once, fans frames out to multiple VideoEncoders, muxes fMP4, and uploads an HLS ladder; the server never opens a codec.",
       keywords: ["upload video", "creator studio", "video encoder", "hls upload"],
     },
     {
@@ -78,7 +78,7 @@ const site: SiteManifest = {
       path: "/@opencinema",
       title: "Channel - YouTube Replica",
       snippet:
-        "A channel page with tabs for videos, playlists, and about — e.g. the seeded Open Cinema channel at @opencinema.",
+        "A channel page with tabs for videos, playlists, and about, e.g. the seeded Open Cinema channel at @opencinema.",
       keywords: ["channel page", "creator channel", "subscribe"],
     },
   ],
@@ -114,7 +114,7 @@ const site: SiteManifest = {
       Architecture:
         "Transcoding happens entirely in the uploader's browser via WebCodecs; the server only stores and serves opaque byte ranges",
       "Media pipeline":
-        "Hand-written MP4 demuxer, fMP4 muxer, and HLS packager/parser/ABR — no ffmpeg.wasm, mp4box.js, hls.js, or mux.js",
+        "Hand-written MP4 demuxer, fMP4 muxer, and HLS packager/parser/ABR: no ffmpeg.wasm, mp4box.js, hls.js, or mux.js",
       "Content ID":
         "Landmark audio fingerprinting (Wang, ISMIR 2003) with a derived match threshold of 250",
       Recommender: "Co-visitation algorithm after Davidson et al., RecSys 2010",
