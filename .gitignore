@@ -14,3 +14,17 @@ __pycache__/
 # demo prep caches (downloaded data)
 .cache/
 .env*
+
+# Unlisted content: never tracked. Lives only on the deploying machine.
+private/
+public/_private/
+src/app/(unlisted)/
+# Unlisted section tooling: kept on the deploying machine only.
+scripts/sync-private.ts
+scripts/scrub-export.ts
+scripts/templates/unlisted-route/
+src/components/notebook/
+src/lib/unlisted.ts
+src/lib/unlisted.server.ts
+tests/unlisted.test.ts
+e2e/unlisted.spec.ts
