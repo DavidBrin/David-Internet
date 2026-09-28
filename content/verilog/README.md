@@ -1,4 +1,4 @@
-# Verilog — demo page
+# Verilog: demo page
 
 Live at [/demos/verilog](/demos/verilog). This page is a demo built inside David's Internet, not a vendored project: the archive it was made from lives in `demos/viterbi_decoder_fpga_raw/` and `demos/ece111_rtl_library_raw/`, the working copies that actually simulate in `demos/verilog_src/`, and the build script in `scripts/demos/verilog.ts`.
 
@@ -14,11 +14,11 @@ Live at [/demos/verilog](/demos/verilog). This page is a demo built inside David
 
 The decoder had been completed with AI coding tools from the course scaffold and never simulated. Simulating it for this page:
 
-- `encoder.sv` — the starter's case table was empty ("fill in the guts"); it was completed from the assignment's state/output table.
-- `decoder.sv` — the best-state search (an accumulator loop inside `always_comb`) and the survivor-history update (an array written and read in the same block) made Icarus Verilog re-trigger forever at t = 0; both were rewritten as continuous assignments with identical behaviour. A flattened `path_cost_flat` wire was added for the VCD dump.
-- `bmc0.sv` — the same idiom, rewritten as assigns.
-- `viterbi_tx_rx_2a1.sv` — `{ERR_BIT1, ERR_BIT0}` evaluated to `2'b00` under Icarus when the `bit` parameters were overridden with unsized `1` (the parameters stayed 32 bits wide), so every bit[1] preset silently injected nothing and "passed". The TypeScript model's bit-exactness test caught it; the mask is now built from explicit 1-bit values and the runner passes sized literals.
-- Module library — see `demos/verilog_src/lib/NOTES.md` for the per-file notes (the hw7 `conv_enc` module body was empty in the archive and was completed).
+- `encoder.sv`: the starter's case table was empty ("fill in the guts"); it was completed from the assignment's state/output table.
+- `decoder.sv`: the best-state search (an accumulator loop inside `always_comb`) and the survivor-history update (an array written and read in the same block) made Icarus Verilog re-trigger forever at t = 0; both were rewritten as continuous assignments with identical behaviour. A flattened `path_cost_flat` wire was added for the VCD dump.
+- `bmc0.sv`: the same idiom, rewritten as assigns.
+- `viterbi_tx_rx_2a1.sv`: `{ERR_BIT1, ERR_BIT0}` evaluated to `2'b00` under Icarus when the `bit` parameters were overridden with unsized `1` (the parameters stayed 32 bits wide), so every bit[1] preset silently injected nothing and "passed". The TypeScript model's bit-exactness test caught it; the mask is now built from explicit 1-bit values and the runner passes sized literals.
+- Module library: see `demos/verilog_src/lib/NOTES.md` for the per-file notes (the hw7 `conv_enc` module body was empty in the archive and was completed).
 
 The output delay (4039-stage pipe + 66 cycles of encoder/ACS/traceback latency = 4105 cycles) matches the testbench's `#410500ns` scoring window exactly; the clean run scores 256/256.
 

@@ -5,9 +5,9 @@ const site: SiteManifest = {
   displayName: "Dollar Pixels",
   fakeDomain: "pixels.davids.net",
   liveUrl: "https://dollar-pixels-david.vercel.app",
-  tagline: "$1 buys nine pixels — a Million Dollar Homepage rebuild in blocks of nine",
+  tagline: "$1 buys nine pixels: a Million Dollar Homepage rebuild in blocks of nine",
   description:
-    "A rebuild of the 2005 Million Dollar Homepage where blocks of nine pixels (a 3x3 square) sell for $1 on a 1200x1200 grid of 160,000 blocks. Unlike the original, buyers can make their own page and claims never link anywhere — Play money is the default, with a one-env-var switch to real Stripe payments through the same settlement code path.",
+    "A rebuild of the 2005 Million Dollar Homepage where blocks of nine pixels (a 3x3 square) sell for $1 on a 1200x1200 grid of 160,000 blocks. Unlike the original, buyers can make their own page and claims never link anywhere. Play money is the default, with a one-env-var switch to real Stripe payments through the same settlement code path.",
   accentColor: "#FFD700",
   favicon: "🟨",
   techStack: [
@@ -27,35 +27,35 @@ const site: SiteManifest = {
   deepLinks: [
     {
       path: "/",
-      title: "Dollar Pixels — $1 buys nine pixels",
+      title: "Dollar Pixels: $1 buys nine pixels",
       snippet:
         "The landing page: the pitch, live sold/available counters, a link to the wall and the directory.",
       keywords: ["million dollar homepage", "pixel grid", "buy pixels", "landing page"],
     },
     {
       path: "/p/the-wall",
-      title: "The Wall — the flagship 1200x1200 pixel grid",
+      title: "The Wall: the flagship 1200x1200 pixel grid",
       snippet:
         "The flagship page: a 400x400-block grid worth $160,000 in face value, where you drag to select and buy blocks of nine pixels.",
       keywords: ["the wall", "pixel wall", "buy blocks", "million dollar homepage clone"],
     },
     {
       path: "/pages",
-      title: "Directory — premium pages",
+      title: "Directory: premium pages",
       snippet:
         "Browse the directory of listed premium pages, where block sales pay the page's creator.",
       keywords: ["directory", "premium pages", "listed pages"],
     },
     {
       path: "/new",
-      title: "Create a page — unlisted or premium",
+      title: "Create a page: unlisted or premium",
       snippet:
         "Make your own page: pick a size, see the live price, and check slug availability. Unlisted pages are $10 flat; premium pages cost blocks times $0.50.",
       keywords: ["create page", "make your own page", "new page", "premium page"],
     },
     {
       path: "/dashboard",
-      title: "Dashboard — your pages, claims and earnings",
+      title: "Dashboard: your pages, claims and earnings",
       snippet:
         "See the pages you own, the claims you've bought, and your creator earnings ledger.",
       keywords: ["dashboard", "earnings", "my pages", "ledger"],

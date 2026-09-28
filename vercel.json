@@ -131,6 +131,11 @@
       "permanent": false
     },
     {
+      "source": "/sites/autonomous-car/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Autonomous_Car",
+      "permanent": false
+    },
+    {
       "source": "/sites/delta-cloud/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Delta_Cloud",
       "permanent": false

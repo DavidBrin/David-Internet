@@ -16,28 +16,28 @@ const site: SiteManifest = {
   deepLinks: [
     {
       path: "#bloch",
-      title: "Bloch sphere — single-qubit geometry",
+      title: "Bloch sphere: single-qubit geometry",
       snippet:
         "An orbitable 3D Bloch sphere: set theta and phi, apply X, Y, Z, H, S, T or parameterized rotations, and watch the state slerp along the rotation axis. Live amplitudes and Pauli expectation values.",
       keywords: ["bloch sphere", "qubit", "pauli", "quantum gates", "three.js"],
     },
     {
       path: "#circuit",
-      title: "Circuit builder — 2-3 qubits",
+      title: "Circuit builder: 2-3 qubits",
       snippet:
         "Drag gates onto wires, then sweep the playhead: the 2^N amplitude bars morph at every column, phase as hue. Presets include the course's Bell-state circuit; measurement runs 1000 shots.",
       keywords: ["quantum circuit", "cnot", "bell state", "toffoli", "amplitudes"],
     },
     {
       path: "#simon",
-      title: "Simon's algorithm — plus Deutsch-Jozsa and Bernstein-Vazirani",
+      title: "Simon's algorithm: plus Deutsch-Jozsa and Bernstein-Vazirani",
       snippet:
         "Pick a hidden string s: the oracle pairs x with x XOR s, the final Hadamard cancels every y with odd y.s, and each measured y feeds a live GF(2) solver until only s remains.",
       keywords: ["simon's algorithm", "deutsch-jozsa", "bernstein-vazirani", "oracle", "gf(2)"],
     },
     {
       path: "#grover",
-      title: "Grover iterator — amplitude amplification",
+      title: "Grover iterator: amplitude amplification",
       snippet:
         "Watch the two moves of each Grover iteration - oracle flip below the axis, reflection about the mean - and see the success probability peak at the optimal iteration count, then over-rotate past it.",
       keywords: ["grover", "amplitude amplification", "quantum search", "diffusion operator"],

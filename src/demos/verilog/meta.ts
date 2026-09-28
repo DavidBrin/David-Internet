@@ -7,13 +7,13 @@ const meta: DemoMeta = {
   slug: "verilog",
   theme: { bg: "#eef4ee", panel: "#e4eee4" }, // solder-mask green — it's a hardware page
   what: "an 8-state Viterbi decoder and the ECE 111 module library, animated and simulated",
-  why: "hardware is described, not instructed — this page shows the difference",
+  why: "hardware is described, not instructed: this page shows the difference",
   when: "UC San Diego, 2025",
   story: [
     {
       title: "Describing hardware",
       body:
-        "ECE 111 was the first course where the code was the circuit. The opening exercise builds the same decoder, adder and mux three ways — gates, dataflow, behavioural — and all three must simulate identically. The module shelf below starts there.",
+        "ECE 111 was the first course where the code was the circuit. The opening exercise builds the same decoder, adder and mux three ways (gates, dataflow, behavioural) and all three must simulate identically. The module shelf below starts there.",
       anchor: "#threestyles",
     },
     {
@@ -37,19 +37,19 @@ const meta: DemoMeta = {
     {
       title: "What the burst sweep showed",
       body:
-        "Single hits and pairs on one bit (2.a.1–2.a.5) decode cleanly; four in a row on either bit every 32 symbols (2.a.6, 2.a.7) and pairs on both bits (2.a.8) do not. The sweep pins the limits: a burst of five consecutive bad symbols on one bit breaks the decoder, and with both bits wrong a burst of two is already too much — with constraint length 3 the trellis simply has too little memory to outvote a longer burst.",
+        "Single hits and pairs on one bit (2.a.1–2.a.5) decode cleanly; four in a row on either bit every 32 symbols (2.a.6, 2.a.7) and pairs on both bits (2.a.8) do not. The sweep pins the limits: a burst of five consecutive bad symbols on one bit breaks the decoder, and with both bits wrong a burst of two is already too much: with constraint length 3 the trellis simply has too little memory to outvote a longer burst.",
       anchor: "#waves",
     },
   ],
   sources: [
-    { name: "encoder.sv", path: `${V}/encoder.sv`, lang: "sv", note: "Convolutional encoder — case table completed 2026-08-30 (the starter left it empty)." },
+    { name: "encoder.sv", path: `${V}/encoder.sv`, lang: "sv", note: "Convolutional encoder; case table completed 2026-08-30 (the starter left it empty)." },
     { name: "bmc0.sv", path: `${V}/bmc0.sv`, lang: "sv", note: "Branch-metric block; INVERT_RX1 selects the flavour used by states 1, 2, 5, 6." },
     { name: "ACS.sv", path: `${V}/ACS.sv`, lang: "sv", note: "Add-compare-select unit, one per state." },
     { name: "decoder.sv", path: `${V}/decoder.sv`, lang: "sv", note: "Top of the decoder: 8 BMC + 8 ACS, survivor registers, best-state pick, output pipe." },
-    { name: "tbu.sv", path: `${V}/tbu.sv`, lang: "sv", note: "Traceback unit from the starter scaffold — completed but not used by the final decoder." },
+    { name: "tbu.sv", path: `${V}/tbu.sv`, lang: "sv", note: "Traceback unit from the starter scaffold, completed but not used by the final decoder." },
     { name: "viterbi_tx_rx_2a1.sv", path: `${V}/viterbi_tx_rx_2a1.sv`, lang: "sv", note: "Encoder → error injector → decoder; PERIOD/BURST/ERR_BIT parameters are the channel presets." },
     { name: "viterbi_tx_rx_tb.sv", path: `${V}/viterbi_tx_rx_tb.sv`, lang: "sv", note: "Course testbench: message generator and yaa!/boo! scoreboard." },
-    { name: "model.ts", path: "src/demos/verilog/viterbi/model.ts", lang: "ts", note: "The TypeScript model driving the trellis — tested bit-exact against the Icarus run." },
+    { name: "model.ts", path: "src/demos/verilog/viterbi/model.ts", lang: "ts", note: "The TypeScript model driving the trellis, tested bit-exact against the Icarus run." },
     { name: "sim script", path: "scripts/demos/verilog.ts", lang: "ts", note: "Build-time runner: presets, VCD → JSON, module benches." },
     { name: "lfsr.sv", path: `${L}/hw5/lfsr.sv`, lang: "sv", note: "Module shelf: parameterised maximal-length LFSR." },
     { name: "uart_tx.sv", path: `${L}/hw8/uart_tx.sv`, lang: "sv", note: "Module shelf: UART transmitter." },

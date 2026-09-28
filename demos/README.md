@@ -69,6 +69,12 @@ Gathered on 2026-08-28 by crawling `Documents/Voytek Research`, `Documents/Noctu
 | `inventor_cad_raw/` | Autodesk Inventor originals (`models/`: Goldberg Assembly, Space Crush box crusher, Gear chain, Peg toy assembly, Glider Box, FORS phone case, ramps/dominoes, plus `.dwg` manufacturing drawings for the glider and peg toy) and `renders/` — 19 already-rendered PNGs (Goldberg, glider, gear chains, Space Crush/Launch, wing simulator). | **Built into /demos/modeling** (2026-09-01): render gallery + feature stories; 'Wing simulator' PNG is NASA FoilSim JS (attributed). No STL/STEP exports exist anywhere on the machine — re-export from Inventor if a 3D web viewer is wanted. The stock VEX parts library and `OldVersions/` were excluded. |
 | `vexcode_vr_raw/` | VEXcode VR robot programs (`.vrblocks` block programs, `.vrpython` Python: maze, perimeter, sensors, 2D lists, random drive) with ~40 screenshots. | **Built into /demos/modeling** (2026-09-01): 6 programs run in a TS vexcode engine; perimeter reconstructed from screenshot; 'C 10- David Lim' excluded (name provenance). |
 
+### Robotics (UCSD)
+
+| Folder | What it is | Why it's included |
+|---|---|---|
+| `autonomous_car_raw/` | ECE/MAE 148 (spring 2025) Team 3 final project, copied from the public team repo `UCSD-Silberman-Classes-and-Projects/148-spring-2025-final-project-team-3` @ `68c50d4` (found 2026-09-23; it was never on this machine): ROS 2 package `final_pkg` (`Code/`: `camera_driver2.py` OAK-D + Roboflow garbage detection, `lane_detection_node.py`, `lane_guidance_node3.py` PID + width stop + servo sweep + five-step maneuver, `servo_sweeper.py` PCA9685, `racer_calibration2.yaml`, launch/setup/package.xml, earlier `camera_driver.py` and `lane_guidance_node2.py`) and `CoolCarPics/` (2 debug-screen photos, 2 short clips). `CAD designs/` is empty upstream. | All software is David's (per David, 2026-09-23); hardware and 3D prints by teammates; `lane_detection_node.py` began as the course TA's ucsd_robocar example. Roboflow API keys in both camera drivers **redacted** here (already rotated upstream). **Built into `/demos/autonomous-car` 2026-09-23** (spec 16): the original nodes run under stubbed ROS modules at build to produce fixtures; frames, detections and vehicle physics are simulated (disclosed). |
+
 ### Early coding
 
 | Folder | What it is | Why it's included |

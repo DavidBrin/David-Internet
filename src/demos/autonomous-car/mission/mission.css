@@ -1,0 +1,894 @@
+/* Autonomous Car, #mission panel (prefix acMi): the garbage run. Shared look from
+   autonomous-car.css: asphalt, safety yellow, dark acScreen monitors. */
+
+.acMi {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.acMiLabel {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ac-muted);
+}
+
+/* ------------------------------------------------------------ controls */
+
+.acMiBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.acMiSeg {
+  display: inline-flex;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid var(--ac-line);
+}
+
+.acMiSeg .acBtn {
+  border: 0;
+  border-radius: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.acMiSeg .acBtn + .acBtn {
+  border-left: 1px solid var(--ac-line);
+}
+
+.acMiMode .acBtn {
+  font-size: 12.5px;
+}
+
+/* ------------------------------------------------------------ top row: scene + camera */
+
+.acMiTop {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.acMiSceneCol {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.acMiScene {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--ac-asphalt);
+  box-shadow: inset 0 0 0 1px #000;
+  min-height: 120px;
+}
+
+.acMiOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #cfd2d6;
+  background: var(--ac-asphalt);
+}
+
+.acMiDone {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(17, 19, 21, 0.9);
+  border: 1px solid var(--ac-accent);
+  color: #f5f5f2;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.acMiDone p {
+  margin: 0;
+  flex: 1;
+}
+
+.acMiDone .acBtn {
+  flex: none;
+}
+
+.acMiHud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  align-items: center;
+  font-size: 12px;
+  color: #3f444b;
+}
+
+.acMiHud b {
+  color: var(--ac-ink);
+  font-weight: 700;
+}
+
+.acMiHudState {
+  padding: 1px 8px;
+  border-radius: 5px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background: var(--ac-asphalt);
+  color: var(--ac-accent);
+}
+
+.acMiHud_blocked {
+  color: #fca5a5;
+}
+
+.acMiHud_avoid {
+  color: #93c5fd;
+}
+
+.acMiLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  font-size: 12px;
+  color: var(--ac-muted);
+}
+
+.acMiLegend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.acMiSwatch {
+  display: inline-block;
+  width: 18px;
+  height: 0;
+  border-top: 3px solid;
+}
+
+.acMiSwDrive {
+  border-color: #9ca3af;
+}
+
+.acMiSwAvoid {
+  border-color: #60a5fa;
+}
+
+.acMiSwPlan {
+  border-top: 2px dashed #60a5fa;
+}
+
+.acMiModeNote {
+  margin-top: 2px;
+}
+
+.acMiSide {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+
+.acMiCam {
+  overflow: hidden;
+}
+
+.acMiCamBar {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: #e6e6e3;
+  background: #1d2023;
+  border-bottom: 1px solid #000;
+}
+
+.acMiCamSub {
+  color: #8b9096;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.acMiCamWrap {
+  line-height: 0;
+}
+
+.acMiCamFoot {
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: #b8bcc1;
+}
+
+.acMiCamFoot b {
+  color: var(--ac-accent);
+}
+
+/* ------------------------------------------------------------ cards */
+
+.acMiCard {
+  border: 1px solid var(--ac-line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: #fff;
+  min-width: 0;
+}
+
+.acMiCardHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 10px;
+  margin-bottom: 6px;
+}
+
+.acMiCardHead .acChip {
+  white-space: normal;
+}
+
+.acMiCaption {
+  margin: 6px 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--ac-muted);
+}
+
+.acMiPlaceholder {
+  min-height: 80px;
+}
+
+/* ------------------------------------------------------------ width gauge */
+
+.acMiGaugeHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.acMiGaugeVal {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--ac-ink);
+}
+
+.acMiGaugeOver {
+  color: var(--ac-red);
+}
+
+.acMiGaugeBar {
+  position: relative;
+  height: 14px;
+  margin-top: 22px;
+  border-radius: 4px;
+  background: repeating-linear-gradient(90deg, #eceae3 0 19px, #e3e0d6 19px 20px);
+  overflow: visible;
+}
+
+.acMiGaugeFill {
+  height: 100%;
+  border-radius: 4px;
+  background: var(--ac-accent);
+  transition: width 0.12s linear;
+}
+
+.acMiGaugeFillOver {
+  background: var(--ac-red);
+}
+
+.acMiGaugeThr {
+  position: absolute;
+  top: -4px;
+  bottom: -4px;
+  width: 0;
+  border-left: 2px solid var(--ac-red);
+}
+
+.acMiGaugeThr span {
+  position: absolute;
+  top: -15px;
+  left: 3px;
+  font-size: 10.5px;
+  color: var(--ac-red);
+  white-space: nowrap;
+}
+
+.acMiGaugeScale {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 3px;
+  font-size: 10.5px;
+  color: #8a8f96;
+}
+
+.acMiGaugeChart {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 6px;
+  background: var(--ac-soft);
+  border-radius: 6px;
+}
+
+.acMiGaugeChartThr {
+  stroke: var(--ac-red);
+  stroke-width: 1;
+  stroke-dasharray: 4 3;
+}
+
+.acMiGaugeLine {
+  fill: none;
+  stroke: var(--ac-accent-dark);
+  stroke-width: 1.8;
+  stroke-linejoin: round;
+}
+
+.acMiGaugeCross {
+  stroke: var(--ac-red);
+  stroke-width: 1;
+  opacity: 0.6;
+}
+
+.acMiGaugeCrossDot {
+  fill: var(--ac-red);
+  stroke: #fff;
+  stroke-width: 1.2;
+}
+
+.acMiGaugeAxis {
+  font-size: 9.5px;
+  fill: #8a8f96;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.acMiGaugeNote {
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--ac-muted);
+}
+
+.acMiGaugeNote b {
+  color: var(--ac-ink);
+}
+
+/* ------------------------------------------------------------ state machine + servo */
+
+.acMiMid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.55fr) minmax(0, 1fr);
+  gap: 14px;
+  align-items: start;
+}
+
+.acMiSmSvg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.acMiSmTall {
+  display: none;
+}
+
+.acMiSmNode rect {
+  fill: var(--ac-soft);
+  stroke: #cfccc2;
+  stroke-width: 1.5;
+  transition: fill 0.2s, stroke 0.2s;
+}
+
+.acMiSmTitle {
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  fill: var(--ac-ink);
+}
+
+.acMiSmSub {
+  fill: var(--ac-muted);
+}
+
+.acMiSmOn > rect {
+  fill: var(--ac-asphalt);
+  stroke: var(--ac-accent);
+  stroke-width: 3;
+}
+
+.acMiSmOn > .acMiSmTitle {
+  fill: var(--ac-accent);
+}
+
+.acMiSmOn > .acMiSmSub {
+  fill: #d4d6d9;
+}
+
+.acMiSmPill rect {
+  transition: none;
+  fill: #fff;
+  stroke: #d9d6cc;
+  stroke-width: 1;
+}
+
+.acMiSmOn .acMiSmPill rect {
+  fill: #33363b;
+  stroke: #4b4f55;
+}
+
+.acMiSmOn .acMiSmPillDone rect {
+  fill: #2c3e57;
+  stroke: #3b5b86;
+}
+
+.acMiSmOn .acMiSmPillOn rect {
+  fill: #fdf3c4;
+  stroke: var(--ac-accent);
+  stroke-width: 2;
+}
+
+.acMiSmOn .acMiSmPillOn rect.acMiSmPillBar {
+  fill: var(--ac-accent-dark);
+  stroke: none;
+}
+
+.acMiSmPillN {
+  font-weight: 800;
+  fill: var(--ac-ink);
+}
+
+.acMiSmPillT {
+  fill: var(--ac-muted);
+}
+
+.acMiSmOn .acMiSmPill .acMiSmPillN {
+  fill: #e6e6e3;
+}
+
+.acMiSmOn .acMiSmPill .acMiSmPillT {
+  fill: #9ca3af;
+}
+
+.acMiSmOn .acMiSmPillOn .acMiSmPillN,
+.acMiSmOn .acMiSmPillOn .acMiSmPillT {
+  fill: var(--ac-ink);
+}
+
+.acMiSmEdge {
+  fill: none;
+  stroke: #b9b5a8;
+  stroke-width: 1.6;
+}
+
+.acMiSmEdgeDashed {
+  stroke-dasharray: 5 4;
+}
+
+.acMiSmEdgeLive {
+  stroke: var(--ac-accent-dark);
+  stroke-width: 2.4;
+}
+
+.acMiSmArrowHead {
+  fill: #b9b5a8;
+}
+
+.acMiSmArrowHeadOn {
+  fill: var(--ac-accent-dark);
+}
+
+.acMiSmEdgeLabel {
+  fill: #5b6068;
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.acMiServo {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 8px;
+}
+
+.acMiServoSvg {
+  display: block;
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.acMiServoTrack {
+  fill: none;
+  stroke: #e6e3da;
+  stroke-width: 10;
+}
+
+.acMiServoRange {
+  fill: none;
+  stroke: #fbe7a1;
+  stroke-width: 10;
+}
+
+.acMiServoTick {
+  stroke: #9ca3af;
+  stroke-width: 1.5;
+}
+
+.acMiServoTickLabel {
+  font-size: 10.5px;
+  fill: var(--ac-muted);
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.acMiServoTickKey {
+  stroke: var(--ac-accent-dark);
+  stroke-width: 2.5;
+}
+
+.acMiServoTickKeyText {
+  fill: var(--ac-accent-dark);
+  font-weight: 700;
+}
+
+.acMiServoArm {
+  stroke: #8e9bb0;
+  stroke-width: 7;
+  stroke-linecap: round;
+  stroke-dasharray: 2 5;
+}
+
+.acMiServoArmOn {
+  stroke: var(--ac-blue);
+  stroke-dasharray: none;
+}
+
+.acMiServoHub {
+  fill: var(--ac-asphalt);
+  stroke: var(--ac-accent);
+  stroke-width: 2;
+}
+
+.acMiServoAngle {
+  font-size: 22px;
+  font-weight: 800;
+  fill: var(--ac-ink);
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+}
+
+.acMiServoRead {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 12.5px;
+}
+
+.acMiServoRow {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--ac-soft);
+}
+
+.acMiServoRow span {
+  color: var(--ac-muted);
+}
+
+.acMiServoMath {
+  margin-top: 4px;
+  font-size: 11.5px;
+  line-height: 1.55;
+  color: var(--ac-muted);
+}
+
+.acMiServoSeq {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.acMiServoSeq li {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--ac-line);
+  font-size: 12px;
+  color: var(--ac-muted);
+}
+
+.acMiServoSeq code {
+  font-family: var(--font-geist-mono, ui-monospace, monospace);
+  color: var(--ac-ink);
+}
+
+.acMiServoSeq li.acMiServoSeqOn {
+  background: var(--ac-asphalt);
+  border-color: var(--ac-asphalt);
+  color: #d4d6d9;
+}
+
+.acMiServoSeq li.acMiServoSeqOn code {
+  color: var(--ac-accent);
+}
+
+/* ------------------------------------------------------------ command timeline */
+
+.acMiTlStrip {
+  display: grid;
+  grid-template-columns: var(--acMiCols);
+  gap: 3px;
+  margin-bottom: 8px;
+}
+
+.acMiTlSeg {
+  position: relative;
+  height: 24px;
+  border-radius: 5px;
+  background: var(--ac-soft);
+  border: 1px solid var(--ac-line);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.acMiTlSeg span {
+  position: relative;
+  display: block;
+  padding: 0 6px;
+  font-size: 11px;
+  line-height: 22px;
+  color: var(--ac-ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 520px) {
+  .acMiTlSegDur {
+    display: none;
+  }
+}
+
+.acMiTlSegBlock {
+  background: #f3f1ec;
+}
+
+.acMiTlGrid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.acMiTlBar {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--ac-line);
+  background: var(--ac-soft);
+  overflow: hidden;
+  min-width: 0;
+}
+
+.acMiTlFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: #fbe9a6;
+  transition: width 0.12s linear;
+}
+
+.acMiTl_done .acMiTlFill {
+  background: #e7ecf3;
+}
+
+.acMiTl_live {
+  border-color: var(--ac-accent);
+  box-shadow: 0 0 0 1px var(--ac-accent);
+}
+
+.acMiTl_paused {
+  border-color: var(--ac-red);
+  border-style: dashed;
+}
+
+.acMiTlBody {
+  position: relative;
+  padding: 7px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.acMiTlHead {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  min-width: 0;
+}
+
+.acMiTlN {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: var(--ac-asphalt);
+  color: var(--ac-accent);
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.acMiTlNBlock {
+  color: #fca5a5;
+  letter-spacing: -0.05em;
+}
+
+.acMiTlLabel {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ac-ink);
+}
+
+.acMiTlTwist,
+.acMiTlDur {
+  font-size: 11px;
+  color: #4b5058;
+  overflow-wrap: anywhere;
+}
+
+.acMiTlTwist b,
+.acMiTlDur b {
+  color: var(--ac-ink);
+}
+
+.acMiTlRead {
+  font-size: 11px;
+  color: var(--ac-muted);
+}
+
+.acMiTl_paused .acMiTlRead {
+  color: var(--ac-red);
+  font-weight: 600;
+}
+
+.acMiTlBlock {
+  background: #f3f1ec;
+}
+
+.acMiTlBlock.acMiTl_live .acMiTlFill {
+  background: #fde2e2;
+}
+
+.acMiTlFoot {
+  margin-top: 6px;
+  font-size: 11px;
+  color: var(--ac-muted);
+}
+
+/* ------------------------------------------------------------ terminal */
+
+.acMiTerm {
+  overflow: hidden;
+}
+
+.acMiTermBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  font-size: 11.5px;
+  color: #8b9096;
+  background: #1d2023;
+  border-bottom: 1px solid #000;
+}
+
+.acMiTermDots {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.acMiTermDots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #3a3d42;
+}
+
+.acMiTermDots i:first-child {
+  background: var(--ac-accent);
+}
+
+.acMiTermBody {
+  height: 220px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  padding: 8px 10px;
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: #cfd2d6;
+  white-space: pre;
+}
+
+.acMiTermWarn {
+  color: #facc15;
+}
+
+/* ------------------------------------------------------------ responsive */
+
+@media (max-width: 860px) {
+  .acMiTop,
+  .acMiMid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .acMiTlGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 520px) {
+  .acMiTlGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .acMiSmWide {
+    display: none;
+  }
+
+  .acMiSmTall {
+    display: block;
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .acMiMode {
+    width: 100%;
+  }
+
+  .acMiMode .acBtn {
+    flex: 1;
+    padding: 6px 8px;
+  }
+
+  .acMiDone {
+    flex-direction: column;
+    align-items: stretch;
+    font-size: 12px;
+  }
+
+  .acMiTermBody {
+    font-size: 10.5px;
+  }
+}
+
+/* detail cards under the strip */
+.acMiTlBar.acMiTl_done {
+  background: #eef2f7;
+}
+
+.acMiTlBar.acMiTl_live {
+  background: #fdf6d8;
+}

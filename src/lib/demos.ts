@@ -23,6 +23,7 @@ import sql from "@/demos/sql/meta";
 import modeling from "@/demos/modeling/meta";
 import earlycode from "@/demos/earlycode/meta";
 import agentMemory from "@/demos/agent-memory/meta";
+import autonomousCar from "@/demos/autonomous-car/meta";
 import deltaCloud from "@/demos/delta-cloud/meta";
 
 /** One file shown in the Source drawer. `path` is relative to the repo root. */
@@ -75,7 +76,7 @@ export interface DemoMeta {
   hideStoryAndDemoLinks?: boolean;
 }
 
-export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode, agentMemory, deltaCloud];
+export const demos: DemoMeta[] = [verilog, nocturnal, signals, quantum, hardhack, esp32, organoids, spikes, vision, arxiv, crossteach, p300, sql, modeling, earlycode, agentMemory, autonomousCar, deltaCloud];
 
 export function getDemo(slug: string): DemoMeta | undefined {
   return demos.find((d) => d.slug === slug);

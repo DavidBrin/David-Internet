@@ -31,6 +31,7 @@ import sql from "@content/sql/site";
 import modeling from "@content/modeling/site";
 import earlycode from "@content/earlycode/site";
 import agentMemory from "@content/agent-memory/site";
+import autonomousCar from "@content/autonomous-car/site";
 import deltaCloud from "@content/delta-cloud/site";
 
 export const manifests: SiteManifest[] = [
@@ -60,6 +61,7 @@ export const manifests: SiteManifest[] = [
   modeling,
   earlycode,
   agentMemory,
+  autonomousCar,
   deltaCloud,
 ];
 

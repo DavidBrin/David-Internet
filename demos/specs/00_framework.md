@@ -1,6 +1,6 @@
 # Demos framework — site-wide spec
 
-Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01), 08 Cross-Teaching, 12 P300, 10 SQL, 14 Modeling, 15 Early Code (2026-09-01) - ALL 15 BUILT.
+Status: **agreed 2026-08-29**; built so far: 04 Nocturnal, 06 Verilog, 13 Signals, 01 Quantum, 05 HardHack, 07 ESP32 (2026-08-31), 02 Organoids, 03 Spikes, 11 Vision, 09 arXiv (2026-09-01), 08 Cross-Teaching, 12 P300, 10 SQL, 14 Modeling, 15 Early Code (2026-09-01) - ALL 15 BUILT. 16 Autonomous Car added and built 2026-09-23 (the Path's first `needsAssets` stone).
 
 ## Decision
 
@@ -58,7 +58,7 @@ what was incomplete) · Stage (panels, interactions, animations) · Story rail (
 beats) · Source drawer · Data/assets to sync · Tech · Manifest fields · Attribution ·
 Out of scope · Open/Resolved questions.
 
-## Spec index (planning complete 2026-08-30)
+## Spec index (planning complete 2026-08-30; 16 added 2026-09-23)
 
 | # | Spec | Slug | Covers raw folders | Open items for David |
 |---|---|---|---|---|
@@ -77,6 +77,7 @@ Out of scope · Open/Resolved questions.
 | 13 | Signals & Systems Lab | `signals` | signals_systems_matlab_raw | **built 2026-08-30** - blur N=464 (causal); TS MT19937 randperm; 5 panels, SciPy-fixture tests |
 | 14 | Early 3D Modeling | `modeling` | inventor_cad_raw, vexcode_vr_raw | **built 2026-09-01** - renders-only gallery (no 3D exports exist; GLB hook); 'Wing simulator' render is NASA FoilSim JS (attributed, shown separately); 'C 10- David Lim.vrblocks' EXCLUDED (name provenance unclear - ask David); perimeter C4.2 reconstructed from screenshot; TS vexcode engine runs 6 ported programs (headless-traced) |
 | 15 | Early Code | `earlycode` | cpp_2021_raw, java_servers_raw, misc_snippets_raw | **built 2026-09-01** - card dataset absent -> reel omitted per resolved q (notebook referenced only); CSE 12 gathered into java_servers_raw/cse12/ (PID/email scrubbed); from-scratch Aho-Corasick = the notebook's exact 106 nodes; cpp final + aho fixture-tested vs python references; OANC corpus replaced by synthetic 30 docs (labeled) |
+| 16 | Autonomous Car | `autonomous-car` | autonomous_car_raw | **built 2026-09-23** - team repo found on GitHub (not on disk); ORIGINAL nodes imported at build under stubbed rclpy/cv_bridge/roboflowoak/PCA9685 -> fixtures (lane /centroid + all stages bit-exact vs cv2 4.11, 448 /cmd_vel msgs + logs, run_model, servo duty); 640 px frame width inferred from the team's detector screenshot; synthetic stadium lot (8 m radius, sized for Kp 0.2); scoop collects item per David; wiki article Autonomous_Car still to write |
 
 Build order suggestion: shared plumbing → 01 → 13 → 06 → 05 → 07 → 02 → 03 → 04 → 11 →
 09 → 08 → 12 → 10 → 14 → 15 (roughly: most self-contained and highest-impact first;

@@ -1,4 +1,4 @@
-# Quantum Playground — demo page
+# Quantum Playground: demo page
 
 Live at [/demos/quantum](/demos/quantum). This page is a demo built inside David's Internet, not a vendored project: the archive it was made from lives in `demos/quantum_information_qutip_raw/` (the DTU 10384 Quantum Information notebooks and exercise solutions), David's Python in `demos/quantum_src/`, and the build script in `scripts/demos/quantum.ts` + `quantum_prep.py`.
 
@@ -6,13 +6,13 @@ Live at [/demos/quantum](/demos/quantum). This page is a demo built inside David
 
 A hand-written TypeScript state-vector simulator (1–5 qubits, `src/demos/quantum/sim/core.ts`) driving four instruments that follow the course arc:
 
-**Bloch sphere.** An orbitable three.js sphere. θ/φ sliders place the state; X, Y, Z, H, S, T and Rx/Ry/Rz apply as visible rotations — each gate is decomposed into its rotation axis and angle (U = e^{iα}·Rn̂(2β)) and the arrow slerps along the drawn great circle, leaving a fading ghost trail. Live amplitude, ⟨σx⟩/⟨σy⟩/⟨σz⟩, and gate-matrix readouts; a "verify identities" control demonstrates σxσy = iσz cyclically (exercise sheet 8).
+**Bloch sphere.** An orbitable three.js sphere. θ/φ sliders place the state; X, Y, Z, H, S, T and Rx/Ry/Rz apply as visible rotations: each gate is decomposed into its rotation axis and angle (U = e^{iα}·Rn̂(2β)) and the arrow slerps along the drawn great circle, leaving a fading ghost trail. Live amplitude, ⟨σx⟩/⟨σy⟩/⟨σz⟩, and gate-matrix readouts; a "verify identities" control demonstrates σxσy = iσz cyclically (exercise sheet 8).
 
 **Circuit builder.** 2–3 wires, a gate palette (H, X, Y, Z, S, T, CNOT, CZ, CRZ, SWAP, Toffoli), and a playhead that sweeps the circuit while 2^N amplitude bars morph (height = magnitude, hue = phase). Presets include the intro notebook's exact Bell circuit (SNOT → CNOT → CRZ(−π)) and a GHZ. Full-circuit unitary readout with pen-and-paper 4×4 matching, 1000-shot measurement histogram, and the notebook's Werner-state fidelity curve live under a p slider.
 
-**Simon's algorithm** (Week 10), staged like the derivation: H⊗n spreads the input register, the oracle f(x) = min(x, x⊕s) draws its two-to-one pairing arcs, the final H⊗n collapses every y with y·s = 1 — then a measurement loop feeds a live GF(2) system until the candidate set shrinks to s. Deutsch–Jozsa and Bernstein–Vazirani (Week 9) run in the same visual as extra modes.
+**Simon's algorithm** (Week 10), staged like the derivation: H⊗n spreads the input register, the oracle f(x) = min(x, x⊕s) draws its two-to-one pairing arcs, the final H⊗n collapses every y with y·s = 1; then a measurement loop feeds a live GF(2) system until the candidate set shrinks to s. Deutsch–Jozsa and Bernstein–Vazirani (Week 9) run in the same visual as extra modes.
 
-**Grover iterator.** Signed amplitude bars with the mean line drawn: the oracle flips marked bars below the axis, diffusion reflects everything about the mean — the two half-steps are separately animated. Success-probability curve with the ⌊π/4·√(N/M)⌋ optimum marked; auto-run stops at 2× optimal so the over-rotation is visible.
+**Grover iterator.** Signed amplitude bars with the mean line drawn: the oracle flips marked bars below the axis, diffusion reflects everything about the mean; the two half-steps are separately animated. Success-probability curve with the ⌊π/4·√(N/M)⌋ optimum marked; auto-run stops at 2× optimal so the over-rotation is visible.
 
 ## What was completed or fixed
 
