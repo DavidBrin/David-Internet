@@ -139,6 +139,11 @@
       "source": "/sites/delta-cloud/docs",
       "destination": "https://davids-wikipedia.vercel.app/wiki/Delta_Cloud",
       "permanent": false
+    },
+    {
+      "source": "/sites/leaders/docs",
+      "destination": "https://davids-wikipedia.vercel.app/wiki/Leaders_%28game%29",
+      "permanent": false
     }
   ]
 }

@@ -41,6 +41,7 @@ export const WIKI_SLUGS: Record<string, string> = {
   "agent-memory": "Agent_Memory",
   "autonomous-car": "Autonomous_Car",
   "delta-cloud": "Delta_Cloud",
+  leaders: "Leaders_(game)",
 };
 
 /** true when the project has an encyclopedia article. */

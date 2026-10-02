@@ -46,6 +46,7 @@ const SOURCES: Record<string, string> = {
 const PERSONAL_PROJECTS_ROOT = path.resolve(REPO_ROOT, "..");
 const EXTRA_SOURCES: Record<string, string> = {
   "art-wall": path.join(PERSONAL_PROJECTS_ROOT, "ArtWall"),
+  leaders: path.join(PERSONAL_PROJECTS_ROOT, "Leaders"),
 };
 
 if (!fs.existsSync(REPLICATES_ROOT)) {

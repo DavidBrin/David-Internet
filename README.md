@@ -22,7 +22,7 @@ pnpm build          # static export → out/ (deployable anywhere, e.g. Vercel H
 
 ## Deployment status & how to route to a newly deployed project
 
-**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels), plus **Art Wall** as its own app. YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
+**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels), plus **Art Wall** and **Leaders** as their own apps. YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
 
 To wire up a deployment:
 
@@ -44,7 +44,7 @@ To wire up a deployment:
 
 Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
-## The ten sites of David's Internet
+## The eleven sites of David's Internet
 
 | Site | Fake domain | Needs DB | Status |
 |---|---|---|---|
@@ -58,6 +58,7 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 | FL Studio replica | flstudio.davids.net | no | [fl-studio-david.vercel.app](https://fl-studio-david.vercel.app) |
 | Island Empire replica | island-empire.davids.net | yes (Neon) | [island-empire-david.vercel.app](https://island-empire-david.vercel.app) |
 | Art Wall | artwall.davids.net | yes (Neon) | [art-wall-pi.vercel.app](https://art-wall-pi.vercel.app) |
+| Leaders | leaders.davids.net | yes (Cloudflare D1) | [leaders.leaders-game.workers.dev](https://leaders.leaders-game.workers.dev) |
 
 ## About page
 

@@ -33,6 +33,7 @@ import earlycode from "@content/earlycode/site";
 import agentMemory from "@content/agent-memory/site";
 import autonomousCar from "@content/autonomous-car/site";
 import deltaCloud from "@content/delta-cloud/site";
+import leaders from "@content/leaders/site";
 
 export const manifests: SiteManifest[] = [
   linear,
@@ -63,6 +64,7 @@ export const manifests: SiteManifest[] = [
   agentMemory,
   autonomousCar,
   deltaCloud,
+  leaders,
 ];
 
 export function getManifest(project: string): SiteManifest | undefined {
