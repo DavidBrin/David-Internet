@@ -14,6 +14,7 @@ import dollarPixels from "@content/dollar-pixels/site";
 import notion from "@content/notion/site";
 import flStudio from "@content/fl-studio/site";
 import islandEmpire from "@content/island-empire/site";
+import risk from "@content/risk/site";
 import artWall from "@content/art-wall/site";
 import verilog from "@content/verilog/site";
 import nocturnal from "@content/nocturnal/site";
@@ -45,6 +46,7 @@ export const manifests: SiteManifest[] = [
   notion,
   flStudio,
   islandEmpire,
+  risk,
   artWall,
   verilog,
   nocturnal,
