@@ -42,7 +42,7 @@ To wire up a deployment:
 4. Give it a wiki article slug in `src/lib/wiki.ts` (and write the article in Replicates/Wikipedia — that's where docs results route). `tests/wiki-redirects.test.ts` fails until the slug and its `vercel.json` redirect exist.
 5. `pnpm dev` and search for it. That's the whole pipeline — the index, tabs, autocomplete, and decision pages all derive from the manifest.
 
-Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** are empty for now — record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
+Media tabs: **Images** come from the vendored screenshots listed in the manifest's `images` (each entry pairs a PNG with the route on the live app it depicts). **Videos** hold one entry so far: the site's own 23-second demo, hosted on the YouTube replica (`src/lib/demo-video.ts`; the poster is `public/media/davids-internet-demo.jpg`, the MP4 itself lives on the replica, rendered with `/brag` into the git-ignored `brag-output/`). To add more, record short clips (10–30s, 720p H.264, 2–10MB), drop them in `public/media/`, and add `videos` entries with a `poster`; host anything large on R2/Supabase and reference by URL. Don't commit files >50MB.
 
 ## The eleven sites of David's Internet
 

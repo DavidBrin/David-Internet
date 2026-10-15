@@ -28,3 +28,6 @@ src/lib/unlisted.ts
 src/lib/unlisted.server.ts
 tests/unlisted.test.ts
 e2e/unlisted.spec.ts
+
+# /brag launch-video runs (rendered locally, never committed)
+brag-output*/

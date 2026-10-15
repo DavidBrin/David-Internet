@@ -8,6 +8,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { WIKIPEDIA_BASE_URL } from "@/lib/wiki";
+import { DEMO_VIDEO_URL } from "@/lib/demo-video";
 import { demos } from "@/lib/demos";
 import "./about.css";
 
@@ -81,7 +82,11 @@ export default function AboutPage() {
 
         <p className="aboutLede">
           David&apos;s Internet indexes his personal projects. Every result is something
-          he built. Search for anything.
+          he built. Search for anything, or{" "}
+          <a href={DEMO_VIDEO_URL} target="_blank" rel="noopener noreferrer">
+            watch the 23-second demo
+          </a>
+          , hosted on the YouTube replica.
         </p>
 
         <section className="aboutSection">
@@ -268,6 +273,12 @@ export default function AboutPage() {
             </li>
             <li>
               <Link href="/path">The Path</Link> — the same story as a river you scroll.
+            </li>
+            <li>
+              <a href={DEMO_VIDEO_URL} target="_blank" rel="noopener noreferrer">
+                The demo video
+              </a>{" "}
+              — 23 seconds of this site, hosted on the YouTube replica.
             </li>
             <li>
               <a href="mailto:david.e.brin@gmail.com">david.e.brin@gmail.com</a> — the

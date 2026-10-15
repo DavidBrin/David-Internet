@@ -1,4 +1,10 @@
 import type { SiteManifest } from "@/lib/types";
+import {
+  DEMO_VIDEO_DURATION,
+  DEMO_VIDEO_POSTER,
+  DEMO_VIDEO_URL,
+  DEMO_VIDEO_WATCH_PATH,
+} from "@/lib/demo-video";
 
 const site: SiteManifest = {
   project: "youtube",
@@ -94,7 +100,15 @@ const site: SiteManifest = {
       targetPath: "/watch",
     },
   ],
-  videos: [],
+  videos: [
+    {
+      src: DEMO_VIDEO_URL,
+      poster: DEMO_VIDEO_POSTER,
+      caption: "David's Internet, in 23 seconds: the site's demo video, hosted on the replica",
+      targetPath: DEMO_VIDEO_WATCH_PATH,
+      duration: DEMO_VIDEO_DURATION,
+    },
+  ],
   keywords: [
     "youtube clone",
     "youtube replica",
