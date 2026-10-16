@@ -1,7 +1,7 @@
 import { test, expect } from "@playwright/test";
 
 test.describe("Videos tab", () => {
-  // Only the YouTube manifest carries a video (the site's own demo), so a query for
+  // Only the YouTube manifest carries videos (the site's own demos), so a query for
   // another project renders the intentional empty state rather than crashing.
   test("renders the empty state instead of crashing", async ({ page }) => {
     const errors: string[] = [];
@@ -25,5 +25,13 @@ test.describe("Videos tab", () => {
       "https://youtube-david.vercel.app/watch?v=vhgG-DQ4d6j",
     );
     await expect(row.locator(".video-duration")).toHaveText("0:23");
+
+    // The demos-page video sits second, on the same replica.
+    const second = page.locator(".video-row").nth(1);
+    await expect(second.locator(".video-title")).toHaveAttribute(
+      "href",
+      "https://youtube-david.vercel.app/watch?v=GHSk3dRfPUD",
+    );
+    await expect(second.locator(".video-duration")).toHaveText("0:24");
   });
 });

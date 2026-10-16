@@ -4,6 +4,10 @@ import {
   DEMO_VIDEO_POSTER,
   DEMO_VIDEO_URL,
   DEMO_VIDEO_WATCH_PATH,
+  DEMOS_VIDEO_DURATION,
+  DEMOS_VIDEO_POSTER,
+  DEMOS_VIDEO_URL,
+  DEMOS_VIDEO_WATCH_PATH,
 } from "@/lib/demo-video";
 
 const site: SiteManifest = {
@@ -107,6 +111,14 @@ const site: SiteManifest = {
       caption: "David's Internet, in 23 seconds: the site's demo video, hosted on the replica",
       targetPath: DEMO_VIDEO_WATCH_PATH,
       duration: DEMO_VIDEO_DURATION,
+    },
+    {
+      src: DEMOS_VIDEO_URL,
+      poster: DEMOS_VIDEO_POSTER,
+      caption:
+        "The demos page, in 24 seconds: Cross-Teaching Segmentation, Autonomous Car, Nocturnal Neuro and Quantum Playground, hosted on the replica",
+      targetPath: DEMOS_VIDEO_WATCH_PATH,
+      duration: DEMOS_VIDEO_DURATION,
     },
   ],
   keywords: [
