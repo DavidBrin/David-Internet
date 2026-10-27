@@ -56,8 +56,18 @@ export function wikiUrlFor(project: string): string {
   return slug ? `${WIKIPEDIA_BASE_URL}/wiki/${slug}` : WIKIPEDIA_BASE_URL;
 }
 
-/** The article's display title, derived from its slug ("Super_Smash_(replica)" → "Super Smash (replica)"). */
+/**
+ * Articles whose title no longer follows from their slug. The slug stays so
+ * every inbound link keeps working; the title follows the product's name.
+ */
+const WIKI_TITLE_OVERRIDES: Record<string, string> = {
+  "super-smash": "David-Smash (replica)",
+};
+
+/** The article's display title, derived from its slug ("Linear_(replica)" → "Linear (replica)") unless overridden. */
 export function wikiTitleFor(project: string): string | null {
+  const override = WIKI_TITLE_OVERRIDES[project];
+  if (override) return override;
   const slug = WIKI_SLUGS[project];
   return slug ? slug.replace(/_/g, " ") : null;
 }

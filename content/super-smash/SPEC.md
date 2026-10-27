@@ -1,4 +1,4 @@
-# Super Smash — Specification
+# David-Smash — Specification
 
 > **eight fighters, one keyboard, sixty frames a second**
 
@@ -144,14 +144,19 @@ animation, which is one of Ultimate's defining changes and is implemented as suc
 The simulation is deterministic by construction (§3), which buys rollback.
 
 - **Transport is a port.** `net/transport.ts` defines `send(bytes)` / `onMessage(cb)`.
-  Three adapters implement it: **WebRTC** (`trystero`, for real play), **BroadcastChannel**
-  (two tabs on one machine, for development and for a second local window), and **loopback**
-  (tests). The rollback session never learns which one it has.
-- **Input packets** carry a window of the last 10 frames of input keyed by absolute frame
-  number, over an *unreliable, unordered* DataChannel (`ordered: false, maxRetransmits: 0`).
-  A dropped packet heals itself 16ms later when the next one arrives carrying the same
-  frame again, which is cheaper than asking for a retransmission that would arrive too late
-  to matter.
+  Four adapters implement it: **doSignal** (`adapters/doSignal.ts`, for real play — a WebRTC
+  DataChannel whose offer, answer and ICE candidates a Cloudflare Durable Object room relays;
+  DECISIONS D54), **WebRTC over Trystero** (`adapters/webrtc.ts`, signalled through public
+  Nostr relays — a code-only alternate that no screen selects), **BroadcastChannel** (two tabs
+  on one machine, for development and for a second local window), and **loopback** (tests).
+  The rollback session never learns which one it has.
+- **Input packets** carry every frame of input the receiver has not yet acknowledged (at most
+  `MAX_INPUT_WINDOW_FRAMES`, 128), keyed by absolute frame number, plus an `ack`: the highest
+  contiguous frame of the receiver's input the sender holds. They travel over an *unreliable,
+  unordered* DataChannel (`ordered: false, maxRetransmits: 0`). A dropped packet heals itself
+  16ms later when the next one arrives carrying the same frame again, and a frame keeps going
+  out until an ack says it landed, however long the outage — which is cheaper than asking for
+  a retransmission that would arrive too late to matter.
 - **Prediction** repeats the opponent's last known input, capped at 8 frames ahead. Beyond
   that the local simulation stalls rather than guessing further.
 - **Input delay** of 2 frames by default, so a good connection rarely rolls back at all.

@@ -1,6 +1,6 @@
 import { test, expect } from "@playwright/test";
 
-const SMASH_LIVE_URL = "https://smash-david.vercel.app";
+const SMASH_LIVE_URL = "https://david-smash.leaders-game.workers.dev";
 
 test.describe("Images tab", () => {
   test("query 'smash' renders real thumbnails linking to the live replica", async ({
@@ -19,7 +19,7 @@ test.describe("Images tab", () => {
     const link = tiles.first().locator("a.image-tile-link");
     await expect(link).toHaveAttribute("href", SMASH_LIVE_URL);
 
-    await page.context().route("https://smash-david.vercel.app/**", (route) =>
+    await page.context().route("https://david-smash.leaders-game.workers.dev/**", (route) =>
       route.fulfill({ contentType: "text/html", body: "<title>smash stub</title>" }),
     );
     const [popup] = await Promise.all([page.waitForEvent("popup"), link.click()]);

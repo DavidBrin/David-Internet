@@ -1,4 +1,4 @@
-# Super Smash — Decision Log
+# David-Smash — Decision Log
 
 Every non-obvious choice, with the reasoning that produced it. Written as the decisions
 were made, not reconstructed afterwards — so the later entries include things that shipped
@@ -203,16 +203,21 @@ case the brief actually asked about.
 
 ## D10 — Packet loss is handled by redundancy, not retransmission
 
-**Decision.** Every input packet carries a window of the **last 10 frames** of input keyed
-by absolute frame number, over a channel configured `maxRetransmits: 0`.
+**Decision.** Every input packet carries **every frame of input the receiver has not yet
+acknowledged** (at most 128), keyed by absolute frame number, plus an `ack` of its own, over a
+channel configured `maxRetransmits: 0`. It began as a fixed window of the last 10 frames;
+[D54](#d54--david-smash-moves-to-cloudflare-and-gets-online-play) records why that was not
+enough.
 
 **Why.** A retransmitted input for frame N is worthless once the game is already predicting
 frame N+5 — it arrives too late to be anything but history. Sending a redundant window
 instead means a dropped packet heals itself 16ms later when the next one arrives carrying
-the same frames again. Prediction is only needed if ten consecutive packets are lost.
+the same frames again, and the ack means a frame keeps going out until it is known to have
+landed. Prediction is only needed while an outage lasts.
 
-**Consequence.** Packets are larger than the minimum, and irrelevant: ten frames of a
-bitfield is tens of bytes, against a 1200-byte fragmentation ceiling.
+**Consequence.** Packets are larger than the minimum, and irrelevant: a handful of frames of a
+bitfield is tens of bytes, and even the 128-frame ceiling is 272, against a 1200-byte
+fragmentation ceiling.
 
 ---
 
@@ -1444,3 +1449,137 @@ have loaded, and a Tailwind class there would be a name with nothing behind it.
 All three ship as the game's own **NO CONTEST** — what Ultimate calls a match that ends without a
 winner. A 404 and a crash are both the game stopping short, and the player already has a word for
 that.
+
+---
+
+## D54 — David-Smash moves to Cloudflare, and gets online play
+
+**Decision.** The product is called David-Smash wherever a player reads it; the directory and
+both external slugs keep `super-smash`. It is a Next static export served by one free
+Cloudflare Worker, `david-smash`, whose only dynamic parts are `GET /api/ice` (Cloudflare TURN
+credentials, STUN-only without a key) and `/ws/room/:code` (one SQLite-backed Durable Object per
+room, WebSocket Hibernation, two peers, no timers). A new transport, `adapters/doSignal.ts`,
+implements the existing `Transport` port over one negotiated, unordered, zero-retransmit
+DataChannel on stream 42; Trystero stays as an alternate. The Vercel copy is taken down.
+
+**Why.** Vercel Hobby cannot host the signalling (Functions WebSockets close at 300 s and are
+pinned to one instance), and Trystero's public Nostr relays come with no SLA and no TURN. One
+free Cloudflare account carries the static site, the rooms and TURN (spec §4, research §5). This
+replaces D9's signalling and its "no TURN" consequence; rollback over WebRTC and the LAN finding
+stand.
+
+**What the room is not.** It never runs the game: a 60 Hz loop in a Durable Object would keep it
+awake, and is the server-authoritative design this netcode exists to avoid. It relays an offer,
+an answer and some ICE candidates, then idles until somebody leaves.
+
+**Two details that are easy to get wrong.**
+- *The data channel decides whether the peer is there, not the room socket.* Every Worker deploy
+  restarts every Durable Object and drops its sockets; a match in progress must not end because
+  of a deploy. `peer-left` from the room only matters before the channel opens.
+- *A backgrounded tab is not a dead peer.* Browsers stop `requestAnimationFrame` in background
+  tabs, so its packets stop. The tab says `away` through the room first, and the other side
+  waits 60 s instead of 10.
+
+**Settled while building it.**
+- *A match ends when the fully confirmed state has an outcome.* `RollbackSession.confirmedState()`
+  is the state every input of which is known, and the outcome reported is its outcome. The first
+  design asked whether the frame just run was confirmed, which never passes on the peer running
+  ahead — a frame or more past confirmation on every tick — so its match never ended, and the
+  other machine leaving read as a lost connection.
+- *The room outlives the result by 1.5 s* (`ONLINE_RESULT_LINGER_MS`), and the runner keeps
+  resending unacknowledged inputs meanwhile, so the peer that is behind can still confirm the
+  frames that end its match.
+- *Input windows are acknowledged.* Every input packet carries an `ack`, the highest contiguous
+  frame the sender holds of the receiver's input, and a sender sends every frame not yet
+  acknowledged, up to `MAX_INPUT_WINDOW_FRAMES`. The fixed ten-frame window of D10 lost frames
+  for good when a Wi-Fi outage outlasted it, and both peers stalled at the prediction cap while
+  heartbeats kept flowing. `PROTOCOL_VERSION` is 2, so both players must reload after a deploy. A
+  10 s backstop declares a match lost when confirmed frames stop advancing.
+- *A room-socket drop is silent while the channel is open.* Afterwards, a lobby send or the
+  channel closing yields `room-lost`. A drop before the welcome is `unreachable`: no room ever
+  answered. After the welcome and before the channel opens, a drop is `room-lost` at once, or
+  after a 15 s grace if a negotiation is under way.
+- *A start needs the other player in the room, not just on the channel.* The guest's room socket
+  can drop alone (an idle proxy or NAT timeout) while the channel stays open; the room then drops
+  the host's start, and the host would play alone until the link monitor gave up. So the session
+  tracks whether the room says the peer is there (`welcome.peer`, `peer-joined`, `peer-left`),
+  and a start sent while it is not reports `room-lost` instead: the host stays on character
+  select with the error, and both need a new room. Picks and the stage are not held back — a
+  newcomer gets them repeated.
+- *The guest sees the host's rules.* The stage message carries them, read leniently since they
+  are only shown (the start carries the rules played), and the results state the rules the match
+  was played under rather than the machine's own.
+- *The lobby tells a notice from an error.* A peer leaving is a non-sticky notice, so re-pairing
+  works; real errors stay until the player leaves. "The other player left the room." means the room
+  said they left, or the channel was lost after a start was sent and before the match began; a
+  lost channel with both players still seated and no start out shows as connecting again, with
+  both panels kept. A real error (and a failed link) also leaves the
+  room at once, closing the room socket and the transport, so the code is not left joinable while
+  a screen shows a dead error.
+- *A lobby channel lost with both players seated gets a fresh connection.* The channel can close
+  while both room sockets stay open (an SCTP close, a network switch); nobody joins or leaves, so
+  nothing offered again and both screens waited for good. Now the host offers the guest the room
+  still seats a fresh peer connection after 1, 2 and 4 s (`REOFFER_DELAYS_MS`), and a guest
+  answers a new offer from its own host even while it holds a connection, replacing it. A channel
+  that opens resets the count. When the tries run out the host gets `room-lost`, and a guest that
+  hears no offer within 10 s (`GUEST_REOFFER_WAIT_MS`) does too, so both have the leave-and-rejoin
+  path rather than a silent wait. Once a start has gone out or arrived the channel is held: no
+  fresh offer is made or accepted mid-match, where the link monitor decides as before. A new peer
+  connection whose channel has not opened within 15 s (`NEGOTIATION_TIMEOUT_MS`) counts as a
+  channel lost before it opened, so ICE that hangs rather than fails takes the same retries.
+  Either side can be the only one to see the close. A guest whose side closed alone asks its host
+  through the room (a `renegotiate` signal), and the host lets its own side go and retries as if
+  it had closed. A guest whose channel the host replaced passes through linking, so it repeats
+  its pick. A start withdrawn because its seat emptied releases the channel for the next guest.
+- *A desync ends the match.* A confirmed-state hash mismatch used only to warn in the console, so
+  two machines could play on to different outcomes. Now it ends the match the way a lost
+  connection does, as a result of its own: "Out of Sync", no placings, "The two games went out of
+  sync, so this match can't count." The machine that finds it stops, then lingers like a match
+  that ended (`ONLINE_RESULT_LINGER_MS`), re-sending its inputs and the hash that showed the
+  mismatch: that one unreliable packet is the other machine's only way to find the same desync,
+  rather than ending on a lost connection. A frame's two hashes are compared once, so a re-sent
+  hash never reports it twice. A desync during a finished match's play-out changes nothing. The
+  warning stays for diagnosis. Mismatched builds are the likeliest cause; Plan 2 Task 27 adds a build fingerprint so
+  they refuse each other at the lobby instead.
+
+**Gamepads** are wired into every match. `InputFrame` stays a bitfield (SPEC §3) with one new
+bit, `Btn.Soft`, for a partial stick tilt: walk instead of dash, tilt instead of smash, a quarter
+of the DI. The quarter is `UNVERIFIED:` — the bit carries one level of magnitude where the real
+game reads the analog value. In a local match, pads map to the human ports by connection order
+and are frozen for the duration of a match; a spare connected pad takes a freed port. Ports follow
+the browser's pad slot order; a pad reconnected into a freed lower slot can take an earlier port.
+Online, each player is alone on their machine, so every connected pad drives their one port.
+
+**Known limits.** No online rematch: "Play online again" on the results leaves the room for the
+lobby, where the two players make a new one. A future in-room rematch must add a match id to the
+packet header, because the ack latch trusts any packet on the transport. Online KO/fall/SD credit
+is counted from each frame's events as first shown, so a rollback that changes a hit after it was
+drawn can misattribute one; the placings come from the confirmed final state and are always right.
+After a room drop mid-match `away` cannot reach the peer, so a backgrounded tab is declared lost
+after 10 s instead of 60. The start guard above covers an asymmetric drop only in the lobby: a
+guest whose room socket drops mid-match plays on, since the match needs nothing from the room.
+Without a TURN key the Worker serves STUN only, which is the interim state if creating the key
+turns out to need a card.
+
+*TURN credentials are a residual risk.* `/api/ice` is not authenticated, and cannot be without
+accounts. It mints one-hour credentials (`TURN_TTL_SECONDS`), so a minted credential relays for an
+hour at most; it answers pages on other sites with a 403 and never sends a CORS header, but a
+script sends whatever headers it likes, so that check is hygiene only. What bounds the cost is the
+account's billing setup: with a payment method, a usage alert set before the TURN secrets go in;
+without one, the worst case is TURN going dark for the month while STUN keeps working.
+
+*The rate limit is optional.* A Workers `ratelimits` binding (`RATE_LIMITER`, 60 requests a minute
+per address, shared by `/api/ice` and the room-socket upgrade) answers 429 past it. It holds a
+script to a human's pace; two players behind one NAT, and the e2e suites with every browser on
+one address, stay far under it. The Worker serves everyone without the binding, so it comes out
+of `wrangler.jsonc` if the free plan refuses it, and fails open: a limiter that throws lets the
+request through, logging only the error's name. It runs in the Worker's fetch handler, before a
+room's Durable Object is reached.
+
+*Room requests are a residual risk too.* The room's per-socket message cap counts per connection,
+so it starts again on every reconnect. A hostile client can still spend the plan's daily request
+quota (Free plan: denial for the rest of the day, no charge); bounded by the per-IP upgrade limit
+when the binding is enabled.
+
+**Names.** The spec's `DurableObjectSignalling` is `adapters/doSignal.ts`, and the results
+heading for a lost match is "Connection Lost" (for a desync, "Out of Sync").

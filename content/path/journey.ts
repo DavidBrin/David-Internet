@@ -286,7 +286,7 @@ const journey: Journey = {
       demos: [
         { slug: "linear", label: "Linear", status: "docs" },
         { slug: "youtube", label: "YouTube", status: "docs" },
-        { slug: "super-smash", label: "Super Smash", status: "docs" },
+        { slug: "super-smash", label: "David-Smash", status: "docs" },
         { slug: "fake-phone", label: "Fake Phone", status: "docs" },
         { slug: "bet", label: "Bet", status: "docs" },
         { slug: "dollar-pixels", label: "Dollar Pixels", status: "docs" },

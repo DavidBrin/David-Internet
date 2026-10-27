@@ -22,7 +22,7 @@ pnpm build          # static export → out/ (deployable anywhere, e.g. Vercel H
 
 ## Deployment status & how to route to a newly deployed project
 
-**Seven replicas are live** (Linear, Notion, Super Smash, fake-phone, Bet, FL Studio, Dollar Pixels), plus **Art Wall** and **Leaders** as their own apps. YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
+**Seven replicas are live** (Linear, Notion, David-Smash, fake-phone, Bet, FL Studio, Dollar Pixels), plus **Art Wall** and **Leaders** as their own apps. YouTube still needs object storage. Demo pages live at `/demos/<slug>` on this site.
 
 To wire up a deployment:
 
@@ -50,7 +50,7 @@ Media tabs: **Images** come from the vendored screenshots listed in the manifest
 |---|---|---|---|
 | Linear replica | linear.davids.net | yes (Neon) | [linear-david.vercel.app](https://linear-david.vercel.app) |
 | YouTube replica | youtube.davids.net | yes (Neon + R2) | not deployed → wiki fallback |
-| Super Smash | smash.davids.net | no | [smash-david.vercel.app](https://smash-david.vercel.app) |
+| David-Smash | smash.davids.net | no | [david-smash.leaders-game.workers.dev](https://david-smash.leaders-game.workers.dev) |
 | fake-phone | fake-phone.davids.net | no | [fake-phone-david.vercel.app](https://fake-phone-david.vercel.app) |
 | Bet | bet.davids.net | no | [bet-david.vercel.app](https://bet-david.vercel.app) |
 | Dollar Pixels | pixels.davids.net | yes (Neon) | [dollar-pixels-david.vercel.app](https://dollar-pixels-david.vercel.app) |
